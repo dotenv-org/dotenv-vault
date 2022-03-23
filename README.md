@@ -20,7 +20,7 @@ $ npm install -g dotenv-vault
 $ dotenv-vault COMMAND
 running command...
 $ dotenv-vault (--version)
-dotenv-vault/0.0.0 darwin-x64 node-v14.17.3
+dotenv-vault/0.1.0 darwin-x64 node-v14.17.3
 $ dotenv-vault --help [COMMAND]
 USAGE
   $ dotenv-vault COMMAND
@@ -64,7 +64,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.0.0/dist/commands/hello/index.ts)_
+_See code: [dist/commands/hello/index.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.0/dist/commands/hello/index.ts)_
 
 ## `dotenv-vault hello world`
 
