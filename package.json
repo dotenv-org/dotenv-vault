@@ -2,7 +2,7 @@
   "name": "dotenv-vault",
   "version": "0.0.0",
   "description": "CLI to interact with Dotenv Vault",
-  "author": "Scott Motte @motdotla",
+  "author": "Mot @motdotla",
   "bin": {
     "dotenv-vault": "./bin/run"
   },
