@@ -146,13 +146,13 @@ class PushService {
   _logMissingEnvProject(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have a .env.project identifier first. Try running npx doten-vault new')
+    this.cmd.log('You must have a .env.project identifier first. Try running npx dotenv-vault new')
   }
 
   _logEmptyEnvProject(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have DOTENV_PROJECT set to some value in your .env.project file. Try deleting your .env.project file and running npx doten-vault new')
+    this.cmd.log('You must have DOTENV_PROJECT set to some value in your .env.project file. Try deleting your .env.project file and running npx dotenv-vault new')
   }
 
   _logEmptyEnv(): void {
@@ -256,7 +256,7 @@ class PushService {
 
     await axios(options)
     .then(_response => {
-      this.cmd.log('Changes pushed.')
+      this.cmd.log('Done.')
       this.cmd.log('')
     })
     .catch((error) => {

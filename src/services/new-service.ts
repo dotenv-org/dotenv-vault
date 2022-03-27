@@ -18,6 +18,10 @@ class NewService {
     return vars.apiUrl + '/new'
   }
 
+  get existingEnv(): boolean {
+    return existsSync('.env')
+  }
+
   get existingEnvProject(): boolean {
     return existsSync('.env.project')
   }
@@ -26,6 +30,13 @@ class NewService {
     new AppendToGitignoreService().run()
 
     this.cmd.log('local:')
+
+    if (this.existingEnv) {
+      this._logExistingEnv()
+    } else {
+      this._logCreatingEnv()
+      this._writeEnv()
+    }
 
     if (this.existingEnvProject) {
       this._logExistingEnvProject()
@@ -48,6 +59,14 @@ class NewService {
     }
   }
 
+  _logExistingEnv(): void {
+    this.cmd.log('local: Existing .env')
+  }
+
+  _logCreatingEnv(): void {
+    this.cmd.log('local: Creating .env')
+  }
+
   _logExistingEnvProject(): void {
     this.cmd.log('local: Existing .env.project')
     this.cmd.log('local:')
@@ -56,6 +75,10 @@ class NewService {
   _logCreatingEnvProject(): void {
     this.cmd.log('local: Creating .env.project')
     this.cmd.log('local:')
+  }
+
+  _writeEnv(): void {
+    writeFileSync('.env', 'HELLO=world')
   }
 
   _writeEnvProject(): void {
@@ -75,9 +98,13 @@ class NewService {
   }
 
   _logCompleted(): void {
-    this.cmd.log('Completed.')
+    this.cmd.log('Done.')
     this.cmd.log('')
-    this.cmd.log('What\'s next? You should commit your .env.project to git and then run `npx dotenv-vault push`')
+    this.cmd.log('Next, commit your .env.project to git and run npx dotenv-vault push')
+    this.cmd.log('')
+    this.cmd.log('    $ git add .env.project .gitignore')
+    this.cmd.log("    $ git commit -am 'Add .env.project'")
+    this.cmd.log('    $ npx dotenv-vault push')
   }
 }
 
