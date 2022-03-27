@@ -102,23 +102,23 @@ class PushService {
     this._logCheckingForEnv()
     if (!this.existingEnv) {
       this._logMissingEnv()
-      this.cmd.exit(1)
+      return
     }
 
     if (this.emptyEnv) {
       this._logEmptyEnv()
-      this.cmd.exit(1)
+      return
     }
 
     this._logCheckingForEnvProject()
     if (!this.existingEnvProject) {
       this._logMissingEnvProject()
-      this.cmd.exit(1)
+      return
     }
 
     if (this.emptyEnvProject) {
       this._logEmptyEnvProject()
-      this.cmd.exit(1)
+      return
     }
 
     this._logCheckingForEnvMe()
@@ -126,7 +126,7 @@ class PushService {
       // edge case
       if (this.emptyEnvMe) {
         this._logEmptyEnvMe()
-        this.cmd.exit(1)
+        return
       } else {
         // push
         await this._push()
@@ -205,6 +205,7 @@ class PushService {
       this._promptForShortCode()
     } catch (error) {
       this._logError(error)
+      return
     }
   }
 
@@ -230,6 +231,7 @@ class PushService {
       this._push()
     } catch (error) {
       this._logError(error)
+      return
     }
   }
 
@@ -254,6 +256,7 @@ class PushService {
       this._logCompleted()
     } catch (error) {
       this._logError(error)
+      return
     }
   }
 
@@ -281,8 +284,6 @@ class PushService {
     } else {
       this.cmd.log(error)
     }
-
-    this.cmd.exit(1)
   }
 
   _logProTip(): void {

@@ -105,12 +105,12 @@ class PullService {
     this._logCheckingForEnvProject()
     if (!this.existingEnvProject) {
       this._logMissingEnvProject()
-      this.cmd.exit(1)
+      return
     }
 
     if (this.emptyEnvProject) {
       this._logEmptyEnvProject()
-      this.cmd.exit(1)
+      return
     }
 
     this._logCheckingForEnvMe()
@@ -118,7 +118,7 @@ class PullService {
       // edge case
       if (this.emptyEnvMe) {
         this._logEmptyEnvMe()
-        this.cmd.exit(1)
+        return
       } else {
         // pull
         await this._pull()
@@ -187,6 +187,7 @@ class PullService {
       this._promptForShortCode()
     } catch (error) {
       this._logError(error)
+      return
     }
   }
 
@@ -212,6 +213,7 @@ class PullService {
       this._pull()
     } catch (error) {
       this._logError(error)
+      return
     }
   }
 
@@ -238,6 +240,7 @@ class PullService {
       this._logCompleted()
     } catch (error) {
       this._logError(error)
+      return
     }
   }
 
@@ -267,8 +270,6 @@ class PullService {
     } else {
       this.cmd.log(error)
     }
-
-    this.cmd.exit(1)
   }
 
   _logProTip(): void {
