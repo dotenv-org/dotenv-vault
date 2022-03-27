@@ -1,8 +1,19 @@
 import {vars} from '../vars'
 import {existsSync, writeFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
+import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
+
+interface NewServiceAttrs {
+  cmd;
+}
 
 class NewService {
+  public cmd;
+
+  constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
+    this.cmd = attrs.cmd
+  }
+
   get url(): string {
     return vars.apiUrl + '/new'
   }
@@ -12,7 +23,9 @@ class NewService {
   }
 
   async run(): Promise<void> {
-    console.log('local:')
+    new AppendToGitignoreService().run()
+
+    this.cmd.log('local:')
 
     if (this.existingEnvProject) {
       this._logExistingEnvProject()
@@ -36,33 +49,35 @@ class NewService {
   }
 
   _logExistingEnvProject(): void {
-    console.log('local: Existing .env.project')
-    console.log('local:')
+    this.cmd.log('local: Existing .env.project')
+    this.cmd.log('local:')
   }
 
   _logCreatingEnvProject(): void {
-    console.log('local: Creating .env.project')
-    console.log('local:')
+    this.cmd.log('local: Creating .env.project')
+    this.cmd.log('local:')
   }
 
   _writeEnvProject(): void {
-    writeFileSync('.env.project', `DOTENV_PROJECT=missing # Generate your Dotenv Vault project identifier at ${this.url}`)
+    writeFileSync('.env.project', `DOTENV_PROJECT= # Generate your Dotenv Vault project identifier at ${this.url}`)
   }
 
   _logAborted(): void {
-    console.log('Aborted.')
+    this.cmd.log('Aborted.')
+    this.cmd.log('')
+    this.cmd.log(`You must visit ${this.url} to create your .env.project identifier. Try again.`)
   }
 
   _logProTip(): void {
-    console.log('local:')
-    console.log('local: 💡ProTip! The .env.project file securely identifies your project at Dotenv Vault')
-    console.log('local:')
+    this.cmd.log('local:')
+    this.cmd.log('local: 💡ProTip! The .env.project file securely identifies your project at Dotenv Vault')
+    this.cmd.log('local:')
   }
 
   _logCompleted(): void {
-    console.log('Completed.')
-    console.log('')
-    console.log('What\'s next? You should commit your .env.project to source control and then run `npx dotenv-vault push`')
+    this.cmd.log('Completed.')
+    this.cmd.log('')
+    this.cmd.log('What\'s next? You should commit your .env.project to git and then run `npx dotenv-vault push`')
   }
 }
 
