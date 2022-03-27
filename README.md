@@ -20,7 +20,7 @@ $ npm install -g dotenv-vault
 $ dotenv-vault COMMAND
 running command...
 $ dotenv-vault (--version)
-dotenv-vault/0.1.6 darwin-arm64 node-v17.8.0
+dotenv-vault/0.1.7 darwin-arm64 node-v17.8.0
 $ dotenv-vault --help [COMMAND]
 USAGE
   $ dotenv-vault COMMAND
@@ -29,9 +29,30 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`dotenv-vault help [COMMAND]`](#dotenv-vault-help-command)
 * [`dotenv-vault new`](#dotenv-vault-new)
 * [`dotenv-vault pull [ENVIRONMENT] [FILENAME]`](#dotenv-vault-pull-environment-filename)
 * [`dotenv-vault push [FILENAME]`](#dotenv-vault-push-filename)
+
+## `dotenv-vault help [COMMAND]`
+
+Display help for dotenv-vault.
+
+```
+USAGE
+  $ dotenv-vault help [COMMAND] [-n]
+
+ARGUMENTS
+  COMMAND  Command to show help for.
+
+FLAGS
+  -n, --nested-commands  Include all nested commands in the output.
+
+DESCRIPTION
+  Display help for dotenv-vault.
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
 ## `dotenv-vault new`
 
@@ -48,7 +69,7 @@ EXAMPLES
   $ dotenv-vault new
 ```
 
-_See code: [dist/commands/new.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.6/dist/commands/new.ts)_
+_See code: [dist/commands/new.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.7/dist/commands/new.ts)_
 
 ## `dotenv-vault pull [ENVIRONMENT] [FILENAME]`
 
@@ -73,7 +94,7 @@ EXAMPLES
   $ dotenv-vault pull
 ```
 
-_See code: [dist/commands/pull.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.6/dist/commands/pull.ts)_
+_See code: [dist/commands/pull.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.7/dist/commands/pull.ts)_
 
 ## `dotenv-vault push [FILENAME]`
 
@@ -96,5 +117,5 @@ EXAMPLES
   $ dotenv-vault push
 ```
 
-_See code: [dist/commands/push.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.6/dist/commands/push.ts)_
+_See code: [dist/commands/push.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.7/dist/commands/push.ts)_
 <!-- commandsstop -->
