@@ -220,7 +220,7 @@ class PullService {
 
   async _pull(): Promise<void> {
     this.cmd.log('remote:')
-    this.cmd.log(`remote: Securely pulling ${this.smartFilename}`)
+    this.cmd.log(`remote: Securely pulling ${this.environment} to ${this.smartFilename}`)
     this.cmd.log('remote:')
 
     const options = {
