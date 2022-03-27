@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv'
-import * as crypto from 'crypto'
-const axios = require('axios')
+import * as crypto from 'node:crypto'
+import axios from 'axios'
 import {vars} from '../vars'
 import {existsSync, writeFileSync, readFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
@@ -122,10 +122,7 @@ class PushService {
     }
 
     this._logCheckingForEnvMe()
-    if (!this.existingEnvMe) {
-      // first time auth process
-      await this._authEnvMe()
-    } else {
+    if (this.existingEnvMe) {
       // edge case
       if (this.emptyEnvMe) {
         this._logEmptyEnvMe()
@@ -134,6 +131,9 @@ class PushService {
         // push
         await this._push()
       }
+    } else {
+      // first time auth process
+      await this._authEnvMe()
     }
   }
 
@@ -171,14 +171,14 @@ class PushService {
   }
 
   _logCheckingForEnvMe(): void {
-    this.cmd.log(`local: Checking for .env.me`)
+    this.cmd.log('local: Checking for .env.me')
   }
 
   async _createEnvMe(): Promise<void> {
     writeFileSync('.env.me', `DOTENV_ME=${this.generatedMeUid} # do NOT commit to git`)
   }
 
-  async _authEnvMe() {
+  async _authEnvMe(): Promise<void> {
     this.cmd.log('local: Generating .env.me credential')
     this._logProTip()
 
@@ -204,12 +204,12 @@ class PushService {
       this._createEnvMe()
       this._promptForShortCode()
     })
-    .catch((error) => {
+    .catch(error => {
       this._logError(error)
     })
   }
 
-  async _promptForShortCode() {
+  async _promptForShortCode(): Promise<void> {
     const shortCode = await CliUx.ux.prompt('What is the code?')
 
     this.cmd.log('remote: Verifying')
@@ -220,7 +220,7 @@ class PushService {
       data: {
         shortCode: shortCode,
         projectUid: this.projectUid,
-        meUid: this.meUid
+        meUid: this.meUid,
       },
       url: this.verifyUrl,
     }
@@ -231,7 +231,7 @@ class PushService {
 
       this._push()
     })
-    .catch((error) => {
+    .catch(error => {
       this._logError(error)
     })
   }
@@ -240,7 +240,6 @@ class PushService {
     this.cmd.log('remote:')
     this.cmd.log(`remote: Securely pushing ${this.smartFilename}`)
     this.cmd.log('remote:')
-
 
     const options = {
       method: 'POST',
@@ -256,9 +255,8 @@ class PushService {
     await axios(options)
     .then(_response => {
       this._logCompleted()
-
     })
-    .catch((error) => {
+    .catch(error => {
       this._logError(error)
     })
   }
@@ -275,7 +273,7 @@ class PushService {
     this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx doten-vault push')
   }
 
-  _logError(error): void {
+  _logError(error: Record<string, unknown>): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
 
@@ -288,6 +286,7 @@ class PushService {
     } else {
       this.cmd.log(error)
     }
+
     this.cmd.exit(1)
   }
 
