@@ -6,20 +6,23 @@ import {existsSync, writeFileSync, readFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 
-interface PushServiceAttrs {
+interface PullServiceAttrs {
   cmd;
+  environment;
   filename;
   dotenvMe;
 }
 
-class PushService {
+class PullService {
   public cmd;
+  public environment;
   public filename;
   public dotenvMe;
   public generatedMeUid;
 
-  constructor(attrs: PushServiceAttrs = {} as PushServiceAttrs) {
+  constructor(attrs: PullServiceAttrs = {} as PullServiceAttrs) {
     this.cmd = attrs.cmd
+    this.environment = attrs.environment
     this.filename = attrs.filename
     this.dotenvMe = attrs.dotenvMe
 
@@ -28,7 +31,7 @@ class PushService {
   }
 
   get url(): string {
-    return vars.apiUrl + '/push'
+    return vars.apiUrl + '/pull'
   }
 
   get authUrl(): string {
@@ -51,10 +54,6 @@ class PushService {
     return readFileSync(this.smartFilename, 'utf8')
   }
 
-  get emptyEnv(): boolean {
-    return !(this.envContent && this.envContent.toString().length > 1)
-  }
-
   get emptyEnvMe(): boolean {
     return !(this.meUid && this.meUid.toString().length > 1)
   }
@@ -72,12 +71,16 @@ class PushService {
   }
 
   get smartFilename(): string {
-    // if user has set a filename for input then use that
+    // if user has set a filename for output then use that
     if (this.filename) {
       return this.filename
     }
 
-    return '.env'
+    if (this.environment === 'development') {
+      return '.env'
+    }
+
+    return `.env.${this.environment}`
   }
 
   get envProjectConfig(): any {
@@ -98,17 +101,6 @@ class PushService {
 
   async run(): Promise<void> {
     new AppendToGitignoreService().run()
-
-    this._logCheckingForEnv()
-    if (!this.existingEnv) {
-      this._logMissingEnv()
-      this.cmd.exit(1)
-    }
-
-    if (this.emptyEnv) {
-      this._logEmptyEnv()
-      this.cmd.exit(1)
-    }
 
     this._logCheckingForEnvProject()
     if (!this.existingEnvProject) {
@@ -131,43 +123,33 @@ class PushService {
         this._logEmptyEnvMe()
         this.cmd.exit(1)
       } else {
-        // push
-        await this._push()
+        // pull
+        await this._pull()
       }
     }
   }
 
   _logCheckingForEnvProject(): void {
+    this.cmd.log('local:')
     this.cmd.log('local: Checking for .env.project')
   }
 
   _logMissingEnvProject(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have a .env.project identifier first. Try running npx dotenv-vault new')
+    this.cmd.log('You must have a .env.project identifier first. Try running npx doten-vault new')
   }
 
   _logEmptyEnvProject(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have DOTENV_PROJECT set to some value in your .env.project file. Try deleting your .env.project file and running npx dotenv-vault new')
+    this.cmd.log('You must have DOTENV_PROJECT set to some value in your .env.project file. Try deleting your .env.project file and running npx doten-vault new')
   }
 
   _logEmptyEnv(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
     this.cmd.log(`Your ${this.smartFilename} file is empty. Please populate it with value(s)`)
-  }
-
-  _logCheckingForEnv(): void {
-    this.cmd.log('local:')
-    this.cmd.log(`local: Checking for ${this.smartFilename}`)
-  }
-
-  _logMissingEnv(): void {
-    this.cmd.log('Aborted.')
-    this.cmd.log('')
-    this.cmd.log(`You must have a ${this.smartFilename} file. Maybe you meant to run npx doten-vault pull`)
   }
 
   _logCheckingForEnvMe(): void {
@@ -229,34 +211,38 @@ class PushService {
     .then(_response => {
       this.cmd.log('remote: Verified successfully')
 
-      this._push()
+      this._pull()
     })
     .catch((error) => {
       this._logError(error)
     })
   }
 
-  async _push(): Promise<void> {
+  async _pull(): Promise<void> {
     this.cmd.log('remote:')
-    this.cmd.log(`remote: Securely pushing ${this.smartFilename}`)
+    this.cmd.log(`remote: Securely pulling ${this.smartFilename}`)
     this.cmd.log('remote:')
-
 
     const options = {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       data: {
+        environment: this.environment,
         projectUid: this.projectUid,
         meUid: this.meUid,
-        dotenv: this.envContent,
       },
       url: this.url,
     }
 
     await axios(options)
-    .then(_response => {
-      this._logCompleted()
+    .then(response => {
+      if (response.data.data.dotenv) {
+        const newData = response.data.data.dotenv
 
+        writeFileSync(this.smartFilename, newData)
+      }
+
+      this._logCompleted()
     })
     .catch((error) => {
       this._logError(error)
@@ -266,13 +252,15 @@ class PushService {
   _logCompleted(): void {
     this.cmd.log('Done.')
     this.cmd.log('')
-    this._logProTipDone()
+    this.cmd.log('Next, try making a change to your .env file and then running npx dotenv-vault push')
+    this.cmd.log('')
+    this.cmd.log('    $ npx dotenv-vault push')
   }
 
   _logEmptyEnvMe(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx doten-vault push')
+    this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx doten-vault pull?')
   }
 
   _logError(error): void {
@@ -296,17 +284,6 @@ class PushService {
     this.cmd.log('local: 💡ProTip! The .env.me file securely identifies your machine against this project in Dotenv Vault')
     this.cmd.log('local:')
   }
-
-  _logProTipDone(): void {
-    this.cmd.log('💡ProTip! You can add personal environment variables to your .env file by including them after the comment # personal.dotenv.org')
-    this.cmd.log('')
-    this.cmd.log('    # example .env file')
-    this.cmd.log('    HELLO=world')
-    this.cmd.log('    KEY=value')
-    this.cmd.log('    ')
-    this.cmd.log('    # personal.dotenv.org')
-    this.cmd.log('    HELLO=universe')
-  }
 }
 
-export {PushService}
+export {PullService}
