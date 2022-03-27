@@ -30,6 +30,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`dotenv-vault help [COMMAND]`](#dotenv-vault-help-command)
+* [`dotenv-vault new`](#dotenv-vault-new)
 * [`dotenv-vault plugins`](#dotenv-vault-plugins)
 * [`dotenv-vault plugins:install PLUGIN...`](#dotenv-vault-pluginsinstall-plugin)
 * [`dotenv-vault plugins:inspect PLUGIN...`](#dotenv-vault-pluginsinspect-plugin)
@@ -39,6 +40,8 @@ USAGE
 * [`dotenv-vault plugins:uninstall PLUGIN...`](#dotenv-vault-pluginsuninstall-plugin-1)
 * [`dotenv-vault plugins:uninstall PLUGIN...`](#dotenv-vault-pluginsuninstall-plugin-2)
 * [`dotenv-vault plugins update`](#dotenv-vault-plugins-update)
+* [`dotenv-vault pull [ENVIRONMENT] [FILENAME]`](#dotenv-vault-pull-environment-filename)
+* [`dotenv-vault push [FILENAME]`](#dotenv-vault-push-filename)
 
 ## `dotenv-vault help [COMMAND]`
 
@@ -59,6 +62,23 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
+
+## `dotenv-vault new`
+
+Create your project at Dotenv Vault
+
+```
+USAGE
+  $ dotenv-vault new
+
+DESCRIPTION
+  Create your project at Dotenv Vault
+
+EXAMPLES
+  $ dotenv-vault new
+```
+
+_See code: [dist/commands/new.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.5/dist/commands/new.ts)_
 
 ## `dotenv-vault plugins`
 
@@ -289,4 +309,52 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
+
+## `dotenv-vault pull [ENVIRONMENT] [FILENAME]`
+
+Pull .env securely from Dotenv Vault
+
+```
+USAGE
+  $ dotenv-vault pull [ENVIRONMENT] [FILENAME] [-m <value>]
+
+ARGUMENTS
+  ENVIRONMENT  (development|ci|staging|production) [default: development] Pull .env.ci, .env.staging, and
+               .env.production
+  FILENAME     Set output filename. Defaults to .env for development and .env.{environment} for other environments
+
+FLAGS
+  -m, --dotenvMe=<value>  Pass .env.me credential directly (rather than reading from .env.me file)
+
+DESCRIPTION
+  Pull .env securely from Dotenv Vault
+
+EXAMPLES
+  $ dotenv-vault pull
+```
+
+_See code: [dist/commands/pull.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.5/dist/commands/pull.ts)_
+
+## `dotenv-vault push [FILENAME]`
+
+Push .env securely to Dotenv Vault
+
+```
+USAGE
+  $ dotenv-vault push [FILENAME] [-m <value>]
+
+ARGUMENTS
+  FILENAME  Set input filename. Defaults to .env for development and .env.{environment} for other environments
+
+FLAGS
+  -m, --dotenvMe=<value>  Pass .env.me credential directly (rather than reading from .env.me file)
+
+DESCRIPTION
+  Push .env securely to Dotenv Vault
+
+EXAMPLES
+  $ dotenv-vault push
+```
+
+_See code: [dist/commands/push.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.5/dist/commands/push.ts)_
 <!-- commandsstop -->
