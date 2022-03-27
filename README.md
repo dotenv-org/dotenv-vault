@@ -20,7 +20,7 @@ $ npm install -g dotenv-vault
 $ dotenv-vault COMMAND
 running command...
 $ dotenv-vault (--version)
-dotenv-vault/0.1.4 darwin-arm64 node-v17.8.0
+dotenv-vault/0.1.5 darwin-arm64 node-v17.8.0
 $ dotenv-vault --help [COMMAND]
 USAGE
   $ dotenv-vault COMMAND
@@ -29,8 +29,6 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`dotenv-vault hello PERSON`](#dotenv-vault-hello-person)
-* [`dotenv-vault hello world`](#dotenv-vault-hello-world)
 * [`dotenv-vault help [COMMAND]`](#dotenv-vault-help-command)
 * [`dotenv-vault plugins`](#dotenv-vault-plugins)
 * [`dotenv-vault plugins:install PLUGIN...`](#dotenv-vault-pluginsinstall-plugin)
@@ -41,46 +39,6 @@ USAGE
 * [`dotenv-vault plugins:uninstall PLUGIN...`](#dotenv-vault-pluginsuninstall-plugin-1)
 * [`dotenv-vault plugins:uninstall PLUGIN...`](#dotenv-vault-pluginsuninstall-plugin-2)
 * [`dotenv-vault plugins update`](#dotenv-vault-plugins-update)
-
-## `dotenv-vault hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ dotenv-vault hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.4/dist/commands/hello/index.ts)_
-
-## `dotenv-vault hello world`
-
-Say hello world
-
-```
-USAGE
-  $ dotenv-vault hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
-```
 
 ## `dotenv-vault help [COMMAND]`
 
