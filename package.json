@@ -50,17 +50,14 @@
     "dirname": "dotenv-vault",
     "commands": "./dist/commands",
     "plugins": [
+      "@oclif/plugin-help",
       "@oclif/plugin-warn-if-update-available"
     ],
     "warn-if-update-available": {
       "timeoutInDays": 1
     },
     "topicSeparator": " ",
-    "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
-      }
-    }
+    "topics": {}
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
