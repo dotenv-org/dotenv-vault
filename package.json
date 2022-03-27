@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.0.1",
+    "@oclif/plugin-plugins": "^2.1.0",
     "@oclif/plugin-warn-if-update-available": "^2.0.4",
     "axios": "^0.26.1",
     "crypto": "^1.0.1",
