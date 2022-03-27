@@ -19,7 +19,10 @@
   "dependencies": {
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
-    "@oclif/plugin-warn-if-update-available": "^2.0.4"
+    "@oclif/plugin-warn-if-update-available": "^2.0.4",
+    "axios": "^0.26.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "@oclif/core": "^1.6.0",

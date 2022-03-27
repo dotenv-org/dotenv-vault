@@ -10,6 +10,6 @@ export default class New extends Command {
   ]
 
   public async run(): Promise<void> {
-    new NewService().run()
+    new NewService({cmd: this}).run()
   }
 }
