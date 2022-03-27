@@ -65,7 +65,7 @@
     "lint": "eslint . --ext .ts --config .eslintrc",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
-    "prepack": "yarn build && oclif manifest && oclif readme",
+    "prepack": "yarn build && oclif manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\""
   },
   "engines": {
