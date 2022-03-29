@@ -35,7 +35,7 @@ That's it!
 
 ### `dotenv-vault help [COMMAND]`
 
-display help for dotenv-vault
+Display help for dotenv-vault commands.
 
 ```
 USAGE
@@ -48,9 +48,15 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
+Example:
+
+```
+$ dotenv-vault help push
+```
+
 ### `dotenv-vault new`
 
-Create your `.env.project` file.
+Create your project at Dotenv Vault.
 
 Example:
 
@@ -60,7 +66,7 @@ $ dotenv-vault new
 
 ### `dotenv-vault push [FILENAME]`
 
-Push your `.env` file to development environment.
+Push your `.env` file securely to Dotenv Vault
 
 Example:
 
@@ -84,14 +90,14 @@ $ dotenv-vault push .env.development
 
 #### Options
 
-##### --dotenv_me
+##### --dotenvMe
 
 Directly pass your `DOTENV_ME` value to the command line, instead of reading from a `.env.me` file.
 
 Examples:
 
 ```bash
-$ dotenv-vault push .env.development --dotenv_me=me_1234
+$ dotenv-vault push .env.development --dotenvMe=me_1234
 # pushes local .env.development to remote development
 ```
 
@@ -138,17 +144,17 @@ $ dotenv-vault pull production .env
 
 #### Options
 
-##### --dotenv_me
+##### --dotenvMe
 
 Directly pass your `DOTENV_ME` value to the command line, instead of reading from a `.env.me` file.
 
 Examples:
 
 ```bash
-$ dotenv-vault pull staging --dotenv_me=me_1234
+$ dotenv-vault pull staging --dotenvMe=me_1234
 # pulls remote staging envs to .env.staging
 
-$ dotenv-vault pull production .env --dotenv_me=me_1234
+$ dotenv-vault pull production .env --dotenvMe=me_1234
 # pulls remote production envs to .env
 ```
 
@@ -180,114 +186,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)
 ## CHANGELOG
 
 See [CHANGELOG.md](CHANGELOG.md)
-
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-# Usage
-<!-- usage -->
-```sh-session
-$ npm install -g dotenv-vault
-$ dotenv-vault COMMAND
-running command...
-$ dotenv-vault (--version)
-dotenv-vault/0.1.8 darwin-arm64 node-v17.8.0
-$ dotenv-vault --help [COMMAND]
-USAGE
-  $ dotenv-vault COMMAND
-...
-```
-<!-- usagestop -->
-# Commands
-<!-- commands -->
-* [`dotenv-vault help [COMMAND]`](#dotenv-vault-help-command)
-* [`dotenv-vault new`](#dotenv-vault-new)
-* [`dotenv-vault pull [ENVIRONMENT] [FILENAME]`](#dotenv-vault-pull-environment-filename)
-* [`dotenv-vault push [FILENAME]`](#dotenv-vault-push-filename)
-
-## `dotenv-vault help [COMMAND]`
-
-Display help for dotenv-vault.
-
-```
-USAGE
-  $ dotenv-vault help [COMMAND] [-n]
-
-ARGUMENTS
-  COMMAND  Command to show help for.
-
-FLAGS
-  -n, --nested-commands  Include all nested commands in the output.
-
-DESCRIPTION
-  Display help for dotenv-vault.
-```
-
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
-
-## `dotenv-vault new`
-
-Create your project at Dotenv Vault
-
-```
-USAGE
-  $ dotenv-vault new
-
-DESCRIPTION
-  Create your project at Dotenv Vault
-
-EXAMPLES
-  $ dotenv-vault new
-```
-
-_See code: [dist/commands/new.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.8/dist/commands/new.ts)_
-
-## `dotenv-vault pull [ENVIRONMENT] [FILENAME]`
-
-Pull .env securely from Dotenv Vault
-
-```
-USAGE
-  $ dotenv-vault pull [ENVIRONMENT] [FILENAME] [-m <value>]
-
-ARGUMENTS
-  ENVIRONMENT  (development|ci|staging|production) [default: development] Pull .env.ci, .env.staging, and
-               .env.production
-  FILENAME     Set output filename. Defaults to .env for development and .env.{environment} for other environments
-
-FLAGS
-  -m, --dotenvMe=<value>  Pass .env.me credential directly (rather than reading from .env.me file)
-
-DESCRIPTION
-  Pull .env securely from Dotenv Vault
-
-EXAMPLES
-  $ dotenv-vault pull
-```
-
-_See code: [dist/commands/pull.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.8/dist/commands/pull.ts)_
-
-## `dotenv-vault push [FILENAME]`
-
-Push .env securely to Dotenv Vault
-
-```
-USAGE
-  $ dotenv-vault push [FILENAME] [-m <value>]
-
-ARGUMENTS
-  FILENAME  Set input filename. Defaults to .env for development and .env.{environment} for other environments
-
-FLAGS
-  -m, --dotenvMe=<value>  Pass .env.me credential directly (rather than reading from .env.me file)
-
-DESCRIPTION
-  Push .env securely to Dotenv Vault
-
-EXAMPLES
-  $ dotenv-vault push
-```
-
-_See code: [dist/commands/push.ts](https://github.com/dotenv-org/dotenv-vault/blob/v0.1.8/dist/commands/push.ts)_
-<!-- commandsstop -->
