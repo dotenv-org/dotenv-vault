@@ -112,12 +112,6 @@ $ dotenv-vault pull
 # pulls remote development envs to .env
 ```
 
-For more information run..
-
-```bash
-$ dotenv-vault help pull
-```
-
 #### Arguments
 
 ##### [ENVIRONMENT]
