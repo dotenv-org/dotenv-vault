@@ -35,6 +35,8 @@ $ npx dotenv-vault pull
 
 That's it!
 
+Read our [security statement](https://www.dotenv.org/security).
+
 ## Commands
 
 ### `dotenv-vault help [COMMAND]`
