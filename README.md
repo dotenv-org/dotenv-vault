@@ -39,27 +39,6 @@ Read our [security statement](https://www.dotenv.org/security).
 
 ## Commands
 
-### `dotenv-vault help [COMMAND]`
-
-Display help for dotenv-vault commands.
-
-```
-USAGE
-  $ dotenv-vault help [COMMAND]
-
-ARGUMENTS
-  COMMAND  command to show help for
-
-OPTIONS
-  --all  see all commands in CLI
-```
-
-Example:
-
-```
-$ dotenv-vault help push
-```
-
 ### `dotenv-vault new`
 
 Create your project at Dotenv Vault.
@@ -157,6 +136,29 @@ $ dotenv-vault pull staging --dotenvMe=me_1234
 $ dotenv-vault pull production .env --dotenvMe=me_1234
 # pulls remote production envs to .env
 ```
+
+### `dotenv-vault help [COMMAND]`
+
+Display help for dotenv-vault commands.
+
+```
+USAGE
+  $ dotenv-vault help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+Example:
+
+```
+$ dotenv-vault help push
+```
+
+
 
 ## Development
 
