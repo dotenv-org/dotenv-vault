@@ -27,7 +27,7 @@
     "@oclif/core": "^1.6.0",
     "@oclif/test": "^2",
     "@types/chai": "^4",
-    "@types/mocha": "^9.0.0",
+    "@types/mocha": "^9.1.0",
     "@types/node": "^16.9.4",
     "chai": "^4",
     "eslint": "^7.32.0",
