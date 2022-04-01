@@ -18,19 +18,19 @@ Learn more at [dotenv.org](https://dotenv.org).
 Usage is easy! Run the command:
 
 ```bash
-npx dotenv-vault new
+$ npx dotenv-vault new
 ```
 
 Follow those instructions and then run:
 
 ```bash
-npx dotenv-vault push
+$ npx dotenv-vault push
 ```
 
 And if you need to pull changes that another teammate made, run:
 
 ```bash
-npx dotenv-vault pull
+$ npx dotenv-vault pull
 ```
 
 That's it!
