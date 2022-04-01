@@ -126,7 +126,6 @@ class PushService {
       // edge case
       if (this.emptyEnvMe) {
         this._logEmptyEnvMe()
-        return
       } else {
         // push
         await this._push()
@@ -205,7 +204,6 @@ class PushService {
       this._promptForShortCode()
     } catch (error) {
       this._logError(error)
-      return
     }
   }
 
@@ -231,7 +229,6 @@ class PushService {
       this._push()
     } catch (error) {
       this._logError(error)
-      return
     }
   }
 
@@ -256,7 +253,6 @@ class PushService {
       this._logCompleted()
     } catch (error) {
       this._logError(error)
-      return
     }
   }
 

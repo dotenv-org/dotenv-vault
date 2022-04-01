@@ -118,7 +118,6 @@ class PullService {
       // edge case
       if (this.emptyEnvMe) {
         this._logEmptyEnvMe()
-        return
       } else {
         // pull
         await this._pull()
@@ -187,7 +186,6 @@ class PullService {
       this._promptForShortCode()
     } catch (error) {
       this._logError(error)
-      return
     }
   }
 
@@ -213,7 +211,6 @@ class PullService {
       this._pull()
     } catch (error) {
       this._logError(error)
-      return
     }
   }
 
@@ -240,7 +237,6 @@ class PullService {
       this._logCompleted()
     } catch (error) {
       this._logError(error)
-      return
     }
   }
 
