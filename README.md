@@ -6,6 +6,8 @@ From the same people that pioneered [dotenv](https://github.com/motdotla/dotenv)
 
 Dotenv Vault securely syncs secrets and app configuration across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email.
 
+Learn more at [dotenv.org](https://dotenv.org).
+
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads/week](https://img.shields.io/npm/dw/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
