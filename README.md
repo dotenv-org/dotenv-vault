@@ -73,6 +73,8 @@ $ dotenv-vault push .env.development
 # pushes .env.development to remote development environment
 ```
 
+⚠️ The `push` command ONLY pushes to development currently. It is not like the `pull` command that can pull from different environments. For example, if you run `$ npx dotenv-vault push .env.production` that will actually push your local .env.production file to *development*. (Check back soon for `push` support that can push to any environment.)
+
 #### Options
 
 ##### --dotenvMe
