@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 import * as crypto from 'node:crypto'
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 import {vars} from '../vars'
-import {existsSync, writeFileSync, readFileSync} from 'node:fs'
+import {existsSync, writeFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 
@@ -50,16 +50,8 @@ class PullService {
     return !(this.projectUid && this.projectUid.toString().length > 1)
   }
 
-  get envContent(): string {
-    return readFileSync(this.smartFilename, 'utf8')
-  }
-
   get emptyEnvMe(): boolean {
     return !(this.meUid && this.meUid.toString().length > 1)
-  }
-
-  get existingEnv(): boolean {
-    return existsSync(this.smartFilename)
   }
 
   get existingEnvMe(): boolean {
@@ -68,19 +60,6 @@ class PullService {
     }
 
     return existsSync('.env.me')
-  }
-
-  get smartFilename(): string {
-    // if user has set a filename for output then use that
-    if (this.filename) {
-      return this.filename
-    }
-
-    if (this.environment === 'development') {
-      return '.env'
-    }
-
-    return `.env.${this.environment}`
   }
 
   get envProjectConfig(): any {
@@ -143,12 +122,6 @@ class PullService {
     this.cmd.log('Aborted.')
     this.cmd.log('')
     this.cmd.log('You must have DOTENV_PROJECT set to some value in your .env.project file. Try deleting your .env.project file and running npx doten-vault new')
-  }
-
-  _logEmptyEnv(): void {
-    this.cmd.log('Aborted.')
-    this.cmd.log('')
-    this.cmd.log(`Your ${this.smartFilename} file is empty. Please populate it with value(s)`)
   }
 
   _logCheckingForEnvMe(): void {
@@ -216,8 +189,6 @@ class PullService {
 
   async _pull(): Promise<void> {
     this.cmd.log('remote:')
-    this.cmd.log(`remote: Securely pulling ${this.environment} to ${this.smartFilename}`)
-    this.cmd.log('remote:')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -232,12 +203,29 @@ class PullService {
 
     try {
       const resp: AxiosResponse = await axios(options)
+      const environment = resp.data.data.environment
+      const envName = resp.data.data.envName
       const newData = resp.data.data.dotenv
-      writeFileSync(this.smartFilename, newData)
+
+      const outputFilename = this._smartFilename(envName)
+
+      this.cmd.log(`remote: Securely pulling ${environment} to ${outputFilename}`)
+      this.cmd.log('remote:')
+
+      writeFileSync(outputFilename, newData)
       this._logCompleted()
     } catch (error) {
       this._logError(error)
     }
+  }
+
+  _smartFilename(envName: string): string {
+    // if user has set a filename for output then use that else use envName
+    if (this.filename) {
+      return this.filename
+    }
+
+    return envName
   }
 
   _logCompleted(): void {
