@@ -15,8 +15,6 @@ export default class Pull extends Command {
       required: false,
       description: 'Pull .env.ci, .env.staging, and .env.production',
       hidden: false,
-      default: 'development',
-      options: ['development', 'ci', 'staging', 'production'],
     },
     {
       name: 'filename',
