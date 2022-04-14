@@ -18,6 +18,14 @@ class NewService {
     return vars.apiUrl + '/new'
   }
 
+  get urlWithProjectName(): string {
+    const dir = process.cwd()
+    const splitDir = dir.split('\\').join('/').split('/') // handle windows and unix paths
+    const projectName = splitDir[splitDir.length - 1]
+
+    return `${this.url}?project_name=${projectName}`
+  }
+
   get existingEnv(): boolean {
     return existsSync('.env')
   }
@@ -48,7 +56,7 @@ class NewService {
     const answer = await CliUx.ux.confirm(`Open webpage at ${this.url}? Type yes (y) or no (n)`)
 
     if (answer) {
-      CliUx.ux.open(this.url)
+      CliUx.ux.open(this.urlWithProjectName)
       this._logProTip()
 
       const dotenvProject = await CliUx.ux.prompt('What is your .env.project identifier?', {type: 'mask'})
