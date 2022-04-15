@@ -253,6 +253,7 @@ class PushService {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       data: {
+        environment: this.smartEnvironment,
         projectUid: this.projectUid,
         meUid: this.meUid,
         dotenv: this.envContent,
