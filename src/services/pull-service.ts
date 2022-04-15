@@ -230,10 +230,10 @@ class PullService {
 
   _logCompleted(): void {
     this.cmd.log('Done.')
-    this.cmd.log('')
-    this.cmd.log('Next, try making a change to your .env file and then running npx dotenv-vault push')
-    this.cmd.log('')
-    this.cmd.log('    $ npx dotenv-vault push')
+    // this.cmd.log('')
+    // this.cmd.log('Next, try making a change to your .env file and then running npx dotenv-vault push')
+    // this.cmd.log('')
+    // this.cmd.log('    $ npx dotenv-vault push')
   }
 
   _logEmptyEnvMe(): void {

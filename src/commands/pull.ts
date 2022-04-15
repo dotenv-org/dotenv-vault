@@ -13,7 +13,7 @@ export default class Pull extends Command {
     {
       name: 'environment',
       required: false,
-      description: 'Pull .env.ci, .env.staging, and .env.production',
+      description: 'Set environment to pull from. Defaults to development (writing to .env)',
       hidden: false,
     },
     {

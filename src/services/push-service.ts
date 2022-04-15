@@ -9,18 +9,21 @@ import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 interface PushServiceAttrs {
   cmd;
   filename;
+  environment;
   dotenvMe;
 }
 
 class PushService {
   public cmd;
   public filename;
+  public environment;
   public dotenvMe;
   public generatedMeUid;
 
   constructor(attrs: PushServiceAttrs = {} as PushServiceAttrs) {
     this.cmd = attrs.cmd
     this.filename = attrs.filename
+    this.environment = attrs.environment
     this.dotenvMe = attrs.dotenvMe
 
     const rand = crypto.randomBytes(32).toString('hex')
@@ -78,6 +81,15 @@ class PushService {
     }
 
     return '.env'
+  }
+
+  get smartEnvironment(): string {
+    // if user has set an environment for input then use that
+    if (this.environment) {
+      return this.environment
+    }
+
+    return 'development'
   }
 
   get envProjectConfig(): any {
@@ -234,7 +246,7 @@ class PushService {
 
   async _push(): Promise<void> {
     this.cmd.log('remote:')
-    this.cmd.log(`remote: Securely pushing ${this.smartFilename}`)
+    this.cmd.log(`remote: Securely pushing ${this.smartFilename} to ${this.smartEnvironment}`)
     this.cmd.log('remote:')
 
     const options: AxiosRequestConfig = {
