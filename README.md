@@ -37,7 +37,7 @@ That's it!
 
 Read our [security statement](https://www.dotenv.org/security).
 
-💡 **ProTip!** Append @latest to dotenv-vault to always run the latest version `npx dotenv-vault@latest push`. Otherwise, npx will cache the first version it encountered on yoru machine.
+💡 **ProTip!** Append @latest to dotenv-vault to always run the latest version. For example: `npx dotenv-vault@latest push`. (otherwise, npx caches the first version it encounters on your machine)
 
 ## Commands
 
