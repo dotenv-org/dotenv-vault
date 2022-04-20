@@ -105,7 +105,7 @@ class PushService {
   }
 
   get meUid(): any {
-    return this.envMeConfig.DOTENV_ME
+    return this.dotenvMe || this.envMeConfig.DOTENV_ME
   }
 
   async run(): Promise<void> {
