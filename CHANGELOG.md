@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.3.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.3.1...master)
+
+## 0.3.1
+
+### Changed
+
+Respect `-- dotenvMe` flag. 🐞 ([#13](https://github.com/dotenv-org/dotenv-vault/pull/13))
 
 ## 0.3.0
 
