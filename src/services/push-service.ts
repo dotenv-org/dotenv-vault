@@ -89,7 +89,7 @@ class PushService {
       return this.environment
     }
 
-    return 'development'
+    return '' // otherwise, do not pass environment. dotenv-vault will smartly choose the main environment (in most cases development)
   }
 
   get envProjectConfig(): any {
@@ -246,7 +246,12 @@ class PushService {
 
   async _push(): Promise<void> {
     this.cmd.log('remote:')
-    this.cmd.log(`remote: Securely pushing ${this.smartFilename} to ${this.smartEnvironment}`)
+    if (this.smartEnvironment) {
+      this.cmd.log(`remote: Securely pushing ${this.smartFilename} to ${this.smartEnvironment}`)
+    } else {
+      this.cmd.log(`remote: Securely pushing ${this.smartFilename}`)
+    }
+
     this.cmd.log('remote:')
 
     const options: AxiosRequestConfig = {
