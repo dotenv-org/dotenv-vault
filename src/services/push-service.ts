@@ -89,7 +89,7 @@ class PushService {
       return this.environment
     }
 
-    return '' // otherwise, do not pass environment. dotenv-vault will smartly choose the main environment (in most cases development)
+    return '' // otherwise, do not pass environment. dotenv-vault's api will smartly choose the main environment for the project (in most cases development)
   }
 
   get envProjectConfig(): any {
