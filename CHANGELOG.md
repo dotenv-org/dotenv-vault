@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.3.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.4.0...master)
+
+## 0.4.0
+
+### Added
+
+Append to dockerignore file if it exists 🔒 ([#19](https://github.com/dotenv-org/dotenv-vault/pull/19))
 
 ## 0.3.2
 
