@@ -1,6 +1,7 @@
 import {vars} from '../vars'
 import {existsSync, writeFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
+import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 
 interface NewServiceAttrs {
@@ -35,6 +36,7 @@ class NewService {
   }
 
   async run(): Promise<void> {
+    new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
 
     this.cmd.log('local:')

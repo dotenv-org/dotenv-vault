@@ -4,6 +4,7 @@ import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 import {vars} from '../vars'
 import {existsSync, writeFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
+import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 
 interface PullServiceAttrs {
@@ -79,6 +80,7 @@ class PullService {
   }
 
   async run(): Promise<void> {
+    new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
 
     this._logCheckingForEnvProject()

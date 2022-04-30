@@ -4,6 +4,7 @@ import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
 import {existsSync, writeFileSync, readFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
+import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 
 interface PushServiceAttrs {
@@ -109,6 +110,7 @@ class PushService {
   }
 
   async run(): Promise<void> {
+    new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
 
     this._logCheckingForEnv()
@@ -277,7 +279,6 @@ class PushService {
   _logCompleted(): void {
     this.cmd.log('Done.')
     this.cmd.log('')
-    this._logProTipDone()
   }
 
   _logEmptyEnvMe(): void {
@@ -304,17 +305,6 @@ class PushService {
     this.cmd.log('local:')
     this.cmd.log('local: 💡ProTip! The .env.me file securely identifies your machine against this project in Dotenv Vault')
     this.cmd.log('local:')
-  }
-
-  _logProTipDone(): void {
-    this.cmd.log('💡ProTip! You can add personal environment variables to your .env file by including them after the comment # personal.dotenv.org')
-    this.cmd.log('')
-    this.cmd.log('    # example .env file')
-    this.cmd.log('    HELLO=world')
-    this.cmd.log('    KEY=value')
-    this.cmd.log('    ')
-    this.cmd.log('    # personal.dotenv.org')
-    this.cmd.log('    HELLO=universe')
   }
 }
 
