@@ -131,7 +131,7 @@ class PullService {
   }
 
   async _createEnvMe(): Promise<void> {
-    writeFileSync('.env.me', `DOTENV_ME=${this.generatedMeUid} # do NOT commit to git`)
+    writeFileSync('.env.me', `DOTENV_ME=${this.generatedMeUid}`)
   }
 
   async _authEnvMe(): Promise<void> {
