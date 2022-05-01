@@ -20,7 +20,7 @@ Dotenv Vault works with the following integration partners and more.
 <table>
   <tr>
     <td>
-      <div style="border: 1px solid rgba(0,0,0,0.125); border-radius: 0.25rem; padding: 5px;">
+      <div style="border: 1px solid rgba(0,0,0,0.125); border-radius: 0.25rem; padding: 5px; display: flex !imporant; align-items: center !important;">
         <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="50"  /></span><span>GitHub</span>
       </div>
     </td>
