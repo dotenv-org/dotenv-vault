@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.4.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.4.1...master)
+
+## 0.4.1
+
+### Added
+
+Remove comment in .env.me for better DSX 🧑‍💻 ([#21](https://github.com/dotenv-org/dotenv-vault/pull/21))
 
 ## 0.4.0
 
