@@ -102,15 +102,15 @@ Dotenv Vault works with the following integration partners and more.
     <tr>
       <td align="left" valign="middle">
         <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/circleci.png" alt="dotenv-vault + CircleCI", width="30" />
-      </td>
-      <td align="left" valign="middle">
         CircleCI
       </td>
       <td align="left" valign="middle">
         <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/serverless.png" alt="dotenv-vault + Serverless", width="30" />
+        Serverless
       </td>
       <td align="left" valign="middle">
-        Serverless
+      </td>
+      <td align="left" valign="middle">
       </td>
       <td align="left" valign="middle">
       </td>
