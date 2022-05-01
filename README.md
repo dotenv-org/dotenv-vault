@@ -13,6 +13,20 @@ Learn more at [dotenv.org](https://dotenv.org).
 [![Downloads/week](https://img.shields.io/npm/dw/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![License](https://img.shields.io/npm/l/dotenv-vault.svg)](https://github.com/dotenv-org/dotenv-vault/blob/master/package.json)
 
+## Works With
+
+Dotenv Vault works with the following integration partners and more.
+
+<table>
+  <tr>
+    <td>
+      <div style="border: 1px solid rgba(0,0,0,0.125); border-radius: 0.25rem; padding: 5px;">
+        <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="50"  /></span><span>GitHub</span>
+      </div>
+    </td>
+  </tr>
+</table>
+
 ## Usage
 
 Usage is easy! Run the command:

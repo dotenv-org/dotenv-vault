@@ -8,6 +8,7 @@
 /yarn.lock
 node_modules
 oclif.manifest.json
+.DS_Store
 
 .env*
 !.env.project
