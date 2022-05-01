@@ -25,22 +25,30 @@ Dotenv Vault works with the following integration partners and more.
         GitHub
       </td>
       <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/heroku.png" alt="dotenv-vault + Heroku", width="30" />
-        Heroku
+        <a href="https://www.dotenv.org/integrations/heroku">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/heroku.png" alt="dotenv-vault + Heroku", width="30" />
+          Heroku
+        </a>
       </td>
       <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="30" />
-        Slack
+        <a href="https://www.dotenv.org/integrations/slack">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="30" />
+          Slack
+        </a>
       </td>
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/vercel.png" alt="dotenv-vault + Vercel", width="30" />
-        Vercel
+        <a href="https://www.dotenv.org/integrations/vercel">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/vercel.png" alt="dotenv-vault + Vercel", width="30" />
+          Vercel
+        </a>
       </td>
       <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" />
-        Netlify
+        <a href="https://www.dotenv.org/integrations/netlify">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" />
+          Netlify
+        </a>
       </td>
       <td align="left" valign="middle">
         <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/aws.png" alt="dotenv-vault + AWS Secrets", width="30" />
