@@ -20,9 +20,56 @@ Dotenv Vault works with the following integration partners and more.
 <table>
   <tr>
     <td>
-      <div style="border: 1px solid rgba(0,0,0,0.125); border-radius: 0.25rem; padding: 5px; display: flex !imporant; align-items: center !important;">
-        <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="50"  /></span><span>GitHub</span>
-      </div>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="30" /></span> <span>GitHub</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/heroku.png" alt="dotenv-vault + Heroku", width="30" /></span> <span>Heroku</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="30" /></span> <span>Slack</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/vercel.png" alt="dotenv-vault + Vercel", width="30" /></span> <span>Vercel</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" /></span> <span>Netlify</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/aws.png" alt="dotenv-vault + AWS Secrets", width="30" /></span> <span>AWS Secrets</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/aws.png" alt="dotenv-vault + AWS Parameter Store", width="30" /></span> <span>AWS Parameter Store</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/microsoft.png" alt="dotenv-vault + Azure Key Vault", width="30" /></span> <span>Azure Key Vault</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker Compose", width="30" /></span> <span>Docker Compose</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker", width="30" /></span> <span>Docker</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/digitalocean.png" alt="dotenv-vault + Digital Ocean", width="30" /></span> <span>Digital Ocean</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/google.png" alt="dotenv-vault + Google Cloud", width="30" /></span> <span>Google Cloud</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/circleci.png" alt="dotenv-vault + CircleCI", width="30" /></span> <span>CircleCI</span>
+    </td>
+    <td>
+      <span><img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/serverless.png" alt="dotenv-vault + Serverless", width="30" /></span> <span>Serverless</span>
+    </td>
+    <td>
     </td>
   </tr>
 </table>
