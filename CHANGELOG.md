@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.4.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.4.2...master)
+
+## 0.4.2
+
+### Changed
+
+Modified local: and remote: spacing for better visual log experience 🧑‍💻 ([#28](https://github.com/dotenv-org/dotenv-vault/pull/28))
 
 ## 0.4.1
 
