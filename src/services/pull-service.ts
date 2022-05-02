@@ -110,8 +110,8 @@ class PullService {
   }
 
   _logCheckingForEnvProject(): void {
-    this.cmd.log('local:')
-    this.cmd.log('local: Checking for .env.project')
+    this.cmd.log('local:    ')
+    this.cmd.log('local:    Checking for .env.project')
   }
 
   _logMissingEnvProject(): void {
@@ -127,7 +127,7 @@ class PullService {
   }
 
   _logCheckingForEnvMe(): void {
-    this.cmd.log('local: Checking for .env.me')
+    this.cmd.log('local:    Checking for .env.me')
   }
 
   async _createEnvMe(): Promise<void> {
@@ -135,12 +135,12 @@ class PullService {
   }
 
   async _authEnvMe(): Promise<void> {
-    this.cmd.log('local: Generating .env.me credential')
+    this.cmd.log('local:    Generating .env.me credential')
     this._logProTip()
 
     const email = await CliUx.ux.prompt('What is your email address?', {type: 'mask'})
 
-    this.cmd.log('remote: Securely sending a code')
+    this.cmd.log('remote:   Securely sending a code')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -156,7 +156,7 @@ class PullService {
     // submit email for identification
     try {
       await axios(options)
-      this.cmd.log('remote: Sent. Check your email.')
+      this.cmd.log('remote:   Sent. Check your email.')
       this._createEnvMe()
       this._promptForShortCode()
     } catch (error) {
@@ -167,7 +167,7 @@ class PullService {
   async _promptForShortCode(): Promise<void> {
     const shortCode = await CliUx.ux.prompt('What is the code?')
 
-    this.cmd.log('remote: Verifying')
+    this.cmd.log('remote:   Verifying')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -182,7 +182,7 @@ class PullService {
 
     try {
       await axios(options)
-      this.cmd.log('remote: Verified successfully')
+      this.cmd.log('remote:   Verified successfully')
       this._pull()
     } catch (error) {
       this._logError(error)
@@ -190,7 +190,7 @@ class PullService {
   }
 
   async _pull(): Promise<void> {
-    this.cmd.log('remote:')
+    this.cmd.log('remote:   ')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -211,8 +211,8 @@ class PullService {
 
       const outputFilename = this._smartFilename(envName)
 
-      this.cmd.log(`remote: Securely pulling ${environment} to ${outputFilename}`)
-      this.cmd.log('remote:')
+      this.cmd.log(`remote:   Securely pulling ${environment} to ${outputFilename}`)
+      this.cmd.log('remote:   ')
 
       writeFileSync(outputFilename, newData)
       this._logCompleted()
@@ -259,9 +259,9 @@ class PullService {
   }
 
   _logProTip(): void {
-    this.cmd.log('local:')
-    this.cmd.log('local: 💡ProTip! The .env.me file securely identifies your machine against this project in Dotenv Vault')
-    this.cmd.log('local:')
+    this.cmd.log('local:    ')
+    this.cmd.log('local:    💡ProTip! The .env.me file securely identifies your machine against this project in Dotenv Vault')
+    this.cmd.log('local:    ')
   }
 }
 
