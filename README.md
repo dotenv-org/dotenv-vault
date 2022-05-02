@@ -124,6 +124,32 @@ Read our [security statement](https://www.dotenv.org/security).
 
 💡 **ProTip!** Append @latest to dotenv-vault to always run the latest version. For example: `npx dotenv-vault@latest push`. (otherwise, npx caches the first version it encounters on your machine)
 
+## How It Works
+
+See [https://dotenv.org/vault](https://dotenv.org/vault#how-it-works) for details.
+
+1. You run npx dotenv-vault push. The request is started.
+2. The .env file is encrypted and sent securely over SSL to Dotenv's in-memory servers.
+3. This encrypted payload is decrypted and briefly held in memory to complete the next steps. Afterward, the memory is flushed. Rest assured the decrypted version is never peristed to Dotenv systems.
+4. The .env file is parsed line by line - in memory. Note: There are some differences between dotenv parsers across various languages and frameworks. So far Dotenv Vault handles these 100%, and we continue to add test cases to cover all edge cases.
+5. Each key/value pair (and any comments) are extracted - in memory.
+6. The secret is divided into its separate key and value. This is by design. They will be stored in separate databases for added security. This way if an attacker somehow gained access to one database they would not be able to make sense of the data - having only half of the puzzle.
+7. The KEY is encrypted. The VALUE is encrypted. They are encrypted with different master encryption keys. This way if an attacker somehow gained access to the VALUE decryption key they would find the data useless. They would not know if the secret belonged to Twilio or to AWS. **Encryption uses the AES-GCM algorithm.** It is:
+  - well-studied
+  - NIST recommended
+  - an IETF standard
+  - fast thanks to a dedicated instruction set
+  - Additionally, all master encryption keys are rotated on an unpublished schedule, further adding to the level of security.
+8. The encrypted VALUE is sent to Dotenv Vault for safe storage. A token is returned as an identifier. The token is used in the next step for mapping the KEY to the VALUE for later secure-read operations. **Multiple security measures go into the Vault.** They include but are not limited to: 
+  - Separate datastore from the application database
+  - Not accessible via the internet and all external connections are prevented
+  - Encrypted clients are required and these clients have to go through the application - which has its own additional layers of encryption
+  - There are stricter TLS requirements for connecting to the Vault. TLS 1.0 cannot be used to connect.
+  - The secrets stored in the Vault are not just encrypted at the datastore level. They are also encrypted at each datastore entry as you saw in the prior step(s).
+9. Lastly, the encrypted KEY and token (representing the encrypted VALUE) are placed in an envelope and stored together in the application database.
+10. A success message is returned to the user.
+
+
 ## Commands
 
 ### `dotenv-vault new`
