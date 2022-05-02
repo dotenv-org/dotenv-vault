@@ -151,7 +151,7 @@ class PushService {
   }
 
   _logCheckingForEnvProject(): void {
-    this.cmd.log('local: Checking for .env.project')
+    this.cmd.log('local:    Checking for .env.project')
   }
 
   _logMissingEnvProject(): void {
@@ -173,8 +173,8 @@ class PushService {
   }
 
   _logCheckingForEnv(): void {
-    this.cmd.log('local:')
-    this.cmd.log(`local: Checking for ${this.smartFilename}`)
+    this.cmd.log('local:    ')
+    this.cmd.log(`local:    Checking for ${this.smartFilename}`)
   }
 
   _logMissingEnv(): void {
@@ -184,7 +184,7 @@ class PushService {
   }
 
   _logCheckingForEnvMe(): void {
-    this.cmd.log('local: Checking for .env.me')
+    this.cmd.log('local:    Checking for .env.me')
   }
 
   async _createEnvMe(): Promise<void> {
@@ -192,12 +192,12 @@ class PushService {
   }
 
   async _authEnvMe(): Promise<void> {
-    this.cmd.log('local: Generating .env.me credential')
+    this.cmd.log('local:    Generating .env.me credential')
     this._logProTip()
 
     const email = await CliUx.ux.prompt('What is your email address?', {type: 'mask'})
 
-    this.cmd.log('remote: Securely sending a code')
+    this.cmd.log('remote:   Securely sending a code')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -213,7 +213,7 @@ class PushService {
     // submit email for identification
     try {
       await axios(options)
-      this.cmd.log('remote: Sent. Check your email.')
+      this.cmd.log('remote:   Sent. Check your email.')
       this._createEnvMe()
       this._promptForShortCode()
     } catch (error) {
@@ -224,7 +224,7 @@ class PushService {
   async _promptForShortCode(): Promise<void> {
     const shortCode = await CliUx.ux.prompt('What is the code?')
 
-    this.cmd.log('remote: Verifying')
+    this.cmd.log('remote:   Verifying')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -239,7 +239,7 @@ class PushService {
 
     try {
       await axios(options)
-      this.cmd.log('remote: Verified successfully')
+      this.cmd.log('remote:   Verified successfully')
       this._push()
     } catch (error) {
       this._logError(error)
@@ -247,14 +247,14 @@ class PushService {
   }
 
   async _push(): Promise<void> {
-    this.cmd.log('remote:')
+    this.cmd.log('remote:   ')
     if (this.smartEnvironment) {
-      this.cmd.log(`remote: Securely pushing ${this.smartFilename} to ${this.smartEnvironment}`)
+      this.cmd.log(`remote:   Securely pushing ${this.smartFilename} to ${this.smartEnvironment}`)
     } else {
-      this.cmd.log(`remote: Securely pushing ${this.smartFilename}`)
+      this.cmd.log(`remote:   Securely pushing ${this.smartFilename}`)
     }
 
-    this.cmd.log('remote:')
+    this.cmd.log('remote:   ')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -302,9 +302,9 @@ class PushService {
   }
 
   _logProTip(): void {
-    this.cmd.log('local:')
-    this.cmd.log('local: 💡ProTip! The .env.me file securely identifies your machine against this project in Dotenv Vault')
-    this.cmd.log('local:')
+    this.cmd.log('local:    ')
+    this.cmd.log('local:    💡ProTip! The .env.me file securely identifies your machine against this project in Dotenv Vault')
+    this.cmd.log('local:    ')
   }
 }
 

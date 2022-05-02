@@ -39,7 +39,7 @@ class NewService {
     new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
 
-    this.cmd.log('local:')
+    this.cmd.log('local:    ')
 
     if (this.existingEnv) {
       this._logExistingEnv()
@@ -70,21 +70,21 @@ class NewService {
   }
 
   _logExistingEnv(): void {
-    this.cmd.log('local: Existing .env')
+    this.cmd.log('local:    Existing .env')
   }
 
   _logCreatingEnv(): void {
-    this.cmd.log('local: Creating .env')
+    this.cmd.log('local:    Creating .env')
   }
 
   _logExistingEnvProject(): void {
-    this.cmd.log('local: Existing .env.project')
-    this.cmd.log('local:')
+    this.cmd.log('local:    Existing .env.project')
+    this.cmd.log('local:    ')
   }
 
   _logCreatingEnvProject(): void {
-    this.cmd.log('local: Creating .env.project')
-    this.cmd.log('local:')
+    this.cmd.log('local:    Creating .env.project')
+    this.cmd.log('local:    ')
   }
 
   _writeEnv(): void {
@@ -102,9 +102,9 @@ class NewService {
   }
 
   _logProTip(): void {
-    this.cmd.log('local:')
-    this.cmd.log('local: 💡ProTip! The .env.project file securely identifies your project at Dotenv Vault')
-    this.cmd.log('local:')
+    this.cmd.log('local:    ')
+    this.cmd.log('local:    💡ProTip! The .env.project file securely identifies your project at Dotenv Vault')
+    this.cmd.log('local:    ')
   }
 
   _logCompleted(): void {
