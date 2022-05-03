@@ -3,6 +3,7 @@ import {existsSync, writeFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
+import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
 
 interface NewServiceAttrs {
   cmd;
@@ -38,6 +39,7 @@ class NewService {
   async run(): Promise<void> {
     new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
+    new AppendToNpmignoreService().run()
 
     this.cmd.log('local:    ')
 

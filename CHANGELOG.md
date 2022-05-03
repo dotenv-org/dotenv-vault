@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.4.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.5.0...master)
+
+## 0.5.0
+
+### Added
+
+Append to npmignore file if it exists 🔒 ([#29](https://github.com/dotenv-org/dotenv-vault/pull/29))
 
 ## 0.4.2
 

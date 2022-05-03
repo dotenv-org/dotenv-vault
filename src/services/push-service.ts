@@ -6,6 +6,7 @@ import {existsSync, writeFileSync, readFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
+import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
 
 interface PushServiceAttrs {
   cmd;
@@ -112,6 +113,7 @@ class PushService {
   async run(): Promise<void> {
     new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
+    new AppendToNpmignoreService().run()
 
     this._logCheckingForEnv()
     if (!this.existingEnv) {
