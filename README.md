@@ -71,8 +71,10 @@ Dotenv Vault works with the following integration partners and more.
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker", width="30" />
-        Docker
+        <a href="https://www.dotenv.org/integrations/docker">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker", width="30" />
+          Docker
+        </a>
       </td>
       <td align="left" valign="middle">
         <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/digitalocean.png" alt="dotenv-vault + Digital Ocean", width="30" />
