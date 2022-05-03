@@ -35,9 +35,7 @@ class NewService {
   }
 
   async run(): Promise<void> {
-    new AppendToIgnoreService(".dockerignore").run()
-    new AppendToIgnoreService(".gitignore").run()
-    new AppendToIgnoreService(".npmignore").run()
+    AppendToIgnoreService.run([".dockerignore", ".gitignore", ".npmignore"])
 
     this.cmd.log('local:    ')
 

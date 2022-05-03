@@ -3,6 +3,12 @@ import {existsSync, writeFileSync, readFileSync, appendFileSync} from 'node:fs'
 class AppendToIgnoreService {
   file: string;
 
+  public static run (entries: string | string[]) {
+    const files = Array.isArray(entries) ? entries : [entries]
+
+    return Promise.all(files.map(file => new AppendToIgnoreService(file).run()))
+  }
+
   public constructor (file: string) {
       this.file = file
   }
