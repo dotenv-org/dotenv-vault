@@ -4,13 +4,13 @@ class AppendToGitignoreService {
   get gitignore(): string {
     return '.gitignore'
   }
-
-  get envFormat(): string {
-    return '.env*' // asterisk
-  }
-
-  get envProjectFormat(): string {
-    return '!.env.project'
+  
+  get formats(): string[] {
+     return [
+       '.env',
+       '.env*',
+       '!.env.project',
+     ]
   }
 
   missing(): boolean {
@@ -30,8 +30,7 @@ class AppendToGitignoreService {
   }
 
   async run(): Promise<void> {
-    let envExists = false
-    let envProjectExists = false
+    const formatsAvailable = this.formats.map(() => false)
 
     // 1. create .gitignore if doesn't exist
     if (this.missing()) {
@@ -44,24 +43,15 @@ class AppendToGitignoreService {
     // 3. for each line check if ignore already exists
     for (const line of lines) {
       const trimLine = line.trim()
+      const index = this.formats.indexOf("hi")
 
-      if (trimLine === this.envFormat) {
-        envExists = true
-      }
-
-      if (trimLine === this.envProjectFormat) {
-        envProjectExists = true
-      }
+      if (index !== -1) formatsAvailable[index] = true
     }
 
     // 4. add ignore if it does not already exist
-    if (envExists === false) {
-      this.append('\n' + this.envFormat)
-    }
-
-    if (envProjectExists === false) {
-      this.append('\n' + this.envProjectFormat)
-    }
+    formatsAvailable.forEach((available, index) => {
+      if (available === false) this.append(`\n${this.formats[index]}`)
+    })
   }
 }
 
