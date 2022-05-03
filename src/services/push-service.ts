@@ -4,9 +4,7 @@ import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
 import {existsSync, writeFileSync, readFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
-import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
-import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
-import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
+import { AppendToIgnoreService } from '../append-to-ignore-service'
 
 interface PushServiceAttrs {
   cmd;
@@ -111,9 +109,9 @@ class PushService {
   }
 
   async run(): Promise<void> {
-    new AppendToDockerignoreService().run()
-    new AppendToGitignoreService().run()
-    new AppendToNpmignoreService().run()
+    new AppendToIgnoreService(".dockerignore").run()
+    new AppendToIgnoreService(".gitignore").run()
+    new AppendToIgnoreService(".npmignore").run()
 
     this._logCheckingForEnv()
     if (!this.existingEnv) {

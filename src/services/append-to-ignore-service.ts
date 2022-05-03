@@ -1,43 +1,44 @@
 import {existsSync, writeFileSync, readFileSync, appendFileSync} from 'node:fs'
 
-class AppendToGitignoreService {
-  get gitignore(): string {
-    return '.gitignore'
+class AppendToIgnoreService {
+  file: string;
+
+  public constructor (file: string) {
+      this.file = file
   }
   
   get formats(): string[] {
      return [
-       '.env',
        '.env*',
        '!.env.project',
      ]
   }
 
   missing(): boolean {
-    return !existsSync(this.gitignore)
+    return !existsSync(this.file)
   }
 
   append(str: string): void {
-    appendFileSync(this.gitignore, str)
+    appendFileSync(this.file, str)
   }
 
   touch(): void {
-    writeFileSync(this.gitignore, '')
+    writeFileSync(this.file, '')
   }
 
   read(): string {
-    return readFileSync(this.gitignore, 'utf8')
+    return readFileSync(this.file, 'utf8')
   }
 
   async run(): Promise<void> {
     const formatsAvailable = this.formats.map(() => false)
 
-    // 1. create .gitignore if doesn't exist
+    // 1. create .*ignore if doesn't exist
     if (this.missing()) {
       this.touch()
     }
 
-    // 2. iterate over gitignore lines
+    // 2. iterate over .*ignore lines
     const lines = this.read().split(/\r?\n/)
 
     // 3. for each line check if ignore already exists
@@ -55,4 +56,4 @@ class AppendToGitignoreService {
   }
 }
 
-export {AppendToGitignoreService}
+export {AppendToIgnoreService}
