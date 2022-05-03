@@ -235,7 +235,7 @@ $ dotenv-vault pull staging
 
 ##### [FILENAME]
 
-Set output filename. Defaults to .env for development and .env.{environment} for other environments
+Set output filename. Defaults to .env for development and .env.{environment} for other environments. Exception: When using <code>DOTENV_IT</code> tokens it defaults to `.env` for all environments.
 
 Example:
 
