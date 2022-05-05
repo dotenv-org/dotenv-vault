@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.5.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.5.1...master)
+
+## 0.5.1
+
+### Removed
+
+Remove deprecated crypto dependency 🧹 ([#31](https://github.com/dotenv-org/dotenv-vault/pull/31))
 
 ## 0.5.0
 
