@@ -20,7 +20,6 @@
     "@oclif/plugin-help": "^5.1.12",
     "@oclif/plugin-warn-if-update-available": "^2.0.4",
     "axios": "^0.27.2",
-    "crypto": "^1.0.1",
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
