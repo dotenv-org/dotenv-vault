@@ -6,7 +6,7 @@ From the same people that pioneered [dotenv](https://github.com/motdotla/dotenv)
 
 Dotenv Vault securely syncs secrets and app configuration across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email.
 
-Learn more at [dotenv.org](https://dotenv.org).
+Learn more at [dotenv.org](https://dotenv.org?r=1).
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
@@ -25,13 +25,13 @@ Dotenv Vault works with the following integration partners and more.
         GitHub
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/heroku">
+        <a href="https://www.dotenv.org/integrations/heroku?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/heroku.png" alt="dotenv-vault + Heroku", width="30" />
           Heroku
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/slack">
+        <a href="https://www.dotenv.org/integrations/slack?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="30" />
           Slack
         </a>
@@ -39,13 +39,13 @@ Dotenv Vault works with the following integration partners and more.
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/vercel">
+        <a href="https://www.dotenv.org/integrations/vercel?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/vercel.png" alt="dotenv-vault + Vercel", width="30" />
           Vercel
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/netlify">
+        <a href="https://www.dotenv.org/integrations/netlify?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" />
           Netlify
         </a>
@@ -71,7 +71,7 @@ Dotenv Vault works with the following integration partners and more.
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/docker">
+        <a href="https://www.dotenv.org/integrations/docker?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker", width="30" />
           Docker
         </a>
@@ -122,13 +122,13 @@ $ npx dotenv-vault pull
 
 That's it!
 
-Read our [security statement](https://www.dotenv.org/security).
+Read our [security statement](https://www.dotenv.org/security?r=1).
 
 💡 **ProTip!** Append @latest to dotenv-vault to always run the latest version. For example: `npx dotenv-vault@latest push`. (otherwise, npx caches the first version it encounters on your machine)
 
 ## How It Works
 
-Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](https://dotenv.org/vault#how-it-works)
+Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](https://dotenv.org/vault?r=1#how-it-works)
 
 * **Step 1** You run <code>npx dotenv-vault push</code>. The request is started.
 * **Step 2** The .env file is encrypted and sent securely over SSL to Dotenv's in-memory servers.
@@ -151,7 +151,7 @@ Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](
 * **Step 9** Lastly, the encrypted <code>KEY</code> and token (representing the encrypted <code>VALUE</code>) are placed in an envelope and stored together in the application database.
 * **Step 10** success message is returned to the user.
 
-[Learn more](https://dotenv.org/vault#how-it-works)
+[Learn more](https://dotenv.org/vault?r=1#how-it-works)
 
 ## Commands
 
