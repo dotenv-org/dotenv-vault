@@ -1,4 +1,4 @@
-From the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
+Works alongside [dotenv libraries](https://dotenv.org/libraries?r=1) - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
 
 # dotenv-vault
 
