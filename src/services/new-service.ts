@@ -7,13 +7,16 @@ import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
 
 interface NewServiceAttrs {
   cmd;
+  dotenvProject;
 }
 
 class NewService {
   public cmd;
+  public dotenvProject;
 
   constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
     this.cmd = attrs.cmd
+    this.dotenvProject = attrs.dotenvProject
   }
 
   get url(): string {
@@ -57,17 +60,24 @@ class NewService {
       this._writeEnvProject()
     }
 
-    const answer = await CliUx.ux.confirm(`Open webpage at ${this.url}? Type yes (y) or no (n)`)
-
-    if (answer) {
-      CliUx.ux.open(this.urlWithProjectName)
-      this._logProTip()
-
-      const dotenvProject = await CliUx.ux.prompt('What is your .env.project identifier?', {type: 'mask'})
-      writeFileSync('.env.project', `DOTENV_PROJECT=${dotenvProject}`)
+    if (this.dotenvProject) {
+      this._logWritingEnvProject()
+      writeFileSync('.env.project', `DOTENV_PROJECT=${this.dotenvProject}`)
       this._logCompleted()
     } else {
-      this._logAborted()
+      const answer = await CliUx.ux.confirm(`local:    Open webpage at ${this.url}? Type yes (y) or no (n)`)
+
+      if (answer) {
+        CliUx.ux.open(this.urlWithProjectName)
+        this._logProTip()
+
+        const dotenvProject = await CliUx.ux.prompt('local:    What is your .env.project identifier?', {type: 'mask'})
+        this._logWritingEnvProject()
+        writeFileSync('.env.project', `DOTENV_PROJECT=${dotenvProject}`)
+        this._logCompleted()
+      } else {
+        this._logAborted()
+      }
     }
   }
 
@@ -79,14 +89,17 @@ class NewService {
     this.cmd.log('local:    Creating .env')
   }
 
+  _logWritingEnvProject(): void {
+    this.cmd.log('local:    Writing to .env.project')
+    this.cmd.log('local:    ')
+  }
+
   _logExistingEnvProject(): void {
     this.cmd.log('local:    Existing .env.project')
-    this.cmd.log('local:    ')
   }
 
   _logCreatingEnvProject(): void {
     this.cmd.log('local:    Creating .env.project')
-    this.cmd.log('local:    ')
   }
 
   _writeEnv(): void {

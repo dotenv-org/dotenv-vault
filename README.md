@@ -155,7 +155,7 @@ Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](
 
 ## Commands
 
-### `dotenv-vault new [DOTENV_PROJECT]`
+### `dotenv-vault new [dotenvProject]`
 
 Create your project at Dotenv Vault.
 
@@ -167,18 +167,18 @@ $ dotenv-vault new
 
 #### Arguments
 
-##### [DOTENV_PROJECT]
+##### [dotenvProject]
 
-Set DOTENV_PROJECT in your .env.project. Defaults to prompting you to set it.
+Set .env.project identifier. Defaults to user prompt.
 
 Example:
 
 ```bash
 $ dotenv-vault new prj_a5ue8…
-# sets up a new project with the DOTENV_PROJECT (.env.project) value set to prj_a5ue8…
+# set project identifier to prj_a5ue8…
 ```
 
-### `dotenv-vault push [FILENAME] [ENVIRONMENT]`
+### `dotenv-vault push [filename] [environment]`
 
 Push your `.env` file securely to Dotenv Vault
 
@@ -191,7 +191,7 @@ $ dotenv-vault push
 
 #### Arguments
 
-##### [FILENAME]
+##### [filename]
 
 Set input filename. Defaults to .env.
 
@@ -202,7 +202,7 @@ $ dotenv-vault push .env.development
 # pushes .env.development to remote development environment
 ```
 
-##### [ENVIRONMENT]
+##### [environment]
 
 Example:
 
@@ -224,7 +224,7 @@ $ dotenv-vault push .env.development --dotenvMe=me_1234
 # pushes local .env.development to remote development
 ```
 
-### `dotenv-vault pull [ENVIRONMENT] [FILENAME]`
+### `dotenv-vault pull [environment] [filename]`
 
 Pulls your development|staging|ci|production environment(s) to your machine.
 
@@ -237,7 +237,7 @@ $ dotenv-vault pull
 
 #### Arguments
 
-##### [ENVIRONMENT]
+##### [environment]
 
 Pull .env.ci, .env.staging, and .env.production
 
@@ -248,7 +248,7 @@ $ dotenv-vault pull staging
 # pulls remote staging envs to .env.staging
 ```
 
-##### [FILENAME]
+##### [filename]
 
 Set output filename. Defaults to .env for development and .env.{environment} for other environments. Exception: When using <code>DOTENV_IT</code> tokens it defaults to `.env` for all environments.
 
@@ -275,13 +275,13 @@ $ dotenv-vault pull production .env --dotenvMe=me_1234
 # pulls remote production envs to .env
 ```
 
-### `dotenv-vault help [COMMAND]`
+### `dotenv-vault help [command]`
 
 Display help for dotenv-vault commands.
 
 ```
 USAGE
-  $ dotenv-vault help [COMMAND]
+  $ dotenv-vault help [command]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -295,8 +295,6 @@ Example:
 ```
 $ dotenv-vault help push
 ```
-
-
 
 ## Development
 
