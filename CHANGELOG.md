@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.5.1...master)
 
+## 0.6.0
+
+### Added
+
+Optionally pass .env.project identifier to `new` command (bypassing user prompt) 🎉 ([#36](https://github.com/dotenv-org/dotenv-vault/pull/36))
+
 ## 0.5.1
 
 ### Removed
