@@ -198,8 +198,8 @@ Set input filename. Defaults to .env.
 Example:
 
 ```bash
-$ dotenv-vault push .env.development
-# pushes .env.development to remote development environment
+$ dotenv-vault push .env.ci
+# pushes .env.staging to remote ci environment
 ```
 
 ##### [environment]
@@ -207,8 +207,8 @@ $ dotenv-vault push .env.development
 Example:
 
 ```bash
-$ dotenv-vault push .env.production production
-# pushes local .env.production to remote production environment
+$ dotenv-vault push .env.ci staging
+# pushes local .env.ci to remote staging environment
 ```
 
 #### Options

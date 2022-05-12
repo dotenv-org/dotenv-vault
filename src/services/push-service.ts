@@ -91,7 +91,21 @@ class PushService {
       return this.environment
     }
 
+    // if user has an extension on their .env file (example: .env.dev) then infer environment from that extension
+    if (this.extensionEnvironment) {
+      return this.extensionEnvironment
+    }
+
     return '' // otherwise, do not pass environment. dotenv-vault's api will smartly choose the main environment for the project (in most cases development)
+  }
+
+  get extensionEnvironment(): any {
+    // example: .env.dev
+    if (this.smartFilename.startsWith('.env.')) {
+      return this.smartFilename.slice(5) // index 5 and on returns 'dev'
+    }
+
+    return null
   }
 
   get envProjectConfig(): any {
