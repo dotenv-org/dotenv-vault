@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.5.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.7.0...master)
+
+## 0.7.0
+
+### Added
+
+On push automatically infer environment from filename 🎉 ([#37](https://github.com/dotenv-org/dotenv-vault/pull/37))
 
 ## 0.6.0
 
