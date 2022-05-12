@@ -196,7 +196,7 @@ class PushService {
   _logMissingEnv(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log(`You must have a ${this.smartFilename} file. Maybe you meant to run npx doten-vault pull`)
+    this.cmd.log(`You must have a ${this.smartFilename} file. Maybe you meant to run npx dotenv-vault pull`)
   }
 
   _logCheckingForEnvMe(): void {
@@ -300,7 +300,7 @@ class PushService {
   _logEmptyEnvMe(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx doten-vault push')
+    this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx dotenv-vault push')
   }
 
   _logError(error: Record<string, unknown> | Error | any): void {

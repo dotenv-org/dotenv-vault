@@ -119,13 +119,13 @@ class PullService {
   _logMissingEnvProject(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have a .env.project identifier first. Try running npx doten-vault new')
+    this.cmd.log('You must have a .env.project identifier first. Try running npx dotenv-vault new')
   }
 
   _logEmptyEnvProject(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have DOTENV_PROJECT set to some value in your .env.project file. Try deleting your .env.project file and running npx doten-vault new')
+    this.cmd.log('You must have DOTENV_PROJECT set to some value in your .env.project file. Try deleting your .env.project file and running npx dotenv-vault new')
   }
 
   _logCheckingForEnvMe(): void {
@@ -243,7 +243,7 @@ class PullService {
   _logEmptyEnvMe(): void {
     this.cmd.log('Aborted.')
     this.cmd.log('')
-    this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx doten-vault pull?')
+    this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx dotenv-vault pull?')
   }
 
   _logError(error: Record<string, unknown> | Error | any): void {
