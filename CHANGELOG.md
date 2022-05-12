@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.7.0...master)
 
+- 1.0.0 is currently unreleased
+
+## 1.0.0
+
+### Changed
+
+- _Breaking:_ Consistent ordering of arguments. push/pull [environment] [filename] 🎉 ([#38](https://github.com/dotenv-org/dotenv-vault/pull/38))
+
 ## 0.7.0
 
 ### Added
