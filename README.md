@@ -155,7 +155,7 @@ Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](
 
 ## Commands
 
-### `dotenv-vault new`
+### `dotenv-vault new [DOTENV_PROJECT]`
 
 Create your project at Dotenv Vault.
 
@@ -163,6 +163,19 @@ Example:
 
 ```bash
 $ dotenv-vault new
+```
+
+#### Arguments
+
+##### [DOTENV_PROJECT]
+
+Set DOTENV_PROJECT in your .env.project. Defaults to prompting you to set it.
+
+Example:
+
+```bash
+$ dotenv-vault new prj_a5ue8…
+# sets up a new project with the DOTENV_PROJECT (.env.project) value set to prj_a5ue8…
 ```
 
 ### `dotenv-vault push [FILENAME] [ENVIRONMENT]`
