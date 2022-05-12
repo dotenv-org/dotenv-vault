@@ -178,7 +178,7 @@ $ dotenv-vault new prj_a5ue8…
 # set project identifier to prj_a5ue8…
 ```
 
-### `dotenv-vault push [filename] [environment]`
+### `dotenv-vault push [environment] [filename]`
 
 Push your `.env` file securely to Dotenv Vault
 
@@ -191,6 +191,15 @@ $ dotenv-vault push
 
 #### Arguments
 
+##### [environment]
+
+Example:
+
+```bash
+$ dotenv-vault push staging
+# pushes local .env.staging to remote staging environment
+```
+
 ##### [filename]
 
 Set input filename. Defaults to .env.
@@ -198,17 +207,8 @@ Set input filename. Defaults to .env.
 Example:
 
 ```bash
-$ dotenv-vault push .env.ci
-# pushes .env.staging to remote ci environment
-```
-
-##### [environment]
-
-Example:
-
-```bash
-$ dotenv-vault push .env.ci staging
-# pushes local .env.ci to remote staging environment
+$ dotenv-vault push staging .env.stag
+# pushes .env.stag to remote staging environment
 ```
 
 #### Options
@@ -220,8 +220,8 @@ Directly pass your `DOTENV_ME` value to the command line, instead of reading fro
 Examples:
 
 ```bash
-$ dotenv-vault push .env.development --dotenvMe=me_1234
-# pushes local .env.development to remote development
+$ dotenv-vault push development --dotenvMe=me_1234
+# pushes local .env to remote development
 ```
 
 ### `dotenv-vault pull [environment] [filename]`

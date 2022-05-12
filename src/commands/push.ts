@@ -11,15 +11,15 @@ export default class Push extends Command {
 
   static args = [
     {
-      name: 'filename',
-      required: false,
-      description: 'Set input filename. Defaults to .env',
-      hidden: false,
-    },
-    {
       name: 'environment',
       required: false,
       description: 'Set environment to push to. Defaults to development',
+      hidden: false,
+    },
+    {
+      name: 'filename',
+      required: false,
+      description: 'Set input filename. Defaults to .env',
       hidden: false,
     },
   ]
@@ -37,10 +37,10 @@ export default class Push extends Command {
 
   public async run(): Promise<void> {
     const {args, flags} = await this.parse(Push)
-    const filename = args.filename
     const environment = args.environment
+    const filename = args.filename
     const dotenvMe = flags.dotenvMe
 
-    new PushService({cmd: this, filename: filename, environment: environment, dotenvMe: dotenvMe}).run()
+    new PushService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe}).run()
   }
 }

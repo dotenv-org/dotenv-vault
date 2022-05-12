@@ -211,9 +211,9 @@ class PullService {
       const envName = resp.data.data.envName
       const newData = resp.data.data.dotenv
 
-      const outputFilename = this._smartFilename(envName)
+      const outputFilename = this._displayFilename(envName)
 
-      this.cmd.log(`remote:   Securely pulling ${environment} to ${outputFilename}`)
+      this.cmd.log(`remote:   Securely pulling ${environment} (${outputFilename})`)
       this.cmd.log('remote:   ')
 
       writeFileSync(outputFilename, newData)
@@ -223,7 +223,7 @@ class PullService {
     }
   }
 
-  _smartFilename(envName: string): string {
+  _displayFilename(envName: string): string {
     // if user has set a filename for output then use that else use envName
     if (this.filename) {
       return this.filename
