@@ -2,9 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v0.7.0...master)
-
-- 1.0.0 is currently unreleased
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.0.0...master)
 
 ## 1.0.0
 
