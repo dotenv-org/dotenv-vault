@@ -17,15 +17,15 @@ interface PushServiceAttrs {
 
 class PushService {
   public cmd;
-  public filename;
   public environment;
+  public filename;
   public dotenvMe;
   public generatedMeUid;
 
   constructor(attrs: PushServiceAttrs = {} as PushServiceAttrs) {
     this.cmd = attrs.cmd
-    this.filename = attrs.filename
     this.environment = attrs.environment
+    this.filename = attrs.filename
     this.dotenvMe = attrs.dotenvMe
 
     const rand = crypto.randomBytes(32).toString('hex')
@@ -76,36 +76,31 @@ class PushService {
     return existsSync('.env.me')
   }
 
+  get smartEnvironment(): any {
+    // 1. if user has set an environment for input then use that
+    if (this.environment) {
+      return this.environment
+    }
+
+    return null // otherwise, do not pass environment. dotenv-vault's api will smartly choose the main environment for the project (in most cases development)
+  }
+
   get smartFilename(): string {
     // if user has set a filename for input then use that
     if (this.filename) {
       return this.filename
     }
 
+    if (this.smartEnvironment) {
+      // in case of development being passed return .env. 99% of the time development is associated with the .env file
+      if (this.smartEnvironment === 'development') {
+        return '.env'
+      }
+
+      return `.env.${this.smartEnvironment}`
+    }
+
     return '.env'
-  }
-
-  get smartEnvironment(): string {
-    // if user has set an environment for input then use that
-    if (this.environment) {
-      return this.environment
-    }
-
-    // if user has an extension on their .env file (example: .env.dev) then infer environment from that extension
-    if (this.extensionEnvironment) {
-      return this.extensionEnvironment
-    }
-
-    return '' // otherwise, do not pass environment. dotenv-vault's api will smartly choose the main environment for the project (in most cases development)
-  }
-
-  get extensionEnvironment(): any {
-    // example: .env.dev
-    if (this.smartFilename.startsWith('.env.')) {
-      return this.smartFilename.slice(5) // index 5 and on returns 'dev'
-    }
-
-    return null
   }
 
   get envProjectConfig(): any {
@@ -264,13 +259,6 @@ class PushService {
 
   async _push(): Promise<void> {
     this.cmd.log('remote:   ')
-    if (this.smartEnvironment) {
-      this.cmd.log(`remote:   Securely pushing ${this.smartFilename} to ${this.smartEnvironment}`)
-    } else {
-      this.cmd.log(`remote:   Securely pushing ${this.smartFilename}`)
-    }
-
-    this.cmd.log('remote:   ')
 
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -285,11 +273,28 @@ class PushService {
     }
 
     try {
-      await axios(options)
+      const resp: AxiosRequestConfig = await axios(options)
+      const environment = resp.data.data.environment
+      const envName = resp.data.data.envName
+
+      const outputFilename = this._displayFilename(envName)
+
+      this.cmd.log(`remote:   Securely pushing ${environment} (${outputFilename})`)
+      this.cmd.log('remote:   ')
+
       this._logCompleted()
     } catch (error) {
       this._logError(error)
     }
+  }
+
+  _displayFilename(envName: string): string {
+    // if user has set a filename for output then use that else use envName
+    if (this.filename) {
+      return this.filename
+    }
+
+    return envName
   }
 
   _logCompleted(): void {
