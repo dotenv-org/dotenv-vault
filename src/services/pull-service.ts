@@ -80,6 +80,10 @@ class PullService {
     return this.dotenvMe || this.envMeConfig.DOTENV_ME
   }
 
+  get pullingExample(): boolean {
+    return this.environment == 'example'
+  }
+
   async run(): Promise<void> {
     new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
@@ -96,18 +100,22 @@ class PullService {
       return
     }
 
-    this._logCheckingForEnvMe()
-    if (this.existingEnvMe) {
-      // edge case
-      if (this.emptyEnvMe) {
-        this._logEmptyEnvMe()
-      } else {
-        // pull
-        await this._pull()
-      }
+    if (this.pullingExample) {
+      await this._pull()
     } else {
-      // first time auth process
-      await this._authEnvMe()
+      this._logCheckingForEnvMe()
+      if (this.existingEnvMe) {
+        // edge case
+        if (this.emptyEnvMe) {
+          this._logEmptyEnvMe()
+        } else {
+          // pull
+          await this._pull()
+        }
+      } else {
+        // first time auth process
+        await this._authEnvMe()
+      }
     }
   }
 
@@ -137,7 +145,7 @@ class PullService {
   }
 
   async _authEnvMe(): Promise<void> {
-    this.cmd.log('local:    Generating .env.me credential')
+    this.cmd.log('local:    Authorizing access (.env.me credential)')
     this._logProTip()
 
     const email = await CliUx.ux.prompt('What is your email address?', {type: 'mask'})

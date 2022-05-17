@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.0.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.1.0...master)
+
+## 1.1.0
+
+### Added
+
+- Support pulling .env.example file - configurable in project settings `npx dotenv-vault@latest pull example` 🎉 ([#40](https://github.com/dotenv-org/dotenv-vault/pull/40))
 
 ## 1.0.0
 
