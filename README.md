@@ -296,11 +296,28 @@ Example:
 $ dotenv-vault help push
 ```
 
-## Development
+## Contributing Guide
+
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Development Guide
+
+Fork and clone the repo. Use `./bin/dev` to run local development commands.
+
+```
+./bin/dev new
+./bin/dev push
+./bin/dev pull
+# etc
+```
+
+If you need to send the request to a different vault url, modify your command(s) to the following.
 
 ```
 NODE_TLS_REJECT_UNAUTHORIZED=0 DOTENV_API_URL=https://vault.dotenv.development ./bin/dev
 ```
+
+Note that dotenv-vault uses [oclif](https://oclif.io/).
 
 ### Testing
 
@@ -317,9 +334,7 @@ npm version patch
 npm publish
 ```
 
-## Contributing Guide
 
-See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## CHANGELOG
 
