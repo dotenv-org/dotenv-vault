@@ -72,7 +72,15 @@
   },
   "bugs": "https://github.com/dotenv-org/dotenv-vault/issues",
   "keywords": [
-    "oclif"
+    "oclif",
+    "dotenv",
+    "dotenv-vault",
+    "env",
+    ".env",
+    "environment",
+    "variables",
+    "config",
+    "settings"
   ],
   "types": "dist/index.d.ts"
 }
