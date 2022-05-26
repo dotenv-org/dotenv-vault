@@ -1,12 +1,11 @@
-Works with any [dotenv library](https://dotenv.org/libraries?r=1) - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
+[![dotenv](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
 
-# dotenv-vault
+# dotenv-vault 🔐💛
 
 <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/dotenv-vault.png" alt="dotenv-vault" align="right" />
 
-Dotenv Vault securely syncs secrets and app configuration across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email.
+Dotenv Vault securely syncs secrets and app configuration across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
 
-Learn more at [dotenv.org](https://dotenv.org?r=1).
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
@@ -15,7 +14,7 @@ Learn more at [dotenv.org](https://dotenv.org?r=1).
 
 ## Works With
 
-Dotenv Vault works with the following integration partners and more.
+Works with any [dotenv library](https://dotenv.org/libraries?r=1) and integrates into most infrastructure (and growing).
 
 <table>
   <tbody>
