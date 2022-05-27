@@ -1,4 +1,4 @@
-[![dotenv](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
+[![using dotenv](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
 
 # dotenv-vault 🔐💛
 
