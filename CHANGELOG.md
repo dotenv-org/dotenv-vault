@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.1.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.2.0...master)
+
+## 1.2.0
+
+### Added
+
+- Update git, npm, and docker ignore process to support .env.vault files ([#41](https://github.com/dotenv-org/dotenv-vault/pull/41))
 
 ## 1.1.0
 
