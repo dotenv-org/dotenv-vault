@@ -13,6 +13,10 @@ class AppendToGitignoreService {
     return '!.env.project'
   }
 
+  get envVaultFormat(): string {
+    return '!.env.vault'
+  }
+
   missing(): boolean {
     return !existsSync(this.gitignore)
   }
@@ -32,6 +36,7 @@ class AppendToGitignoreService {
   async run(): Promise<void> {
     let envExists = false
     let envProjectExists = false
+    let envVaultExists = false
 
     // 1. create .gitignore if doesn't exist
     if (this.missing()) {
@@ -52,6 +57,10 @@ class AppendToGitignoreService {
       if (trimLine === this.envProjectFormat) {
         envProjectExists = true
       }
+
+      if (trimLine === this.envVaultFormat) {
+        envVaultExists = true
+      }
     }
 
     // 4. add ignore if it does not already exist
@@ -61,6 +70,10 @@ class AppendToGitignoreService {
 
     if (envProjectExists === false) {
       this.append('\n' + this.envProjectFormat)
+    }
+
+    if (envVaultExists === false) {
+      this.append('\n' + this.envVaultFormat)
     }
   }
 }
