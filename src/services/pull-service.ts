@@ -81,7 +81,7 @@ class PullService {
   }
 
   get pullingExample(): boolean {
-    return this.environment == 'example'
+    return this.environment === 'example'
   }
 
   async run(): Promise<void> {
