@@ -333,7 +333,11 @@ npm version patch
 npm publish
 ```
 
+Other notes.
 
+```
+npx oclif@3.0.1 pack tarballs
+```
 
 ## CHANGELOG
 
