@@ -13,6 +13,10 @@ class AppendToDockerignoreService {
     return '!.env.project'
   }
 
+  get envVaultFormat(): string {
+    return '!.env.vault'
+  }
+
   missing(): boolean {
     return !existsSync(this.dockerignore)
   }
@@ -32,6 +36,7 @@ class AppendToDockerignoreService {
   async run(): Promise<void> {
     let envExists = false
     let envProjectExists = false
+    let envVaultExists = false
 
     if (this.missing()) {
       // ignore. must not be a docker project
@@ -50,6 +55,10 @@ class AppendToDockerignoreService {
         if (trimLine === this.envProjectFormat) {
           envProjectExists = true
         }
+
+        if (trimLine === this.envVaultFormat) {
+          envVaultExists = true
+        }
       }
 
       // 4. add ignore if it does not already exist
@@ -59,6 +68,10 @@ class AppendToDockerignoreService {
 
       if (envProjectExists === false) {
         this.append('\n' + this.envProjectFormat)
+      }
+
+      if (envVaultExists === false) {
+        this.append('\n' + this.envVaultFormat)
       }
     }
   }
