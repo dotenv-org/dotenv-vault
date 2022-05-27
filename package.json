@@ -17,13 +17,13 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
+    "@oclif/core": "^1",
     "@oclif/plugin-help": "^5.1.12",
     "@oclif/plugin-warn-if-update-available": "^2.0.4",
     "axios": "^0.27.2",
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
-    "@oclif/core": "^1.7.0",
     "@oclif/test": "^2",
     "@types/chai": "^4",
     "@types/mocha": "^9.1.1",
@@ -72,7 +72,6 @@
   },
   "bugs": "https://github.com/dotenv-org/dotenv-vault/issues",
   "keywords": [
-    "oclif",
     "dotenv",
     "dotenv-vault",
     "env",
