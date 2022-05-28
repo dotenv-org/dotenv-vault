@@ -337,6 +337,7 @@ Other notes.
 
 ```
 npx oclif@3.0.1 pack tarballs
+npx oclif@3.0.1 upload tarballs
 ```
 
 ## CHANGELOG
