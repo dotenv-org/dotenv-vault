@@ -61,7 +61,16 @@
       "timeoutInDays": 1
     },
     "topicSeparator": " ",
-    "topics": {}
+    "topics": {},
+    "update": {
+      "node": {
+        "version": "14.19.0"
+      },
+      "s3": {
+        "xz": false,
+        "bucket": "dotenv-vault"
+      }
+    }
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
