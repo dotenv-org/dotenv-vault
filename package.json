@@ -17,13 +17,15 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
+    "@oclif/core": "^1",
     "@oclif/plugin-help": "^5.1.12",
+    "@oclif/plugin-not-found": "^2.3.1",
+    "@oclif/plugin-update": "^3.0.0",
     "@oclif/plugin-warn-if-update-available": "^2.0.4",
     "axios": "^0.27.2",
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
-    "@oclif/core": "^1.7.0",
     "@oclif/test": "^2",
     "@types/chai": "^4",
     "@types/mocha": "^9.1.1",
@@ -51,13 +53,24 @@
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
+      "@oclif/plugin-not-found",
+      "@oclif/plugin-update",
       "@oclif/plugin-warn-if-update-available"
     ],
     "warn-if-update-available": {
       "timeoutInDays": 1
     },
     "topicSeparator": " ",
-    "topics": {}
+    "topics": {},
+    "update": {
+      "node": {
+        "version": "14.19.0"
+      },
+      "s3": {
+        "xz": false,
+        "bucket": "dotenv-vault"
+      }
+    }
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
@@ -72,7 +85,6 @@
   },
   "bugs": "https://github.com/dotenv-org/dotenv-vault/issues",
   "keywords": [
-    "oclif",
     "dotenv",
     "dotenv-vault",
     "env",

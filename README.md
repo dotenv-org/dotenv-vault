@@ -324,6 +324,11 @@ Note that dotenv-vault uses [oclif](https://oclif.io/).
 npm test
 ```
 
+### Tarballs
+
+[https://dotenv-vault-assets.dotenv.org/](https://dotenv-vault-assets.dotenv.org/)
+[http://dotenv-vault.s3-website-us-west-1.amazonaws.com/](http://dotenv-vault.s3-website-us-west-1.amazonaws.com/)
+
 ### Publishing
 
 Only for those with permission.
@@ -333,7 +338,14 @@ npm version patch
 npm publish
 ```
 
+Other notes.
 
+```
+npx oclif@3.0.1 pack tarballs
+bash
+env $(cat .env | xargs) npx oclif@3.0.1 upload tarballs
+env $(cat .env | xargs) npx oclif@3.0.1 promote --version VERSION --sha SHA
+```
 
 ## CHANGELOG
 
