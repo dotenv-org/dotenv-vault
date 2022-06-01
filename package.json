@@ -45,7 +45,7 @@
     "spyfs": "^1.0.2",
     "ts-node": "^10.7.0",
     "tslib": "^2.4.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.2"
   },
   "oclif": {
     "bin": "dotenv-vault",
