@@ -329,8 +329,8 @@ npm test
 
 ### Tarballs
 
-[https://dotenv-vault-assets.dotenv.org/](https://dotenv-vault-assets.dotenv.org/)
-[http://dotenv-vault.s3-website-us-west-1.amazonaws.com/](http://dotenv-vault.s3-website-us-west-1.amazonaws.com/)
+* [https://dotenv-vault-assets.dotenv.org/](https://dotenv-vault-assets.dotenv.org/)
+* [http://dotenv-vault.s3-website-us-west-1.amazonaws.com/](http://dotenv-vault.s3-website-us-west-1.amazonaws.com/)
 
 ### Publishing
 
