@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.2.1...master)
 
+## 1.2.2
+
+### Changed
+
+- Turned on `esModuleInterop` in typescript config. 🧹 ([#49](https://github.com/dotenv-org/dotenv-vault/pull/49))
+- Minor dependency updates
+
 ## 1.2.1
 
 ### Changed
