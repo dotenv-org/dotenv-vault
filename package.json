@@ -81,7 +81,7 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\""
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=14.0.0"
   },
   "bugs": "https://github.com/dotenv-org/dotenv-vault/issues",
   "keywords": [
