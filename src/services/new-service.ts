@@ -1,9 +1,12 @@
+import * as dotenv from 'dotenv'
+import chalk from 'chalk'
 import {vars} from '../vars'
 import {existsSync, writeFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
+import {LogService} from '../services/log-service'
 
 interface NewServiceAttrs {
   cmd;
@@ -13,10 +16,29 @@ interface NewServiceAttrs {
 class NewService {
   public cmd;
   public dotenvProject;
+  public log;
 
   constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
     this.cmd = attrs.cmd
     this.dotenvProject = attrs.dotenvProject
+    this.log = new LogService(attrs.cmd)
+  }
+
+  get vaultFilename(): string {
+    // if .env.vault file exists use it. otherwise use .env.project
+    if (existsSync('.env.vault')) {
+      return '.env.vault'
+    }
+
+    return '.env.project'
+  }
+
+  get vaultKey(): string {
+    if (this.vaultFilename === '.env.vault') {
+      return 'DOTENV_VAULT'
+    }
+
+    return 'DOTENV_PROJECT'
   }
 
   get url(): string {
@@ -35,100 +57,114 @@ class NewService {
     return existsSync('.env')
   }
 
-  get existingEnvProject(): boolean {
-    return existsSync('.env.project')
+  get existingEnvVault(): boolean {
+    return existsSync(this.vaultFilename)
   }
 
   async run(): Promise<void> {
+    this.log.local(chalk.dim('⬢ dotenv-vault new'))
+
     new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
     new AppendToNpmignoreService().run()
 
-    this.cmd.log('local:    ')
+    // Step 1
+    this.log.local('')
+    this.log.local(chalk.dim('▼ step 1: check for files'))
 
     if (this.existingEnv) {
-      this._logExistingEnv()
+      this.log.local(`.env ${chalk.dim('(exists)')}`)
     } else {
-      this._logCreatingEnv()
+      this.log.local(`.env ${chalk.green('(created)')}`)
       this._writeEnv()
     }
 
-    if (this.existingEnvProject) {
-      this._logExistingEnvProject()
+    if (this.existingEnvVault) {
+      this.log.local(`${this.vaultFilename} ${chalk.dim('(exists)')}`)
     } else {
-      this._logCreatingEnvProject()
-      this._writeEnvProject()
+      this.log.local(`${this.vaultFilename} ${chalk.green('(created)')}`)
+      this._writeEnvVault()
     }
 
+    // Step 2 B
     if (this.dotenvProject) {
-      this._logWritingEnvProject()
-      writeFileSync('.env.project', `DOTENV_PROJECT=${this.dotenvProject}`)
-      this._logCompleted()
-    } else {
-      const answer = await CliUx.ux.confirm(`local:    Open webpage at ${this.url}? Type yes (y) or no (n)`)
+      // Step 2 A
+      this.log.local('')
+      this.log.local(chalk.dim('▼ step 2: open url'))
+      this.log.local('Skipping')
 
-      if (answer) {
-        CliUx.ux.open(this.urlWithProjectName)
-        this._logProTip()
+      // Step 3
+      this.log.local('')
+      this.log.local(chalk.dim(`▼ step 3: enter ${this.vaultFilename} identifier`))
+      this.log.local('Adding')
 
-        const dotenvProject = await CliUx.ux.prompt('local:    What is your .env.project identifier?', {type: 'mask'})
-        this._logWritingEnvProject()
-        writeFileSync('.env.project', `DOTENV_PROJECT=${dotenvProject}`)
-        this._logCompleted()
-      } else {
-        this._logAborted()
+      if (this.invalidIdentifier(this.dotenvProject)) {
+        this.abortWithInvalidIdentifier()
       }
+
+      this._logWritingEnvVault()
+      writeFileSync(this.vaultFilename, `${this.vaultKey}=${this.dotenvProject}`)
+      this._logCompleted()
+      return
     }
+
+    // Step 2 A
+    this.log.local('')
+    this.log.local(chalk.dim('▼ step 2: open url'))
+    this.log.local(`Open ${chalk.blue.underline(this.urlWithProjectName)} in your browser`)
+
+    // Step 3
+    this.log.local('')
+    this.log.local(chalk.dim(`▼ step 3: enter ${this.vaultFilename} identifier`))
+
+    const dotenvProject = await CliUx.ux.prompt(`${chalk.dim(this.log.pretext)}What is your ${this.vaultFilename} identifier? ${this.vaultKey}=`, {type: 'mask'})
+    if (this.invalidIdentifier(dotenvProject)) {
+      this.abortWithInvalidIdentifier()
+    }
+
+    this._logWritingEnvVault()
+    writeFileSync(this.vaultFilename, `${this.vaultKey}=${dotenvProject}`)
+    this._logCompleted()
   }
 
-  _logExistingEnv(): void {
-    this.cmd.log('local:    Existing .env')
+  abortWithInvalidIdentifier(): void {
+    this.log.plain(`${chalk.red('x')} Aborted.`)
+
+    this.cmd.error(`Invalid ${this.vaultFilename} identifier.`, {
+      code: 'IDENTIFIER_ERR',
+      ref: '',
+      suggestions: [`Generate vault identifiers at ${this.url}`],
+    })
   }
 
-  _logCreatingEnv(): void {
-    this.cmd.log('local:    Creating .env')
+  validIdentifier(identifier: string | any): boolean {
+    return identifier && identifier.length === 68
   }
 
-  _logWritingEnvProject(): void {
-    this.cmd.log('local:    Writing to .env.project')
-    this.cmd.log('local:    ')
+  invalidIdentifier(identifier: string | any): boolean {
+    return !this.validIdentifier(identifier)
   }
 
-  _logExistingEnvProject(): void {
-    this.cmd.log('local:    Existing .env.project')
-  }
-
-  _logCreatingEnvProject(): void {
-    this.cmd.log('local:    Creating .env.project')
+  _logWritingEnvVault(): void {
+    this.log.local(chalk.green(`Added successfully to ${this.vaultFilename}`))
+    this.log.local('')
   }
 
   _writeEnv(): void {
     writeFileSync('.env', 'HELLO=world')
   }
 
-  _writeEnvProject(): void {
-    writeFileSync('.env.project', `DOTENV_PROJECT= # Generate your Dotenv Vault project identifier at ${this.url}`)
-  }
-
-  _logAborted(): void {
-    this.cmd.log('Aborted.')
-    this.cmd.log('')
-    this.cmd.log(`You must visit ${this.url} to create your .env.project identifier. Try again.`)
-  }
-
-  _logProTip(): void {
-    this.cmd.log('local:    ')
-    this.cmd.log('local:    💡ProTip! The .env.project file securely identifies your project at Dotenv Vault')
-    this.cmd.log('local:    ')
+  _writeEnvVault(): void {
+    writeFileSync(this.vaultFilename, `${this.vaultKey}= # Generate vault identifiers at ${this.url}`)
   }
 
   _logCompleted(): void {
-    this.cmd.log('Done.')
+    this.cmd.log(`${chalk.green('✓')} Done.`)
     this.cmd.log('')
-    this.cmd.log('Next, commit your .env.project to git and run npx dotenv-vault push')
+    this.cmd.log(`Next, commit ${this.vaultFilename} to git and run npx dotenv-vault push`)
     this.cmd.log('')
-    this.cmd.log('    $ git add .env.project .gitignore')
-    this.cmd.log("    $ git commit -am 'Add .env.project'")
+    this.cmd.log(`    $ git add ${this.vaultFilename} .gitignore`)
+    this.cmd.log(`    $ git commit -am 'Add ${this.vaultFilename}'`)
     this.cmd.log('    $ npx dotenv-vault push')
   }
 }
