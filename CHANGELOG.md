@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.2.3...master)
 
+- Added terminal colors 🎨
+- Protect developer from accidently overwriting .env.project file
+
 ## 1.2.3
 
 ### Changed
