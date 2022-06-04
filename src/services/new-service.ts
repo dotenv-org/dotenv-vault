@@ -21,7 +21,7 @@ class NewService {
   constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
     this.cmd = attrs.cmd
     this.dotenvProject = attrs.dotenvProject
-    this.log = new LogService(attrs.cmd)
+    this.log = new LogService({cmd: attrs.cmd})
   }
 
   get vaultFilename(): string {
@@ -39,6 +39,10 @@ class NewService {
     }
 
     return 'DOTENV_PROJECT'
+  }
+
+  get vaultValue(): string {
+    return (dotenv.config({path: this.vaultFilename}).parsed || {})[this.vaultKey]
   }
 
   get url(): string {
@@ -117,6 +121,11 @@ class NewService {
     this.log.local('')
     this.log.local(chalk.dim(`▼ step 3: enter ${this.vaultFilename} identifier`))
 
+    // Step 3 check - when .env.vault already exists with value
+    if (this.vaultValue.length === 68) {
+      this.abortWithAlreadyExistingVault()
+    }
+
     const dotenvProject = await CliUx.ux.prompt(`${chalk.dim(this.log.pretext)}What is your ${this.vaultFilename} identifier? ${this.vaultKey}=`, {type: 'mask'})
     if (this.invalidIdentifier(dotenvProject)) {
       this.abortWithInvalidIdentifier()
@@ -134,6 +143,16 @@ class NewService {
       code: 'IDENTIFIER_ERR',
       ref: '',
       suggestions: [`Generate vault identifiers at ${this.url}`],
+    })
+  }
+
+  abortWithAlreadyExistingVault(): void {
+    this.log.plain(`${chalk.red('x')} Aborted.`)
+
+    this.cmd.error(`Invalid ${this.vaultFilename} identifier.`, {
+      code: 'IDENTIFIER_EXISTS',
+      ref: '',
+      suggestions: [`Identifier already exists for this project. To override it, delete ${this.vaultFilename} and try again.`],
     })
   }
 

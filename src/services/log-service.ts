@@ -1,10 +1,14 @@
 import chalk from 'chalk'
 
+interface LogServiceAttrs {
+  cmd;
+}
+
 class LogService {
   public cmd;
 
-  constructor(cmd) {
-    this.cmd = cmd
+  constructor(attrs: LogServiceAttrs = {} as LogServiceAttrs) {
+    this.cmd = attrs.cmd
   }
 
   get pretext(): string {
