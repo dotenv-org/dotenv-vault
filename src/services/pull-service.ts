@@ -1,4 +1,3 @@
-import * as dotenv from 'dotenv'
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 import {vars} from '../vars'
