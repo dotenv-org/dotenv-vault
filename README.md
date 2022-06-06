@@ -109,12 +109,13 @@ $ npx dotenv-vault new
 Follow those instructions and then run:
 
 ```bash
-$ npx dotenv-vault push
+$ npx dotenv-vault login
 ```
 
-And if you need to pull changes that another teammate made, run:
+Then run push and pull:
 
 ```bash
+$ npx dotenv-vault push
 $ npx dotenv-vault pull
 ```
 
@@ -174,6 +175,16 @@ Example:
 ```bash
 $ dotenv-vault new prj_a5ue8…
 # set project identifier to prj_a5ue8…
+```
+
+### `dotenv-vault login`
+
+Authenticate your project at Dotenv Vault.
+
+Example:
+
+```bash
+$ dotenv-vault login
 ```
 
 ### `dotenv-vault push [environment] [filename]`
