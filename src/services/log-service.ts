@@ -11,8 +11,12 @@ class LogService {
     this.cmd = attrs.cmd
   }
 
-  get pretext(): string {
+  get pretextLocal(): string {
     return 'local:    '
+  }
+
+  get pretextRemote(): string {
+    return 'remote:   '
   }
 
   plain(msg: string): void {
@@ -28,7 +32,7 @@ class LogService {
       msg = ''
     }
 
-    this.cmd.log(`${chalk.dim(this.pretext)}${msg}`)
+    this.cmd.log(`${chalk.dim(this.pretextLocal)}${msg}`)
   }
 }
 
