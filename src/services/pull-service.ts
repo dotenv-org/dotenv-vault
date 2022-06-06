@@ -8,6 +8,7 @@ import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
 import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
+import {LoginService} from '../services/login-service'
 
 interface PullServiceAttrs {
   cmd;
@@ -23,6 +24,7 @@ class PullService {
   public dotenvMe;
   public log;
   public abort;
+  public login;
 
   constructor(attrs: PullServiceAttrs = {} as PullServiceAttrs) {
     this.cmd = attrs.cmd
@@ -32,6 +34,7 @@ class PullService {
 
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
+    this.login = new LoginService({cmd: attrs.cmd})
   }
 
   async run(): Promise<void> {
@@ -54,11 +57,11 @@ class PullService {
     }
 
     if (vars.missingEnvMe(this.dotenvMe)) {
-      this.abort.missingEnvMe()
+      await this.login.login(false)
     }
 
     if (vars.emptyEnvMe(this.dotenvMe)) {
-      this.abort.emptyEnvMe()
+      await this.login.login(false)
     }
 
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}Securely pulling`)

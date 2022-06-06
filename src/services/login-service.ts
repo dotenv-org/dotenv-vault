@@ -43,12 +43,16 @@ class LoginService {
       this.abort.emptyEnvVault()
     }
 
-    CliUx.ux.open(this.loginUrl)
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for login`)
-    this.check()
+    await this.login()
   }
 
-  async check(): Promise<void> {
+  async login(tip = true): Promise<void> {
+    CliUx.ux.open(this.loginUrl)
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for login`)
+    await this.check(tip)
+  }
+
+  async check(tip = true): Promise<void> {
     if (this.controller) {
       this.controller.abort()
     }
@@ -78,12 +82,14 @@ class LoginService {
         const meUid = resp.data.data.meUid
         writeFileSync('.env.me', `DOTENV_ME=${meUid}`)
         this.log.local(`Logged in as .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
-        this.log.plain('')
-        this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
+        if (tip) {
+          this.log.plain('')
+          this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
+        }
       } else {
         // 404 - keep trying
         await CliUx.ux.wait(2000) // check every 2 seconds
-        this.check() // check again
+        await this.check(tip) // check again
       }
     }
   }
