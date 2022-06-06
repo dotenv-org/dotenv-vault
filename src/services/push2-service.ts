@@ -1,9 +1,8 @@
-import * as dotenv from 'dotenv'
 import * as crypto from 'node:crypto'
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
-import {existsSync, writeFileSync, readFileSync} from 'node:fs'
+import {readFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
@@ -40,158 +39,99 @@ class Push2Service {
   }
 
   async run(): Promise<void> {
-    this.log.local(chalk.dim('⬢ dotenv-vault push2'))
-
     new AppendToDockerignoreService().run()
     new AppendToGitignoreService().run()
     new AppendToNpmignoreService().run()
 
-    // Step 1
-    this.log.local('')
-    this.log.local(chalk.dim('▼ step 1: check for files'))
-
-    if (vars.existingEnvVault) {
-      this.log.local(`${vars.vaultFilename} ${chalk.dim('(exists)')}`)
-    } else {
-      this.log.local(`${vars.vaultFilename} ${chalk.red('(missing)')}`)
-      this.abort.abortWithMissingEnvVault()
+    if (vars.missingEnvVault) {
+      this.abort.missingEnvVault()
     }
 
-    if (this.emptyEnvVault) {
-      this.abortWithEmptyEnvVault()
+    if (vars.emptyEnvVault) {
+      this.abort.emptyEnvVault()
     }
 
-    if (this.existingEnv) {
-      this.log.local(`${this.smartFilename} ${chalk.dim('(exists)')}`)
-    } else {
-      this.log.local(`${this.smartFilename} ${chalk.red('(missing)')}`)
-      this.abortWithMissingEnv()
+    if (vars.missingEnvMe(this.dotenvMe)) {
+      this.abort.missingEnvMe()
     }
 
-    if (this.emptyEnv) {
-      this.abortWithEmptyEnv()
+    if (vars.emptyEnvMe(this.dotenvMe)) {
+      this.abort.emptyEnvMe()
     }
 
-    if (this.existingEnvMe) {
-      this.log.local(`.env.me ${chalk.dim('(exists)')}`)
-    } else {
-      this.log.local(`.env.me ${chalk.red('(missing)')}`)
-      this.abortWithMissingEnvMe()
+    if (vars.missingEnv(this.smartFilename)) {
+      this.abort.missingEnv(this.smartFilename)
     }
 
-    if (this.emptyEnvMe) {
-      this.abortWithEmptyEnvMe()
+    if (vars.emptyEnv(this.smartFilename)) {
+      this.abort.emptyEnv(this.smartFilename)
     }
 
-    // push
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}Securely pushing`)
 
-    // this._logCheckingForEnvMe()
-    // if (this.existingEnvMe) {
-    //   // edge case
-    //   if (this.emptyEnvMe) {
-    //     this._logEmptyEnvMe()
-    //   } else {
-    //     // push
-    //     await this._push()
-    //   }
-    // } else {
-    //   // first time auth process
-    //   await this._authEnvMe()
-    // }
+    this.push()
   }
 
-  abortWithMissingEnvVault(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Missing ${vars.vaultFilename} identifier.`, {
-      code: 'MISSING_ENV_VAULT',
-      ref: '',
-      suggestions: [`You must have a ${vars.vaultFilename} file. Try running npx dotenv-vault new`],
-    })
-  }
+  async push(): Promise<void> {
+    const options: AxiosRequestConfig = {
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      data: {
+        environment: this.smartEnvironment,
+        projectUid: vars.vaultValue,
+        meUid: this.meUid,
+        dotenv: this.envContent,
+      },
+      url: this.url,
+    }
 
-  abortWithEmptyEnvVault(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Empty ${vars.vaultFilename} identifier.`, {
-      code: 'EMPTY_ENV_VAULT',
-      ref: '',
-      suggestions: [`You must have ${vars.vaultKey} set to some value in your ${vars.vaultFilename} file. Try deleting your ${vars.vaultFilename} file and running npx dotenv-vault new`],
-    })
-  }
+    try {
+      const resp: AxiosRequestConfig = await axios(options)
+      const environment = resp.data.data.environment
+      const envName = resp.data.data.envName
+      const outputFilename = this.displayFilename(envName)
 
-  abortWithMissingEnv(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error('Missing .env', {
-      code: 'MISSING_ENV',
-      ref: '',
-      suggestions: [`You must have a ${this.smartFilename} file. Maybe you meant to run npx dotenv-vault pull`],
-    })
-  }
+      CliUx.ux.action.stop()
+      this.log.remote(`Securely pushed ${environment} (${outputFilename})`)
+      this.log.plain('')
+    } catch (error) {
+      CliUx.ux.action.stop('aborting')
+      let errorMessage = null
+      let errorCode = 'PUSH_ERROR'
+      let suggestions = []
 
-  abortWithEmptyEnv(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Empty ${this.smartFilename}.`, {
-      code: 'EMPTY_ENV',
-      ref: '',
-      suggestions: [`Your ${this.smartFilename} file is empty. Populate it with value(s).`],
-    })
-  }
+      errorMessage = error
+      if (error.response) {
+        errorMessage = error.response.data
+        if (error.response.data && error.response.data.errors && error.response.data.errors[0]) {
+          const error1 = error.response.data.errors[0]
 
-  abortWithMissingEnvMe(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error('Missing .env.me credential.', {
-      code: 'MISSING_ENV_ME',
-      ref: '',
-      suggestions: ['You must have a .env.me credential file. Try running npx dotenv-vault login'],
-    })
-  }
+          errorMessage = error1.message
+          if (error1.code) {
+            errorCode = error1.code
+          }
 
-  abortWithEmptyEnvMe(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error('Empty .env.me credential.', {
-      code: 'EMPTY_ENV_ME',
-      ref: '',
-      suggestions: ['You must have DOTENV_ME set to some value in your .env.me file. Try running npx dotenv-vault login'],
-    })
+          if (error1.suggestions) {
+            suggestions = error1.suggestions
+          }
+        }
+      }
+
+      this.log.plain(`${chalk.red('x')} Aborted.`)
+      this.cmd.error(errorMessage, {
+        code: errorCode,
+        ref: '',
+        suggestions: suggestions,
+      })
+    }
   }
 
   get url(): string {
     return vars.apiUrl + '/push'
   }
 
-  get authUrl(): string {
-    return vars.apiUrl + '/auth'
-  }
-
-  get existingEnvProject(): boolean {
-    return existsSync(vars.vaultFilename)
-  }
-
-  get emptyEnvVault(): boolean {
-    return !(this.projectUid && this.projectUid.toString().length > 1)
-  }
-
   get envContent(): string {
     return readFileSync(this.smartFilename, 'utf8')
-  }
-
-  get emptyEnv(): boolean {
-    return !(this.envContent && this.envContent.toString().length > 1)
-  }
-
-  get emptyEnvMe(): boolean {
-    return !(this.meUid && this.meUid.toString().length > 1)
-  }
-
-  get existingEnv(): boolean {
-    return existsSync(this.smartFilename)
-  }
-
-  get existingEnvMe(): boolean {
-    if (this.dotenvMe) {
-      return true
-    }
-
-    return existsSync('.env.me')
   }
 
   get smartEnvironment(): any {
@@ -221,89 +161,17 @@ class Push2Service {
     return '.env'
   }
 
-  get envProjectConfig(): any {
-    return dotenv.config({path: vars.vaultFilename}).parsed || {}
-  }
-
-  get envMeConfig(): any {
-    return dotenv.config({path: '.env.me'}).parsed || {}
-  }
-
-  get projectUid(): any {
-    return this.envProjectConfig[vars.vaultKey]
-  }
-
   get meUid(): any {
-    return this.dotenvMe || this.envMeConfig.DOTENV_ME
+    return this.dotenvMe || vars.meValue
   }
 
-  async _createEnvMe(): Promise<void> {
-    writeFileSync('.env.me', `DOTENV_ME=${this.generatedMeUid}`)
-  }
-
-  async _push(): Promise<void> {
-    this.cmd.log('remote:   ')
-
-    const options: AxiosRequestConfig = {
-      method: 'POST',
-      headers: {'content-type': 'application/json'},
-      data: {
-        environment: this.smartEnvironment,
-        projectUid: this.projectUid,
-        meUid: this.meUid,
-        dotenv: this.envContent,
-      },
-      url: this.url,
-    }
-
-    try {
-      const resp: AxiosRequestConfig = await axios(options)
-      const environment = resp.data.data.environment
-      const envName = resp.data.data.envName
-
-      const outputFilename = this._displayFilename(envName)
-
-      this.cmd.log(`remote:   Securely pushing ${environment} (${outputFilename})`)
-      this.cmd.log('remote:   ')
-
-      this._logCompleted()
-    } catch (error) {
-      this._logError(error)
-    }
-  }
-
-  _displayFilename(envName: string): string {
+  displayFilename(envName: string): string {
     // if user has set a filename for output then use that else use envName
     if (this.filename) {
       return this.filename
     }
 
     return envName
-  }
-
-  _logCompleted(): void {
-    this.cmd.log('Done.')
-    this.cmd.log('')
-  }
-
-  _logError(error: Record<string, unknown> | Error | any): void {
-    this.cmd.log('Aborted.')
-    this.cmd.log('')
-    if (error.response) {
-      if (error.response.data && error.response.data.errors && error.response.data.errors[0]) {
-        this.cmd.log(error.response.data.errors[0].message)
-      } else {
-        this.cmd.log(error.response.data)
-      }
-    } else {
-      this.cmd.log(error)
-    }
-  }
-
-  _logProTip(): void {
-    this.cmd.log('local:    ')
-    this.cmd.log('local:    💡ProTip! The .env.me file securely identifies your machine against this project in Dotenv Vault')
-    this.cmd.log('local:    ')
   }
 }
 

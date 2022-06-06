@@ -34,6 +34,14 @@ class LogService {
 
     this.cmd.log(`${chalk.dim(this.pretextLocal)}${msg}`)
   }
+
+  remote(msg: string): void {
+    if (msg === undefined) {
+      msg = ''
+    }
+
+    this.cmd.log(`${chalk.dim(this.pretextRemote)}${msg}`)
+  }
 }
 
 export {LogService}
