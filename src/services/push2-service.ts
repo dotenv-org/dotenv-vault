@@ -9,6 +9,7 @@ import {AppendToDockerignoreService} from '../services/append-to-dockerignore-se
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
 import {LogService} from '../services/log-service'
+import {AbortService} from '../services/abort-service'
 
 interface Push2ServiceAttrs {
   cmd;
@@ -24,6 +25,7 @@ class Push2Service {
   public dotenvMe;
   public generatedMeUid;
   public log;
+  public abort;
 
   constructor(attrs: Push2ServiceAttrs = {} as Push2ServiceAttrs) {
     this.cmd = attrs.cmd
@@ -34,6 +36,7 @@ class Push2Service {
     const rand = crypto.randomBytes(32).toString('hex')
     this.generatedMeUid = `me_${rand}` // only for use on auth call
     this.log = new LogService({cmd: attrs.cmd})
+    this.abort = new AbortService({cmd: attrs.cmd})
   }
 
   async run(): Promise<void> {
@@ -47,6 +50,17 @@ class Push2Service {
     this.log.local('')
     this.log.local(chalk.dim('▼ step 1: check for files'))
 
+    if (vars.existingEnvVault) {
+      this.log.local(`${vars.vaultFilename} ${chalk.dim('(exists)')}`)
+    } else {
+      this.log.local(`${vars.vaultFilename} ${chalk.red('(missing)')}`)
+      this.abort.abortWithMissingEnvVault()
+    }
+
+    if (this.emptyEnvVault) {
+      this.abortWithEmptyEnvVault()
+    }
+
     if (this.existingEnv) {
       this.log.local(`${this.smartFilename} ${chalk.dim('(exists)')}`)
     } else {
@@ -58,22 +72,18 @@ class Push2Service {
       this.abortWithEmptyEnv()
     }
 
-    if (this.existingEnvVault) {
-      this.log.local(`${vars.vaultFilename} ${chalk.dim('(exists)')}`)
-    } else {
-      this.log.local(`${vars.vaultFilename} ${chalk.red('(missing)')}`)
-      this.abortWithMissingEnvVault()
-    }
-
-    if (this.emptyEnvVault) {
-      this.abortWithEmptyEnvVault()
-    }
-
     if (this.existingEnvMe) {
-      console.log('IMPLEMENT')
+      this.log.local(`.env.me ${chalk.dim('(exists)')}`)
     } else {
-      CliUx.ux.open('https://duckduckgo.com')
+      this.log.local(`.env.me ${chalk.red('(missing)')}`)
+      this.abortWithMissingEnvMe()
     }
+
+    if (this.emptyEnvMe) {
+      this.abortWithEmptyEnvMe()
+    }
+
+    // push
 
     // this._logCheckingForEnvMe()
     // if (this.existingEnvMe) {
@@ -126,8 +136,22 @@ class Push2Service {
     })
   }
 
-  get existingEnvVault(): boolean {
-    return existsSync(vars.vaultFilename)
+  abortWithMissingEnvMe(): void {
+    this.log.plain(`${chalk.red('x')} Aborted.`)
+    this.cmd.error('Missing .env.me credential.', {
+      code: 'MISSING_ENV_ME',
+      ref: '',
+      suggestions: ['You must have a .env.me credential file. Try running npx dotenv-vault login'],
+    })
+  }
+
+  abortWithEmptyEnvMe(): void {
+    this.log.plain(`${chalk.red('x')} Aborted.`)
+    this.cmd.error('Empty .env.me credential.', {
+      code: 'EMPTY_ENV_ME',
+      ref: '',
+      suggestions: ['You must have DOTENV_ME set to some value in your .env.me file. Try running npx dotenv-vault login'],
+    })
   }
 
   get url(): string {
@@ -138,12 +162,8 @@ class Push2Service {
     return vars.apiUrl + '/auth'
   }
 
-  get verifyUrl(): string {
-    return vars.apiUrl + '/verify'
-  }
-
   get existingEnvProject(): boolean {
-    return existsSync('.env.project')
+    return existsSync(vars.vaultFilename)
   }
 
   get emptyEnvVault(): boolean {
@@ -202,7 +222,7 @@ class Push2Service {
   }
 
   get envProjectConfig(): any {
-    return dotenv.config({path: '.env.project'}).parsed || {}
+    return dotenv.config({path: vars.vaultFilename}).parsed || {}
   }
 
   get envMeConfig(): any {
@@ -210,7 +230,7 @@ class Push2Service {
   }
 
   get projectUid(): any {
-    return this.envProjectConfig.DOTENV_PROJECT
+    return this.envProjectConfig[vars.vaultKey]
   }
 
   get meUid(): any {
@@ -219,61 +239,6 @@ class Push2Service {
 
   async _createEnvMe(): Promise<void> {
     writeFileSync('.env.me', `DOTENV_ME=${this.generatedMeUid}`)
-  }
-
-  async _authEnvMe(): Promise<void> {
-    this.cmd.log('local:    Generating .env.me credential')
-    this._logProTip()
-
-    const email = await CliUx.ux.prompt('What is your email address?', {type: 'mask'})
-
-    this.cmd.log('remote:   Securely sending a code')
-
-    const options: AxiosRequestConfig = {
-      method: 'POST',
-      headers: {'content-type': 'application/json'},
-      data: {
-        email: email,
-        projectUid: this.projectUid,
-        meUid: this.generatedMeUid,
-      },
-      url: this.authUrl,
-    }
-
-    // submit email for identification
-    try {
-      await axios(options)
-      this.cmd.log('remote:   Sent. Check your email.')
-      this._createEnvMe()
-      this._promptForShortCode()
-    } catch (error) {
-      this._logError(error)
-    }
-  }
-
-  async _promptForShortCode(): Promise<void> {
-    const shortCode = await CliUx.ux.prompt('What is the code?')
-
-    this.cmd.log('remote:   Verifying')
-
-    const options: AxiosRequestConfig = {
-      method: 'POST',
-      headers: {'content-type': 'application/json'},
-      data: {
-        shortCode: shortCode,
-        projectUid: this.projectUid,
-        meUid: this.meUid,
-      },
-      url: this.verifyUrl,
-    }
-
-    try {
-      await axios(options)
-      this.cmd.log('remote:   Verified successfully')
-      this._push()
-    } catch (error) {
-      this._logError(error)
-    }
   }
 
   async _push(): Promise<void> {
@@ -319,12 +284,6 @@ class Push2Service {
   _logCompleted(): void {
     this.cmd.log('Done.')
     this.cmd.log('')
-  }
-
-  _logEmptyEnvMe(): void {
-    this.cmd.log('Aborted.')
-    this.cmd.log('')
-    this.cmd.log('You must have DOTENV_ME set to some value in your .env.me file. Try deleting your .env.me file and running npx dotenv-vault push')
   }
 
   _logError(error: Record<string, unknown> | Error | any): void {

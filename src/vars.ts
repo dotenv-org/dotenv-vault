@@ -26,6 +26,26 @@ export class Vars {
   get vaultValue(): string {
     return (dotenv.config({path: vars.vaultFilename}).parsed || {})[vars.vaultKey]
   }
+
+  get existingEnvVault(): boolean {
+    return existsSync(this.vaultFilename)
+  }
+
+  get missingEnvVault(): boolean {
+    return !existsSync(this.vaultFilename)
+  }
+
+  get emptyEnvVault(): boolean {
+    return !(this.vaultValue && this.vaultValue.toString().length > 1)
+  }
+
+  get existingVaultValue(): boolean {
+    return this.vaultValue.toString().length === 68
+  }
+
+  invalidVaultValue(identifier: string | any): boolean {
+    return !(identifier && identifier.length === 68)
+  }
 }
 
 export const vars = new Vars()
