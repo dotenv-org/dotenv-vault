@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.2.3...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.3.0...master)
+
+## 1.3.0
+
+### Added
+
+- Add terminal colors 🎨
+- Protect developer from accidently overwriting .env.project file 🔐
+- Add `login` command 🎉
+- Update `push` and `pull` commands to be less verbose 🧹
 
 ## 1.2.3
 

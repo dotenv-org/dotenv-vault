@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "noImplicitAny": false,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": false,
   },
   "include": [
     "src/**/*"

@@ -1,9 +1,12 @@
+import chalk from 'chalk'
 import {vars} from '../vars'
-import {existsSync, writeFileSync} from 'node:fs'
+import {writeFileSync} from 'node:fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
+import {LogService} from '../services/log-service'
+import {AbortService} from '../services/abort-service'
 
 interface NewServiceAttrs {
   cmd;
@@ -13,10 +16,62 @@ interface NewServiceAttrs {
 class NewService {
   public cmd;
   public dotenvProject;
+  public log;
+  public abort;
 
   constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
     this.cmd = attrs.cmd
     this.dotenvProject = attrs.dotenvProject
+    this.log = new LogService({cmd: attrs.cmd})
+    this.abort = new AbortService({cmd: attrs.cmd})
+  }
+
+  async run(): Promise<void> {
+    new AppendToDockerignoreService().run()
+    new AppendToGitignoreService().run()
+    new AppendToNpmignoreService().run()
+
+    // Step 1
+    if (vars.missingEnvVault) {
+      writeFileSync(vars.vaultFilename, `${vars.vaultKey}= # Generate vault identifiers at ${this.url}`)
+    }
+
+    // Step 2 B
+    if (this.dotenvProject) {
+      if (vars.invalidVaultValue(this.dotenvProject)) {
+        this.abort.invalidEnvVault()
+      }
+
+      CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Adding ${vars.vaultFilename} (${vars.vaultKey})`)
+      await CliUx.ux.wait(1000)
+      CliUx.ux.action.stop()
+      writeFileSync(vars.vaultFilename, `${vars.vaultKey}=${this.dotenvProject}`)
+      this.log.local(`Added to .env.project (${vars.vaultKey}=${this.dotenvProject.slice(0, 9)}...)`)
+      this.log.plain('')
+      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
+
+      return
+    }
+
+    if (vars.existingVaultValue) {
+      this.abort.existingEnvVault()
+    }
+
+    CliUx.ux.open(this.urlWithProjectName)
+    const dotenvProject = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Enter the ${vars.vaultFilename} identifier? ${vars.vaultKey}=`)
+    if (vars.invalidVaultValue(dotenvProject)) {
+      this.abort.invalidEnvVault()
+    }
+
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Adding ${vars.vaultFilename} (${vars.vaultKey})`)
+    await CliUx.ux.wait(1000)
+    CliUx.ux.action.stop()
+    writeFileSync(vars.vaultFilename, `${vars.vaultKey}=${dotenvProject}`)
+    this.log.local(`Added to .env.project (${vars.vaultKey}=${dotenvProject.slice(0, 9)}...)`)
+    this.log.plain('')
+    this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
+
+    writeFileSync(vars.vaultFilename, `${vars.vaultKey}=${dotenvProject}`)
   }
 
   get url(): string {
@@ -29,107 +84,6 @@ class NewService {
     const projectName = splitDir[splitDir.length - 1]
 
     return `${this.url}?project_name=${projectName}`
-  }
-
-  get existingEnv(): boolean {
-    return existsSync('.env')
-  }
-
-  get existingEnvProject(): boolean {
-    return existsSync('.env.project')
-  }
-
-  async run(): Promise<void> {
-    new AppendToDockerignoreService().run()
-    new AppendToGitignoreService().run()
-    new AppendToNpmignoreService().run()
-
-    this.cmd.log('local:    ')
-
-    if (this.existingEnv) {
-      this._logExistingEnv()
-    } else {
-      this._logCreatingEnv()
-      this._writeEnv()
-    }
-
-    if (this.existingEnvProject) {
-      this._logExistingEnvProject()
-    } else {
-      this._logCreatingEnvProject()
-      this._writeEnvProject()
-    }
-
-    if (this.dotenvProject) {
-      this._logWritingEnvProject()
-      writeFileSync('.env.project', `DOTENV_PROJECT=${this.dotenvProject}`)
-      this._logCompleted()
-    } else {
-      const answer = await CliUx.ux.confirm(`local:    Open webpage at ${this.url}? Type yes (y) or no (n)`)
-
-      if (answer) {
-        CliUx.ux.open(this.urlWithProjectName)
-        this._logProTip()
-
-        const dotenvProject = await CliUx.ux.prompt('local:    What is your .env.project identifier?', {type: 'mask'})
-        this._logWritingEnvProject()
-        writeFileSync('.env.project', `DOTENV_PROJECT=${dotenvProject}`)
-        this._logCompleted()
-      } else {
-        this._logAborted()
-      }
-    }
-  }
-
-  _logExistingEnv(): void {
-    this.cmd.log('local:    Existing .env')
-  }
-
-  _logCreatingEnv(): void {
-    this.cmd.log('local:    Creating .env')
-  }
-
-  _logWritingEnvProject(): void {
-    this.cmd.log('local:    Writing to .env.project')
-    this.cmd.log('local:    ')
-  }
-
-  _logExistingEnvProject(): void {
-    this.cmd.log('local:    Existing .env.project')
-  }
-
-  _logCreatingEnvProject(): void {
-    this.cmd.log('local:    Creating .env.project')
-  }
-
-  _writeEnv(): void {
-    writeFileSync('.env', 'HELLO=world')
-  }
-
-  _writeEnvProject(): void {
-    writeFileSync('.env.project', `DOTENV_PROJECT= # Generate your Dotenv Vault project identifier at ${this.url}`)
-  }
-
-  _logAborted(): void {
-    this.cmd.log('Aborted.')
-    this.cmd.log('')
-    this.cmd.log(`You must visit ${this.url} to create your .env.project identifier. Try again.`)
-  }
-
-  _logProTip(): void {
-    this.cmd.log('local:    ')
-    this.cmd.log('local:    💡ProTip! The .env.project file securely identifies your project at Dotenv Vault')
-    this.cmd.log('local:    ')
-  }
-
-  _logCompleted(): void {
-    this.cmd.log('Done.')
-    this.cmd.log('')
-    this.cmd.log('Next, commit your .env.project to git and run npx dotenv-vault push')
-    this.cmd.log('')
-    this.cmd.log('    $ git add .env.project .gitignore')
-    this.cmd.log("    $ git commit -am 'Add .env.project'")
-    this.cmd.log('    $ npx dotenv-vault push')
   }
 }
 
