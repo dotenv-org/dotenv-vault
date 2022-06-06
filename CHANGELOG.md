@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Added
 
 - Add terminal colors 🎨
-- Protect developer from accidently overwriting .env.project file 🔐
+- Protect developer from accidentally overwriting .env.project file 🔐
 - Add `login` command 🎉
 - Update `push` and `pull` commands to be less verbose 🧹
 
