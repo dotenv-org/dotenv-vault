@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.3.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.3.2...master)
+
+## 1.3.2
+
+### Changed
+
+- `new` command polls and writes to .env.project automatically
 
 ## 1.3.1
 
