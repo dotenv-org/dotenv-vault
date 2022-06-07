@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.3.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.4.0...master)
+
+## 1.4.0
+
+### Changed
+
+- Create .env.vault in place of .env.project. (.env.project files will still continue to work)
 
 ## 1.3.2
 

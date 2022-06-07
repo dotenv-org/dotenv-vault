@@ -168,13 +168,13 @@ $ dotenv-vault new
 
 ##### [dotenvProject]
 
-Set .env.project identifier. Defaults to user prompt.
+Set .env.vault identifier. Defaults to user prompt.
 
 Example:
 
 ```bash
-$ dotenv-vault new prj_a5ue8…
-# set project identifier to prj_a5ue8…
+$ dotenv-vault new vlt_a5ue8…
+# set project identifier to vlt_a5ue8…
 ```
 
 ### `dotenv-vault login`

@@ -13,7 +13,7 @@ export default class New extends Command {
     {
       name: 'dotenvProject',
       required: false,
-      description: 'Set .env.project identifier. Defaults to user prompt.',
+      description: 'Set .env.vault identifier. Defaults to user prompt.',
       hidden: false,
     },
   ]
