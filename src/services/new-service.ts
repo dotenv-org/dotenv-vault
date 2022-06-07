@@ -53,7 +53,7 @@ class NewService {
       await CliUx.ux.wait(1000)
       CliUx.ux.action.stop()
       writeFileSync(vars.vaultFilename, `${vars.vaultKey}=${this.dotenvProject}`)
-      this.log.local(`Added to .env.project (${vars.vaultKey}=${this.dotenvProject.slice(0, 9)}...)`)
+      this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${this.dotenvProject.slice(0, 9)}...)`)
       this.log.plain('')
       this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
 

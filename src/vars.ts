@@ -7,20 +7,20 @@ export class Vars {
   }
 
   get vaultFilename(): string {
-    // if .env.vault file exists use it. otherwise use .env.project
-    if (existsSync('.env.vault')) {
-      return '.env.vault'
+    // if .env.project file exists use it. otherwise use .env.vault
+    if (existsSync('.env.project')) {
+      return '.env.project'
     }
 
-    return '.env.project'
+    return '.env.vault'
   }
 
   get vaultKey(): string {
-    if (this.vaultFilename === '.env.vault') {
-      return 'DOTENV_VAULT'
+    if (this.vaultFilename === '.env.project') {
+      return 'DOTENV_PROJECT'
     }
 
-    return 'DOTENV_PROJECT'
+    return 'DOTENV_VAULT'
   }
 
   get vaultValue(): string {
