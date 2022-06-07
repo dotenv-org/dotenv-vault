@@ -1,7 +1,7 @@
 import * as crypto from 'node:crypto'
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
-import {existsSync, writeFileSync} from 'node:fs'
+import {writeFileSync} from 'node:fs'
 import {vars} from '../vars'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
