@@ -284,6 +284,16 @@ $ dotenv-vault pull production .env --dotenvMe=me_1234
 # pulls remote production envs to .env
 ```
 
+### `dotenv-vault open`
+
+Open your project in the UI at Dotenv Vault.
+
+Example:
+
+```bash
+$ dotenv-vault open
+```
+
 ### `dotenv-vault help [command]`
 
 Display help for dotenv-vault commands.
