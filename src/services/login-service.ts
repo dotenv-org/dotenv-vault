@@ -101,10 +101,6 @@ class LoginService {
   get checkUrl(): string {
     return `${vars.apiUrl}/check?vaultUid=${vars.vaultValue}&requestUid=${this.requestUid}`
   }
-
-  get existingEnvVault(): boolean {
-    return existsSync(vars.vaultFilename)
-  }
 }
 
 export {LoginService}
