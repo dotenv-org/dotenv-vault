@@ -91,6 +91,8 @@ class PushService {
 
       CliUx.ux.action.stop()
       this.log.remote(`Securely pushed ${environment} (${outputFilename})`)
+      this.log.plain('')
+      this.log.plain(`Run ${chalk.bold('npx dotenv-vault@latest open')} to view in the ui`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null

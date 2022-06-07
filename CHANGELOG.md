@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.4.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.0...master)
+
+## 1.5.0
+
+### Added
+
+- Add `open` command. Opens directly to project's vault page 🎉 ([#55](https://github.com/dotenv-org/dotenv-vault/pull/55))
 
 ## 1.4.0
 
