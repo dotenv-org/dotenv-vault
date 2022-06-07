@@ -8,19 +8,19 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Changed
 
-- Create .env.vault in place of .env.project. (.env.project files will still continue to work)
+- Create .env.vault in place of .env.project. (.env.project files will still continue to work) ([#53](https://github.com/dotenv-org/dotenv-vault/pull/53))
 
 ## 1.3.2
 
 ### Changed
 
-- `new` command polls and writes to .env.project automatically
+- `new` command polls and writes to .env.project automatically ([#52](https://github.com/dotenv-org/dotenv-vault/pull/52))
 
 ## 1.3.1
 
 ### Added
 
-- Smartly prompt for login as part of `push` and `pull` commands
+- Smartly prompt for login as part of `push` and `pull` commands 
 
 ## 1.3.0
 
@@ -29,7 +29,7 @@ All notable changes to this project will be documented in this file. See [standa
 - Add terminal colors 🎨
 - Protect developer from accidentally overwriting .env.project file 🔐
 - Add `login` command 🎉
-- Update `push` and `pull` commands to be less verbose 🧹
+- Update `push` and `pull` commands to be less verbose 🧹 ([#51](https://github.com/dotenv-org/dotenv-vault/pull/51))
 
 ## 1.2.3
 
