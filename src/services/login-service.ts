@@ -20,6 +20,7 @@ class LoginService {
   public requestUid;
   public controller;
   public abort;
+  public checkCount;
 
   constructor(attrs: LoginServiceAttrs = {} as LoginServiceAttrs) {
     this.cmd = attrs.cmd
@@ -28,6 +29,7 @@ class LoginService {
 
     const rand = crypto.randomBytes(32).toString('hex')
     this.requestUid = `req_${rand}`
+    this.checkCount = 0
   }
 
   async run(): Promise<void> {
@@ -72,6 +74,7 @@ class LoginService {
 
     let resp
     try {
+      this.checkCount += 1
       resp = await axios(options)
     } catch (error: any) {
       resp = error.response
@@ -86,10 +89,13 @@ class LoginService {
           this.log.plain('')
           this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
         }
-      } else {
+      } else if (this.checkCount < 50) {
         // 404 - keep trying
         await CliUx.ux.wait(2000) // check every 2 seconds
         await this.check(tip) // check again
+      } else {
+        CliUx.ux.action.stop('giving up')
+        this.log.local('Things were taking too long... gave up. Please try again.')
       }
     }
   }

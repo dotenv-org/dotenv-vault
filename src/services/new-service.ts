@@ -22,6 +22,7 @@ class NewService {
   public requestUid;
   public controller;
   public abort;
+  public checkCount;
 
   constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
     this.cmd = attrs.cmd
@@ -31,6 +32,7 @@ class NewService {
 
     const rand = crypto.randomBytes(32).toString('hex')
     this.requestUid = `req_${rand}`
+    this.checkCount = 0
   }
 
   async run(): Promise<void> {
@@ -88,6 +90,7 @@ class NewService {
 
     let resp
     try {
+      this.checkCount += 1
       resp = await axios(options)
     } catch (error: any) {
       resp = error.response
@@ -100,10 +103,13 @@ class NewService {
         this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${vaultUid.slice(0, 9)}...)`)
         this.log.plain('')
         this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
-      } else {
+      } else if (this.checkCount < 50) {
         // 404 - keep trying
         await CliUx.ux.wait(2000) // check every 2 seconds
         await this.check() // check again
+      } else {
+        CliUx.ux.action.stop('giving up')
+        this.log.local('Things were taking too long... gave up. Please try again.')
       }
     }
   }
