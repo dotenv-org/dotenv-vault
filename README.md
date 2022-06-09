@@ -168,16 +168,16 @@ $ dotenv-vault new
 
 ##### [dotenvProject]
 
-Set .env.vault identifier. Defaults to user prompt.
+Set .env.vault identifier. Defaults to generated value.
 
 Example:
 
 ```bash
 $ dotenv-vault new vlt_a5ue8…
-# set project identifier to vlt_a5ue8…
+# set .env.vault project identifier to vlt_a5ue8…
 ```
 
-### `dotenv-vault login`
+### `dotenv-vault login [dotenvMe]`
 
 Authenticate your project at Dotenv Vault.
 
@@ -186,6 +186,20 @@ Example:
 ```bash
 $ dotenv-vault login
 ```
+
+#### Arguments
+
+##### [dotenvMe]
+
+Set .env.me credential. Defaults to generated value.
+
+Example:
+
+```bash
+$ dotenv-vault log me_13b33…
+# set .env.me credential to me_13b33…
+```
+
 
 ### `dotenv-vault push [environment] [filename]`
 
