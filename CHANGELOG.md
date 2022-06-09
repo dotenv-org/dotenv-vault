@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.3...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.4...master)
+
+## 1.5.4
+
+### Changed
+
+- Changed .catch error handling for server machines that do not have browsers 🐞
 
 ## 1.5.3
 
