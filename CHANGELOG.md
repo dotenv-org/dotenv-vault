@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.2...master)
+
+## 1.5.2
+
+### Changed
+
+- Removed use of 'node:fs' and 'node:crypto' that were causing install issues on older versions of node 🧹([#57](https://github.com/dotenv-org/dotenv-vault/pull/57))
 
 ## 1.5.1
 
