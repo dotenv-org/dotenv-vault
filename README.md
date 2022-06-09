@@ -1,6 +1,6 @@
-[![using dotenv](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1)
+[![using dotenv](https://badge.dotenv.org/using.svg?r=1)](https://www.dotenv.org/r/github.com/motdotla/dotenv?r=1) [![fork with dotenv-vault](https://badge.dotenv.org/fork.svg?r=1)](https://vault.dotenv.org/project/vlt_0a2981c4dcad3981c18c30e9a86a49c7697ba52c589b774e49686f611fe597aa/example)
 
-# dotenv-vault 🔐💛
+# dotenv-vault
 
 <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/dotenv-vault.png" alt="dotenv-vault" align="right" />
 
