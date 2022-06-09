@@ -15,6 +15,15 @@ class AbortService {
     this.log = new LogService({cmd: attrs.cmd})
   }
 
+  quit(): void {
+    this.log.plain(`${chalk.red('x')} Aborted.`)
+    this.cmd.error('Quit', {
+      code: 'QUIT',
+      ref: '',
+      suggestions: [],
+    })
+  }
+
   missingEnvVault(): void {
     this.log.plain(`${chalk.red('x')} Aborted.`)
     this.cmd.error(`Missing ${vars.vaultFilename} (${vars.vaultKey}).`, {

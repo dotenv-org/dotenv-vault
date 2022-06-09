@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.4...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.5...master)
+
+## 1.5.5
+
+### Added
+
+- Prompt before opening browser 🧹 ([#62](https://github.com/dotenv-org/dotenv-vault/pull/62))
 
 ## 1.5.4
 
