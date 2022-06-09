@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 import {vars} from '../vars'
-import {writeFileSync} from 'node:fs'
+import {writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'

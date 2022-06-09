@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv'
-import {existsSync, readFileSync} from 'node:fs'
+import {existsSync, readFileSync} from 'fs'
 
 export class Vars {
   get apiUrl(): string {

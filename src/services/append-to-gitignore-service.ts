@@ -1,4 +1,4 @@
-import {existsSync, writeFileSync, readFileSync, appendFileSync} from 'node:fs'
+import {existsSync, writeFileSync, readFileSync, appendFileSync} from 'fs'
 
 class AppendToGitignoreService {
   get gitignore(): string {
