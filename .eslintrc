@@ -2,5 +2,8 @@
   "extends": [
     "oclif",
     "oclif-typescript"
-  ]
+  ],
+  "rules": {
+    "unicorn/prefer-node-protocol": "off"
+  }
 }
