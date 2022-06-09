@@ -4,6 +4,7 @@
     "oclif-typescript"
   ],
   "rules": {
-    "unicorn/prefer-node-protocol": "off"
+    "unicorn/prefer-node-protocol": "off",
+    "@typescript-eslint/no-empty-function": "off"
   }
 }

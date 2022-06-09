@@ -51,7 +51,7 @@ class LoginService {
 
   async login(tip = true): Promise<void> {
     this.log.local(`Opening browser to ${this.loginUrl}`)
-    CliUx.ux.open(this.loginUrl).catch()
+    CliUx.ux.open(this.loginUrl).catch(_ => {})
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for login`)
     await this.check(tip)
   }

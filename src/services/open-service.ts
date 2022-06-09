@@ -32,7 +32,7 @@ class OpenService {
     await CliUx.ux.wait(1000)
     CliUx.ux.action.stop()
     this.log.local(`Opening browser to ${this.openUrl}`)
-    CliUx.ux.open(this.openUrl).catch()
+    CliUx.ux.open(this.openUrl).catch(_ => {})
   }
 
   get openUrl(): string {
