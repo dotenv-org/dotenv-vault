@@ -13,10 +13,12 @@ import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 interface LoginServiceAttrs {
   cmd;
+  dotenvMe;
 }
 
 class LoginService {
   public cmd;
+  public dotenvMe;
   public log;
   public requestUid;
   public controller;
@@ -25,6 +27,7 @@ class LoginService {
 
   constructor(attrs: LoginServiceAttrs = {} as LoginServiceAttrs) {
     this.cmd = attrs.cmd
+    this.dotenvMe = attrs.dotenvMe
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
 
@@ -44,6 +47,23 @@ class LoginService {
 
     if (vars.emptyEnvVault) {
       this.abort.emptyEnvVault()
+    }
+
+    // Step 2 B
+    if (this.dotenvMe) {
+      if (vars.invalidMeValue(this.dotenvMe)) {
+        this.abort.invalidEnvMe()
+      }
+
+      CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Adding .env.me (DOTENV_ME)`)
+      await CliUx.ux.wait(1000)
+      CliUx.ux.action.stop()
+      writeFileSync('.env.me', `DOTENV_ME=${this.dotenvMe}`)
+      this.log.local(`Added to .env.me (DOTENV_ME=${this.dotenvMe.slice(0, 9)}...)`)
+      this.log.plain('')
+      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
+
+      return
     }
 
     await this.login()

@@ -13,12 +13,12 @@ import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 interface NewServiceAttrs {
   cmd;
-  dotenvProject;
+  dotenvVault;
 }
 
 class NewService {
   public cmd;
-  public dotenvProject;
+  public dotenvVault;
   public log;
   public requestUid;
   public controller;
@@ -27,7 +27,7 @@ class NewService {
 
   constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
     this.cmd = attrs.cmd
-    this.dotenvProject = attrs.dotenvProject
+    this.dotenvVault = attrs.dotenvVault
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
 
@@ -47,16 +47,16 @@ class NewService {
     }
 
     // Step 2 B
-    if (this.dotenvProject) {
-      if (vars.invalidVaultValue(this.dotenvProject)) {
+    if (this.dotenvVault) {
+      if (vars.invalidVaultValue(this.dotenvVault)) {
         this.abort.invalidEnvVault()
       }
 
       CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Adding ${vars.vaultFilename} (${vars.vaultKey})`)
       await CliUx.ux.wait(1000)
       CliUx.ux.action.stop()
-      writeFileSync(vars.vaultFilename, `${vars.vaultKey}=${this.dotenvProject}`)
-      this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${this.dotenvProject.slice(0, 9)}...)`)
+      writeFileSync(vars.vaultFilename, `${vars.vaultKey}=${this.dotenvVault}`)
+      this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${this.dotenvVault.slice(0, 9)}...)`)
       this.log.plain('')
       this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
 

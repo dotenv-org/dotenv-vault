@@ -11,17 +11,17 @@ export default class New extends Command {
 
   static args = [
     {
-      name: 'dotenvProject',
+      name: 'dotenvVault',
       required: false,
-      description: 'Set .env.vault identifier. Defaults to user prompt.',
+      description: 'Set .env.vault identifier. Defaults to generated value.',
       hidden: false,
     },
   ]
 
   public async run(): Promise<void> {
     const {args} = await this.parse(New)
-    const dotenvProject = args.dotenvProject
+    const dotenvVault = args.dotenvVault
 
-    new NewService({cmd: this, dotenvProject: dotenvProject}).run()
+    new NewService({cmd: this, dotenvVault: dotenvVault}).run()
   }
 }

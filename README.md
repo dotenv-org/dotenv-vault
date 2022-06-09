@@ -154,7 +154,7 @@ Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](
 
 ## Commands
 
-### `dotenv-vault new [dotenvProject]`
+### `dotenv-vault new [dotenvVault]`
 
 Create your project at Dotenv Vault.
 
@@ -166,7 +166,7 @@ $ dotenv-vault new
 
 #### Arguments
 
-##### [dotenvProject]
+##### [dotenvVault]
 
 Set .env.vault identifier. Defaults to generated value.
 
