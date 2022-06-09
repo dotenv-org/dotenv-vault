@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Added
 
-- Dispay `new`, `login`, and `open` url to support configuring dotenv-vault on server machines (lacking browsers) 🐞 ([#61](https://github.com/dotenv-org/dotenv-vault/pull/61))
+- Display url for  `new`, `login`, and `open` commands. This makes it possible to configure dotenv-vault from server machines (lacking browsers) 🐞 ([#61](https://github.com/dotenv-org/dotenv-vault/pull/61))
 
 ## 1.5.2
 
