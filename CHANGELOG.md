@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.5...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.0...master)
+
+## 1.6.0
+
+### Added
+
+- Add optional `dotenvMe` argument to `login` command to avoid the browser hop 🎉 ([#63](https://github.com/dotenv-org/dotenv-vault/pull/63))
 
 ## 1.5.5
 
