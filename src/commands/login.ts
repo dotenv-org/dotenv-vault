@@ -9,7 +9,19 @@ export default class Login extends Command {
     '<%= config.bin %> <%= command.id %>',
   ]
 
+  static args = [
+    {
+      name: 'dotenvMe',
+      required: false,
+      description: 'Set .env.me credential. Defaults to generated value.',
+      hidden: false,
+    },
+  ]
+
   public async run(): Promise<void> {
-    new LoginService({cmd: this}).run()
+    const {args} = await this.parse(Login)
+    const dotenvMe = args.dotenvMe
+
+    new LoginService({cmd: this, dotenvMe: dotenvMe}).run()
   }
 }

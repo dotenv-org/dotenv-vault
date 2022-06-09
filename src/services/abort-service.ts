@@ -60,6 +60,15 @@ class AbortService {
     })
   }
 
+  invalidEnvMe(): void {
+    this.log.plain(`${chalk.red('x')} Aborted.`)
+    this.cmd.error('Invalid .env.me (DOTENV_ME).', {
+      code: 'INVALID_DOTENV_ME',
+      ref: '',
+      suggestions: ['Invalid .env.me (DOTENV_ME). To fix it, run: npx dotenv-vault@latest login'],
+    })
+  }
+
   missingEnvMe(): void {
     this.log.plain(`${chalk.red('x')} Aborted.`)
     this.cmd.error('Missing .env.me (DOTENV_ME).', {

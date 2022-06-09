@@ -34,7 +34,7 @@ class PullService {
 
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
-    this.login = new LoginService({cmd: attrs.cmd})
+    this.login = new LoginService({cmd: attrs.cmd, dotenvMe: null})
   }
 
   async run(): Promise<void> {

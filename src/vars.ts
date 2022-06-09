@@ -47,6 +47,10 @@ export class Vars {
     return !(identifier && identifier.length === 68)
   }
 
+  invalidMeValue(credential: string | any): boolean {
+    return !(credential && credential.length === 67)
+  }
+
   missingEnvMe(dotenvMe: string | any): boolean {
     if (dotenvMe) { // it's not missing if dotenvMe is passed
       return false
