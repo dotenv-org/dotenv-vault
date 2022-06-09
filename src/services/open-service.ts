@@ -31,7 +31,8 @@ class OpenService {
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Opening project page`)
     await CliUx.ux.wait(1000)
     CliUx.ux.action.stop()
-    CliUx.ux.open(this.openUrl)
+    this.log.local(`Opening browser to ${this.openUrl}`)
+    CliUx.ux.open(this.openUrl).catch()
   }
 
   get openUrl(): string {

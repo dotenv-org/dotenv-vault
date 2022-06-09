@@ -67,7 +67,8 @@ class NewService {
       this.abort.existingEnvVault()
     }
 
-    CliUx.ux.open(this.urlWithProjectName)
+    this.log.local(`Opening browser to ${this.urlWithProjectName}`)
+    CliUx.ux.open(this.urlWithProjectName).catch()
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for project to be created`)
     await this.check()
   }

@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.5.3...master)
+
+## 1.5.3
+
+### Added
+
+- Display url for  `new`, `login`, and `open` commands. This makes it possible to configure dotenv-vault from server machines (lacking browsers) 🐞 ([#61](https://github.com/dotenv-org/dotenv-vault/pull/61))
 
 ## 1.5.2
 
