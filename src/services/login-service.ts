@@ -50,6 +50,11 @@ class LoginService {
   }
 
   async login(tip = true): Promise<void> {
+    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to login or ${chalk.yellow('q')} to exit`)
+    if (answer === 'q' || answer === 'Q') {
+      this.abort.quit()
+    }
+
     this.log.local(`Opening browser to ${this.loginUrl}`)
     CliUx.ux.open(this.loginUrl).catch(_ => {})
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for login`)
