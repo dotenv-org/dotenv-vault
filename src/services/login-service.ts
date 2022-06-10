@@ -58,7 +58,7 @@ class LoginService {
       CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Adding .env.me (DOTENV_ME)`)
       await CliUx.ux.wait(1000)
       CliUx.ux.action.stop()
-      writeFileSync('.env.me', `DOTENV_ME=${this.dotenvMe}`)
+      writeFileSync('.env.me', this.meFileContent(this.dotenvMe))
       this.log.local(`Added to .env.me (DOTENV_ME=${this.dotenvMe.slice(0, 9)}...)`)
       this.log.plain('')
       this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
@@ -110,7 +110,7 @@ class LoginService {
         // Step 3
         CliUx.ux.action.stop()
         const meUid = resp.data.data.meUid
-        writeFileSync('.env.me', `DOTENV_ME=${meUid}`)
+        writeFileSync('.env.me', this.meFileContent(meUid))
         this.log.local(`Logged in as .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
         if (tip) {
           this.log.plain('')
@@ -125,6 +125,23 @@ class LoginService {
         this.log.local('Things were taking too long... gave up. Please try again.')
       }
     }
+  }
+
+  meFileContent(value: string): string {
+    const s = `#################################################################################
+#                                                                               #
+#    This file uniquely authorizes you against this project in Dotenv Vault.    #
+#                 Do NOT commit this file to source control.                    #
+#                                                                               #
+#                  Generated with 'npx dotenv-vault login'                      #
+#                                                                               #
+#                  Learn more at https://dotenv.org/env-me                      #
+#                                                                               #
+#################################################################################
+
+DOTENV_ME=${value}`
+
+    return s
   }
 
   get loginUrl(): string {
