@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.1...master)
+
+## 1.6.1
+
+### Added
+
+- Add informative text to generation of `.env.vault` and `.env.me` file ([#64](https://github.com/dotenv-org/dotenv-vault/pull/64))
 
 ## 1.6.0
 
