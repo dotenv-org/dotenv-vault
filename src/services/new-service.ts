@@ -67,14 +67,14 @@ class NewService {
       this.abort.existingEnvVault()
     }
 
-    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to create a new project or ${chalk.yellow('q')} to exit`)
+    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to create a new project vault (.env.vault) or ${chalk.yellow('q')} to exit`)
     if (answer === 'q' || answer === 'Q') {
       this.abort.quit()
     }
 
     this.log.local(`Opening browser to ${this.urlWithProjectName}`)
     CliUx.ux.open(this.urlWithProjectName).catch(_ => {})
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for project to be created`)
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for project vault (.env.vault) to be created`)
     await this.check()
   }
 
