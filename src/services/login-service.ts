@@ -70,14 +70,14 @@ class LoginService {
   }
 
   async login(tip = true): Promise<void> {
-    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to login or ${chalk.yellow('q')} to exit`)
+    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to login and generate credential (.env.me) or ${chalk.yellow('q')} to exit`)
     if (answer === 'q' || answer === 'Q') {
       this.abort.quit()
     }
 
     this.log.local(`Opening browser to ${this.loginUrl}`)
     CliUx.ux.open(this.loginUrl).catch(_ => {})
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for login`)
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for login and credential (.env.me) to be generated`)
     await this.check(tip)
   }
 
@@ -111,10 +111,10 @@ class LoginService {
         CliUx.ux.action.stop()
         const meUid = resp.data.data.meUid
         writeFileSync('.env.me', this.meFileContent(meUid))
-        this.log.local(`Logged in as .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
+        this.log.local(`Added to .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
         if (tip) {
           this.log.plain('')
-          this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
+          this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest open')}`)
         }
       } else if (this.checkCount < 50) {
         // 404 - keep trying

@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.2...master)
+
+## 1.6.2
+
+### Changed
+
+- Clarified informational language on `new` and `login` commands 🧹
 
 ## 1.6.1
 
