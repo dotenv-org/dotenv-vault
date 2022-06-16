@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.3...master)
+
+## 1.6.3
+
+### Changed
+
+- Clarifications in README and removed minimum node 14 requirement. Working with 12 and lower.
 
 ## 1.6.2
 
