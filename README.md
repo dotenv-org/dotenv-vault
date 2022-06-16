@@ -332,10 +332,6 @@ Example:
 $ dotenv-vault help push
 ```
 
-## Minimum Node Version
-
-Requires your server or machine to have `NodeJS>=14.0.0`.
-
 ## Contributing Guide
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
