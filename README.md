@@ -10,6 +10,8 @@ Dotenv Vault securely syncs secrets and app configuration across your machines, 
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![License](https://img.shields.io/npm/l/dotenv-vault.svg)](https://github.com/dotenv-org/dotenv-vault/blob/master/package.json)
 
+---
+
 ![usage animation](https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/dotenv-vault.gif)
 
 ## Works With
