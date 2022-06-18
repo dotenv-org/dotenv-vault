@@ -180,6 +180,19 @@ $ dotenv-vault new vlt_a5ue8…
 # set .env.vault project identifier to vlt_a5ue8…
 ```
 
+#### Options
+
+##### -y, --yes
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+Examples:
+
+```bash
+$ dotenv-vault new -y
+# skips over prompt for permission to open browser window
+```
+
 ### `dotenv-vault login [dotenvMe]`
 
 Authenticate your project at Dotenv Vault.
@@ -203,6 +216,18 @@ $ dotenv-vault login me_13b33…
 # set .env.me credential to me_13b33…
 ```
 
+#### Options
+
+##### -y, --yes
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+Examples:
+
+```bash
+$ dotenv-vault login --yes
+# skips over prompt for permission to open browser window
+```
 
 ### `dotenv-vault push [environment] [filename]`
 
@@ -248,6 +273,17 @@ Examples:
 ```bash
 $ dotenv-vault push development --dotenvMe=me_1234
 # pushes local .env to remote development
+```
+
+##### -y, --yes
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+Examples:
+
+```bash
+$ dotenv-vault push --yes
+# skips over prompt for permission to open browser window
 ```
 
 ### `dotenv-vault pull [environment] [filename]`
@@ -301,6 +337,17 @@ $ dotenv-vault pull production .env --dotenvMe=me_1234
 # pulls remote production envs to .env
 ```
 
+##### -y, --yes
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+Examples:
+
+```bash
+$ dotenv-vault pull -y
+# skips over prompt for permission to open browser window
+```
+
 ### `dotenv-vault open`
 
 Open your project in the UI at Dotenv Vault.
@@ -309,6 +356,17 @@ Example:
 
 ```bash
 $ dotenv-vault open
+```
+
+##### -y, --yes
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+Examples:
+
+```bash
+$ dotenv-vault open -y
+# skips over prompt for permission to open browser window
 ```
 
 ### `dotenv-vault help [command]`
