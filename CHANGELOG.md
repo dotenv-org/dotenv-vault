@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.3...master)
 
+## 1.7.0
+
+### Added
+
+- Add `-y`, `--yes` flags to automatically continue through an interactive prompts. ⛳️
+- Added more helpful message when asking to say yes interactively.
+
 ## 1.6.3
 
 ### Changed
