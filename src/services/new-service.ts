@@ -67,7 +67,7 @@ class NewService {
       this.abort.existingEnvVault()
     }
 
-    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to create a new project vault (.env.vault) or ${chalk.yellow('q')} to exit`)
+    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to create a new project vault (.env.vault) or ${chalk.yellow('q')} to exit`)
     if (answer === 'q' || answer === 'Q') {
       this.abort.quit()
     }

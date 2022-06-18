@@ -28,7 +28,7 @@ class OpenService {
       this.abort.emptyEnvVault()
     }
 
-    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to view your project or ${chalk.yellow('q')} to exit`)
+    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to view your project or ${chalk.yellow('q')} to exit`)
     if (answer === 'q' || answer === 'Q') {
       this.abort.quit()
     }
