@@ -26,12 +26,20 @@ class WhoamiService {
   }
 
   async run(): Promise<void> {
+    if (vars.missingEnvVault) {
+      this.abort.missingEnvVault()
+    }
+
+    if (vars.emptyEnvVault) {
+      this.abort.emptyEnvVault()
+    }
+
     if (vars.missingEnvMe(this.dotenvMe)) {
-      // display error
+      this.abort.missingEnvMe()
     }
 
     if (vars.emptyEnvMe(this.dotenvMe)) {
-      // display error
+      this.abort.emptyEnvMe()
     }
 
     this.whoami()
@@ -43,6 +51,7 @@ class WhoamiService {
       headers: {'content-type': 'application/json'},
       data: {
         DOTENV_ME: this.meUid,
+        DOTENV_VAULT: vars.vaultValue,
       },
       url: this.url,
     }
