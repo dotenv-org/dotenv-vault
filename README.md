@@ -358,6 +358,8 @@ Example:
 $ dotenv-vault open
 ```
 
+#### Options
+
 ##### -y, --yes
 
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
