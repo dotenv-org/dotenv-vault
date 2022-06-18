@@ -1,4 +1,4 @@
-import {Command} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
 
 import {LoginService} from '../services/login-service'
 
@@ -18,10 +18,21 @@ export default class Login extends Command {
     },
   ]
 
-  public async run(): Promise<void> {
-    const {args} = await this.parse(Login)
-    const dotenvMe = args.dotenvMe
+  static flags = {
+    yes: Flags.boolean({
+      char: 'y',
+      description: 'Automatic yes to prompts. Assume yes to all prompts and run non-interactively.',
+      hidden: false,
+      required: false,
+      default: false,
+    }),
+  }
 
-    new LoginService({cmd: this, dotenvMe: dotenvMe}).run()
+  public async run(): Promise<void> {
+    const {args, flags} = await this.parse(Login)
+    const dotenvMe = args.dotenvMe
+    const yes = flags.yes
+
+    new LoginService({cmd: this, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }

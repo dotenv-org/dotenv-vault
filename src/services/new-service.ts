@@ -14,11 +14,13 @@ import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 interface NewServiceAttrs {
   cmd;
   dotenvVault;
+  yes;
 }
 
 class NewService {
   public cmd;
   public dotenvVault;
+  public yes;
   public log;
   public requestUid;
   public controller;
@@ -28,6 +30,8 @@ class NewService {
   constructor(attrs: NewServiceAttrs = {} as NewServiceAttrs) {
     this.cmd = attrs.cmd
     this.dotenvVault = attrs.dotenvVault
+    this.yes = attrs.yes
+
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
 
@@ -67,9 +71,11 @@ class NewService {
       this.abort.existingEnvVault()
     }
 
-    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press any key to open up the browser to create a new project vault (.env.vault) or ${chalk.yellow('q')} to exit`)
-    if (answer === 'q' || answer === 'Q') {
-      this.abort.quit()
+    if (!this.yes) {
+      const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to create a new project vault (.env.vault) or ${chalk.yellow('q')} to exit`)
+      if (answer === 'q' || answer === 'Q') {
+        this.abort.quit()
+      }
     }
 
     this.log.local(`Opening browser to ${this.urlWithProjectName}`)

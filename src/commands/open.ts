@@ -1,4 +1,4 @@
-import {Command} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
 
 import {OpenService} from '../services/open-service'
 
@@ -9,7 +9,20 @@ export default class Open extends Command {
     '<%= config.bin %> <%= command.id %>',
   ]
 
+  static flags = {
+    yes: Flags.boolean({
+      char: 'y',
+      description: 'Automatic yes to prompts. Assume yes to all prompts and run non-interactively.',
+      hidden: false,
+      required: false,
+      default: false,
+    }),
+  }
+
   public async run(): Promise<void> {
-    new OpenService({cmd: this}).run()
+    const {flags} = await this.parse(Open)
+    const yes = flags.yes
+
+    new OpenService({cmd: this, yes: yes}).run()
   }
 }
