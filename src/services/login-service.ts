@@ -14,11 +14,13 @@ import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 interface LoginServiceAttrs {
   cmd;
   dotenvMe;
+  yes;
 }
 
 class LoginService {
   public cmd;
   public dotenvMe;
+  public yes;
   public log;
   public requestUid;
   public controller;
@@ -28,6 +30,7 @@ class LoginService {
   constructor(attrs: LoginServiceAttrs = {} as LoginServiceAttrs) {
     this.cmd = attrs.cmd
     this.dotenvMe = attrs.dotenvMe
+    this.yes = attrs.yes
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
 
@@ -70,9 +73,11 @@ class LoginService {
   }
 
   async login(tip = true): Promise<void> {
-    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to login and generate credential (.env.me) or ${chalk.yellow('q')} to exit`)
-    if (answer === 'q' || answer === 'Q') {
-      this.abort.quit()
+    if (!this.yes) {
+      const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to login and generate credential (.env.me) or ${chalk.yellow('q')} to exit`)
+      if (answer === 'q' || answer === 'Q') {
+        this.abort.quit()
+      }
     }
 
     this.log.local(`Opening browser to ${this.loginUrl}`)

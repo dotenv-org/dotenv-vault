@@ -6,15 +6,18 @@ import {AbortService} from '../services/abort-service'
 
 interface OpenServiceAttrs {
   cmd;
+  yes;
 }
 
 class OpenService {
   public cmd;
+  public yes;
   public log;
   public abort;
 
   constructor(attrs: OpenServiceAttrs = {} as OpenServiceAttrs) {
     this.cmd = attrs.cmd
+    this.yes = attrs.yes
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
   }
@@ -28,9 +31,11 @@ class OpenService {
       this.abort.emptyEnvVault()
     }
 
-    const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to view your project or ${chalk.yellow('q')} to exit`)
-    if (answer === 'q' || answer === 'Q') {
-      this.abort.quit()
+    if (!this.yes) {
+      const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to view your project or ${chalk.yellow('q')} to exit`)
+      if (answer === 'q' || answer === 'Q') {
+        this.abort.quit()
+      }
     }
 
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Opening project page`)

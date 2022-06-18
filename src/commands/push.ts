@@ -33,6 +33,13 @@ export default class Push extends Command {
       env: 'DOTENV_ME',
       required: false,
     }),
+    yes: Flags.boolean({
+      char: 'y',
+      description: 'Automatic yes to prompts. Assume yes to all prompts and run non-interactively.',
+      hidden: false,
+      required: false,
+      default: false,
+    }),
   }
 
   public async run(): Promise<void> {
@@ -40,7 +47,8 @@ export default class Push extends Command {
     const environment = args.environment
     const filename = args.filename
     const dotenvMe = flags.dotenvMe
+    const yes = flags.yes
 
-    new PushService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe}).run()
+    new PushService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }

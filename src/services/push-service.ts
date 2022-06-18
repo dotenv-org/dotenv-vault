@@ -15,6 +15,7 @@ interface PushServiceAttrs {
   environment;
   filename;
   dotenvMe;
+  yes;
 }
 
 class PushService {
@@ -22,6 +23,7 @@ class PushService {
   public environment;
   public filename;
   public dotenvMe;
+  public yes;
   public log;
   public abort;
   public login;
@@ -31,10 +33,11 @@ class PushService {
     this.environment = attrs.environment
     this.filename = attrs.filename
     this.dotenvMe = attrs.dotenvMe
+    this.yes = attrs.yes
 
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
-    this.login = new LoginService({cmd: attrs.cmd, dotenvMe: null})
+    this.login = new LoginService({cmd: attrs.cmd, dotenvMe: null, yes: this.yes})
   }
 
   async run(): Promise<void> {
