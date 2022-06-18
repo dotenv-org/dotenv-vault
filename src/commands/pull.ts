@@ -27,7 +27,7 @@ export default class Pull extends Command {
   static flags = {
     dotenvMe: Flags.string({
       char: 'm',
-      description: 'Pass .env.me credential directly (rather than reading from .env.me file)',
+      description: 'Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)',
       hidden: false,
       multiple: false,
       env: 'DOTENV_ME',

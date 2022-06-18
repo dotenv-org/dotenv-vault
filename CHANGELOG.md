@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.6.3...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.8.0...master)
+
+## 1.8.0
+
+### Added
+
+- Added `dotenv-vault whoami` command. Displays the current logged in user. 🦉
 
 ## 1.7.0
 

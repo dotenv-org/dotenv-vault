@@ -371,6 +371,28 @@ $ dotenv-vault open -y
 # skips over prompt for permission to open browser window
 ```
 
+### `dotenv-vault whoami`
+
+Display the current logged in user
+
+Example:
+
+```bash
+$ dotenv-vault whoami
+```
+
+#### Options
+
+##### --dotenvMe
+
+Directly pass your `DOTENV_ME` value to the command line, instead of reading from a `.env.me` file.
+
+Examples:
+
+```bash
+$ dotenv-vault whoami --dotenvMe=me_1234
+```
+
 ### `dotenv-vault help [command]`
 
 Display help for dotenv-vault commands.
