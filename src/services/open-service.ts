@@ -46,7 +46,7 @@ class OpenService {
   }
 
   get openUrl(): string {
-    return `${vars.apiUrl}/open?vaultUid=${vars.vaultValue}`
+    return `${vars.apiUrl}/open?DOTENV_VAULT=${vars.vaultValue}`
   }
 }
 
