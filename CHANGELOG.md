@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.8.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.8.1...master)
+
+## 1.8.1
+
+### Changed
+
+- When specifying `development` environment, select `.env.development` first and fallback to `.env` file
 
 ## 1.8.0
 

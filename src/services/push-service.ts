@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
-import {readFileSync} from 'fs'
+import {existsSync, readFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
@@ -69,7 +69,12 @@ class PushService {
       this.abort.emptyEnv(this.smartFilename)
     }
 
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}Securely pushing`)
+    let pushingMsg = `Securely pushing (${this.smartFilename})`
+    if (this.smartEnvironment) {
+      pushingMsg = `Securely pushing ${this.smartEnvironment} (${this.smartFilename})`
+    }
+
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${pushingMsg}`)
     this.push()
   }
 
@@ -152,8 +157,8 @@ class PushService {
     }
 
     if (this.smartEnvironment) {
-      // in case of development being passed return .env. 99% of the time development is associated with the .env file
-      if (this.smartEnvironment === 'development') {
+      // in case of development being passed and .env.development file does not exist, then return .env. this covers use cases of custom environments like local (main), development, and production
+      if (this.smartEnvironment === 'development' && !existsSync('.env.development')) {
         return '.env'
       }
 

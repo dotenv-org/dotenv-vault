@@ -1,7 +1,6 @@
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
-import {readFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
