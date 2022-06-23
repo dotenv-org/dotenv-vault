@@ -67,7 +67,12 @@ class PullService {
       await this.login.login(false)
     }
 
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}Securely pulling`)
+    let pullingMsg = 'Securely pulling'
+    if (this.environment) {
+      pullingMsg = `Securely pulling ${this.environment}`
+    }
+
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${pullingMsg}`)
 
     await this.pull()
   }
