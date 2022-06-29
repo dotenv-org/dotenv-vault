@@ -24,6 +24,6 @@ export default class Whoami extends Command {
     const {flags} = await this.parse(Whoami)
     const dotenvMe = flags.dotenvMe
 
-    new WhoamiService({cmd: this, dotenvMe: dotenvMe}).run()
+    await new WhoamiService({cmd: this, dotenvMe: dotenvMe}).run()
   }
 }

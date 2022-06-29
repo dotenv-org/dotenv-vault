@@ -75,7 +75,7 @@ class PushService {
     }
 
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${pushingMsg}`)
-    this.push()
+    await this.push()
   }
 
   async push(): Promise<void> {
@@ -124,12 +124,7 @@ class PushService {
         }
       }
 
-      this.log.plain(`${chalk.red('x')} Aborted.`)
-      this.cmd.error(errorMessage, {
-        code: errorCode,
-        ref: '',
-        suggestions: suggestions,
-      })
+      this.abort.error(errorMessage, {code: errorCode, ref: '', suggestions: suggestions})
     }
   }
 

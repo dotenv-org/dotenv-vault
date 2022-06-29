@@ -122,12 +122,7 @@ class PullService {
         }
       }
 
-      this.log.plain(`${chalk.red('x')} Aborted.`)
-      this.cmd.error(errorMessage, {
-        code: errorCode,
-        ref: '',
-        suggestions: suggestions,
-      })
+      this.abort.error(errorMessage, {code: errorCode, ref: '', suggestions: suggestions})
     }
   }
 

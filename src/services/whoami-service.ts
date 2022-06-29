@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
 import {CliUx} from '@oclif/core'
@@ -41,7 +40,7 @@ class WhoamiService {
       this.abort.emptyEnvMe()
     }
 
-    this.whoami()
+    await this.whoami()
   }
 
   async whoami(): Promise<void> {
@@ -82,12 +81,7 @@ class WhoamiService {
         }
       }
 
-      this.log.plain(`${chalk.red('x')} Aborted.`)
-      this.cmd.error(errorMessage, {
-        code: errorCode,
-        ref: '',
-        suggestions: suggestions,
-      })
+      this.abort.error(errorMessage, {code: errorCode, ref: '', suggestions: suggestions})
     }
   }
 

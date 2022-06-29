@@ -1,7 +1,7 @@
 import * as crypto from 'crypto'
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
-import {writeFileSync} from 'fs'
+import {existsSync, writeFileSync} from 'fs'
 import {vars} from '../vars'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
@@ -58,11 +58,12 @@ class LoginService {
         this.abort.invalidEnvMe()
       }
 
-      CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Adding .env.me (DOTENV_ME)`)
+      CliUx.ux.action.start(this.startingMessage())
       await CliUx.ux.wait(1000)
       CliUx.ux.action.stop()
+      const msg = this.doneMessage(this.dotenvMe) // must be prior to writeFile in order to check for existance of .env.me or not
       writeFileSync('.env.me', this.meFileContent(this.dotenvMe))
-      this.log.local(`Added to .env.me (DOTENV_ME=${this.dotenvMe.slice(0, 9)}...)`)
+      this.log.local(msg)
       this.log.plain('')
       this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
 
@@ -115,8 +116,9 @@ class LoginService {
         // Step 3
         CliUx.ux.action.stop()
         const meUid = resp.data.data.meUid
+        const msg = this.doneMessage(meUid) // must be prior to writeFile in order to check for existance of .env.me or not
         writeFileSync('.env.me', this.meFileContent(meUid))
-        this.log.local(`Added to .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
+        this.log.local(msg)
         if (tip) {
           this.log.plain('')
           this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest open')}`)
@@ -149,12 +151,28 @@ DOTENV_ME=${value}`
     return s
   }
 
+  startingMessage(): string {
+    if (existsSync('.env.me')) {
+      return `${chalk.dim(this.log.pretextLocal)}Updating .env.me (DOTENV_ME)`
+    }
+
+    return `${chalk.dim(this.log.pretextLocal)}Creating .env.me (DOTENV_ME)`
+  }
+
+  doneMessage(meUid: string): string {
+    if (existsSync('.env.me')) {
+      return `Updated .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`
+    }
+
+    return `Created .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`
+  }
+
   get loginUrl(): string {
-    return `${vars.apiUrl}/login?vaultUid=${vars.vaultValue}&requestUid=${this.requestUid}`
+    return `${vars.apiUrl}/login?DOTENV_VAULT=${vars.vaultValue}&requestUid=${this.requestUid}`
   }
 
   get checkUrl(): string {
-    return `${vars.apiUrl}/check?vaultUid=${vars.vaultValue}&requestUid=${this.requestUid}`
+    return `${vars.apiUrl}/check?DOTENV_VAULT=${vars.vaultValue}&requestUid=${this.requestUid}`
   }
 }
 

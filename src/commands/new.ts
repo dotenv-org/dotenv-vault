@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {NewService} from '../services/new-service'
 
 export default class New extends Command {
-  static description = 'Create your project at Dotenv Vault'
+  static description = 'Create your project at dotenv-vault'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -33,6 +33,6 @@ export default class New extends Command {
     const dotenvVault = args.dotenvVault
     const yes = flags.yes
 
-    new NewService({cmd: this, dotenvVault: dotenvVault, yes: yes}).run()
+    await new NewService({cmd: this, dotenvVault: dotenvVault, yes: yes}).run()
   }
 }

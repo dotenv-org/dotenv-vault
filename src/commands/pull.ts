@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {PullService} from '../services/pull-service'
 
 export default class Pull extends Command {
-  static description = 'Pull .env securely from Dotenv Vault'
+  static description = 'Pull .env securely from dotenv-vault'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -49,6 +49,6 @@ export default class Pull extends Command {
     const dotenvMe = flags.dotenvMe
     const yes = flags.yes
 
-    new PullService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
+    await new PullService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }

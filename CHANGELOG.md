@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.8.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.9.0...master)
+
+## 1.9.0
+
+### Added
+
+- Added `logout` command for revoking .env.me credential(s) 🔐
+- Abort without stacktrace when quitting prompt with `q`
+- Improved error formatting
 
 ## 1.8.1
 

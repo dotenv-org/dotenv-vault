@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {LoginService} from '../services/login-service'
 
 export default class Login extends Command {
-  static description = 'Login to Dotenv Vault'
+  static description = 'Log in to dotenv-vault'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -33,6 +33,6 @@ export default class Login extends Command {
     const dotenvMe = args.dotenvMe
     const yes = flags.yes
 
-    new LoginService({cmd: this, dotenvMe: dotenvMe, yes: yes}).run()
+    await new LoginService({cmd: this, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }

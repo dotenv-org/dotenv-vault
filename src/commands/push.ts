@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {PushService} from '../services/push-service'
 
 export default class Push extends Command {
-  static description = 'Push .env securely to Dotenv Vault'
+  static description = 'Push .env securely to dotenv-vault'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -49,6 +49,6 @@ export default class Push extends Command {
     const dotenvMe = flags.dotenvMe
     const yes = flags.yes
 
-    new PushService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
+    await new PushService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }
