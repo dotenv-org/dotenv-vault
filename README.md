@@ -230,6 +230,29 @@ $ dotenv-vault login --yes
 # skips over prompt for permission to open browser window
 ```
 
+### `dotenv-vault logout`
+
+Log out of Dotenv Vault
+
+Example:
+
+```bash
+$ dotenv-vault logout
+```
+
+#### Options
+
+##### -y, --yes
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+Examples:
+
+```bash
+$ dotenv-vault logout -y
+# skips over prompt for permission to open browser window
+```
+
 ### `dotenv-vault push [environment] [filename]`
 
 Push your `.env` file securely to Dotenv Vault
