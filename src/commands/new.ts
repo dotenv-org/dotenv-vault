@@ -33,6 +33,6 @@ export default class New extends Command {
     const dotenvVault = args.dotenvVault
     const yes = flags.yes
 
-    new NewService({cmd: this, dotenvVault: dotenvVault, yes: yes}).run()
+    await new NewService({cmd: this, dotenvVault: dotenvVault, yes: yes}).run()
   }
 }

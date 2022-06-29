@@ -49,6 +49,6 @@ export default class Push extends Command {
     const dotenvMe = flags.dotenvMe
     const yes = flags.yes
 
-    new PushService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
+    await new PushService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }

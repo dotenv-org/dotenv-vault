@@ -17,11 +17,7 @@ class AbortService {
 
   quit(): void {
     this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error('Quit', {
-      code: 'QUIT',
-      ref: '',
-      suggestions: [],
-    })
+		this.cmd.exit()
   }
 
   missingEnvVault(): void {

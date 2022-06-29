@@ -33,6 +33,6 @@ export default class Login extends Command {
     const dotenvMe = args.dotenvMe
     const yes = flags.yes
 
-    new LoginService({cmd: this, dotenvMe: dotenvMe, yes: yes}).run()
+    await new LoginService({cmd: this, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }

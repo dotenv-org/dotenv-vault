@@ -49,6 +49,6 @@ export default class Pull extends Command {
     const dotenvMe = flags.dotenvMe
     const yes = flags.yes
 
-    new PullService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
+    await new PullService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }

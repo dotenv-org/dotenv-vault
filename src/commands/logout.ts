@@ -23,6 +23,6 @@ export default class Logout extends Command {
     const {flags} = await this.parse(Logout)
     const yes = flags.yes
 
-    new LogoutService({cmd: this, yes: yes}).run()
+    await new LogoutService({cmd: this, yes: yes}).run()
   }
 }
