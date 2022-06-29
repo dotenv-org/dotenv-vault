@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
 import {CliUx} from '@oclif/core'
