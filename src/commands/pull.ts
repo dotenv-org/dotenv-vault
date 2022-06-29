@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {PullService} from '../services/pull-service'
 
 export default class Pull extends Command {
-  static description = 'Pull .env securely from Dotenv Vault'
+  static description = 'Pull .env securely from dotenv-vault'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',

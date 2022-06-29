@@ -150,11 +150,11 @@ DOTENV_ME=${value}`
   }
 
   get loginUrl(): string {
-    return `${vars.apiUrl}/login?vaultUid=${vars.vaultValue}&requestUid=${this.requestUid}`
+    return `${vars.apiUrl}/login?DOTENV_VAULT=${vars.vaultValue}&requestUid=${this.requestUid}`
   }
 
   get checkUrl(): string {
-    return `${vars.apiUrl}/check?vaultUid=${vars.vaultValue}&requestUid=${this.requestUid}`
+    return `${vars.apiUrl}/check?DOTENV_VAULT=${vars.vaultValue}&requestUid=${this.requestUid}`
   }
 }
 

@@ -1,9 +1,9 @@
 import {Command, Flags} from '@oclif/core'
 
-import {OpenService} from '../services/open-service'
+import {LogoutService} from '../services/logout-service'
 
-export default class Open extends Command {
-  static description = 'Open dotenv-vault project page'
+export default class Logout extends Command {
+  static description = 'Log out of dotenv-vault'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -20,9 +20,9 @@ export default class Open extends Command {
   }
 
   public async run(): Promise<void> {
-    const {flags} = await this.parse(Open)
+    const {flags} = await this.parse(Logout)
     const yes = flags.yes
 
-    new OpenService({cmd: this, yes: yes}).run()
+    new LogoutService({cmd: this, yes: yes}).run()
   }
 }
