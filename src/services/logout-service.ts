@@ -1,7 +1,6 @@
 import * as crypto from 'crypto'
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
-import {unlinkSync} from 'fs'
 import {vars} from '../vars'
 import {CliUx} from '@oclif/core'
 import {LogService} from '../services/log-service'
@@ -34,14 +33,6 @@ class LogoutService {
   }
 
   async run(): Promise<void> {
-    if (vars.missingEnvMe(null)) {
-      this.abort.missingEnvMe()
-    }
-
-    if (vars.emptyEnvMe(null)) {
-      this.abort.emptyEnvMe()
-    }
-
     await this.logout()
   }
 
@@ -88,8 +79,7 @@ class LogoutService {
         // Step 3
         CliUx.ux.action.stop()
         const meUid = resp.data.data.meUid
-        unlinkSync('.env.me')
-        this.log.local(`Removed .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
+        this.log.local(`Revoked .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
         if (tip) {
           this.log.plain('')
           this.log.plain(`Run ${chalk.bold('npx dotenv-vault@latest login')} to generate a new credential (.env.me)`)
