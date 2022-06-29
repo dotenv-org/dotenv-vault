@@ -6,6 +6,12 @@ interface AbortServiceAttrs {
   cmd;
 }
 
+interface ErrorInfo {
+  code: string;
+  suggestions: Array<string>;
+  ref: string;
+}
+
 class AbortService {
   public cmd;
   public log;
@@ -15,7 +21,7 @@ class AbortService {
     this.log = new LogService({cmd: attrs.cmd})
   }
 
-  error(msg, obj): void {
+  error(msg: string, obj: ErrorInfo): void {
     this.log.plain(`${chalk.red('x')} Aborted.`)
 
     if (obj.code) {
@@ -29,11 +35,11 @@ class AbortService {
     this.cmd.error(msg)
   }
 
-  code(code): void {
+  code(code: string): void {
     this.log.plain(`Code: ${code}`)
   }
 
-  suggestion(suggestion): void {
+  suggestion(suggestion: string): void {
     this.log.plain(`Suggestion: ${suggestion}`)
   }
 
@@ -46,7 +52,7 @@ class AbortService {
     this.error(`Missing ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'MISSING_DOTENV_VAULT',
       ref: '',
-      suggestions: [`run npx dotenv-vault@latest new`],
+      suggestions: ['run npx dotenv-vault@latest new'],
     })
   }
 
@@ -54,7 +60,7 @@ class AbortService {
     this.error(`Empty ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'EMPTY_DOTENV_VAULT',
       ref: '',
-      suggestions: [`run npx dotenv-vault@latest new`],
+      suggestions: ['run npx dotenv-vault@latest new'],
     })
   }
 
@@ -62,7 +68,7 @@ class AbortService {
     this.error(`Invalid ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'INVALID_DOTENV_VAULT',
       ref: '',
-      suggestions: [`run npx dotenv-vault@latest new`],
+      suggestions: ['run npx dotenv-vault@latest new'],
     })
   }
 

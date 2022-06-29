@@ -19,7 +19,7 @@ export default class Open extends Command {
     }),
   }
 
-	public async run(): Promise<void> {
+  public async run(): Promise<void> {
     const {flags} = await this.parse(Open)
     const yes = flags.yes
 
