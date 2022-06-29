@@ -15,89 +15,102 @@ class AbortService {
     this.log = new LogService({cmd: attrs.cmd})
   }
 
+  error(msg, obj): void {
+    this.log.plain(`${chalk.red('x')} Aborted.`)
+
+    if (obj.code) {
+      this.code(obj.code)
+    }
+
+    if (obj.suggestions[0]) {
+      this.suggestion(obj.suggestions[0])
+    }
+
+    this.cmd.error(msg)
+  }
+
+  code(code): void {
+    this.log.plain(`Code: ${code}`)
+  }
+
+  suggestion(suggestion): void {
+    this.log.plain(`Suggestion: ${suggestion}`)
+  }
+
   quit(): void {
     this.log.plain(`${chalk.red('x')} Aborted.`)
-		this.cmd.exit()
+    this.cmd.exit()
   }
 
   missingEnvVault(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Missing ${vars.vaultFilename} (${vars.vaultKey}).`, {
+    this.error(`Missing ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'MISSING_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Missing ${vars.vaultFilename} (${vars.vaultKey}). To create it, run: npx dotenv-vault@latest new`],
+      suggestions: [`run npx dotenv-vault@latest new`],
     })
   }
 
   emptyEnvVault(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Empty ${vars.vaultFilename} (${vars.vaultKey}).`, {
+    this.error(`Empty ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'EMPTY_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Empty ${vars.vaultFilename} (${vars.vaultKey}). To fix it, run: npx dotenv-vault@latest new`],
+      suggestions: [`run npx dotenv-vault@latest new`],
     })
   }
 
   invalidEnvVault(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Invalid ${vars.vaultFilename} (${vars.vaultKey}).`, {
+    this.error(`Invalid ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'INVALID_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Invalid ${vars.vaultFilename} (${vars.vaultKey}). To fix it, run: npx dotenv-vault@latest new`],
+      suggestions: [`run npx dotenv-vault@latest new`],
     })
   }
 
   existingEnvVault(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Existing ${vars.vaultFilename} (${vars.vaultKey}).`, {
+    this.error(`Existing ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'EXISTING_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Existing ${vars.vaultFilename} (${vars.vaultKey}). To fix it, delete ${vars.vaultFilename} and then run: npx dotenv-vault@latest new`],
+      suggestions: [`delete ${vars.vaultFilename} and then run npx dotenv-vault@latest new`],
     })
   }
 
   invalidEnvMe(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error('Invalid .env.me (DOTENV_ME).', {
+    this.error('Invalid .env.me (DOTENV_ME).', {
       code: 'INVALID_DOTENV_ME',
       ref: '',
-      suggestions: ['Invalid .env.me (DOTENV_ME). To fix it, run: npx dotenv-vault@latest login'],
+      suggestions: ['run npx dotenv-vault@latest login'],
     })
   }
 
   missingEnvMe(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error('Missing .env.me (DOTENV_ME).', {
+    this.error('Missing .env.me (DOTENV_ME).', {
       code: 'MISSING_DOTENV_ME',
       ref: '',
-      suggestions: ['Missing .env.me (DOTENV_ME). To create it, run: npx dotenv-vault@latest login'],
+      suggestions: ['run npx dotenv-vault@latest login'],
     })
   }
 
   emptyEnvMe(): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error('Empty .env.me (DOTENV_ME).', {
+    this.error('Empty .env.me (DOTENV_ME).', {
       code: 'EMPTY_DOTENV_ME',
       ref: '',
-      suggestions: ['Empty .env.me (DOTENV_ME). To create it, run: npx dotenv-vault@latest login'],
+      suggestions: ['run npx dotenv-vault@latest login'],
     })
   }
 
   missingEnv(filename: string | any = '.env'): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Missing ${filename}.`, {
+    this.error(`Missing ${filename}.`, {
       code: 'MISSING_ENV_FILE',
       ref: '',
-      suggestions: [`Missing ${filename}. Create it (touch ${filename}) and then try again. Or run, npx dotenv-vault@latest pull`],
+      suggestions: [`Create it (touch ${filename}) and then try again. Or run, npx dotenv-vault@latest pull`],
     })
   }
 
   emptyEnv(filename: string | any = '.env'): void {
-    this.log.plain(`${chalk.red('x')} Aborted.`)
-    this.cmd.error(`Empty ${filename}.`, {
+    this.error(`Empty ${filename}.`, {
       code: 'EMPTY_ENV_FILE',
       ref: '',
-      suggestions: [`Empty ${filename}. Populate it with values and then try again. Or run, npx dotenv-vault@latest pull`],
+      suggestions: [`Populate ${filename} with values and then try again. Or run, npx dotenv-vault@latest pull`],
     })
   }
 }
