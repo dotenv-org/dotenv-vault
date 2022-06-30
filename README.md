@@ -372,7 +372,7 @@ $ dotenv-vault pull -y
 # skips over prompt for permission to open browser window
 ```
 
-### `dotenv-vault open`
+### `dotenv-vault open [environment]`
 
 Open your project in the UI at Dotenv Vault.
 
@@ -380,6 +380,17 @@ Example:
 
 ```bash
 $ dotenv-vault open
+```
+
+#### Arguments
+
+##### [environment]
+
+Example:
+
+```bash
+$ dotenv-vault open staging
+# opens directly to the staging tab of the project in the ui
 ```
 
 #### Options

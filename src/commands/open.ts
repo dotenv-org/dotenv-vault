@@ -9,6 +9,15 @@ export default class Open extends Command {
     '<%= config.bin %> <%= command.id %>',
   ]
 
+  static args = [
+    {
+      name: 'environment',
+      required: false,
+      description: 'Set environment to push to. Defaults to development',
+      hidden: false,
+    },
+  ]
+
   static flags = {
     yes: Flags.boolean({
       char: 'y',
@@ -20,9 +29,10 @@ export default class Open extends Command {
   }
 
   public async run(): Promise<void> {
-    const {flags} = await this.parse(Open)
+    const {args, flags} = await this.parse(Open)
+    const environment = args.environment
     const yes = flags.yes
 
-    await new OpenService({cmd: this, yes: yes}).run()
+    await new OpenService({cmd: this, environment: environment, yes: yes}).run()
   }
 }
