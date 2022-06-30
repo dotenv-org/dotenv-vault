@@ -6,18 +6,22 @@ import {AbortService} from '../services/abort-service'
 
 interface OpenServiceAttrs {
   cmd;
+  environment;
   yes;
 }
 
 class OpenService {
   public cmd;
+  public environment;
   public yes;
   public log;
   public abort;
 
   constructor(attrs: OpenServiceAttrs = {} as OpenServiceAttrs) {
     this.cmd = attrs.cmd
+    this.environment = attrs.environment
     this.yes = attrs.yes
+
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
   }
@@ -46,7 +50,7 @@ class OpenService {
   }
 
   get openUrl(): string {
-    return `${vars.apiUrl}/open?DOTENV_VAULT=${vars.vaultValue}`
+    return `${vars.apiUrl}/open?DOTENV_VAULT=${vars.vaultValue}&environment=${this.environment}`
   }
 }
 

@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.9.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.9.1...master)
+
+## 1.9.1
+
+### Added
+
+- Added `[environment]` argument to `open` command - for example, `dotenv-vault open staging`
 
 ## 1.9.0
 
