@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 import {vars} from '../vars'
-import {writeFileSync} from 'fs'
+import {existsSync, renameSync, writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
@@ -97,6 +97,13 @@ class PullService {
       const outputFilename = this.displayFilename(envName)
 
       CliUx.ux.action.stop()
+
+      // backup current file to .previous
+      if (existsSync(outputFilename)) {
+        renameSync(outputFilename, `${outputFilename}.previous`)
+      }
+
+      // write to new current file
       writeFileSync(outputFilename, newData)
       this.log.remote(`Securely pulled ${environment} (${outputFilename})`)
     } catch (error) {
