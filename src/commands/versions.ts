@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {VersionsService} from '../services/versions-service'
 
 export default class Versions extends Command {
-  static description = 'List all versions of your .env file'
+  static description = 'List version history'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',

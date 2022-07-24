@@ -430,7 +430,7 @@ $ dotenv-vault whoami --dotenvMe=me_1234
 
 ### `dotenv-vault versions [environment]`
 
-List all versions
+List version history
 
 Example:
 
@@ -446,7 +446,7 @@ Example:
 
 ```bash
 $ dotenv-vault versions production
-# lists all versions of your production .env file
+# List your production version history
 ```
 
 #### Options
