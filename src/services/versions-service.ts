@@ -1,7 +1,6 @@
 import chalk from 'chalk'
-import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
+import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
-import {existsSync, renameSync, writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
@@ -10,28 +9,25 @@ import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
 import {LoginService} from '../services/login-service'
 
-interface PullServiceAttrs {
+interface VersionsServiceAttrs {
   cmd;
   environment;
-  filename;
   dotenvMe;
   yes;
 }
 
-class PullService {
+class VersionsService {
   public cmd;
   public environment;
-  public filename;
   public dotenvMe;
   public yes;
   public log;
   public abort;
   public login;
 
-  constructor(attrs: PullServiceAttrs = {} as PullServiceAttrs) {
+  constructor(attrs: VersionsServiceAttrs = {} as VersionsServiceAttrs) {
     this.cmd = attrs.cmd
     this.environment = attrs.environment
-    this.filename = attrs.filename
     this.dotenvMe = attrs.dotenvMe
     this.yes = attrs.yes
 
@@ -53,12 +49,6 @@ class PullService {
       this.abort.emptyEnvVault()
     }
 
-    // special case for pulling example - no auth needed
-    if (this.pullingExample) {
-      await this.pull()
-      return
-    }
-
     if (vars.missingEnvMe(this.dotenvMe)) {
       await this.login.login(false)
     }
@@ -67,22 +57,21 @@ class PullService {
       await this.login.login(false)
     }
 
-    let pullingMsg = 'Securely pulling'
-    if (this.environment) {
-      pullingMsg = `Securely pulling ${this.environment}`
+    let versionsMsg = 'Listing versions'
+    if (this.smartEnvironment) {
+      versionsMsg = `Listing ${this.smartEnvironment} versions`
     }
 
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${pullingMsg}`)
-
-    await this.pull()
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${versionsMsg}`)
+    await this.versions()
   }
 
-  async pull(): Promise<void> {
+  async versions(): Promise<void> {
     const options: AxiosRequestConfig = {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       data: {
-        environment: this.environment,
+        environment: this.smartEnvironment,
         projectUid: vars.vaultValue,
         meUid: this.meUid,
       },
@@ -90,26 +79,34 @@ class PullService {
     }
 
     try {
-      const resp: AxiosResponse = await axios(options)
+      const resp: AxiosRequestConfig = await axios(options)
+      const versions = resp.data.data.versions
       const environment = resp.data.data.environment
-      const envName = resp.data.data.envName
-      const newData = resp.data.data.dotenv
-      const outputFilename = this.displayFilename(envName)
 
       CliUx.ux.action.stop()
 
-      // backup current file to .previous
-      if (existsSync(outputFilename)) {
-        renameSync(outputFilename, `${outputFilename}.previous`)
-      }
+      CliUx.ux.table(versions, {
+        version: {
+          header: 'Ver',
+          minWidth: 7,
+        },
+        change: {
+          header: 'Change',
+        },
+        by: {
+          header: 'By',
+        },
+        when: {
+          header: 'When',
+        },
+      })
 
-      // write to new current file
-      writeFileSync(outputFilename, newData)
-      this.log.remote(`Securely pulled ${environment} (${outputFilename})`)
+      this.log.plain('')
+      this.log.plain(`Pull a version with ${chalk.bold(`npx dotenv-vault pull ${environment}@${versions[0].version}`)}`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
-      let errorCode = 'PULL_ERROR'
+      let errorCode = 'VERSIONS_ERROR'
       let suggestions = []
 
       errorMessage = error
@@ -134,25 +131,21 @@ class PullService {
   }
 
   get url(): string {
-    return vars.apiUrl + '/pull'
+    return vars.apiUrl + '/versions'
+  }
+
+  get smartEnvironment(): any {
+    // 1. if user has set an environment for input then use that
+    if (this.environment) {
+      return this.environment
+    }
+
+    return null // otherwise, do not pass environment. dotenv-vault's api will smartly choose the main environment for the project (in most cases development)
   }
 
   get meUid(): any {
     return this.dotenvMe || vars.meValue
   }
-
-  get pullingExample(): boolean {
-    return this.environment === 'example'
-  }
-
-  displayFilename(envName: string): string {
-    // if user has set a filename for output then use that else use envName
-    if (this.filename) {
-      return this.filename
-    }
-
-    return envName
-  }
 }
 
-export {PullService}
+export {VersionsService}

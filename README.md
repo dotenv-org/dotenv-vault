@@ -428,6 +428,39 @@ Examples:
 $ dotenv-vault whoami --dotenvMe=me_1234
 ```
 
+### `dotenv-vault versions [environment]`
+
+List version history
+
+Example:
+
+```bash
+$ dotenv-vault versions
+```
+
+#### Arguments
+
+##### [environment]
+
+Example:
+
+```bash
+$ dotenv-vault versions production
+# List your production version history
+```
+
+#### Options
+
+##### --dotenvMe
+
+Directly pass your `DOTENV_ME` value to the command line, instead of reading from a `.env.me` file.
+
+Examples:
+
+```bash
+$ dotenv-vault versions --dotenvMe=me_1234
+```
+
 ### `dotenv-vault help [command]`
 
 Display help for dotenv-vault commands.
