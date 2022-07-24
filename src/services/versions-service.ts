@@ -81,6 +81,7 @@ class VersionsService {
     try {
       const resp: AxiosRequestConfig = await axios(options)
       const versions = resp.data.data.versions
+      const environment = resp.data.data.environment
 
       CliUx.ux.action.stop()
 
@@ -99,6 +100,9 @@ class VersionsService {
           header: 'When',
         },
       })
+
+      this.log.plain('')
+      this.log.plain(`Pull a version with ${chalk.bold(`npx dotenv-vault pull ${environment}@${versions[0].version}`)}`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
