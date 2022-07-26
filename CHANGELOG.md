@@ -6,15 +6,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 1.11.0
 
-- Added `status` command - for example, `dotenv-vault status`. Check the operational status of dotenv-vault's systems.
+- Added `status` command - for example, `dotenv-vault status`. Check the operational status of dotenv-vault's systems. [discussion](https://github.com/dotenv-org/dotenv-vault/discussions/101)
 
 ## 1.10.0
 
 ### Added
 
-- Added `versions` command - for example, `dotenv-vault versions [environment]`
+- Added `versions` command - for example, `dotenv-vault versions [environment]` [discussion](https://github.com/dotenv-org/dotenv-vault/discussions/91)
 - Added `@version` option to `pull` command - for example, `dotenv-vault pull production@v24`
-- Added `.previous` file generation when pulling. This way if you accidently override your local .env file you can still access it.
+- Added `.previous` file generation when pulling. This way if you accidently override your local .env file you can still access it. [#89](https://github.com/dotenv-org/dotenv-vault/pull/89)
 
 ## 1.9.1
 
