@@ -2,14 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.10.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.11.0...master)
+
+## 1.11.0
+
+- Added `status` command - for example, `dotenv-vault status`. Check the operational status of dotenv-vault's systems.
 
 ## 1.10.0
 
 ### Added
 
-- Added `versions` command to `open` - for example, `dotenv-vault versions [environment]`
-- Added `@version` to `pull` command - for example, `dotenv-vault pull production@v24`
+- Added `versions` command - for example, `dotenv-vault versions [environment]`
+- Added `@version` option to `pull` command - for example, `dotenv-vault pull production@v24`
 - Added `.previous` file generation when pulling. This way if you accidently override your local .env file you can still access it.
 
 ## 1.9.1
