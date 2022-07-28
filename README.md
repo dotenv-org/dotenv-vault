@@ -10,14 +10,11 @@ Dotenv Vault securely syncs secrets and app configuration across your machines, 
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![License](https://img.shields.io/npm/l/dotenv-vault.svg)](https://github.com/dotenv-org/dotenv-vault/blob/master/package.json)
 [![Featured on Openbase](https://badges.openbase.com/js/featured/dotenv-vault.svg?token=rF2f+2Z47SSdf5TjTnEBUAR6ZJS1vQaqcTLdu7pR70s=)](https://openbase.com/js/dotenv-vault?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
-
-## Status
-
-![](https://api.checklyhq.com/v1/badges/checks/869a57ec-90da-45c8-8c58-b9f3a944c0d2?style=flat&theme=default&responseTime=true)
-![](https://api.checklyhq.com/v1/badges/checks/bcd97d30-6d8a-4566-8d5f-36c3139235e3?style=flat&theme=default&responseTime=true)
-![](https://api.checklyhq.com/v1/badges/checks/ff334a80-f207-4007-a843-bbcf985ade4f?style=flat&theme=default&responseTime=true)
-![](https://api.checklyhq.com/v1/badges/checks/4f557967-1ed1-486a-b762-39a63781d752?style=flat&theme=default&responseTime=true)
-![](https://api.checklyhq.com/v1/badges/checks/c2fee99a-38e7-414e-89b8-9766ceeb1927?style=flat&theme=default&responseTime=true)
+[![North America](https://api.checklyhq.com/v1/badges/checks/869a57ec-90da-45c8-8c58-b9f3a944c0d2?style=flat&theme=default&responseTime=true)](https://status.dotenv.org)
+[![Europe](https://api.checklyhq.com/v1/badges/checks/bcd97d30-6d8a-4566-8d5f-36c3139235e3?style=flat&theme=default&responseTime=true)](https://status.dotenv.org)
+[![South America](https://api.checklyhq.com/v1/badges/checks/ff334a80-f207-4007-a843-bbcf985ade4f?style=flat&theme=default&responseTime=true)](https://status.dotenv.org)
+[![pull North America](https://api.checklyhq.com/v1/badges/checks/c2fee99a-38e7-414e-89b8-9766ceeb1927?style=flat&theme=default&responseTime=true)](https://status.dotenv.org)
+[![push North America](https://api.checklyhq.com/v1/badges/checks/4f557967-1ed1-486a-b762-39a63781d752?style=flat&theme=default&responseTime=true)](https://status.dotenv.org)
 
 ---
 
