@@ -137,7 +137,7 @@ class LoginService {
   meFileContent(value: string): string {
     const s = `#################################################################################
 #                                                                               #
-#    This file uniquely authorizes you against this project in Dotenv Vault.    #
+#    This file uniquely authorizes you against this project in dotenv-vault.    #
 #                 Do NOT commit this file to source control.                    #
 #                                                                               #
 #                  Generated with 'npx dotenv-vault login'                      #

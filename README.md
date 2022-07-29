@@ -4,7 +4,7 @@
 
 <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/dotenv-vault.png" alt="dotenv-vault" align="right" width="120" />
 
-Dotenv Vault securely syncs secrets and app configuration across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
+dotenv-vault securely syncs secrets and app configuration across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
 
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
@@ -134,12 +134,12 @@ Read our [security statement](https://www.dotenv.org/security?r=1).
 
 ## How It Works
 
-Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](https://dotenv.org/vault?r=1#how-it-works)
+dotenv-vault holds your secrets in a secure and sophisticated way. [Learn more](https://dotenv.org/vault?r=1#how-it-works)
 
 * **Step 1** You run <code>npx dotenv-vault push</code>. The request is started.
 * **Step 2** The .env file is encrypted and sent securely over SSL to Dotenv's in-memory servers.
 * **Step 3** This encrypted payload is decrypted and briefly held in memory to complete the next steps. Afterward, the memory is flushed. Rest assured the decrypted version is never peristed to Dotenv systems.
-* **Step 4** The .env file is parsed line by line - in memory. Note: There are some differences between dotenv parsers across various languages and frameworks. So far Dotenv Vault handles these 100%, and we continue to add test cases to cover all edge cases.
+* **Step 4** The .env file is parsed line by line - in memory. Note: There are some differences between dotenv parsers across various languages and frameworks. So far dotenv-vault handles these 100%, and we continue to add test cases to cover all edge cases.
 * **Step 5** Each key/value pair (and any comments) are extracted - in memory.
 * **Step 6** The secret is divided into its separate key and value. This is by design. They will be stored in separate databases for added security. This way if an attacker somehow gained access to one database they would not be able to make sense of the data - having only half of the puzzle.
 * **Step 7** The <code>KEY</code> is encrypted. The <code>VALUE</code> is encrypted. They are encrypted with different master encryption keys. This way if an attacker somehow gained access to the <code>VALUE</code> decryption key they would find the data useless. They would not know if the secret belonged to Twilio or to AWS. **Encryption uses the AES-GCM algorithm.** It is:
@@ -148,7 +148,7 @@ Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](
   * an IETF standard
   * fast thanks to a dedicated instruction set
   * Additionally, all master encryption keys are rotated on an unpublished schedule, further adding to the level of security.
-* **Step 8** The encrypted <code>VALUE</code> is sent to Dotenv Vault for safe storage. A token is returned as an identifier. The token is used in the next step for mapping the <code>KEY</code> to the <code>VALUE</code> for later secure-read operations. **Multiple security measures go into the Vault.** They include but are not limited to: 
+* **Step 8** The encrypted <code>VALUE</code> is sent to dotenv-vault for safe storage. A token is returned as an identifier. The token is used in the next step for mapping the <code>KEY</code> to the <code>VALUE</code> for later secure-read operations. **Multiple security measures go into the Vault.** They include but are not limited to: 
   * Separate datastore from the application database
   * Not accessible via the internet and all external connections are prevented
   * Encrypted clients are required and these clients have to go through the application - which has its own additional layers of encryption
@@ -163,7 +163,7 @@ Dotenv Vault holds your secrets in a secure and sophisticated way. [Learn more](
 
 ### `dotenv-vault new [dotenvVault]`
 
-Create your project at Dotenv Vault.
+Create your project at dotenv-vault.
 
 Example:
 
@@ -199,7 +199,7 @@ $ dotenv-vault new -y
 
 ### `dotenv-vault login [dotenvMe]`
 
-Authenticate your project at Dotenv Vault.
+Authenticate your project at dotenv-vault.
 
 Example:
 
@@ -235,7 +235,7 @@ $ dotenv-vault login --yes
 
 ### `dotenv-vault logout`
 
-Log out of Dotenv Vault
+Log out of dotenv-vault 
 
 Example:
 
@@ -258,7 +258,7 @@ $ dotenv-vault logout -y
 
 ### `dotenv-vault push [environment] [filename]`
 
-Push your `.env` file securely to Dotenv Vault
+Push your `.env` file securely to dotenv-vault 
 
 Example:
 
@@ -377,7 +377,7 @@ $ dotenv-vault pull -y
 
 ### `dotenv-vault open [environment]`
 
-Open your project in the UI at Dotenv Vault.
+Open your project in the UI at dotenv-vault.
 
 Example:
 

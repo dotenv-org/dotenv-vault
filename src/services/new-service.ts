@@ -130,7 +130,7 @@ class NewService {
   vaultFileContent(value: string): string {
     const s = `#################################################################################
 #                                                                               #
-#          This file uniquely identifies your project in Dotenv Vault.          #
+#          This file uniquely identifies your project in dotenv-vault.          #
 #               You SHOULD commit this file to source control.                  #
 #                                                                               #
 #                    Generated with 'npx dotenv-vault new'                      #
