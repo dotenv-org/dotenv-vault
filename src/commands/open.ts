@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {OpenService} from '../services/open-service'
 
 export default class Open extends Command {
-  static description = 'Open dotenv-vault project page'
+  static description = 'Open project page'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',

@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {LoginService} from '../services/login-service'
 
 export default class Login extends Command {
-  static description = 'Log in to dotenv-vault'
+  static description = 'Log in'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',

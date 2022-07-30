@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {LogoutService} from '../services/logout-service'
 
 export default class Logout extends Command {
-  static description = 'Log out of dotenv-vault'
+  static description = 'Log out'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
