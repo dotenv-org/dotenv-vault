@@ -65,7 +65,7 @@ class LoginService {
       writeFileSync('.env.me', this.meFileContent(this.dotenvMe))
       this.log.local(msg)
       this.log.plain('')
-      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest pull')} or ${chalk.bold('npx dotenv-vault@latest push')}`)
+      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault pull')} or ${chalk.bold('npx dotenv-vault push')}`)
 
       return
     }
@@ -121,7 +121,7 @@ class LoginService {
         this.log.local(msg)
         if (tip) {
           this.log.plain('')
-          this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest open')}`)
+          this.log.plain(`Next run ${chalk.bold('npx dotenv-vault open')}`)
         }
       } else if (this.checkCount < 50) {
         // 404 - keep trying

@@ -62,7 +62,7 @@ class NewService {
       writeFileSync(vars.vaultFilename, this.vaultFileContent(this.dotenvVault))
       this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${this.dotenvVault.slice(0, 9)}...)`)
       this.log.plain('')
-      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
+      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault login')}`)
 
       return
     }
@@ -115,7 +115,7 @@ class NewService {
         writeFileSync(vars.vaultFilename, this.vaultFileContent(vaultUid))
         this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${vaultUid.slice(0, 9)}...)`)
         this.log.plain('')
-        this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
+        this.log.plain(`Next run ${chalk.bold('npx dotenv-vault login')}`)
       } else if (this.checkCount < 50) {
         // 404 - keep trying
         await CliUx.ux.wait(2000) // check every 2 seconds
