@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {LoginService} from '../services/login-service'
 
 export default class Login extends Command {
-  static description = 'Log in'
+  static description = 'Log in to dotenv-vault'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -11,7 +11,7 @@ export default class Login extends Command {
 
   static args = [
     {
-      name: 'dotenvMe',
+      name: 'DOTENV_ME',
       required: false,
       description: 'Set .env.me credential. Defaults to generated value.',
       hidden: false,
@@ -30,7 +30,7 @@ export default class Login extends Command {
 
   public async run(): Promise<void> {
     const {args, flags} = await this.parse(Login)
-    const dotenvMe = args.dotenvMe
+    const dotenvMe = args.DOTENV_ME
     const yes = flags.yes
 
     await new LoginService({cmd: this, dotenvMe: dotenvMe, yes: yes}).run()

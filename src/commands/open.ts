@@ -13,7 +13,7 @@ export default class Open extends Command {
     {
       name: 'environment',
       required: false,
-      description: 'Set environment to push to. Defaults to development',
+      description: 'Set environment to open to. Defaults to development',
       hidden: false,
     },
   ]
