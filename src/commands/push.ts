@@ -13,13 +13,13 @@ export default class Push extends Command {
     {
       name: 'environment',
       required: false,
-      description: 'Set environment to push to. Defaults to development',
+      description: 'Set environment to push from. Defaults to development',
       hidden: false,
     },
     {
       name: 'filename',
       required: false,
-      description: 'Set input filename. Defaults to .env',
+      description: 'Set input filename. Defaults to .env for development and .env.{environment} for other environments',
       hidden: false,
     },
   ]
