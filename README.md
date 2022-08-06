@@ -22,15 +22,18 @@
 </p>
 
 <p align="center">
-  [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
-  [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
+  <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/dt/dotenv-vault.svg" alt="Downloads"></a>
+  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
+  <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/v/dotenv-vault.svg" alt="Version"></a>
 </p>
 
 <img src="https://img.spacergif.org/v1/spacer.gif" width="1" height="10">
 
 ![dotenv-vault](./dotenv-vault.png)
 
-dotenv-vault securely syncs secrets and app configuration across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
+<p class="text-center">
+dotenv-vault securely syncs your .env files across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
+</p>
 
 ## Usage
 
