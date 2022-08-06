@@ -30,7 +30,7 @@
 </p>
 
 <p align="center">
-dotenv-vault securely syncs your .env files across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered <a href="https://github.com/motdotla/dotenv">dotenv</a>.
+<strong>dotenv-vault</strong> securely syncs your .env files across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered <a href="https://github.com/motdotla/dotenv">dotenv</a>.
 </p>
 
 ## Usage
