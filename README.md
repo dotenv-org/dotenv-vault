@@ -21,18 +21,18 @@
   <a href="#license">License</a>
 </p>
 
+<img src="https://img.spacergif.org/v1/spacer.gif" width="1" height="10">
+
+![dotenv-vault](./dotenv-vault.png)
+
 <p align="center">
   <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/dt/dotenv-vault.svg" alt="Downloads"></a>
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
   <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/v/dotenv-vault.svg" alt="Version"></a>
 </p>
 
-<img src="https://img.spacergif.org/v1/spacer.gif" width="1" height="10">
-
-![dotenv-vault](./dotenv-vault.png)
-
-<p class="text-center">
-dotenv-vault securely syncs your .env files across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered [dotenv](https://github.com/motdotla/dotenv).
+<p align="center">
+dotenv-vault securely syncs your .env files across your machines, environments, and team members. Stop sharing .env files over insecure channels like Slack and email - from the same people that pioneered <a href="https://github.com/motdotla/dotenv">dotenv</a>.
 </p>
 
 ## Usage
@@ -91,6 +91,7 @@ Visit [dotenv.org/docs](https://www.dotenv.org/docs/dotenv-vault?r=1) for detail
 ## Health
 
 [![dotenv-vault push](https://api.checklyhq.com/v1/badges/checks/c2fee99a-38e7-414e-89b8-9766ceeb1927?style=flat&theme=default&responseTime=true)](https://health.dotenv.org/)
+<br>
 [![dotenv-vault pull](https://api.checklyhq.com/v1/badges/checks/4f557967-1ed1-486a-b762-39a63781d752?style=flat&theme=default&responseTime=true)](https://health.dotenv.org/)
 
 Visit [health.dotenv.org](https://health.dotenv.org) for more information.
