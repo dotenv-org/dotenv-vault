@@ -1,6 +1,6 @@
 {
   "name": "dotenv-vault",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "Sync environment variables, securely.",
   "author": "Mot @motdotla",
   "bin": {
