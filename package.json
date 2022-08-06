@@ -1,7 +1,7 @@
 {
   "name": "dotenv-vault",
   "version": "1.11.0",
-  "description": "Sync your .env files between machines, environments, and team members.",
+  "description": "Sync environment variables, securely.",
   "author": "Mot @motdotla",
   "bin": {
     "dotenv-vault": "./bin/run"
