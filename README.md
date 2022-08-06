@@ -1,7 +1,7 @@
 <h1 align="center">
   <a href="https://docs.dotenv.org?r=1"><img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" alt="dotenv-vault" width="100" height="100" ></a>
   <br>
-  dotenv-vault
+  dotenv-vault <a href="https://twitter.com/intent/tweet?text=dotenv-vault%20-%20sync%20environment%20variables%2C%20securely%20https%3A%2F%2Fgithub.com%2Fdotenv-org%2Fdotenv-vault&hashtags=dotenv"><img src="https://img.shields.io/badge/Tweet--lightgrey?logo=twitter&style=social" alt="Tweet" height="20"/></a>
   <br>
 </h1>
 
