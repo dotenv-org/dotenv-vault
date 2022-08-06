@@ -60,7 +60,7 @@ Visit [dotenv.org/docs](https://www.dotenv.org/docs/getting-started/with-dotenv-
 
 ## How It Works
 
-<a href="https://www.dotenv.org/docs/security/dotenv-vault"><img src="./how-dotenv-vault-works.jpg" alt="How dotenv-vault works" width="500"/></a>
+<a href="https://www.dotenv.org/docs/security/dotenv-vault"><img src="./how-dotenv-vault-works.png" alt="How dotenv-vault works" width="500"/></a>
 
 Visit [dotenv.org/docs](https://www.dotenv.org/docs/security/overview?r=1) to learn more.
 
