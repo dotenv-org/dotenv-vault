@@ -14,7 +14,7 @@
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
   <a href="#commands" target="_blank">Commands</a>
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="#commands" target="_blank">Health</a>
+  <a href="#health" target="_blank">Health</a>
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
   <a href="#changelog">Changelog</a>
 </p>
