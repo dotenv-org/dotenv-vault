@@ -10,15 +10,13 @@
 <p align="center">
   <a href="#usage">Usage</a>
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
+  <a href="#how-it-works">How It Works</a>
+  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
   <a href="#commands" target="_blank">Commands</a>
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
   <a href="#commands" target="_blank">Health</a>
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="#contributing">Contributing</a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
   <a href="#changelog">Changelog</a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="#license">License</a>
 </p>
 
 <img src="https://img.spacergif.org/v1/spacer.gif" width="1" height="10">
@@ -59,6 +57,12 @@ $ npx dotenv-vault pull
 That's it!
 
 Visit [dotenv.org/docs](https://www.dotenv.org/docs/getting-started/with-dotenv-vault?r=1) for a complete getting started guide.
+
+## How It Works
+
+![how-dotenv-vault-works](./how-dotenv-vault-works.png)
+
+Visit [dotenv.org/docs](https://www.dotenv.org/docs/security/overview?r=1) to learn more.
 
 ## Commands
 
