@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 1.11.1
 
+### Changed
+
 - Various small cosmetic changes 🧹
 
 ## 1.11.0

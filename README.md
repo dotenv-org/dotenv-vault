@@ -5,7 +5,7 @@
   <br>
 </h1>
 
-<h4 align="center">Sync environment variables, securely.</h4>
+<h4 align="center">Sync your .env files, securely.</h4>
 
 <p align="center">
   <a href="#usage">Usage</a>
@@ -68,7 +68,7 @@ Visit [dotenv.org/docs](https://www.dotenv.org/docs/security/overview?r=1) to le
 
 ```
 $ npx dotenv-vault
-Sync environment variables, securely.
+Sync your .env files, securely.
 
 VERSION
   dotenv-vault/1.11.0 darwin-arm64 node-v18.3.0
