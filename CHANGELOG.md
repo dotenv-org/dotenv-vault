@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.11.1...master)
 
+### Changed
+
+- Bold suggested command so the developer doesn't have to read so much text during an aborted process.
+
 ## 1.11.1
 
 ### Changed
