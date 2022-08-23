@@ -21,7 +21,7 @@
 
 <img src="https://img.spacergif.org/v1/spacer.gif" width="1" height="10">
 
-[![1 Minute Overview](https://i3.ytimg.com/vi/z-lBjxfhWeY/maxresdefault.jpg)](https://www.youtube.com/watch?v=z-lBjxfhWeY)
+[![1 Minute Overview](./dotenv-vault.png)](https://www.youtube.com/watch?v=z-lBjxfhWeY)
 
 <p align="center">
   <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/dt/dotenv-vault.svg" alt="Downloads"></a>
