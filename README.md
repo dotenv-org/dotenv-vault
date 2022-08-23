@@ -1,7 +1,7 @@
 <h1 align="center">
   <a href="https://docs.dotenv.org?r=1"><img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" alt="dotenv-vault" width="80" height="80" ></a>
   <br>
-  Dotenv Vault <a href="https://twitter.com/intent/tweet?text=dotenv-vault%20-%20sync%20environment%20variables%2C%20securely%20https%3A%2F%2Fgithub.com%2Fdotenv-org%2Fdotenv-vault&hashtags=dotenv"><img src="https://img.shields.io/badge/Tweet--lightgrey?logo=twitter&style=social" alt="Tweet" height="20"/></a>
+  Dotenv Vault
   <br>
 </h1>
 
@@ -21,7 +21,7 @@
 
 <img src="https://img.spacergif.org/v1/spacer.gif" width="1" height="10">
 
-![dotenv-vault](./dotenv-vault.png)
+[![1 Minute Overview](https://i3.ytimg.com/vi/z-lBjxfhWeY/maxresdefault.jpg)](https://www.youtube.com/watch?v=z-lBjxfhWeY)
 
 <p align="center">
   <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/dt/dotenv-vault.svg" alt="Downloads"></a>
