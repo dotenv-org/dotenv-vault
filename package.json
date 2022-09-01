@@ -25,7 +25,7 @@
     "abortcontroller-polyfill": "1.7.3",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.2"
   },
   "devDependencies": {
     "@oclif/test": "^2",
