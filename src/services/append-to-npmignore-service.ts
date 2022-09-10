@@ -9,6 +9,10 @@ class AppendToNpmignoreService {
     return '.env*' // asterisk
   }
 
+  get flaskenvFormat(): string {
+    return '.flaskenv*' // asterisk
+  }
+
   get envProjectFormat(): string {
     return '!.env.project'
   }
@@ -35,6 +39,7 @@ class AppendToNpmignoreService {
 
   async run(): Promise<void> {
     let envExists = false
+    let flaskenvExists = false
     let envProjectExists = false
     let envVaultExists = false
 
@@ -52,6 +57,10 @@ class AppendToNpmignoreService {
           envExists = true
         }
 
+        if (trimLine === this.flaskenvFormat) {
+          flaskenvExists = true
+        }
+
         if (trimLine === this.envProjectFormat) {
           envProjectExists = true
         }
@@ -64,6 +73,10 @@ class AppendToNpmignoreService {
       // 4. add ignore if it does not already exist
       if (envExists === false) {
         this.append('\n' + this.envFormat)
+      }
+
+      if (flaskenvExists === false) {
+        this.append('\n' + this.flaskenvFormat)
       }
 
       if (envProjectExists === false) {
