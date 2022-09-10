@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.11.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.12.0...master)
+
+## 1.12.0
+
+### Added
+
+- Ignore .flaskenv files. Append to .gitignore, .dockerignore, and .npmignore
 
 ## 1.11.2
 
