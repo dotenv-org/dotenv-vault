@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.12.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.12.1...master)
+
+## 1.12.1
+
+### Changed
+
+- Update `pull` command params to use `DOTENV_VAULT` and `DOTENV_ME`
 
 ## 1.12.0
 
