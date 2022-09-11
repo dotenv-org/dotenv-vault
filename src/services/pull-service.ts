@@ -83,8 +83,8 @@ class PullService {
       headers: {'content-type': 'application/json'},
       data: {
         environment: this.environment,
-        projectUid: vars.vaultValue,
-        meUid: this.meUid,
+        DOTENV_VAULT: vars.vaultValue,
+        DOTENV_ME: this.meUid,
       },
       url: this.url,
     }
