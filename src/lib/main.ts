@@ -95,7 +95,7 @@ function config(options?: Record<string, string>): any {
   const parsed = dotenv.parse(decrypted)
 
   // Set process.env
-  for (const key in Object.keys(parsed)) {
+  for (const key of Object.keys(parsed)) {
     if (!Object.prototype.hasOwnProperty.call(process.env, key)) {
       process.env[key] = parsed[key]
     }
