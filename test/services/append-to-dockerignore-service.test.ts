@@ -7,7 +7,4 @@ import {AppendToDockerignoreService} from '../../src/services/append-to-dockerig
 describe('run', async () => {
   beforeEach( () => {
   })
-
-  it('runs', async () => {
-  })
 })

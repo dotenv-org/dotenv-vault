@@ -7,7 +7,4 @@ import {AppendToGitignoreService} from '../../src/services/append-to-gitignore-s
 describe('run', async () => {
   beforeEach( () => {
   })
-
-  it('runs', async () => {
-  })
 })

@@ -1,6 +1,6 @@
 {
   "name": "dotenv-vault",
-  "version": "1.12.1",
+  "version": "1.13.0",
   "description": "Sync your .env files, securely.",
   "author": "Mot @dotenvorg",
   "bin": {
@@ -25,6 +25,7 @@
     "abortcontroller-polyfill": "1.7.3",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
+    "cryptr": "^6.0.3",
     "dotenv": "^16.0.2"
   },
   "devDependencies": {
