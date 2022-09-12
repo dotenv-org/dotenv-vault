@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.1...master)
+
+## 1.13.1
+
+### Added
+
+- Added beta `.build` command. Contact support@dotenv.org for more information.
 
 ## 1.13.0
 
