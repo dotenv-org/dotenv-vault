@@ -21,6 +21,7 @@ function _decrypt(encrypted: string): string {
   }
 }
 
+// Beta feature. Reach out at support@dotenv.org
 function config(options?: Record<string, string>): any {
   // 1. Locate .env
   let dotenvPath = path.resolve(process.cwd(), '.env')
