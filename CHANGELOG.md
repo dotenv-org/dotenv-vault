@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.12.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.0...master)
+
+## 1.13.0
+
+### Added
+
+- Added beta `.config()` method. Contact support@dotenv.org for more information.
 
 ## 1.12.1
 
