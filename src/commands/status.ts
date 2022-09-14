@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {StatusService} from '../services/status-service'
 
 export default class Status extends Command {
-  static description = 'Check dotenv-vault operational status'
+  static description = 'Check dotenv.org status'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',

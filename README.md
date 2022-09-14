@@ -77,14 +77,14 @@ USAGE
 
 COMMANDS
   new       Create your project
-  login     Log in to dotenv-vault
+  login     Log in
   logout    Log out
   open      Open project page
   push      Push .env securely
   pull      Pull .env securely
   versions  List version history
   whoami    Display the current logged in user
-  status    Check dotenv-vault operational status
+  status    Check dotenv.org status
   help      Display help for dotenv-vault.
   update    update the dotenv-vault CLI
 ```
