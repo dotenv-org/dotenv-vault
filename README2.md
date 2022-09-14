@@ -91,7 +91,7 @@ npx dotenv-vault build
 ```
 
 ```bash
-npx dotenv-vault keys
+npx dotenv-vault buildkeys
 ```
 
 That's it!
