@@ -1,7 +1,6 @@
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
-import {writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
@@ -10,13 +9,13 @@ import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
 import {LoginService} from '../services/login-service'
 
-interface BuildServiceAttrs {
+interface KeysServiceAttrs {
   cmd;
   dotenvMe;
   yes;
 }
 
-class BuildService {
+class KeysService {
   public cmd;
   public dotenvMe;
   public yes;
@@ -24,7 +23,7 @@ class BuildService {
   public abort;
   public login;
 
-  constructor(attrs: BuildServiceAttrs = {} as BuildServiceAttrs) {
+  constructor(attrs: KeysServiceAttrs = {} as KeysServiceAttrs) {
     this.cmd = attrs.cmd
     this.dotenvMe = attrs.dotenvMe
     this.yes = attrs.yes
@@ -55,13 +54,13 @@ class BuildService {
       await this.login.login(false)
     }
 
-    const buildMsg = 'Securely building .env.vault'
+    const keysMsg = 'Listing .env.vault decryption keys'
 
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${buildMsg}`)
-    await this.build()
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${keysMsg}`)
+    await this.keys()
   }
 
-  async build(): Promise<void> {
+  async keys(): Promise<void> {
     const options: AxiosRequestConfig = {
       method: 'POST',
       headers: {'content-type': 'application/json'},
@@ -74,18 +73,25 @@ class BuildService {
 
     try {
       const resp: AxiosRequestConfig = await axios(options)
-      const envName = resp.data.data.envName
-      const newData = resp.data.data.dotenv
+      const keys = resp.data.data.keys
 
       CliUx.ux.action.stop()
 
-      // write to .env.vault
-      writeFileSync(envName, newData)
-      this.log.remote('Securely built .env.vault')
+      CliUx.ux.table(keys, {
+        environment: {
+          header: 'DOTENV_ENVIRONMENT',
+        },
+        key: {
+          header: 'DOTENV_KEY',
+        },
+      })
+
+      this.log.plain('')
+      this.log.plain(`Set ${chalk.bold('DOTENV_ENVIRONMENT')} and ${chalk.bold('DOTENV_KEY')} on your web hosting provider or infrastructure`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
-      let errorCode = 'BUILD_ERROR'
+      let errorCode = 'KEYS_ERROR'
       let suggestions = []
 
       errorMessage = error
@@ -110,7 +116,7 @@ class BuildService {
   }
 
   get url(): string {
-    return vars.apiUrl + '/build'
+    return vars.apiUrl + '/keys'
   }
 
   get meUid(): any {
@@ -118,4 +124,4 @@ class BuildService {
   }
 }
 
-export {BuildService}
+export {KeysService}
