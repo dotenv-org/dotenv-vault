@@ -87,6 +87,9 @@ function config(options?: Record<string, string>): any {
 
   // Get ciphertext payload
   const ciphertext = result.parsed[`DOTENV_VAULT_${_dotenvEnvironment().toUpperCase()}`] // DOTENV_VAULT_PRODUCTION
+  if (!ciphertext) {
+    throw new Error(`MISSING_ENVIRONMENT: Cannot locate environment ${_dotenvEnvironment().toUpperCase()} in .env.vault`)
+  }
 
   // Decrypt payload
   const decrypted = _decrypt(ciphertext)
