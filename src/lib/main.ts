@@ -11,20 +11,8 @@ function _dotenvKey(): string {
   return ''
 }
 
-function _dotenvEnvironment(): string {
-  if (process.env.DOTENV_ENVIRONMENT && process.env.DOTENV_ENVIRONMENT.length > 0) {
-    return process.env.DOTENV_ENVIRONMENT
-  }
-
-  return ''
-}
-
-function _decrypt(encrypted: string): string {
-  if (_dotenvKey().length === 0) {
-    throw new Error('NOT_FOUND_DOTENV_KEY: Cannot find process.env.DOTENV_KEY (suggestion: make sure it is set)')
-  }
-
-  const key = Buffer.from(_dotenvKey().slice(-64), 'hex')
+function decrypt(encrypted: string, keyStr: string): string {
+  const key = Buffer.from(keyStr.slice(-64), 'hex')
   let ciphertext = Buffer.from(encrypted, 'base64')
 
   const nonce = ciphertext.slice(0, 12)
@@ -51,29 +39,28 @@ function _decrypt(encrypted: string): string {
   }
 }
 
-// Beta feature. Reach out at support@dotenv.org
-function config(options?: Record<string, string>): any {
-  // fallback to original dotenv if neither is set
-  if (_dotenvKey().length === 0 && _dotenvEnvironment().length === 0) {
-    return dotenv.config(options) // fallback to .env
+function parseVault(options?: Record<string, string>): any {
+  // DOTENV_KEY=development/key_1234
+  //
+  // Warn the developer unless formatted correctly
+  const splitDotenvKey = _dotenvKey().split('/')
+
+  const environment = splitDotenvKey[0]
+  if (!environment) {
+    throw new Error('INVALID_DOTENV_KEY: Missing environment part')
   }
 
-  // if one is set but not the other, warn the developer
-  if (_dotenvKey().length === 0) {
-    throw new Error('NOT_FOUND_DOTENV_KEY: Cannot find process.env.DOTENV_KEY')
+  const key = splitDotenvKey[1]
+  if (!key) {
+    throw new Error('INVALID_DOTENV_KEY: Missing key part')
   }
 
-  if (_dotenvEnvironment().length === 0) {
-    throw new Error('NOT_FOUND_DOTENV_ENVIRONMENT: Cannot find process.env.DOTENV_ENVIRONMENT')
-  }
-
-  // Locate .env
   let dotenvPath = path.resolve(process.cwd(), '.env')
   if (options && options.path && options.path.length > 0) {
     dotenvPath = options.path
   }
 
-  // Locate suspected .env.vault
+  // Locate .env.vault
   const vaultPath = `${dotenvPath}.vault`
   if (!existsSync(vaultPath)) {
     throw new Error(`NOT_FOUND_DOTENV_VAULT: Cannot find .env.vault at ${vaultPath}`)
@@ -86,17 +73,21 @@ function config(options?: Record<string, string>): any {
   }
 
   // Get ciphertext payload
-  const environmentKey = `DOTENV_VAULT_${_dotenvEnvironment().toUpperCase()}`
+  const environmentKey = `DOTENV_VAULT_${environment.toUpperCase()}`
   const ciphertext = result.parsed[environmentKey] // DOTENV_VAULT_PRODUCTION
   if (!ciphertext) {
     throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment DOTENV_VAULT_${environmentKey} in .env.vault`)
   }
 
   // Decrypt payload
-  const decrypted = _decrypt(ciphertext)
+  const decrypted = decrypt(ciphertext, key)
 
   // Parse decrypted .env string
-  const parsed = dotenv.parse(decrypted)
+  return dotenv.parse(decrypted)
+}
+
+function configVault(options?: Record<string, string>): any {
+  const parsed = parseVault(options)
 
   // Set process.env
   for (const key of Object.keys(parsed)) {
@@ -106,6 +97,15 @@ function config(options?: Record<string, string>): any {
   }
 
   return {parsed}
+}
+
+function config(options?: Record<string, string>): any {
+  // fallback to original dotenv if DOTENV_KEY is not set
+  if (_dotenvKey().length === 0) {
+    return dotenv.config(options)
+  }
+
+  return configVault(options)
 }
 
 export {config}

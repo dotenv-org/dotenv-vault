@@ -6,23 +6,21 @@ import { fs } from 'memfs';
 import {config} from '../../src/lib/main'
 
 let testPath = 'test/.env'
-const dotenvKey = 'key_1111111111111111111111111111111111111111111111111111111111111111'
+const dotenvKey = 'production/key_1111111111111111111111111111111111111111111111111111111111111111'
 
 describe('config', () => {
   afterEach(() => {
     delete process.env.DOTENV_KEY
-    delete process.env.DOTENV_ENVIRONMENT
   })
 
-  it('falls back to standard dotenv when no DOTENV_ENVIRONMENT', () => {
+  it('falls back to standard dotenv when no DOTENV_KEY', () => {
     const result = config({path: testPath})
 
     expect(Object.keys(result)[0]).to.equal('parsed')
   })
 
-  it('parses the .env.vault#DOTENV_ENVIRONMENT production data', () => {
+  it('parses the .env.vault#DOTENV_KEY production data', () => {
     process.env.DOTENV_KEY = dotenvKey
-    process.env.DOTENV_ENVIRONMENT = 'production'
 
     const result = config({path: testPath})
     const parsed = result.parsed
@@ -30,9 +28,8 @@ describe('config', () => {
     expect(parsed.BASIC).to.equal('production')
   })
 
-  it('parses the .env.vault#DOTENV_ENVIRONMENT staging data', () => {
-    process.env.DOTENV_KEY = dotenvKey
-    process.env.DOTENV_ENVIRONMENT = 'staging'
+  it('parses the .env.vault#DOTENV_KEY staging data', () => {
+    process.env.DOTENV_KEY = 'staging/key_1111111111111111111111111111111111111111111111111111111111111111'
 
     const result = config({path: testPath})
     const parsed = result.parsed
@@ -41,8 +38,7 @@ describe('config', () => {
   })
 
   it('has a short DOTENV_KEY', () => {
-    process.env.DOTENV_KEY = 'key_1234'
-    process.env.DOTENV_ENVIRONMENT = 'staging'
+    process.env.DOTENV_KEY = 'production/key_1234'
 
     expect(function() {
       config({path: testPath})
@@ -51,16 +47,15 @@ describe('config', () => {
 
   it('is missing DOTENV_KEY', () => {
     process.env.DOTENV_KEY = ''
-    process.env.DOTENV_ENVIRONMENT = 'staging'
 
-    expect(function() {
-      config({path: testPath})
-    }).to.throw(Error)
+    const result = config({path: testPath})
+    const parsed = result.parsed
+
+    expect(parsed.BASIC).to.equal('basic')
   })
 
   it('has an incorrect DOTENV_KEY', () => {
-    process.env.DOTENV_KEY = 'key_2222222222222222222222222222222222222222222222222222222222222222'
-    process.env.DOTENV_ENVIRONMENT = 'staging'
+    process.env.DOTENV_KEY = 'production/key_2222222222222222222222222222222222222222222222222222222222222222'
 
     expect(function() {
       config({path: testPath})
@@ -69,7 +64,6 @@ describe('config', () => {
 
   it('has a malformed ciphertext', () => {
     process.env.DOTENV_KEY = dotenvKey
-    process.env.DOTENV_ENVIRONMENT = 'staging'
 
     testPath = 'test/.env.malformed'
 
