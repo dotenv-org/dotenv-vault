@@ -79,7 +79,7 @@ class KeysService {
 
       CliUx.ux.table(keys, {
         environment: {
-          header: 'DOTENV_ENVIRONMENT',
+          header: 'environment',
         },
         key: {
           header: 'DOTENV_KEY',
@@ -87,7 +87,7 @@ class KeysService {
       })
 
       this.log.plain('')
-      this.log.plain(`Set ${chalk.bold('DOTENV_ENVIRONMENT')} and ${chalk.bold('DOTENV_KEY')} on your web hosting provider or infrastructure`)
+      this.log.plain(`Set ${chalk.bold('DOTENV_KEY')} on your infrastructure`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
