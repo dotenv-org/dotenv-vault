@@ -6,7 +6,7 @@ import { fs } from 'memfs';
 import {config} from '../../src/lib/main'
 
 let testPath = 'test/.env'
-const dotenvKey = 'production/key_1111111111111111111111111111111111111111111111111111111111111111'
+const dotenvKey = 'dotenv://:key_1111111111111111111111111111111111111111111111111111111111111111@dotenv.org/vault/.env.vault?environment=production'
 
 describe('config', () => {
   afterEach(() => {
@@ -29,7 +29,7 @@ describe('config', () => {
   })
 
   it('parses the .env.vault#DOTENV_KEY staging data', () => {
-    process.env.DOTENV_KEY = 'staging/key_1111111111111111111111111111111111111111111111111111111111111111'
+    process.env.DOTENV_KEY = 'dotenv://:key_1111111111111111111111111111111111111111111111111111111111111111@dotenv.org/vault/.env.vaut?environment=staging'
 
     const result = config({path: testPath})
     const parsed = result.parsed
@@ -38,7 +38,7 @@ describe('config', () => {
   })
 
   it('has a short DOTENV_KEY', () => {
-    process.env.DOTENV_KEY = 'production/key_1234'
+    process.env.DOTENV_KEY = 'dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=production'
 
     expect(function() {
       config({path: testPath})

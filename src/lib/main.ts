@@ -40,19 +40,19 @@ function decrypt(encrypted: string, keyStr: string): string {
 }
 
 function parseVault(options?: Record<string, string>): any {
-  // DOTENV_KEY=development/key_1234
-  //
-  // Warn the developer unless formatted correctly
-  const splitDotenvKey = _dotenvKey().split('/')
+  // Parse DOTENV_KEY. Format is a URI
+  const uri = new URL(_dotenvKey())
 
-  const environment = splitDotenvKey[0]
-  if (!environment) {
-    throw new Error('INVALID_DOTENV_KEY: Missing environment part')
-  }
-
-  const key = splitDotenvKey[1]
+  // Get decrypt key
+  const key = uri.password
   if (!key) {
     throw new Error('INVALID_DOTENV_KEY: Missing key part')
+  }
+
+  // Get environment
+  const environment = uri.searchParams.get('environment')
+  if (!environment) {
+    throw new Error('INVALID_DOTENV_KEY: Missing environment part')
   }
 
   let dotenvPath = path.resolve(process.cwd(), '.env')
@@ -87,6 +87,8 @@ function parseVault(options?: Record<string, string>): any {
 }
 
 function configVault(options?: Record<string, string>): any {
+  console.log('[dotenv-vault] Loading encrypted .env.vault to environment variables')
+
   const parsed = parseVault(options)
 
   // Set process.env
