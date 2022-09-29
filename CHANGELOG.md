@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.8...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.9...master)
+
+## [1.13.9](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.8...v1.13.9) (2022-09-29)
+
+### Changed
+
+- Improve messaging around missing DOTENV_KEY
 
 ## [1.13.8](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.7...v1.13.8) (2022-09-29)
 

@@ -156,7 +156,7 @@ function config(options?: Record<string, string>): any {
   // fallback to original dotenv if DOTENV_KEY is not set
   if (_dotenvKey().length === 0) {
     if (_likelyDeployedEnvironment()) {
-      _log(`Your are using dotenv-vault in ${process.env.NODE_ENV} but have not set DOTENV_KEY. Did you forget?`)
+      _log(`You are using dotenv-vault in ${process.env.NODE_ENV}, but you haven't set a DOTENV_KEY. Did you forget? Run 'npx dotenv-vault keys' to view your DOTENV_KEY.`)
     }
 
     _log('Loading env from .env')
