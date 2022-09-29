@@ -98,6 +98,111 @@ That's it!
 
 ## Add Teammates
 
+Details coming soon.
+
 ## Manage Access
 
-## 
+Details coming soon.
+
+## Documentation
+
+Dotenv Vault, just like Dotenv, exposes two functions:
+
+* `config`
+* `parse`
+
+### Config
+
+`config` will read and decrypt your `.env.vault` file, parse the contents, assign it to
+[`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env),
+and return an Object with a `parsed` key containing the loaded content or an `error` key if it failed.
+
+This happens of `DOTENV_KEY` is set. If `DOTENV_KEY` is not set, `config` fallsback to reading your `.env` file.
+
+```js
+const result = dotenv.config()
+
+if (result.error) {
+  throw result.error
+}
+
+console.log(result.parsed)
+```
+
+You can additionally, pass options to `config`.
+
+#### Options
+
+##### Path
+
+COMING SOON!
+
+Default: `path.resolve(process.cwd(), '.env')`
+
+Specify a custom path if your file containing environment variables is located elsewhere.
+
+```js
+require('dotenv').config({ path: '/custom/path/to/.env' })
+```
+
+##### Encoding
+
+COMING SOON!
+
+Default: `utf8`
+
+Specify the encoding of your file containing environment variables.
+
+```js
+require('dotenv').config({ encoding: 'latin1' })
+```
+
+##### Debug
+
+Default: `false`
+
+Turn on logging to help debug why certain keys or values are not being set as you expect.
+
+```js
+require('dotenv').config({ debug: process.env.DEBUG })
+```
+
+##### Override
+
+Default: `false`
+
+Override any environment variables that have already been set on your machine with values from your .env file.
+
+```js
+require('dotenv').config({ override: true })
+```
+
+### Parse
+
+The engine which parses the contents of your file containing environment
+variables is available to use. It accepts a String or Buffer and will return
+an Object with the parsed keys and values.
+
+```js
+const dotenv = require('dotenv')
+const buf = Buffer.from('BASIC=basic')
+const config = dotenv.parse(buf) // will return an object
+console.log(typeof config, config) // object { BASIC : 'basic' }
+```
+
+#### Options
+
+##### Debug
+
+Default: `false`
+
+Turn on logging to help debug why certain keys or values are not being set as you expect.
+
+```js
+const dotenv = require('dotenv')
+const buf = Buffer.from('hello world')
+const opt = { debug: true }
+const config = dotenv.parse(buf, opt)
+// expect a debug message because the buffer is not in KEY=VAL form
+```
+
