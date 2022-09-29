@@ -3,7 +3,8 @@ import crypto from 'crypto'
 import path from 'path'
 import {existsSync} from 'fs'
 
-import {version} from '../../package.json'
+const pjson = require('../../package.json')
+const version = pjson.version
 
 function _log(message) {
   console.log(`[dotenv-vault@${version}][INFO] ${message}`)
