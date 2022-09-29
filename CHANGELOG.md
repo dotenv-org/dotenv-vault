@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.9...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.10...master)
+
+## [1.13.10](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.9...v1.13.10) (2022-09-29)
+
+### Changed
+
+- Improve error messaging when missing encrypted environment
 
 ## [1.13.9](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.8...v1.13.9) (2022-09-29)
 
