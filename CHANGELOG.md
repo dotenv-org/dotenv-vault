@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.5...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.6...master)
+
+## [1.13.6](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.5...v1.13.6) (2022-09-29)
+
+### Added
+
+- Added package version in debug logging [#142](https://github.com/dotenv-org/dotenv-vault/pull/142)
 
 ## 1.13.5
 
