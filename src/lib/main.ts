@@ -112,7 +112,7 @@ function parseVault(options?: Record<string, string>): any {
   const environmentKey = `DOTENV_VAULT_${environment.toUpperCase()}`
   const ciphertext = result.parsed[environmentKey] // DOTENV_VAULT_PRODUCTION
   if (!ciphertext) {
-    throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment DOTENV_VAULT_${environmentKey} in .env.vault`)
+    throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run 'npx dotenv-vault build' to include it.`)
   }
 
   // Decrypt payload
