@@ -3,12 +3,14 @@ import crypto from 'crypto'
 import path from 'path'
 import {existsSync} from 'fs'
 
+import {version} from '../../package.json'
+
 function _log(message) {
-  console.log(`[dotenv-vault][INFO] ${message}`)
+  console.log(`[dotenv-vault@${version}][INFO] ${message}`)
 }
 
 function _debug(message) {
-  console.log(`[dotenv-vault][DEBUG] ${message}`)
+  console.log(`[dotenv-vault@${version}][DEBUG] ${message}`)
 }
 
 function _dotenvKey(): string {
