@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.6...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.8...master)
+
+## [1.13.8](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.7...v1.13.8) (2022-09-29)
+
+### Added
+
+- Add warning note that DOTENV_KEY is not set - when using in production.
 
 ## [1.13.7](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.6...v1.13.7) (2022-09-29)
 
