@@ -22,6 +22,31 @@ function _dotenvKey(): string {
   return ''
 }
 
+function _likelyDeployedEnvironment(): boolean {
+  const nodeEnv = process.env.NODE_ENV
+  if (nodeEnv === 'development') {
+    return false
+  }
+
+  if (nodeEnv === 'test') {
+    return false
+  }
+
+  if (nodeEnv === '') {
+    return false
+  }
+
+  if (nodeEnv === undefined) {
+    return false
+  }
+
+  if (nodeEnv === null) {
+    return false
+  }
+
+  return true
+}
+
 function decrypt(encrypted: string, keyStr: string): string {
   const key = Buffer.from(keyStr.slice(-64), 'hex')
   let ciphertext = Buffer.from(encrypted, 'base64')
@@ -130,6 +155,10 @@ function configVault(options?: Record<string, string>): any {
 function config(options?: Record<string, string>): any {
   // fallback to original dotenv if DOTENV_KEY is not set
   if (_dotenvKey().length === 0) {
+    if (_likelyDeployedEnvironment()) {
+      _log(`Your are using dotenv-vault in ${process.env.NODE_ENV} but have not set DOTENV_KEY. Did you forget?`)
+    }
+
     _log('Loading env from .env')
 
     return dotenv.config(options)
