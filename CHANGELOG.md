@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.4...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.5...master)
+
+## 1.13.5
+
+### Changed
+
+- Added `override` and `debug` options to `require('dotenv-vault').config(options)` [#141](https://github.com/dotenv-org/dotenv-vault/pull/141)
 
 ## 1.13.4
 
