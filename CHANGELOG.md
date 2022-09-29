@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.6...master)
 
+## [1.13.7](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.6...v1.13.7) (2022-09-29)
+
+### Changed
+
+- Patch issue with accessing package.json
+
 ## [1.13.6](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.5...v1.13.6) (2022-09-29)
 
 ### Added
