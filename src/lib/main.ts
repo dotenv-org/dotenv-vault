@@ -3,6 +3,14 @@ import crypto from 'crypto'
 import path from 'path'
 import {existsSync} from 'fs'
 
+function _log(message) {
+  console.log(`[dotenv-vault][INFO] ${message}`)
+}
+
+function _debug(message) {
+  console.log(`[dotenv-vault][DEBUG] ${message}`)
+}
+
 function _dotenvKey(): string {
   if (process.env.DOTENV_KEY && process.env.DOTENV_KEY.length > 0) {
     return process.env.DOTENV_KEY
@@ -87,13 +95,28 @@ function parseVault(options?: Record<string, string>): any {
 }
 
 function configVault(options?: Record<string, string>): any {
-  console.log('[dotenv-vault] Loading encrypted .env.vault to environment variables')
+  _log('Loading env from encrypted .env.vault')
 
   const parsed = parseVault(options)
 
+  const debug = Boolean(options && options.debug)
+  const override = Boolean(options && options.override)
+
   // Set process.env
   for (const key of Object.keys(parsed)) {
-    if (!Object.prototype.hasOwnProperty.call(process.env, key)) {
+    if (Object.prototype.hasOwnProperty.call(process.env, key)) {
+      if (override === true) {
+        process.env[key] = parsed[key]
+      }
+
+      if (debug) {
+        if (override === true) {
+          _debug(`"${key}" is already defined in \`process.env\` and WAS overwritten`)
+        } else {
+          _debug(`"${key}" is already defined in \`process.env\` and was NOT overwritten`)
+        }
+      }
+    } else {
       process.env[key] = parsed[key]
     }
   }
@@ -104,6 +127,8 @@ function configVault(options?: Record<string, string>): any {
 function config(options?: Record<string, string>): any {
   // fallback to original dotenv if DOTENV_KEY is not set
   if (_dotenvKey().length === 0) {
+    _log('Loading env from .env')
+
     return dotenv.config(options)
   }
 
