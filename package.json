@@ -35,7 +35,7 @@
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
-    "eslint-config-oclif-typescript": "^1.0.2",
+    "eslint-config-oclif-typescript": "^1.0.3",
     "fs-monkey": "^1.0.3",
     "globby": "^11",
     "jest": "^27.5.1",
