@@ -47,6 +47,8 @@ class OpenService {
     CliUx.ux.action.stop()
     this.log.local(`Opening browser to ${this.openUrl}`)
     CliUx.ux.open(this.openUrl).catch(_ => {})
+    this.log.plain('')
+    this.log.plain(`Run ${chalk.bold('npx dotenv-vault build')} to encrypt .env.vault file`)
   }
 
   get openUrl(): string {
