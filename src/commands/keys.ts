@@ -9,6 +9,15 @@ export default class Keys extends Command {
     '<%= config.bin %> <%= command.id %>',
   ]
 
+  static args = [
+    {
+      name: 'environment',
+      required: false,
+      description: 'Set environment to fetch key(s) from. Defaults to all environments',
+      hidden: false,
+    },
+  ]
+
   static flags = {
     dotenvMe: Flags.string({
       char: 'm',
@@ -28,10 +37,11 @@ export default class Keys extends Command {
   }
 
   public async run(): Promise<void> {
-    const {flags} = await this.parse(Keys)
+    const {args, flags} = await this.parse(Keys)
+    const environment = args.environment
     const dotenvMe = flags.dotenvMe
     const yes = flags.yes
 
-    await new KeysService({cmd: this, dotenvMe: dotenvMe, yes: yes}).run()
+    await new KeysService({cmd: this, environment: environment, dotenvMe: dotenvMe, yes: yes}).run()
   }
 }
