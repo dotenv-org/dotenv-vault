@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.10...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.14.0...master)
 
-## [1.13.10](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.9...v1.13.10) (2022-09-29)
+## [1.14.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.10...v1.140.0) (2022-10-14)
+
+### Added
+
+- Add `[environment]` argument to `keys` command [#152](https://github.com/dotenv-org/dotenv-vault/pull/152)
 
 ### Changed
 
