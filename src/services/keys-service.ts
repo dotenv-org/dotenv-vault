@@ -11,12 +11,14 @@ import {LoginService} from '../services/login-service'
 
 interface KeysServiceAttrs {
   cmd;
+  environment;
   dotenvMe;
   yes;
 }
 
 class KeysService {
   public cmd;
+  public environment;
   public dotenvMe;
   public yes;
   public log;
@@ -25,6 +27,7 @@ class KeysService {
 
   constructor(attrs: KeysServiceAttrs = {} as KeysServiceAttrs) {
     this.cmd = attrs.cmd
+    this.environment = attrs.environment
     this.dotenvMe = attrs.dotenvMe
     this.yes = attrs.yes
 
@@ -67,6 +70,7 @@ class KeysService {
       data: {
         DOTENV_VAULT: vars.vaultValue,
         DOTENV_ME: this.meUid,
+        environment: this.environment,
       },
       url: this.url,
     }
@@ -77,17 +81,23 @@ class KeysService {
 
       CliUx.ux.action.stop()
 
-      CliUx.ux.table(keys, {
-        environment: {
-          header: 'environment',
-        },
-        key: {
-          header: 'DOTENV_KEY',
-        },
-      })
+      if (this.environment && keys[0]) {
+        // if environment was passed and key exists then no truncation
+        this.log.plain(keys[0].key)
+      } else {
+        // note that table truncates on smaller terminal windows
+        CliUx.ux.table(keys, {
+          environment: {
+            header: 'environment',
+          },
+          key: {
+            header: 'DOTENV_KEY',
+          },
+        })
 
-      this.log.plain('')
-      this.log.plain(`Set ${chalk.bold('DOTENV_KEY')} on your infrastructure`)
+        this.log.plain('')
+        this.log.plain(`Set ${chalk.bold('DOTENV_KEY')} on your infrastructure`)
+      }
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
