@@ -83,7 +83,7 @@ class KeysService {
 
       if (this.environment && keys[0]) {
         // if environment was passed and key exists then no truncation
-        this.log.plain(`DOTENV_KEY=${keys[0].key}`)
+        this.log.plain(keys[0].key)
       } else {
         // note that table truncates on smaller terminal windows
         CliUx.ux.table(keys, {
