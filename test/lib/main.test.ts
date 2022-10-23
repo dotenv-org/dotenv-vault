@@ -3,7 +3,7 @@ import {CliUx} from '@oclif/core'
 import {writeFileSync} from 'node:fs'
 import { fs } from 'memfs';
 
-import {config} from '../../src/lib/main'
+import {config} from 'dotenv-vault-core'
 
 let testPath = 'test/.env'
 const dotenvKey = 'dotenv://:key_1111111111111111111111111111111111111111111111111111111111111111@dotenv.org/vault/.env.vault?environment=production'
