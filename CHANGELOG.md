@@ -2,9 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.14.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.15.0...master)
 
-## [1.14.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.10...v1.140.0) (2022-10-14)
+## [1.15.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.14.0...v1.15.0) (2022-10-23)
+
+### Changed
+
+- Use [dotenv-vault-core](https://github.com/dotenv-org/dotenv-vault-core) to expose `.config` for use with decrypting .env.vault [#155](https://github.com/dotenv-org/dotenv-vault/pull/155)
+
+## [1.14.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.13.10...v1.14.0) (2022-10-14)
 
 ### Added
 
