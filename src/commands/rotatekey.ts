@@ -3,7 +3,7 @@ import {Command, Flags} from '@oclif/core'
 import {RotatekeyService} from '../services/rotatekey-service'
 
 export default class Rotatekey extends Command {
-  static description = 'Rotate DOTENV_KEY'
+  static description = 'Rotate a DOTENV_KEY'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
