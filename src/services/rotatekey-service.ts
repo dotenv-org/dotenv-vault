@@ -50,9 +50,16 @@ class RotatekeyService {
       await this.login.login(false)
     }
 
-    const rotatekeyMsg = 'Rotating decryption key'
+    if (!this.yes) {
+      const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Are you sure you want to rotate your ${this.environment} DOTENV_KEY? Type ${chalk.green('yes')} to continue`)
+      if (answer !== 'yes' && answer !== 'YES' && answer !== 'Yes') {
+        this.abort.quit()
+      }
+    }
 
+    const rotatekeyMsg = 'Rotating decryption key'
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${rotatekeyMsg}`)
+
     await this.rotatekey()
   }
 
@@ -70,13 +77,16 @@ class RotatekeyService {
 
     try {
       const resp: AxiosRequestConfig = await axios(options)
-      const keys = resp.data.data.keys
+      const DOTENV_KEY = resp.data.data.DOTENV_KEY
 
       CliUx.ux.action.stop()
 
-      this.log.plain(keys[0].key) // todo log instructions to help with what you do after setting
+      this.log.plain(DOTENV_KEY) // todo log instructions to help with what you do after setting
       this.log.plain('')
-      this.log.plain(`1. Set ${chalk.bold('DOTENV_KEY2')} on your infrastructure`)
+      this.log.plain(`1. Set DOTENV_KEY2 on your server`)
+      this.log.plain(`2. Rebuild and deploy your .env.vault file`)
+      this.log.plain(`3. Set DOTENV_KEY to DOTENV_KEY2`)
+      this.log.plain(`4. Remove DOTENV_KEY2`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
