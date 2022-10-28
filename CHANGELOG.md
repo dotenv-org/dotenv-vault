@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.1...master)
+
+## [1.16.1](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.0...v1.16.1) (2022-10-28)
+
+### Changed
+
+- Update `rotatekey` help messages [#158](https://github.com/dotenv-org/dotenv-vault/pull/158)
 
 ## [1.16.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.15.0...v1.16.0) (2022-10-26)
 
