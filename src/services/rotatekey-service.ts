@@ -78,15 +78,18 @@ class RotatekeyService {
     try {
       const resp: AxiosRequestConfig = await axios(options)
       const DOTENV_KEY = resp.data.data.DOTENV_KEY
+      const PREVIOUS_DOTENV_KEY = resp.data.data.PREVIOUS_DOTENV_KEY
 
       CliUx.ux.action.stop()
 
-      this.log.plain(DOTENV_KEY) // todo log instructions to help with what you do after setting
+      this.log.plain(DOTENV_KEY)
       this.log.plain('')
-      this.log.plain(`1. Set DOTENV_KEY2 on your server`)
-      this.log.plain(`2. Rebuild and deploy your .env.vault file`)
-      this.log.plain(`3. Set DOTENV_KEY to DOTENV_KEY2`)
-      this.log.plain(`4. Remove DOTENV_KEY2`)
+      this.log.plain('1. Update DOTENV_KEY by comma-appending the new key')
+      this.log.plain('2. Rebuild and deploy your .env.vault file')
+      this.log.plain('3. Update DOTENV_KEY by removing the old key')
+      this.log.plain('')
+      this.log.plain('Example:')
+      this.log.plain(`DOTENV_KEY='${PREVIOUS_DOTENV_KEY},${DOTENV_KEY}'`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
