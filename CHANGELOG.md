@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.3...master)
+
+## [1.16.3](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.2...v1.16.3) (2022-10-28)
+
+### Changed
+
+- Update `dotenv-vault-core` dependency to patch
 
 ## [1.16.2](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.1...v1.16.2) (2022-10-28)
 
