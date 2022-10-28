@@ -84,9 +84,9 @@ class RotatekeyService {
 
       this.log.plain(DOTENV_KEY)
       this.log.plain('')
-      this.log.plain('1. Update DOTENV_KEY by comma-appending the new key')
+      this.log.plain('1. Update DOTENV_KEY by comma-appending the new value')
       this.log.plain('2. Rebuild and deploy your .env.vault file')
-      this.log.plain('3. Update DOTENV_KEY by removing the old key')
+      this.log.plain('3. Update DOTENV_KEY by removing the old value')
       this.log.plain('')
       this.log.plain('Example:')
       this.log.plain(`DOTENV_KEY='${PREVIOUS_DOTENV_KEY},${DOTENV_KEY}'`)
