@@ -68,6 +68,33 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
   <tbody>
     <tr>
       <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/vercel/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/vercel.svg" alt="Vercel", width="20" />
+          Vercel
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/heroku/rails">
+          <img src="https://www.dotenv.org/assets-www/img/heroku.svg" alt="Heroku", width="20" />
+          Heroku
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs">
+          <img src="https://www.dotenv.org/assets-www/img/github.svg" alt="GitHub", width="20" />
+          GitHub Actions
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/gitlab/ci-quickstart">
+          <img src="https://www.dotenv.org/assets-www/img/gitlab.svg" alt="GitLab", width="20" />
+          GitLab CI/CD
+        </a>
+      </td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="middle">
         <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="30" />
         GitHub
       </td>
@@ -85,13 +112,7 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
       </td>
     </tr>
     <tr>
-      <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/vercel/nodejs?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/vercel.svg" alt="Vercel", width="20" />
-          Vercel
-        </a>
-      </td>
-      <td align="left" valign="middle">
+            <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" />
           Netlify
