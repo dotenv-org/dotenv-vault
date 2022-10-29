@@ -141,42 +141,6 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
 
 Visit [dotenv.org/docs/tutorials/integrations](https://www.dotenv.org/docs/tutorials/integrations?r=1) to learn more.
 
----
-
-<h1 align="center">
-  <a href="https://docs.dotenv.org?r=1"><img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" alt="dotenv-vault" width="80" height="80" ></a>
-  <br>
-  Dotenv Vault
-  <br>
-</h1>
-
-<h4 align="center">Sync your .env files, quickly & securely.</h4>
-<p align="center">Stop sharing them over insecure channels like Slack and email, and never lose an important <strong>.env</strong> file again.</p>
-
-<p align="center">
-  <a href="#usage">Usage</a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="#how-it-works">How It Works</a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="#commands" target="_blank">Commands</a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="#health" target="_blank">Health</a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="#changelog">Changelog</a>
-</p>
-
-<img src="https://img.spacergif.org/v1/spacer.gif" width="1" height="10">
-
-[![1 Minute Overview](./dotenv-vault.png)](https://www.youtube.com/watch?v=z-lBjxfhWeY)
-
-<p align="center">
-  <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/dt/dotenv-vault.svg" alt="Downloads"></a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="https://npmjs.org/package/dotenv-vault"><img src="https://img.shields.io/npm/v/dotenv-vault.svg" alt="Version"></a>
-  <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
-  <a href="https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode"><img src="https://img.shields.io/visual-studio-marketplace/v/dotenv.dotenv-vscode?label=VS%20Marketplace&logo=visual-studio-code" alt="Version"></a>
-</p>
-
 ## How It Works
 
 <a href="https://www.dotenv.org/docs/security/dotenv-vault"><img src="./how-dotenv-vault-works.png" alt="How Dotenv Vault works" width="500"/></a>
