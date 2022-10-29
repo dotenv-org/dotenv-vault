@@ -11,6 +11,14 @@ dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 
+* [Usage](#usage)
+* [Multiple Environments](#multiple-environments)
+* [Integrations](#integrations)
+* [How It Works](#how-it-works)
+* [Commands](#commands)
+* [Health](#health)
+* [Changelog](#changelog)
+
 ## Usage
 
 Usage is similar to git. Run the command:
@@ -52,7 +60,7 @@ $ npx dotenv-vault pull production
 
 Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
 
-## Integrates Everywhere™
+## Integrations
 
 Dotenv Vault integrates everywhere you already deploy your code. Run the build command to generate your encrypted .env.vault file, commit that safely to code, and deploy. There's nothing else like it.
 
@@ -214,6 +222,9 @@ A success message is returned to the developer.
 * [push](#push)
 * [pull](#pull)
 * [open](#open)
+* [whoami](#whoami)
+* [build](#build)
+* [keys](#keys)
 
 ### `new`
 
@@ -424,6 +435,87 @@ $ npx dotenv-vault open -y
 ```
 
 ---
+
+### `whoami`
+
+Display the current logged in user.
+
+Example:
+
+```bash
+$ npx dotenv-vault whoami
+```
+
+##### FLAGS
+
+*-m, --dotenvMe*
+
+Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
+
+```
+$ npx dotenv-vault whoami dotenvMe=me_b1831e…
+```
+
+---
+
+### `build`
+
+Build .env.vault file.
+
+Example:
+
+```bash
+$ npx dotenv-vault build
+```
+
+##### FLAGS
+
+*-m, --dotenvMe*
+
+Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
+
+```
+$ npx dotenv-vault whoami dotenvMe=me_b1831e…
+```
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault open -y
+```
+
+---
+
+### `keys`
+
+List .env.vault decryption keys.
+
+Example:
+
+```bash
+$ npx dotenv-vault keys
+```
+
+##### FLAGS
+
+*-m, --dotenvMe*
+
+Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
+
+```
+$ npx dotenv-vault whoami dotenvMe=me_b1831e…
+```
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault open -y
+```
+
 
 ## Health
 
