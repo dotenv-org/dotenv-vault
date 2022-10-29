@@ -238,7 +238,35 @@ local:    Added to .env.vault (DOTENV_VAULT=vlt_6beaa...)
 
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
-Visit [dotenv.org/docs](https://www.dotenv.org/docs/dotenv-vault?r=1) for details per command.
+### `dotenv-vault login`
+
+Log in to dotenv-vault.
+
+Example:
+
+```bash
+$ npx dotenv-vault login
+```
+
+##### ARGUMENTS
+
+*[DOTENV_ME]*
+
+Set .env.me identifier. Defaults to generated value.
+
+```
+$ npx dotenv-vault login me_00c7fa…
+```
+
+##### FLAGS
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault login -y
+```
 
 ## Health
 
