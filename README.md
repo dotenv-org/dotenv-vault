@@ -208,32 +208,35 @@ A success message is returned to the developer.
 
 ## Commands
 
+For more information on the new command, run dotenv-vault help new.
+
+### `dotenv-vault new`
+
+Create your project at Dotenv Vault.
+
+Example:
+
+```bash
+$ npx dotenv-vault new
 ```
-$ npx dotenv-vault
-Sync your .env files, securely.
 
-VERSION
-  dotenv-vault/1.16.3 darwin-arm64 node-v18.3.0
+##### ARGUMENTS
 
-USAGE
-  $ dotenv-vault [COMMAND]
+*[DOTENV_VAULT]*
 
-COMMANDS
-  build      Build .env.vault
-  help       Display help for dotenv-vault.
-  keys       List .env.vault decryption keys
-  login      Log in
-  logout     Log out
-  new        Create your project
-  open       Open project page
-  pull       Pull .env securely
-  push       Push .env securely
-  rotatekey  Rotate a DOTENV_KEY
-  status     Check dotenv.org status
-  update     update the dotenv-vault CLI
-  versions   List version history
-  whoami     Display the current logged in user
+Set .env.vault identifier. Defaults to generated value.
+
 ```
+$ npx dotenv-vault new vlt_6beaae5…
+local:    Adding .env.vault (DOTENV_VAULT)... done
+local:    Added to .env.vault (DOTENV_VAULT=vlt_6beaa...)
+```
+
+##### FLAGS
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 Visit [dotenv.org/docs](https://www.dotenv.org/docs/dotenv-vault?r=1) for details per command.
 
