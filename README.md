@@ -6,7 +6,7 @@
 
 dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.com/motdotla/dotenv) with syncing, multiple environments, and integration wherever you develop and deploy - all using a new standard `.env.vault` file.
 
-[Watch the 1 minute video](https://www.youtube.com/watch?v=z-lBjxfhWeY)
+<strong><a href="https://www.youtube.com/watch?v=z-lBjxfhWeY" target="_blank">Watch the 1 minute video</a></strong>
 
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
