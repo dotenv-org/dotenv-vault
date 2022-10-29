@@ -139,7 +139,9 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
   </tbody>
 </table>
 
-Visit [dotenv.org/docs/tutorials/integrations](https://www.dotenv.org/docs/tutorials/integrations?r=1) to learn more.
+<p align="center">
+  Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials/integrations</a> to learn more.
+</p>
 
 ## How It Works
 
@@ -202,7 +204,9 @@ Lastly, the encrypted KEY and token (representing the encrypted VALUE) are place
 #### Success 201
 A success message is returned to the developer.
 
-Visit [dotenv.org/security](https://www.dotenv.org/security?r=1) to learn more.
+<p align="center">
+  Visit <a href="https://www.dotenv.org/security?r=1">dotenv.org/security</a> to learn more.
+</p>
 
 ## Commands
 
@@ -211,23 +215,26 @@ $ npx dotenv-vault
 Sync your .env files, securely.
 
 VERSION
-  dotenv-vault/1.11.0 darwin-arm64 node-v18.3.0
+  dotenv-vault/1.16.3 darwin-arm64 node-v18.3.0
 
 USAGE
   $ dotenv-vault [COMMAND]
 
 COMMANDS
-  new       Create your project
-  login     Log in
-  logout    Log out
-  open      Open project page
-  push      Push .env securely
-  pull      Pull .env securely
-  versions  List version history
-  whoami    Display the current logged in user
-  status    Check dotenv.org status
-  help      Display help for dotenv-vault.
-  update    update the dotenv-vault CLI
+  build      Build .env.vault
+  help       Display help for dotenv-vault.
+  keys       List .env.vault decryption keys
+  login      Log in
+  logout     Log out
+  new        Create your project
+  open       Open project page
+  pull       Pull .env securely
+  push       Push .env securely
+  rotatekey  Rotate a DOTENV_KEY
+  status     Check dotenv.org status
+  update     update the dotenv-vault CLI
+  versions   List version history
+  whoami     Display the current logged in user
 ```
 
 Visit [dotenv.org/docs](https://www.dotenv.org/docs/dotenv-vault?r=1) for details per command.
