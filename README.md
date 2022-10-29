@@ -16,8 +16,6 @@ dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.
 * [Integrations](#integrations)
 * [How It Works](#how-it-works)
 * [Commands](#commands)
-* [Health](#health)
-* [Changelog](#changelog)
 
 ## Usage
 
