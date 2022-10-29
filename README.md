@@ -1,3 +1,103 @@
+# dotenv-vault
+
+<img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" align="right" width="200" />
+
+Sync .env files. Stop sharing them over insecure channels like Slack and email and never lose an important .env file again.
+
+[![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
+[![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
+
+---
+
+## Integrates With
+
+Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integrates everywhere across infrastructure.
+
+<table>
+  <tbody>
+    <tr>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="30" />
+        GitHub
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/integrations/heroku?r=1">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/heroku.png" alt="dotenv-vault + Heroku", width="30" />
+          Heroku
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/integrations/slack?r=1">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="30" />
+          Slack
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/integrations/vercel?r=1">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/vercel.png" alt="dotenv-vault + Vercel", width="30" />
+          Vercel
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/integrations/netlify?r=1">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" />
+          Netlify
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/aws.png" alt="dotenv-vault + AWS Secrets", width="30" />
+        AWS Secrets
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/aws.png" alt="dotenv-vault + AWS Parameter Store", width="30" />
+        AWS Parameter Store
+      </td>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/microsoft.png" alt="dotenv-vault + Azure Key Vault", width="30" />
+        Azure Key Vault
+      </td>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker Compose", width="30" />
+        Docker Compose
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/integrations/docker?r=1">
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker", width="30" />
+          Docker
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/digitalocean.png" alt="dotenv-vault + Digital Ocean", width="30" />
+        Digital Ocean
+      </td>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/google.png" alt="dotenv-vault + Google Cloud", width="30" />
+        Google Cloud
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/circleci.png" alt="dotenv-vault + CircleCI", width="30" />
+        CircleCI
+      </td>
+      <td align="left" valign="middle">
+        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/serverless.png" alt="dotenv-vault + Serverless", width="30" />
+        Serverless
+      </td>
+      <td align="left" valign="middle">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
 <h1 align="center">
   <a href="https://docs.dotenv.org?r=1"><img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" alt="dotenv-vault" width="80" height="80" ></a>
   <br>
