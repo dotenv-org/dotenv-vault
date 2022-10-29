@@ -87,7 +87,7 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/nodejs?r=1">
-          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/vercel.png" alt="dotenv-vault + Vercel", width="30" />
+          <img src="https://www.dotenv.org/assets-www/img/vercel.svg" alt="Vercel", width="20" />
           Vercel
         </a>
       </td>
