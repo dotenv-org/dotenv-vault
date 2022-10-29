@@ -94,6 +94,32 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
     </tr>
     <tr>
       <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/netlify.svg" alt="Netlify", width="20" />
+          Netlify
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/docker/express?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/docker.svg" alt="Docker", width="20" />
+          Docker
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/docker-compose/express?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/docker.svg" alt="Docker", width="20" />
+          Docker Compose
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/circleci/rails?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/circleci.svg" alt="CircleCI", width="20" />
+          CircleCI
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
         <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="30" />
         GitHub
       </td>
