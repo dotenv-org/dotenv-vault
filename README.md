@@ -208,9 +208,14 @@ A success message is returned to the developer.
 
 ## Commands
 
-For more information on the new command, run dotenv-vault help new.
+* [new](#new)
+* [login](#login)
+* [logout](#logout)
+* [push](#push)
+* [pull](#pull)
+* [open](#open)
 
-### `dotenv-vault new`
+### `new`
 
 Create your project at Dotenv Vault.
 
@@ -238,7 +243,7 @@ local:    Added to .env.vault (DOTENV_VAULT=vlt_6beaa...)
 
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
-### `dotenv-vault login`
+### `login`
 
 Log in to dotenv-vault.
 
@@ -268,7 +273,31 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 $ npx dotenv-vault login -y
 ```
 
-### `dotenv-vault push`
+---
+
+### `logout`
+
+Log out of dotenv-vault.
+
+Example:
+
+```bash
+$ npx dotenv-vault logout
+```
+
+##### FLAGS
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault logout -y
+```
+
+---
+
+### `push`
 
 Push `.env` securely.
 
@@ -314,27 +343,9 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 $ npx dotenv-vault push -y
 ```
 
-### `dotenv-vault logout`
+---
 
-Log out of dotenv-vault.
-
-Example:
-
-```bash
-$ npx dotenv-vault logout
-```
-
-##### FLAGS
-
-*-y, --yes*
-
-Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
-
-```
-$ npx dotenv-vault logout -y
-```
-
-### `dotenv-vault pull`
+### `pull`
 
 Pull `.env` securely.
 
@@ -380,7 +391,9 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 $ npx dotenv-vault pull -y
 ```
 
-### `dotenv-vault open`
+---
+
+### `open`
 
 Open project page.
 
@@ -409,6 +422,8 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 ```
 $ npx dotenv-vault open -y
 ```
+
+---
 
 ## Health
 
