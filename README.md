@@ -151,6 +151,8 @@ Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials
 
 ## How It Works
 
+Below is a high level overview of how dotenv-vault works. You can also learn more at [docs](https://dotenv.org/docs)[docs] and [security](https://dotenv.org/security).
+
 ###### Step 1
 #### npx dotenv-vault push
 You run npx dotenv-vault push. Your request is started.
@@ -216,6 +218,8 @@ A success message is returned to the developer.
 
 ## Commands
 
+Below are a list of dotenv-vault cli commands. You can also learn more on the [docs page](https://dotenv.org/docs).
+
 * [new](#new)
 * [login](#login)
 * [logout](#logout)
@@ -225,6 +229,8 @@ A success message is returned to the developer.
 * [whoami](#whoami)
 * [build](#build)
 * [keys](#keys)
+* [rotatekey](#rotatekey)
+* [versions](#versions)
 
 ### `new`
 
