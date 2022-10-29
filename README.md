@@ -6,6 +6,8 @@
 
 dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.com/motdotla/dotenv) with syncing, multiple environments, and integration wherever you develop and deploy - all using a new standard `.env.vault` file.
 
+[Watch the 1 minute video](https://www.youtube.com/watch?v=z-lBjxfhWeY)
+
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 
@@ -47,6 +49,8 @@ Edit those values. Would you also like to pull your production .env to your mach
 ```
 $ npx dotenv-vault pull production
 ```
+
+Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
 
 ## Integrates Everywhere™
 
@@ -134,6 +138,8 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
     </tr>
   </tbody>
 </table>
+
+Visit [dotenv.org/docs/tutorials/integrations](https://www.dotenv.org/docs/tutorials/integrations?r=1) to learn more.
 
 ---
 
