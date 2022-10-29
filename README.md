@@ -211,7 +211,7 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/integrations/slack?r=1">
-          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="30" />
+          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="20" />
           Slack
         </a>
       </td>
