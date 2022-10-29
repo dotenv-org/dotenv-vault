@@ -81,7 +81,7 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs">
-          <img src="https://www.dotenv.org/assets-www/img/github.svg" alt="GitHub", width="20" />
+          <img src="https://www.dotenv.org/assets-www/img/github.svg?r=1" alt="GitHub", width="20" />
           GitHub Actions
         </a>
       </td>
