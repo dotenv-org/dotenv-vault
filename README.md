@@ -62,7 +62,7 @@ Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutor
 
 Dotenv Vault integrates everywhere you already deploy your code.
 
-Run the build command to generate your encrypted .env.vault file, commit that safely to code, and deploy. There's nothing else like it.
+Run the build command to generate your encrypted .env.vault file, commit that safely to code, and deploy.
 
 ```
 $ npx dotenv-vault build
@@ -70,7 +70,7 @@ $ git commit -am "Add .env.vault"
 $ git push
 ```
 
-[Node.JS](https://github.com/dotenv-org/dotenv-vault-core), [Ruby](https://gitub.com/dotenv-org/dotenv-vault-ruby), and [Python](https://github.com/dotenv-org/python-dotenv-vault) supported. More languages coming soon.
+There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vault-core), [Ruby](https://gitub.com/dotenv-org/dotenv-vault-ruby), and [Python](https://github.com/dotenv-org/python-dotenv-vault) supported – more languages coming soon. [Request a language](https://github.com/dotenv-org/dotenv-vault/discussions/95)
 
 <table>
   <tbody>
