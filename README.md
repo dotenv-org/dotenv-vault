@@ -139,9 +139,7 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
   </tbody>
 </table>
 
-<p align="center">
-  Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials/integrations</a> to learn more.
-</p>
+Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials/integrations</a> to learn more.
 
 ## How It Works
 
@@ -205,7 +203,7 @@ Lastly, the encrypted KEY and token (representing the encrypted VALUE) are place
 A success message is returned to the developer.
 
 <p align="center">
-  Visit <a href="https://www.dotenv.org/security?r=1">dotenv.org/security</a> to learn more.
+  Learn more at <a href="https://www.dotenv.org/security?r=1">dotenv.org/security</a>
 </p>
 
 ## Commands
