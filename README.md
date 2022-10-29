@@ -100,6 +100,31 @@ Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integ
   </tbody>
 </table>
 
+## Usage
+
+Usage is similar to git. Run the command:
+
+```bash
+$ npx dotenv-vault new
+```
+
+Follow those instructions and then run:
+
+```bash
+$ npx dotenv-vault login
+```
+
+Then run push and pull:
+
+```bash
+$ npx dotenv-vault push
+$ npx dotenv-vault pull
+```
+
+That's it!
+
+Visit [dotenv.org/docs](https://www.dotenv.org/docs/tutorials/sync?r=1) for a complete getting started guide.
+
 ---
 
 <h1 align="center">
@@ -135,31 +160,6 @@ Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integ
   <img src="https://img.spacergif.org/v1/spacer.gif" width="5" height="1">
   <a href="https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode"><img src="https://img.shields.io/visual-studio-marketplace/v/dotenv.dotenv-vscode?label=VS%20Marketplace&logo=visual-studio-code" alt="Version"></a>
 </p>
-
-## Usage
-
-Usage is similar to git. Run the command:
-
-```bash
-$ npx dotenv-vault new
-```
-
-Follow those instructions and then run:
-
-```bash
-$ npx dotenv-vault login
-```
-
-Then run push and pull:
-
-```bash
-$ npx dotenv-vault push
-$ npx dotenv-vault pull
-```
-
-That's it!
-
-Visit [dotenv.org/docs](https://www.dotenv.org/docs/getting-started/with-dotenv-vault?r=1) for a complete getting started guide.
 
 ## How It Works
 
