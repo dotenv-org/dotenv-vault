@@ -2,7 +2,11 @@
 
 <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" align="right" width="200" />
 
-Sync .env files. Stop sharing them over insecure channels like Slack and email and never lose an important .env file again.
+Sync .env files.
+
+Stop sharing them over insecure channels like Slack and email and never lose an important .env file again.
+
+dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.com/motdotla/dotenv) with syncing, multiple environments, and integration everywhere - all using a `.env.vault` file.
 
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
