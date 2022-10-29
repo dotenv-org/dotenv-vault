@@ -254,6 +254,8 @@ local:    Added to .env.vault (DOTENV_VAULT=vlt_6beaa...)
 
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
+---
+
 ### `login`
 
 Log in to dotenv-vault.
@@ -475,7 +477,7 @@ $ npx dotenv-vault build
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault whoami dotenvMe=me_b1831e…
+$ npx dotenv-vault build dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -483,7 +485,7 @@ $ npx dotenv-vault whoami dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault open -y
+$ npx dotenv-vault build -y
 ```
 
 ---
@@ -505,7 +507,7 @@ $ npx dotenv-vault keys
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault whoami dotenvMe=me_b1831e…
+$ npx dotenv-vault keys dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -513,9 +515,78 @@ $ npx dotenv-vault whoami dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault open -y
+$ npx dotenv-vault keys -y
 ```
 
+---
+
+### `rotatekey`
+
+Rotate DOTENV_KEY.
+
+Example:
+
+```bash
+$ npx dotenv-vault rotatekey production
+```
+
+##### FLAGS
+
+*-m, --dotenvMe*
+
+Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
+
+```
+$ npx dotenv-vault rotatekey dotenvMe=me_b1831e…
+```
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault rotatekey -y
+```
+
+---
+
+### `versions`
+
+List version history.
+
+Example:
+
+```bash
+$ npx dotenv-vault versions
+```
+
+##### ARGUMENTS
+
+*[ENVIRONMENT]*
+
+Set environment to check versions against. Defaults to development.
+
+```
+$ npx dotenv-vault versions production
+```
+
+##### FLAGS
+
+*-m, --dotenvMe*
+
+Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
+
+```
+$ npx dotenv-vault versions dotenvMe=me_b1831e…
+```
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault versions -y
+```
 
 ## Health
 
