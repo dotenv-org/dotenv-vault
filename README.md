@@ -92,7 +92,6 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
         </a>
       </td>
     </tr>
-
     <tr>
       <td align="left" valign="middle">
         <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="30" />
