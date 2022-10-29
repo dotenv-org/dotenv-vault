@@ -32,7 +32,7 @@ $ npx dotenv-vault push
 $ npx dotenv-vault pull
 ```
 
-That's it!
+That's it! You synced your .env file.
 
 Visit [dotenv.org/docs](https://www.dotenv.org/docs/tutorials/sync?r=1) for a complete getting started guide.
 
@@ -142,6 +142,10 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
 Visit [dotenv.org/docs/tutorials/integrations](https://www.dotenv.org/docs/tutorials/integrations?r=1) to learn more.
 
 ## How It Works
+
+###### Step 1
+#### npx dotenv-vault push
+You run npx dotenv-vault push. Your request is started.
 
 <a href="https://www.dotenv.org/docs/security/dotenv-vault"><img src="./how-dotenv-vault-works.png" alt="How Dotenv Vault works" width="500"/></a>
 
