@@ -11,11 +11,48 @@ dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 
----
+## Usage
 
-## Integrates With
+Usage is similar to git. Run the command:
 
-Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integrates everywhere across infrastructure.
+```bash
+$ npx dotenv-vault new
+```
+
+Follow those instructions and then run:
+
+```bash
+$ npx dotenv-vault login
+```
+
+Then run push and pull:
+
+```bash
+$ npx dotenv-vault push
+$ npx dotenv-vault pull
+```
+
+That's it!
+
+Visit [dotenv.org/docs](https://www.dotenv.org/docs/tutorials/sync?r=1) for a complete getting started guide.
+
+## Multiple Environments
+
+After you've pushed your .env file, you can manage your secrets across multiple environments. Open an environment to view and edit its environment variables.
+
+```bash
+$ npx dotenv-vault open production
+```
+
+Edit those values. Would you also like to pull your production .env to your machine? Run the command:
+
+```
+$ npx dotenv-vault pull production
+```
+
+## Integrates Everywhere™
+
+Dotenv Vault integrates everywhere you already deploy your code. Run the build command to generate your encrypted .env.vault file, commit that safely to code, and deploy. There's nothing else like it.
 
 <table>
   <tbody>
@@ -25,7 +62,7 @@ Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integ
         GitHub
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/heroku?r=1">
+        <a href="https://www.dotenv.org/docs/integrations/heroku/express?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/heroku.png" alt="dotenv-vault + Heroku", width="30" />
           Heroku
         </a>
@@ -39,13 +76,13 @@ Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integ
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/vercel?r=1">
+        <a href="https://www.dotenv.org/docs/integrations/vercel/nodejs?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/vercel.png" alt="dotenv-vault + Vercel", width="30" />
           Vercel
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/netlify?r=1">
+        <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" />
           Netlify
         </a>
@@ -71,7 +108,7 @@ Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integ
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/docker?r=1">
+        <a href="https://www.dotenv.org/docs/integrations/docker/express?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker", width="30" />
           Docker
         </a>
@@ -99,31 +136,6 @@ Integrates with any [dotenv library](https://dotenv.org/libraries?r=1) and integ
     </tr>
   </tbody>
 </table>
-
-## Usage
-
-Usage is similar to git. Run the command:
-
-```bash
-$ npx dotenv-vault new
-```
-
-Follow those instructions and then run:
-
-```bash
-$ npx dotenv-vault login
-```
-
-Then run push and pull:
-
-```bash
-$ npx dotenv-vault push
-$ npx dotenv-vault pull
-```
-
-That's it!
-
-Visit [dotenv.org/docs](https://www.dotenv.org/docs/tutorials/sync?r=1) for a complete getting started guide.
 
 ---
 
