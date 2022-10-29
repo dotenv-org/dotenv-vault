@@ -268,6 +268,148 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 $ npx dotenv-vault login -y
 ```
 
+### `dotenv-vault push`
+
+Push `.env` securely.
+
+Example:
+
+```bash
+$ npx dotenv-vault push
+```
+
+##### ARGUMENTS
+
+*[ENVIRONMENT]*
+
+Set environment to push to. Defaults to development
+
+```
+$ npx dotenv-vault push production
+```
+
+*[FILENAME]*
+
+Set input filename. Defaults to .env for development and .env.{environment} for other environments
+
+```
+$ npx dotenv-vault push production .env.production
+```
+
+##### FLAGS
+
+*-m, --dotenvMe*
+
+Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
+
+```
+$ npx dotenv-vault push --dotenvMe=me_b1831e…
+```
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault push -y
+```
+
+### `dotenv-vault logout`
+
+Log out of dotenv-vault.
+
+Example:
+
+```bash
+$ npx dotenv-vault logout
+```
+
+##### FLAGS
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault logout -y
+```
+
+### `dotenv-vault pull`
+
+Pull `.env` securely.
+
+Example:
+
+```bash
+$ npx dotenv-vault pull
+```
+
+##### ARGUMENTS
+
+*[ENVIRONMENT]*
+
+Set environment to pull from. Defaults to development
+
+```
+$ npx dotenv-vault pull production
+```
+
+*[FILENAME]*
+
+Set output filename. Defaults to .env for development and .env.{environment} for other environments
+
+```
+$ npx dotenv-vault pull production .env.production
+```
+
+##### FLAGS
+
+*-m, --dotenvMe*
+
+Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
+
+```
+$ npx dotenv-vault pull --dotenvMe=me_b1831e…
+```
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault pull -y
+```
+
+### `dotenv-vault open`
+
+Open project page.
+
+Example:
+
+```bash
+$ npx dotenv-vault open
+```
+
+##### ARGUMENTS
+
+*[ENVIRONMENT]*
+
+Set environment to open to. Defaults to development.
+
+```
+$ npx dotenv-vault open production
+```
+
+##### FLAGS
+
+*-y, --yes*
+
+Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
+
+```
+$ npx dotenv-vault open -y
+```
+
 ## Health
 
 ![](https://api.checklyhq.com/v1/badges/checks/c2fee99a-38e7-414e-89b8-9766ceeb1927?style=flat&theme=dark&responseTime=true)
