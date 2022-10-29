@@ -120,13 +120,93 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/github.png" alt="dotenv-vault + github", width="30" />
-        GitHub
+        <a href="https://www.dotenv.org/docs/integrations/serverless/express?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/serverless.svg" alt="Serverless", width="20" />
+          Serverless
+        </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/heroku/express?r=1">
-          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/heroku.png" alt="dotenv-vault + Heroku", width="30" />
-          Heroku
+        <a href="https://www.dotenv.org/docs/integrations/railway/express?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/railway.svg" alt="Railway", width="20" />
+          Railway
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/render/express?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/render.svg" alt="Render", width="20" />
+          Render
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/fly/express?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/fly.svg" alt="Fly.io", width="20" />
+          Fly.io
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/railway/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/nodejs.svg" alt="Node.js", width="20" />
+          Node.js
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/vercel/express?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/express.svg" alt="Express", width="20" />
+          Express
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/nextjs.svg" alt="NextJS", width="20" />
+          NextJS
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/github/actions-remix?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/remix.svg" alt="Remix", width="20" />
+          Remix
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/astro.svg" alt="Astro", width="20" />
+          Astro
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/docker/rails?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/rails.svg" alt="Rails", width="20" />
+          Rails
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/ruby.svg" alt="Ruby", width="20" />
+          Ruby
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/sinatra.svg" alt="Sinatra", width="20" />
+          Sinatra
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/heroku/flask?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/flask.svg" alt="Flask", width="20" />
+          Flask
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/heroku/flask?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/python.svg" alt="Python", width="20" />
+          Python
         </a>
       </td>
       <td align="left" valign="middle">
@@ -134,58 +214,6 @@ Dotenv Vault integrates everywhere you already deploy your code. Run the build c
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="30" />
           Slack
         </a>
-      </td>
-    </tr>
-    <tr>
-            <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
-          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/netlify.png" alt="dotenv-vault + Netlify", width="30" />
-          Netlify
-        </a>
-      </td>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/aws.png" alt="dotenv-vault + AWS Secrets", width="30" />
-        AWS Secrets
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/aws.png" alt="dotenv-vault + AWS Parameter Store", width="30" />
-        AWS Parameter Store
-      </td>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/microsoft.png" alt="dotenv-vault + Azure Key Vault", width="30" />
-        Azure Key Vault
-      </td>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker Compose", width="30" />
-        Docker Compose
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/docker/express?r=1">
-          <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/docker.png" alt="dotenv-vault + Docker", width="30" />
-          Docker
-        </a>
-      </td>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/digitalocean.png" alt="dotenv-vault + Digital Ocean", width="30" />
-        Digital Ocean
-      </td>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/google.png" alt="dotenv-vault + Google Cloud", width="30" />
-        Google Cloud
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/circleci.png" alt="dotenv-vault + CircleCI", width="30" />
-        CircleCI
-      </td>
-      <td align="left" valign="middle">
-        <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/serverless.png" alt="dotenv-vault + Serverless", width="30" />
-        Serverless
       </td>
       <td align="left" valign="middle">
       </td>
