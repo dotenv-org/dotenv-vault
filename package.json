@@ -26,7 +26,8 @@
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
     "dotenv": "16.0.3",
-    "dotenv-vault-core": "0.6.1"
+    "dotenv-vault-core": "^0.6.1",
+    "install": "^0.13.0"
   },
   "devDependencies": {
     "@oclif/test": "^2",
