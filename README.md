@@ -22,20 +22,20 @@ dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.
 Usage is similar to git. Run the command:
 
 ```bash
-$ npx dotenv-vault new
+npx dotenv-vault new
 ```
 
 Follow those instructions and then run:
 
 ```bash
-$ npx dotenv-vault login
+npx dotenv-vault login
 ```
 
 Then run push and pull:
 
 ```bash
-$ npx dotenv-vault push
-$ npx dotenv-vault pull
+npx dotenv-vault push
+npx dotenv-vault pull
 ```
 
 That's it! You synced your .env file.
@@ -47,13 +47,13 @@ Visit [dotenv.org/docs](https://www.dotenv.org/docs/tutorials/sync?r=1) for a co
 After you've pushed your .env file, you can manage your secrets across multiple environments. Open an environment to view and edit its environment variables.
 
 ```bash
-$ npx dotenv-vault open production
+npx dotenv-vault open production
 ```
 
 Edit those values. Would you also like to pull your production .env to your machine? Run the command:
 
 ```
-$ npx dotenv-vault pull production
+npx dotenv-vault pull production
 ```
 
 Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
@@ -65,9 +65,9 @@ Dotenv Vault integrates everywhere you already deploy your code.
 Run the build command to generate your encrypted .env.vault file, commit that safely to code, and deploy.
 
 ```
-$ npx dotenv-vault build
-$ git commit -am "Add .env.vault"
-$ git push
+npx dotenv-vault build
+git commit -am "Add .env.vault"
+git push
 ```
 
 There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vault-core), [Ruby](https://gitub.com/dotenv-org/dotenv-vault-ruby), and [Python](https://github.com/dotenv-org/python-dotenv-vault) supported – more languages coming soon. [Request a language](https://github.com/dotenv-org/dotenv-vault/discussions/95)
@@ -233,36 +233,50 @@ Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials
 
 ## How It Works
 
-Below is a high level overview of how dotenv-vault works. You can also learn more at [docs](https://dotenv.org/docs)[docs] and [security](https://dotenv.org/security).
+Below is a high level overview of how dotenv-vault works. You can also learn more at [docs][https://dotenv.org/docs](docs) and [security](https://dotenv.org/security).
 
 ###### Step 1
+
 #### npx dotenv-vault push
+
 You run npx dotenv-vault push. Your request is started.
 
 ###### Step 2
+
 #### Encrypted Connection
+
 Your .env file is encrypted and sent securely over SSL to Dotenv's in-memory servers.
 
 ###### Step 3
+
 #### Dotenv Servers
+
 This encrypted payload is decrypted and briefly held in memory to complete the next steps. Afterward, the memory is flushed. Rest assured the decrypted version is never peristed to Dotenv systems.
 
 ###### Step 4
+
 #### Parsing
+
 Your .env file is parsed line by line - in memory.
 
 Note: There are minor differences between dotenv parsers across various languages and frameworks. So far Dotenv Vault handles 100% of these, and we continue to add test cases to cover all edge cases.
 
 ###### Step 5
+
 #### Secret Extraction
+
 Each key/value pair (and any comments) are extracted - in memory.
 
 ###### Step 6
+
 #### Secret Division
+
 The secret is divided into its separate key and value. This is by design. They will be stored in separate databases for added security. This way if an attacker somehow gained access to one database they would not be able to make sense of the data - having only half the puzzle.
 
 ###### Step 7
+
 #### AES-GCM Encryption
+
 The KEY is encrypted. The VALUE is encrypted. They are encrypted with different master encryption keys. This way if an attacker somehow gained access to the VALUE decryption key they would find the data useless. They would not know if the secret belonged to Twilio or to AWS.
 
 Encryption uses the AES-GCM algorithm. It is:
@@ -275,7 +289,9 @@ Encryption uses the AES-GCM algorithm. It is:
 Additionally, all master encryption keys are rotated on an unpublished schedule, further adding to the level of security.
 
 ###### Step 8
+
 #### Tokenization
+
 The encrypted VALUE is sent to Dotenv Vault for safe storage. A token is returned as an identifier. The token is used in the next step for mapping the KEY to the VALUE for later secure-read operations.
 
 Multiple security measures go into the Vault. They include but are not limited to:
@@ -287,11 +303,15 @@ Multiple security measures go into the Vault. They include but are not limited t
 * The secrets stored in the Vault are not just encrypted at the datastore level. They are also encrypted at each datastore entry as you saw in the prior step(s).
 
 ###### Step 9
+
 #### Store Key Part with Token
+
 Lastly, the encrypted KEY and token (representing the encrypted VALUE) are placed in an envelope and stored together in the application database.
 
 ###### Step 10
+
 #### Success 201
+
 A success message is returned to the developer.
 
 <p align="center">
@@ -321,7 +341,7 @@ Create your project at Dotenv Vault.
 Example:
 
 ```bash
-$ npx dotenv-vault new
+npx dotenv-vault new
 ```
 
 ##### ARGUMENTS
@@ -351,7 +371,7 @@ Log in to dotenv-vault.
 Example:
 
 ```bash
-$ npx dotenv-vault login
+npx dotenv-vault login
 ```
 
 ##### ARGUMENTS
@@ -361,7 +381,7 @@ $ npx dotenv-vault login
 Set .env.me identifier. Defaults to generated value.
 
 ```
-$ npx dotenv-vault login me_00c7fa…
+npx dotenv-vault login me_00c7fa…
 ```
 
 ##### FLAGS
@@ -371,7 +391,7 @@ $ npx dotenv-vault login me_00c7fa…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault login -y
+npx dotenv-vault login -y
 ```
 
 ---
@@ -383,7 +403,7 @@ Log out of dotenv-vault.
 Example:
 
 ```bash
-$ npx dotenv-vault logout
+npx dotenv-vault logout
 ```
 
 ##### FLAGS
@@ -393,7 +413,7 @@ $ npx dotenv-vault logout
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault logout -y
+npx dotenv-vault logout -y
 ```
 
 ---
@@ -405,7 +425,7 @@ Push `.env` securely.
 Example:
 
 ```bash
-$ npx dotenv-vault push
+npx dotenv-vault push
 ```
 
 ##### ARGUMENTS
@@ -415,7 +435,7 @@ $ npx dotenv-vault push
 Set environment to push to. Defaults to development
 
 ```
-$ npx dotenv-vault push production
+npx dotenv-vault push production
 ```
 
 *[FILENAME]*
@@ -423,7 +443,7 @@ $ npx dotenv-vault push production
 Set input filename. Defaults to .env for development and .env.{environment} for other environments
 
 ```
-$ npx dotenv-vault push production .env.production
+npx dotenv-vault push production .env.production
 ```
 
 ##### FLAGS
@@ -433,7 +453,7 @@ $ npx dotenv-vault push production .env.production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault push --dotenvMe=me_b1831e…
+npx dotenv-vault push --dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -441,7 +461,7 @@ $ npx dotenv-vault push --dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault push -y
+npx dotenv-vault push -y
 ```
 
 ---
@@ -453,7 +473,7 @@ Pull `.env` securely.
 Example:
 
 ```bash
-$ npx dotenv-vault pull
+npx dotenv-vault pull
 ```
 
 ##### ARGUMENTS
@@ -463,7 +483,7 @@ $ npx dotenv-vault pull
 Set environment to pull from. Defaults to development
 
 ```
-$ npx dotenv-vault pull production
+npx dotenv-vault pull production
 ```
 
 *[FILENAME]*
@@ -471,7 +491,7 @@ $ npx dotenv-vault pull production
 Set output filename. Defaults to .env for development and .env.{environment} for other environments
 
 ```
-$ npx dotenv-vault pull production .env.production
+npx dotenv-vault pull production .env.production
 ```
 
 ##### FLAGS
@@ -481,7 +501,7 @@ $ npx dotenv-vault pull production .env.production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault pull --dotenvMe=me_b1831e…
+npx dotenv-vault pull --dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -489,7 +509,7 @@ $ npx dotenv-vault pull --dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault pull -y
+npx dotenv-vault pull -y
 ```
 
 ---
@@ -501,7 +521,7 @@ Open project page.
 Example:
 
 ```bash
-$ npx dotenv-vault open
+npx dotenv-vault open
 ```
 
 ##### ARGUMENTS
@@ -511,7 +531,7 @@ $ npx dotenv-vault open
 Set environment to open to. Defaults to development.
 
 ```
-$ npx dotenv-vault open production
+npx dotenv-vault open production
 ```
 
 ##### FLAGS
@@ -521,7 +541,7 @@ $ npx dotenv-vault open production
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault open -y
+npx dotenv-vault open -y
 ```
 
 ---
@@ -533,7 +553,7 @@ Display the current logged in user.
 Example:
 
 ```bash
-$ npx dotenv-vault whoami
+npx dotenv-vault whoami
 ```
 
 ##### FLAGS
@@ -543,7 +563,7 @@ $ npx dotenv-vault whoami
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault whoami dotenvMe=me_b1831e…
+npx dotenv-vault whoami dotenvMe=me_b1831e…
 ```
 
 ---
@@ -555,7 +575,7 @@ Build .env.vault file.
 Example:
 
 ```bash
-$ npx dotenv-vault build
+npx dotenv-vault build
 ```
 
 ##### FLAGS
@@ -565,7 +585,7 @@ $ npx dotenv-vault build
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault build dotenvMe=me_b1831e…
+npx dotenv-vault build dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -573,7 +593,7 @@ $ npx dotenv-vault build dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault build -y
+npx dotenv-vault build -y
 ```
 
 ---
@@ -585,7 +605,7 @@ List .env.vault decryption keys.
 Example:
 
 ```bash
-$ npx dotenv-vault keys
+npx dotenv-vault keys
 ```
 
 ##### FLAGS
@@ -595,7 +615,7 @@ $ npx dotenv-vault keys
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault keys dotenvMe=me_b1831e…
+npx dotenv-vault keys dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -603,7 +623,7 @@ $ npx dotenv-vault keys dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault keys -y
+npx dotenv-vault keys -y
 ```
 
 ---
@@ -615,7 +635,7 @@ Rotate DOTENV_KEY.
 Example:
 
 ```bash
-$ npx dotenv-vault rotatekey production
+npx dotenv-vault rotatekey production
 ```
 
 ##### FLAGS
@@ -625,7 +645,7 @@ $ npx dotenv-vault rotatekey production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault rotatekey dotenvMe=me_b1831e…
+npx dotenv-vault rotatekey dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -633,7 +653,7 @@ $ npx dotenv-vault rotatekey dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault rotatekey -y
+npx dotenv-vault rotatekey -y
 ```
 
 ---
@@ -645,7 +665,7 @@ List version history.
 Example:
 
 ```bash
-$ npx dotenv-vault versions
+npx dotenv-vault versions
 ```
 
 ##### ARGUMENTS
@@ -655,7 +675,7 @@ $ npx dotenv-vault versions
 Set environment to check versions against. Defaults to development.
 
 ```
-$ npx dotenv-vault versions production
+npx dotenv-vault versions production
 ```
 
 ##### FLAGS
@@ -665,7 +685,7 @@ $ npx dotenv-vault versions production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault versions dotenvMe=me_b1831e…
+npx dotenv-vault versions dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -673,7 +693,7 @@ $ npx dotenv-vault versions dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault versions -y
+npx dotenv-vault versions -y
 ```
 
 ## Health
