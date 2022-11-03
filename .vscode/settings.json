@@ -1,4 +1,4 @@
 {
-    "dotenv.enableAutocloaking": false,
+    "dotenv.enableAutocloaking": true,
     "svn.ignoreMissingSvnWarning": true
 }
