@@ -72,6 +72,7 @@ class NewService {
     }
 
     if (!this.yes) {
+      CliUx.ux.url(`New project URL: ${this.urlWithProjectName}`, this.urlWithProjectName)
       const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to create a new project vault (.env.vault) or ${chalk.yellow('q')} to exit`)
       if (answer === 'q' || answer === 'Q') {
         this.abort.quit()

@@ -75,6 +75,7 @@ class LoginService {
 
   async login(tip = true): Promise<void> {
     if (!this.yes) {
+      CliUx.ux.url(`Login URL: ${this.loginUrl}`, this.loginUrl)
       const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to login and generate credential (.env.me) or ${chalk.yellow('q')} to exit`)
       if (answer === 'q' || answer === 'Q') {
         this.abort.quit()
