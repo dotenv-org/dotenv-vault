@@ -108,8 +108,10 @@ class PullService {
       writeFileSync(outputFilename, newData)
       this.log.remote(`Securely pulled ${environment} (${outputFilename})`)
       // write .env.vault file
-      writeFileSync('.env.vault', newVaultData)
-      this.log.remote('Securely built vault (.env.vault)')
+      if (newVaultData) {
+        writeFileSync('.env.vault', newVaultData)
+        this.log.remote('Securely built vault (.env.vault)')
+      }
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null

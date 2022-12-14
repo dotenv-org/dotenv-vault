@@ -101,8 +101,11 @@ class PushService {
       CliUx.ux.action.stop()
       this.log.remote(`Securely pushed ${environment} (${outputFilename})`)
       // write .env.vault file
-      writeFileSync('.env.vault', newVaultData)
-      this.log.remote('Securely built vault (.env.vault)')
+      if (newVaultData) {
+        writeFileSync('.env.vault', newVaultData)
+        this.log.remote('Securely built vault (.env.vault)')
+      }
+
       this.log.plain('')
       this.log.plain(`Run ${chalk.bold('npx dotenv-vault open')} to view in the ui`)
     } catch (error) {
