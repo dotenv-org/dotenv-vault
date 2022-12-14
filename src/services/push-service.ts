@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
-import {existsSync, readFileSync} from 'fs'
+import {existsSync, readFileSync, writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
@@ -95,10 +95,14 @@ class PushService {
       const resp: AxiosRequestConfig = await axios(options)
       const environment = resp.data.data.environment
       const envName = resp.data.data.envName
+      const newVaultData = resp.data.data.dotenvVault
       const outputFilename = this.displayFilename(envName)
 
       CliUx.ux.action.stop()
       this.log.remote(`Securely pushed ${environment} (${outputFilename})`)
+      // write .env.vault file
+      writeFileSync('.env.vault', newVaultData)
+      this.log.remote('Securely built vault (.env.vault)')
       this.log.plain('')
       this.log.plain(`Run ${chalk.bold('npx dotenv-vault open')} to view in the ui`)
     } catch (error) {
