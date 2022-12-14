@@ -36,7 +36,7 @@ class OpenService {
     }
 
     if (!this.yes) {
-      CliUx.ux.url(`Project URL: ${this.openUrl}`, this.openUrl)
+      this.log.local(`Project URL: ${this.openUrl}`)
       const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to view your project or ${chalk.yellow('q')} to exit`)
       if (answer === 'q' || answer === 'Q') {
         this.abort.quit()
