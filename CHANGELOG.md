@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.3...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.17.0...master)
+
+## [1.17.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.3...v1.17.0) (2022-12-13)
+
+### Added
+
+- Added URL to be opened for `new`, `login`, `logout`, `open`, and `status` commands [#175](https://github.com/dotenv-org/dotenv-vault/pull/175) [#183](https://github.com/dotenv-org/dotenv-vault/pull/183)
 
 ## [1.16.3](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.2...v1.16.3) (2022-10-28)
 
