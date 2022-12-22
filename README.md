@@ -11,13 +11,13 @@ dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 
+![](https://res.cloudinary.com/dotenv-org/image/upload/v1671740035/dotenv-screenshot_oahorv.png)
+
 * [Usage](#usage)
 * [Multiple Environments](#multiple-environments)
 * [Integrations](#integrations)
 * [How It Works](#how-it-works)
 * [Commands](#commands)
-
-![](https://res.cloudinary.com/dotenv-org/image/upload/v1671740035/dotenv-screenshot_oahorv.png)
 
 ## Usage
 
