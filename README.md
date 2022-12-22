@@ -17,6 +17,8 @@ dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.
 * [How It Works](#how-it-works)
 * [Commands](#commands)
 
+![](https://res.cloudinary.com/dotenv-org/image/upload/v1671740035/dotenv-screenshot_oahorv.png)
+
 ## Usage
 
 Usage is similar to git. Run the command:
