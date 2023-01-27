@@ -413,6 +413,7 @@ Below are a list of dotenv-vault cli commands. You can also learn more on the [d
 * [build](#build)
 * [keys](#keys)
 * [rotatekey](#rotatekey)
+* [decrypt](#decrypt)
 * [versions](#versions)
 
 ### `new`
@@ -735,6 +736,28 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
 $ npx dotenv-vault rotatekey -y
+```
+
+---
+
+### `decrypt`
+
+Decrypt .env.vault locally.
+
+Example:
+
+```bash
+$ npx dotenv-vault decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
+```
+
+##### ARGUMENTS
+
+*[DOTENV_KEY]*
+
+Set `DOTENV_KEY` to decrypt .env.vault. Development key will decrypt development, production will decrypt production, and so on.
+
+```
+$ npx dotenv-vault decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
 ```
 
 ---
