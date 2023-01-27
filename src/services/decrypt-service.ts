@@ -1,6 +1,6 @@
 import {LogService} from '../services/log-service'
 
-import {config} from 'dotenv'
+import {config, DotenvConfigOutput} from 'dotenv'
 import {decrypt} from 'dotenv-vault-core'
 
 interface DecryptServiceAttrs {
@@ -55,7 +55,7 @@ class DecryptService {
     this.log.plain(decrypted)
   }
 
-  _instructions(result: string, dotenvKey: string): InstructionsType {
+  _instructions(result: DotenvConfigOutput, dotenvKey: string): InstructionsType {
     // Parse DOTENV_KEY. Format is a URI
     const uri = new URL(dotenvKey)
 
@@ -73,6 +73,10 @@ class DecryptService {
 
     // Get ciphertext payload
     const environmentKey = `DOTENV_VAULT_${environment.toUpperCase()}`
+    if (!result.parsed) {
+      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run 'npx dotenv-vault build' to include it.`)
+    }
+
     const ciphertext = result.parsed[environmentKey] // DOTENV_VAULT_PRODUCTION
     if (!ciphertext) {
       throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run 'npx dotenv-vault build' to include it.`)
