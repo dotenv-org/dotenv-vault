@@ -21,7 +21,7 @@
     "@oclif/plugin-help": "^5.1.19",
     "@oclif/plugin-not-found": "^2.3.13",
     "@oclif/plugin-update": "^3.0.7",
-    "@oclif/plugin-warn-if-update-available": "^2.0.14",
+    "@oclif/plugin-warn-if-update-available": "^2.0.18",
     "abortcontroller-polyfill": "1.7.5",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
