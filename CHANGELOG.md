@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.17.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.18.0...master)
+
+## [1.17.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.17.0...v1.18.0) (2023-01-27)
+
+### Added
+
+- Added `decrypt` command [#236](https://github.com/dotenv-org/dotenv-vault/pull/236)
 
 ## [1.17.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.16.3...v1.17.0) (2022-12-13)
 
