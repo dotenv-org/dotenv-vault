@@ -594,6 +594,12 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 $ npx dotenv-vault pull -y
 ```
 
+If you want to pull a specific version you can do so. For example,
+
+```
+npx dotenv-vault pull development@v14
+```
+
 ---
 
 ### `open`
@@ -798,6 +804,12 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
 $ npx dotenv-vault versions -y
+```
+
+If you want to pull a specific version you can do so. For example,
+
+```
+npx dotenv-vault pull development@v14
 ```
 
 ## Health
