@@ -19,7 +19,7 @@
   "dependencies": {
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5.2.1",
-    "@oclif/plugin-not-found": "^2.3.13",
+    "@oclif/plugin-not-found": "^2.3.17",
     "@oclif/plugin-update": "^3.1.0",
     "@oclif/plugin-warn-if-update-available": "^2.0.18",
     "abortcontroller-polyfill": "1.7.5",
