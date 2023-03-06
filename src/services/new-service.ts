@@ -140,7 +140,8 @@ class NewService {
 #                                                                               #
 #################################################################################
 
-${vars.vaultKey}=${value}`
+${vars.vaultKey}=${value}
+`
 
     return s
   }

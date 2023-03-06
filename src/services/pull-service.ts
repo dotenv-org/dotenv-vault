@@ -94,6 +94,7 @@ class PullService {
       const environment = resp.data.data.environment
       const envName = resp.data.data.envName
       const newData = resp.data.data.dotenv
+      const newVaultData = resp.data.data.dotenvVault
       const outputFilename = this.displayFilename(envName)
 
       CliUx.ux.action.stop()
@@ -106,6 +107,11 @@ class PullService {
       // write to new current file
       writeFileSync(outputFilename, newData)
       this.log.remote(`Securely pulled ${environment} (${outputFilename})`)
+      // write .env.vault file
+      if (newVaultData) {
+        writeFileSync('.env.vault', newVaultData)
+        this.log.remote('Securely built vault (.env.vault)')
+      }
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null
