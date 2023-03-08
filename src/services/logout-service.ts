@@ -38,6 +38,7 @@ class LogoutService {
 
   async logout(tip = true): Promise<void> {
     if (!this.yes) {
+      this.log.local(`Logout URL: ${this.logoutUrl}`)
       const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to logout and revoke credential (.env.me) or ${chalk.yellow('q')} to exit`)
       if (answer === 'q' || answer === 'Q') {
         this.abort.quit()

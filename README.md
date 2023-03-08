@@ -11,6 +11,8 @@ dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 
+![](https://res.cloudinary.com/dotenv-org/image/upload/v1671740035/dotenv-screenshot_oahorv.png)
+
 * [Usage](#usage)
 * [Multiple Environments](#multiple-environments)
 * [Integrations](#integrations)
@@ -146,9 +148,61 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
         </a>
       </td>
       <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/travis-ci/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/travis.svg" alt="Travis CI", width="20" />
+          Travis CI
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/google-cloud/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/google-cloud.svg" alt="Google Cloud", width="20" />
+          Google Cloud
+        </a>
+      </td>
+      <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/fly/express?r=1">
           <img src="https://www.dotenv.org/assets-www/img/fly.svg" alt="Fly.io", width="20" />
           Fly.io
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/northflank/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/northflank.svg" alt="Northflank", width="20" />
+          Northflank
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/buddy/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/buddy.svg" alt="Buddy", width="20" />
+          Buddy
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/cloud66/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/cloud66.svg" alt="Cloud66", width="20" />
+          Cloud66
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/digital-ocean/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/digital-ocean.svg" alt="Digital Ocean", width="20" />
+          Digital Ocean
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/dagger/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/dagger.svg" alt="Dagger", width="20" />
+          Dagger
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/bitbucket/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/bitbucket.svg" alt="Bitbucket", width="20" />
+          Bitbucket
         </a>
       </td>
     </tr>
@@ -157,6 +211,12 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
         <a href="https://www.dotenv.org/docs/integrations/railway/nodejs?r=1">
           <img src="https://www.dotenv.org/assets-www/img/nodejs.svg" alt="Node.js", width="20" />
           Node.js
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/vercel/pnpm?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/pnpm.svg" alt="Pnpm", width="20" />
+          pnpm
         </a>
       </td>
       <td align="left" valign="middle">
@@ -171,14 +231,14 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
           NextJS
         </a>
       </td>
+    </tr>
+    <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/github/actions-remix?r=1">
           <img src="https://www.dotenv.org/assets-www/img/remix.svg" alt="Remix", width="20" />
           Remix
         </a>
       </td>
-    </tr>
-    <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
           <img src="https://www.dotenv.org/assets-www/img/astro.svg" alt="Astro", width="20" />
@@ -197,14 +257,14 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
           Ruby
         </a>
       </td>
+    </tr>
+    <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
           <img src="https://www.dotenv.org/assets-www/img/sinatra.svg" alt="Sinatra", width="20" />
           Sinatra
         </a>
       </td>
-    </tr>
-    <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/flask?r=1">
           <img src="https://www.dotenv.org/assets-www/img/flask.svg" alt="Flask", width="20" />
@@ -218,10 +278,51 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
         </a>
       </td>
       <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/supabase/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/supabase.svg" alt="Supabase", width="20" />
+          Supabase
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/pulumi/nodejs?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/pulumi.svg" alt="Pulumi", width="20" />
+          Pulumi
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/vercel/angular?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/angular.svg" alt="Angular", width="20" />
+          Angular
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/vercel/nuxt?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/nuxt.svg" alt="Nuxt", width="20" />
+          Nuxt
+        </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://www.dotenv.org/docs/integrations/vercel/vite?r=1">
+          <img src="https://www.dotenv.org/assets-www/img/vite.svg" alt="Vite", width="20" />
+          Vite
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
         <a href="https://www.dotenv.org/integrations/slack?r=1">
           <img src="https://raw.githubusercontent.com/dotenv-org/dotenv-vault/master/partners/slack.png" alt="dotenv-vault + Slack", width="20" />
           Slack
         </a>
+      </td>
+      <td align="left" valign="middle">
+        <a href="https://dotenv.org/integrations">
+          and more!
+        </a>
+      </td>
+      <td align="left" valign="middle">
       </td>
       <td align="left" valign="middle">
       </td>
@@ -312,6 +413,7 @@ Below are a list of dotenv-vault cli commands. You can also learn more on the [d
 * [build](#build)
 * [keys](#keys)
 * [rotatekey](#rotatekey)
+* [decrypt](#decrypt)
 * [versions](#versions)
 
 ### `new`
@@ -492,6 +594,12 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 $ npx dotenv-vault pull -y
 ```
 
+If you want to pull a specific version you can do so. For example,
+
+```
+npx dotenv-vault pull development@v14
+```
+
 ---
 
 ### `open`
@@ -638,6 +746,28 @@ $ npx dotenv-vault rotatekey -y
 
 ---
 
+### `decrypt`
+
+Decrypt .env.vault locally.
+
+Example:
+
+```bash
+$ npx dotenv-vault decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
+```
+
+##### ARGUMENTS
+
+*[DOTENV_KEY]*
+
+Set `DOTENV_KEY` to decrypt .env.vault. Development key will decrypt development, production will decrypt production, and so on.
+
+```
+$ npx dotenv-vault decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
+```
+
+---
+
 ### `versions`
 
 List version history.
@@ -674,6 +804,12 @@ Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
 $ npx dotenv-vault versions -y
+```
+
+If you want to pull a specific version you can do so. For example,
+
+```
+npx dotenv-vault pull development@v14
 ```
 
 ## Health

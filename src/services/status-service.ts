@@ -24,6 +24,7 @@ class StatusService {
 
   async run(): Promise<void> {
     if (!this.yes) {
+      this.log.local(`Status URL: ${this.statusUrl}`)
       const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to open up the browser to view the dotenv-vault status page or ${chalk.yellow('q')} to exit`)
       if (answer === 'q' || answer === 'Q') {
         this.abort.quit()

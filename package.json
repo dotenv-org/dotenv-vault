@@ -1,6 +1,6 @@
 {
   "name": "dotenv-vault",
-  "version": "1.16.3",
+  "version": "1.18.0",
   "description": "Sync your .env files, securely.",
   "author": "Mot @dotenvorg",
   "bin": {
@@ -18,21 +18,21 @@
   ],
   "dependencies": {
     "@oclif/core": "^1",
-    "@oclif/plugin-help": "^5.1.17",
-    "@oclif/plugin-not-found": "^2.3.9",
-    "@oclif/plugin-update": "^3.0.6",
-    "@oclif/plugin-warn-if-update-available": "^2.0.14",
+    "@oclif/plugin-help": "^5.2.6",
+    "@oclif/plugin-not-found": "^2.3.13",
+    "@oclif/plugin-update": "^3.1.3",
+    "@oclif/plugin-warn-if-update-available": "^2.0.24",
     "abortcontroller-polyfill": "1.7.5",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
     "dotenv": "16.0.3",
-    "dotenv-vault-core": "0.6.1"
+    "dotenv-vault-core": "0.7.0"
   },
   "devDependencies": {
     "@oclif/test": "^2",
     "@types/chai": "^4",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^16.9.4",
+    "@types/node": "^16.18.11",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
@@ -40,7 +40,7 @@
     "fs-monkey": "^1.0.3",
     "globby": "^11",
     "jest": "^27.5.1",
-    "memfs": "^3.4.9",
+    "memfs": "^3.4.13",
     "mocha": "^9",
     "oclif": "^2",
     "shx": "^0.3.4",
@@ -48,7 +48,7 @@
     "spyfs": "^1.0.2",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
-    "typescript": "4.8.4"
+    "typescript": "4.9.5"
   },
   "oclif": {
     "bin": "dotenv-vault",
