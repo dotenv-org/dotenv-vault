@@ -346,7 +346,7 @@ Your .env file is encrypted and sent securely over SSL to Dotenv's in-memory ser
 
 ###### Step 3
 #### Dotenv Servers
-This encrypted payload is decrypted and briefly held in memory to complete the next steps. Afterward, the memory is flushed. Rest assured the decrypted version is never peristed to Dotenv systems.
+This encrypted payload is decrypted and briefly held in memory to complete the next steps. Afterward, the memory is flushed. Rest assured the decrypted version is never persisted to Dotenv systems.
 
 ###### Step 4
 #### Parsing
