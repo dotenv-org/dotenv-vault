@@ -53,18 +53,20 @@ class LocalBuildService {
   }
 
   get vaultData(): string {
-    let vaultData = `# .env.vault (generated with npx dotenv-vault local build)\n`
+    let vaultData = '# .env.vault (generated with npx dotenv-vault local build)\n'
 
     for (const file in this.envLookups) {
-      const environment = this.envLookups[file]
+      if (Object.prototype.hasOwnProperty.call(this.envLookups, file)) {
+        const environment = this.envLookups[file]
 
-      const dotenvKey = this.keys[`DOTENV_KEY_${environment.toUpperCase()}`]
+        const dotenvKey = this.keys[`DOTENV_KEY_${environment.toUpperCase()}`]
 
-      const message = readFileSync(file, 'utf8')
-      const key = this._parseEncryptionKeyFromDotenvKey(dotenvKey)
-      const ciphertext = this._encrypt(key, message)
+        const message = readFileSync(file, 'utf8')
+        const key = this._parseEncryptionKeyFromDotenvKey(dotenvKey)
+        const ciphertext = this._encrypt(key, message)
 
-      vaultData += `DOTENV_VAULT_${environment.toUpperCase()}="${ciphertext}"\n`
+        vaultData += `DOTENV_VAULT_${environment.toUpperCase()}="${ciphertext}"\n`
+      }
     }
 
     return vaultData
@@ -76,28 +78,32 @@ class LocalBuildService {
     const parsed = (dotenv.config({path: this.keysName}).parsed || {})
 
     for (const file in this.envLookups) {
-      const environment = this.envLookups[file]
-      const key = `DOTENV_KEY_${environment.toUpperCase()}`
+      if (Object.prototype.hasOwnProperty.call(this.envLookups, file)) {
+        const environment = this.envLookups[file]
+        const key = `DOTENV_KEY_${environment.toUpperCase()}`
 
-      let value = parsed[key]
+        let value = parsed[key]
 
-      // prevent overwriting current .env.keys data
-      if (!value || value.length === 0) {
-        value = this._generateDotenvKey(environment)
+        // prevent overwriting current .env.keys data
+        if (!value || value.length === 0) {
+          value = this._generateDotenvKey(environment)
+        }
+
+        keys[key] = value
       }
-
-      keys[key] = value
     }
 
     return keys
   }
 
   get keysData(): string {
-    let keysData = `# DOTENV_KEYs (generated with npx dotenv-vault local build)\n`
+    let keysData = '# DOTENV_KEYs (generated with npx dotenv-vault local build)\n'
 
     for (const key in this.keys) {
-      const value = this.keys[key]
-      keysData += `${key}="${value}"\n`
+      if (Object.prototype.hasOwnProperty.call(this.keys, key)) {
+        const value = this.keys[key]
+        keysData += `${key}="${value}"\n`
+      }
     }
 
     return keysData
@@ -112,7 +118,6 @@ class LocalBuildService {
   }
 
   get envLookups(): any {
-    const _this = this
     const dir = './'
     const lookups = {}
 
@@ -124,7 +129,7 @@ class LocalBuildService {
       }
 
       // must not be .env.vault.something, or .env.me.something, etc.
-      if (_this._reservedEnvFilePath(file)) {
+      if (this._reservedEnvFilePath(file)) {
         continue
       }
 
@@ -133,7 +138,7 @@ class LocalBuildService {
         continue
       }
 
-      const environment = _this._determineLikelyEnvironment(file)
+      const environment = this._determineLikelyEnvironment(file)
 
       lookups[file] = environment
     }
@@ -141,7 +146,7 @@ class LocalBuildService {
     return lookups
   }
 
-  _reservedEnvFilePath(file): boolean {
+  _reservedEnvFilePath(file: string): boolean {
     const reservedEnvFiles = ['.env.vault', '.env.keys', '.env.me']
 
     let result = false
@@ -155,7 +160,7 @@ class LocalBuildService {
     return result
   }
 
-  _determineLikelyEnvironment(file): string {
+  _determineLikelyEnvironment(file: string): string {
     const splitFile = file.split('.')
     const possibleEnvironment = splitFile[2] // ['', 'env', environment']
 
@@ -166,13 +171,13 @@ class LocalBuildService {
     return possibleEnvironment
   }
 
-  _generateDotenvKey(environment): string {
+  _generateDotenvKey(environment: string): string {
     const rand = crypto.randomBytes(32).toString('hex')
 
     return `dotenv://:key_${rand}@dotenv.local/vault/.env.vault?environment=${environment}`
   }
 
-  _parseEncryptionKeyFromDotenvKey(dotenvKey): Buffer {
+  _parseEncryptionKeyFromDotenvKey(dotenvKey: string): Buffer {
     // Parse DOTENV_KEY. Format is a URI
     const uri = new URL(dotenvKey)
 
@@ -185,7 +190,7 @@ class LocalBuildService {
     return Buffer.from(key.slice(-64), 'hex')
   }
 
-  _encrypt(key, message): string {
+  _encrypt(key: string, message: string): string {
     // set up key and nonce
     key = this._decodeKey(key)
     const nonce = this._generateNonce()
@@ -206,7 +211,7 @@ class LocalBuildService {
     return Buffer.from(ciphertext, 'hex').toString('base64')
   }
 
-  _decodeKey(key): Buffer {
+  _decodeKey(key: string): Buffer {
     return Buffer.from(key, 'hex')
   }
 
