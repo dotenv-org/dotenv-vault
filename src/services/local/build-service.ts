@@ -15,7 +15,6 @@ interface LocalBuildServiceAttrs {
 class LocalBuildService {
   public cmd;
   public log;
-  // public abort;
 
   constructor(attrs: LocalBuildServiceAttrs = {} as LocalBuildServiceAttrs) {
     this.cmd = attrs.cmd
@@ -190,9 +189,8 @@ class LocalBuildService {
     return Buffer.from(key.slice(-64), 'hex')
   }
 
-  _encrypt(key: string, message: string): string {
-    // set up key and nonce
-    key = this._decodeKey(key)
+  _encrypt(key: Buffer, message: string): string {
+    // set up nonce
     const nonce = this._generateNonce()
 
     // set up cipher
@@ -209,10 +207,6 @@ class LocalBuildService {
 
     // base64 encode output
     return Buffer.from(ciphertext, 'hex').toString('base64')
-  }
-
-  _decodeKey(key: string): Buffer {
-    return Buffer.from(key, 'hex')
   }
 
   _generateNonce(): Buffer {
