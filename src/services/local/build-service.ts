@@ -1,7 +1,7 @@
 import * as crypto from 'crypto'
 import * as dotenv from 'dotenv'
 import chalk from 'chalk'
-import {writeFileSync, readdirSync} from 'fs'
+import {writeFileSync, readFileSync, readdirSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../../services/append-to-gitignore-service'
@@ -15,7 +15,7 @@ interface LocalBuildServiceAttrs {
 class LocalBuildService {
   public cmd;
   public log;
-  public abort;
+  // public abort;
 
   constructor(attrs: LocalBuildServiceAttrs = {} as LocalBuildServiceAttrs) {
     this.cmd = attrs.cmd
@@ -35,22 +35,15 @@ class LocalBuildService {
   }
 
   async build(): Promise<void> {
-    const vaultName = '.env.vault'
-
-    const vaultData = 'encrypted vault data - implement'
-
-    // 1. get all envFiles
-    // 2. get environments from those
-
     writeFileSync(this.keysName, this.keysData)
-    writeFileSync(vaultName, vaultData)
+    writeFileSync(this.vaultName, this.vaultData)
 
     CliUx.ux.action.stop()
 
-    this.log.local(`Built ${vaultName}`)
+    this.log.local(`Built ${this.vaultName}`)
     this.log.plain('')
     this.log.plain('Next:')
-    this.log.plain(`1. Commit ${vaultName} to code`)
+    this.log.plain(`1. Commit ${this.vaultName} to code`)
     this.log.plain('2. Set DOTENV_KEY on server')
     this.log.plain('3. Deploy your code')
     this.log.plain('')
@@ -59,26 +52,59 @@ class LocalBuildService {
     CliUx.ux.action.stop()
   }
 
-  get keysData(): string {
-    let keysData = ''
+  get vaultData(): string {
+    let vaultData = `# .env.vault (generated with npx dotenv-vault local build)\n`
 
-    // 1. get current keysData
+    for (const file in this.envLookups) {
+      const environment = this.envLookups[file]
+
+      const dotenvKey = this.keys[`DOTENV_KEY_${environment.toUpperCase()}`]
+
+      const message = readFileSync(file, 'utf8')
+      const key = this._parseEncryptionKeyFromDotenvKey(dotenvKey)
+      const ciphertext = this._encrypt(key, message)
+
+      vaultData += `DOTENV_VAULT_${environment.toUpperCase()}="${ciphertext}"\n`
+    }
+
+    return vaultData
+  }
+
+  get keys(): any {
+    const keys = {}
+    // grab current .env.keys
     const parsed = (dotenv.config({path: this.keysName}).parsed || {})
 
     for (const file in this.envLookups) {
-      if (this.envLookups.hasOwnProperty(file)) {
-        const environment = this.envLookups[file]
-        const key = `DOTENV_KEY_${environment.toUpperCase()}`
-        let value = parsed[key]
-        if (!value || value.length === 0) {
-          value = this._generateDotenvKey(environment)
-        }
+      const environment = this.envLookups[file]
+      const key = `DOTENV_KEY_${environment.toUpperCase()}`
 
-        keysData += `${key}="${value}"\n`
+      let value = parsed[key]
+
+      // prevent overwriting current .env.keys data
+      if (!value || value.length === 0) {
+        value = this._generateDotenvKey(environment)
       }
+
+      keys[key] = value
+    }
+
+    return keys
+  }
+
+  get keysData(): string {
+    let keysData = `# DOTENV_KEYs (generated with npx dotenv-vault local build)\n`
+
+    for (const key in this.keys) {
+      const value = this.keys[key]
+      keysData += `${key}="${value}"\n`
     }
 
     return keysData
+  }
+
+  get vaultName(): string {
+    return '.env.vault'
   }
 
   get keysName(): string {
@@ -144,6 +170,60 @@ class LocalBuildService {
     const rand = crypto.randomBytes(32).toString('hex')
 
     return `dotenv://:key_${rand}@dotenv.local/vault/.env.vault?environment=${environment}`
+  }
+
+  _parseEncryptionKeyFromDotenvKey(dotenvKey): Buffer {
+    // Parse DOTENV_KEY. Format is a URI
+    const uri = new URL(dotenvKey)
+
+    // Get decrypt key
+    const key = uri.password
+    if (!key) {
+      throw new Error('INVALID_DOTENV_KEY: Missing key part')
+    }
+
+    return Buffer.from(key.slice(-64), 'hex')
+  }
+
+  _encrypt(key, message): string {
+    // set up key and nonce
+    key = this._decodeKey(key)
+    const nonce = this._generateNonce()
+
+    // set up cipher
+    const cipher = crypto.createCipheriv('aes-256-gcm', key, nonce)
+
+    // generate ciphertext
+    let ciphertext = ''
+    ciphertext += cipher.update(message, 'utf8', 'hex')
+    ciphertext += cipher.final('hex')
+    ciphertext += cipher.getAuthTag().toString('hex')
+
+    // prepend nonce
+    ciphertext = nonce.toString('hex') + ciphertext
+
+    // base64 encode output
+    return Buffer.from(ciphertext, 'hex').toString('base64')
+  }
+
+  _decodeKey(key): Buffer {
+    return Buffer.from(key, 'hex')
+  }
+
+  _generateNonce(): Buffer {
+    return crypto.randomBytes(this._nonceBytes())
+  }
+
+  _keyBytes(): number {
+    return 32
+  }
+
+  _authTagBytes(): number {
+    return 16
+  }
+
+  _nonceBytes(): number {
+    return 12
   }
 }
 
