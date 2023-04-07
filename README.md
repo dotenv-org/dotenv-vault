@@ -2,20 +2,21 @@
 
 <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" align="right" width="200" />
 
-**Sync .env files.** Stop sharing them over insecure channels like Slack and email and never lose an important .env file again.
+Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scattered secrets across multiple platforms and tools. The #1 secrets manager for .env files.
 
-dotenv-vault extends the proven & trusted foundation of [dotenv](https://github.com/motdotla/dotenv) with syncing, multiple environments, and integration wherever you develop and deploy - all using a new standard `.env.vault` file.
+What you can do:
 
-<strong><a href="https://www.youtube.com/watch?v=z-lBjxfhWeY" target="_blank">Watch the 1 minute video</a></strong>
+1. Sync your .env files, with a single command
+2. Deploy your secrets anywhere, with modern encryption
 
 [![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 
-![](https://res.cloudinary.com/dotenv-org/image/upload/v1671740035/dotenv-screenshot_oahorv.png)
+![](https://res.cloudinary.com/dotenv-org/image/upload/v1679782419/dotenv-vault_knnutc.png)
 
 * [Usage](#usage)
 * [Multiple Environments](#multiple-environments)
-* [Integrations](#integrations)
+* [Deploy](#deploy)
 * [How It Works](#how-it-works)
 * [Commands](#commands)
 
@@ -42,11 +43,11 @@ $ npx dotenv-vault pull
 
 That's it! You synced your .env file.
 
-Visit [dotenv.org/docs](https://www.dotenv.org/docs/tutorials/sync?r=1) for a complete getting started guide.
+Visit [dotenv.org/docs/quickstart](https://www.dotenv.org/docs/quickstart?r=1) for a complete quickstart ⚡️ guide.
 
 ## Multiple Environments
 
-After you've pushed your .env file, you can manage your secrets across multiple environments. Open an environment to view and edit its environment variables.
+After you've pushed your .env file, dotenv-vault automatically sets up multiple environments. Open an environment to view and edit its environment variables.
 
 ```bash
 $ npx dotenv-vault open production
@@ -60,11 +61,11 @@ $ npx dotenv-vault pull production
 
 Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
 
-## Integrations
+## Deploy
 
-Dotenv Vault integrates everywhere you already deploy your code.
+Build your `.env.vault` file to deploy your secrets to any server or cloud platform. It works without third-party integrations. Syncing your secrets over third-party integrations actually increases your attack surface area by scattering them in more places, making it more likely your secrets leak someday. Look what happened to CircleCI. Read on to see how dotenv-vault removes this risk.
 
-Run the build command to generate your encrypted .env.vault file, commit that safely to code, and deploy.
+Run the build command to generate your encrypted .env.vault file and commit that safely to code.
 
 ```
 $ npx dotenv-vault build
@@ -72,7 +73,26 @@ $ git commit -am "Add .env.vault"
 $ git push
 ```
 
-There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vault-core), [Ruby](https://gitub.com/dotenv-org/dotenv-vault-ruby), and [Python](https://github.com/dotenv-org/python-dotenv-vault) supported – more languages coming soon. [Request a language](https://github.com/dotenv-org/dotenv-vault/discussions/95)
+Run the keys command to view your decryption keys.
+
+```
+$ npx dotenv-vault keys
+remote:   Listing .env.vault decryption keys... done
+ environment DOTENV_KEY
+ ─────────── ────────────────────────────────────────────────────────────────────────────────────────────────────────
+ develompent dotenv://:key_33ee..@dotenv.org/vault/.env.va…
+ production  dotenv://:key_7038..@dotenv.org/vault/.env.va…
+```
+
+Set the production key on your server or cloud platform. For example, in Heroku.
+
+```
+heroku config:set DOTENV_KEY=dotenv://:key_7038..@dotenv.org/vault/.env.va…
+```
+
+That's it! When your code deploys, your .env.vault file will be decrypted just in time, and its secrets injected into your application's environment variables.
+
+There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vault-core), [Ruby](https://gitub.com/dotenv-org/dotenv-vault-ruby), [Python](https://github.com/dotenv-org/python-dotenv-vault), [PHP](https://github.com/dotenv-org/phpdotenv-vault) supported – more languages coming soon.
 
 <table>
   <tbody>
@@ -415,7 +435,7 @@ Below are a list of dotenv-vault cli commands. You can also learn more on the [d
 * [rotatekey](#rotatekey)
 * [decrypt](#decrypt)
 * [versions](#versions)
-* [local](#local)
+* [local](#local-build)
   * [local build](#local-build)   
   * [local decrypt](#local-decrypt)   
   * [local keys](#local-keys)   
@@ -700,6 +720,18 @@ Example:
 $ npx dotenv-vault keys
 ```
 
+##### ARGUMENTS
+
+*[ENVIRONMENT]*
+
+Set environment. Defaults to all.
+
+```
+$ npx dotenv-vault keys production…
+remote:   Listing .env.vault decryption keys... done
+dotenv://:key_899..@dotenv.org/vault/.env.vault?environment=production
+```
+
 ##### FLAGS
 
 *-m, --dotenvMe*
@@ -814,6 +846,67 @@ If you want to pull a specific version you can do so. For example,
 
 ```
 npx dotenv-vault pull development@v14
+```
+
+---
+
+### `local build`
+
+Build .env.vault from local only
+
+Example:
+
+```bash
+$ npx dotenv-vault local build
+```
+
+This will encrypt the contents of your `.env` file and any `.env.ENVIRONMENT` files you have locally into your `.env.vault` file.
+
+### `local decrypt`
+
+Decrypt .env.vault from local only
+
+Example:
+
+```bash
+$ npx dotenv-vault local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
+```
+
+##### ARGUMENTS
+
+*[DOTENV_KEY]*
+
+Set `DOTENV_KEY` to decrypt .env.vault. Development key will decrypt development, production will decrypt production, and so on.
+
+```
+$ npx dotenv-vault local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
+```
+
+### `local keys`
+
+List .env.vault local decryption keys from .env.keys file
+
+Example:
+
+```bash
+$ npx dotenv-vault local keys
+local:    Listing .env.vault decryption keys from .env.keys... done
+ environment DOTENV_KEY
+ ─────────── ────────────────────────────────────────────────────────────────────────────────────────────────────────
+ develompent dotenv://:key_33ee..@dotenv.local/vault/.env.va…
+ production  dotenv://:key_7038..@dotenv.local/vault/.env.va…
+```
+
+##### ARGUMENTS
+
+*[ENVIRONMENT]*
+
+Set `ENVIRONMENT` to output a single environment's DOTENV_KEY.
+
+```
+$ npx dotenv-vault local keys development…
+local:    Listing .env.vault decryption keys from .env.keys... done
+dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 ```
 
 ## Health
