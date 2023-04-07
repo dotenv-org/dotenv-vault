@@ -415,6 +415,10 @@ Below are a list of dotenv-vault cli commands. You can also learn more on the [d
 * [rotatekey](#rotatekey)
 * [decrypt](#decrypt)
 * [versions](#versions)
+* [local](#local)
+  * [local build](#local-build)   
+  * [local decrypt](#local-decrypt)   
+  * [local keys](#local-keys)   
 
 ### `new`
 

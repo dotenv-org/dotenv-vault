@@ -2,7 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.18.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.19.0...master)
+
+## [1.19.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.18.0...v1.19.0) (2023-04-06)
+
+### Added
+
+- Added `local` only commands [#267](https://github.com/dotenv-org/dotenv-vault/pull/267)
+
+* `local build` - Build .env.vault from local only
+* `local decrypt` - Decrypt .env.vault from local only
+* `local keys` - List .env.vault local decryption keys from .env.keys file
+
+These are commands that allow you to generate a secure `.env.vault` without needing an account at [dotenv.org](https://www.dotenv.org). There's a little more manual work required by the developer, but this way a developer can choose to use the `.env.vault` standard without relying on the dotenv-vault service. See README for instructions on how to use.
 
 ## [1.18.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.17.0...v1.18.0) (2023-01-27)
 
