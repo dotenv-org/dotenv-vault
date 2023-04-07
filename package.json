@@ -64,7 +64,11 @@
       "timeoutInDays": 1
     },
     "topicSeparator": " ",
-    "topics": {},
+    "topics": {
+      "local": {
+        "description": "Local only commands"
+      }
+    },
     "update": {
       "node": {
         "version": "14.19.0"
