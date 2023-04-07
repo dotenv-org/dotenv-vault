@@ -119,6 +119,22 @@ class AbortService {
       suggestions: [`Populate ${filename} with values and then try again. Or run, ${chalk.bold('npx dotenv-vault pull')}`],
     })
   }
+
+  missingEnvKeys(): void {
+    this.error('Missing .env.keys file', {
+      code: 'MISSING_DOTENV_KEYS',
+      ref: '',
+      suggestions: [`Run, ${chalk.bold('npx dotenv-vault local build')}`],
+    })
+  }
+
+  emptyEnvKeys(): void {
+    this.error('Empty .env.keys file.', {
+      code: 'EMPTY_DOTENV_KEYS',
+      ref: '',
+      suggestions: [`Run, ${chalk.bold('npx dotenv-vault local build')}`],
+    })
+  }
 }
 
 export {AbortService}

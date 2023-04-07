@@ -80,6 +80,16 @@ export class Vars {
 
     return !(envContent && envContent.toString().length > 0)
   }
+
+  get missingEnvKeys(): boolean {
+    return !existsSync('.env.keys')
+  }
+
+  get emptyEnvKeys(): boolean {
+    const envKeysContent = readFileSync('.env.keys', 'utf8')
+
+    return !(envKeysContent && envKeysContent.toString().length > 0)
+  }
 }
 
 export const vars = new Vars()
