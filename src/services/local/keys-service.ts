@@ -32,14 +32,6 @@ class LocalKeysService {
     new AppendToGitignoreService().run()
     new AppendToNpmignoreService().run()
 
-    if (vars.missingEnvVault) {
-      this.abort.missingEnvVault()
-    }
-
-    if (vars.emptyEnvVault) {
-      this.abort.emptyEnvVault()
-    }
-
     if (vars.missingEnvKeys) {
       this.abort.missingEnvKeys()
     }
