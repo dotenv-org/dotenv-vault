@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.19.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.19.1...master)
+
+## [1.19.1](https://github.com/dotenv-org/dotenv-vault/compare/v1.19.0...v1.19.1) (2023-05-02)
+
+### Changed
+
+- Fixed `local keys` command when `.env.vault` is missing. [#274](https://github.com/dotenv-org/dotenv-vault/pull/274)
 
 ## [1.19.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.18.0...v1.19.0) (2023-04-06)
 
