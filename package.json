@@ -1,6 +1,6 @@
 {
   "name": "dotenv-vault",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "description": "Sync your .env files, securely.",
   "author": "Mot @dotenvorg",
   "bin": {
