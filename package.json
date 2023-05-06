@@ -22,7 +22,6 @@
     "@oclif/plugin-not-found": "^2.3.13",
     "@oclif/plugin-update": "^3.1.13",
     "@oclif/plugin-warn-if-update-available": "^2.0.36",
-    "abortcontroller-polyfill": "1.7.5",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
     "dotenv": "16.0.3",
@@ -74,7 +73,8 @@
         "version": "14.19.0"
       },
       "s3": {
-        "xz": false,
+        "xz": true,
+        "host": "https://dotenv-vault-assets.dotenv.org",
         "bucket": "dotenv-vault"
       }
     }
@@ -88,7 +88,7 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\""
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=14"
   },
   "bugs": "https://github.com/dotenv-org/dotenv-vault/issues",
   "keywords": [
