@@ -9,7 +9,6 @@ import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
 import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
 import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 interface LoginServiceAttrs {
   cmd;

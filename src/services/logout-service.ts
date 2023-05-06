@@ -5,7 +5,6 @@ import {vars} from '../vars'
 import {CliUx} from '@oclif/core'
 import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
 interface LogoutServiceAttrs {
   cmd;
