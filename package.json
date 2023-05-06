@@ -74,7 +74,8 @@
         "version": "14.19.0"
       },
       "s3": {
-        "xz": false,
+        "xz": true,
+        "host": "https://dotenv-vault-assets.dotenv.org",
         "bucket": "dotenv-vault"
       }
     }
