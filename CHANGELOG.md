@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.21.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.0...master)
+
+## [1.22.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.21.0...v1.22.0) (2023-05-05)
+
+### Changed
+
+- Node `>=16` required. Dropped support for 15.
 
 ## [1.21.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.20.0...v1.21.0) (2023-05-05)
 

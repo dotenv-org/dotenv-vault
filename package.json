@@ -70,7 +70,7 @@
     },
     "update": {
       "node": {
-        "version": "15.14.0"
+        "version": "16.15.1"
       },
       "s3": {
         "xz": true,
@@ -88,7 +88,7 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\""
   },
   "engines": {
-    "node": ">=15"
+    "node": ">=16"
   },
   "bugs": "https://github.com/dotenv-org/dotenv-vault/issues",
   "keywords": [
