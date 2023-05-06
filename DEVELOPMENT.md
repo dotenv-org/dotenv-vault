@@ -35,6 +35,15 @@ env $(cat .env | xargs) npx oclif@3.0.1 upload tarballs
 env $(cat .env | xargs) npx oclif@3.0.1 promote --version VERSION --sha SHA
 ```
 
+## Win
+
+```
+./node_modules/.bin/oclif pack:win
+bash
+env $(cat .env | xargs) ./node_modules/.bin/oclif upload win
+env $(cat .env | xargs) ./node_modules/.bin/oclif promote --win --version VERSION --sha SHA
+```
+
 ## Publishing
 
 Only for those with permission.
