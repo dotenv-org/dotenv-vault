@@ -1,4 +1,4 @@
-# dotenv-vault
+# dotenv-vault [![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
 
 <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" align="right" width="200" />
 
@@ -6,19 +6,46 @@ Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scat
 
 What you can do:
 
-1. Sync your .env files, with a single command
-2. Deploy your secrets anywhere, with modern encryption
+1. Deploy your secrets anywhere, with modern encryption
+2. Sync your .env files, with a single command
 
-[![Version](https://img.shields.io/npm/v/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
+
 [![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
 
-![](https://res.cloudinary.com/dotenv-org/image/upload/v1679782419/dotenv-vault_knnutc.png)
-
+* [🌱 Install](#-install)
 * [Usage](#usage)
 * [Multiple Environments](#multiple-environments)
 * [Deploy](#deploy)
 * [How It Works](#how-it-works)
 * [Commands](#commands)
+
+## 🌱 Install
+
+Install via Homebrew
+
+```shell
+$ brew install dotenv-org/brew/dotenv-vault
+$ dotenv-vault help
+```
+
+Install on Windows
+
+* [32-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x86.exe)
+* [64-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x64.exe)
+
+Install and run commands via Docker
+
+```shell
+$ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
+```
+
+Install and run commands via NPX
+
+```shell
+$ npx dotenv-vault help
+```
+
+More details at [www.dotenv.org/install](https://www.dotenv.org/install/)
 
 ## Usage
 
