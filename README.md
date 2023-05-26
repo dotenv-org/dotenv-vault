@@ -15,6 +15,8 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
+<small>More details at <a href="https://www.dotenv.org/install/">www.dotenv.org/install</a></small>
+
 <h4><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="40" /></h4>
 
 Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
@@ -47,9 +49,9 @@ Install and run commands via [npx](https://docs.npmjs.com/cli/v7/commands/npx)
 $ npx dotenv-vault help
 ```
 
-More details at [www.dotenv.org/install](https://www.dotenv.org/install/)
-
 ## 🏗️ Usage
+
+<small>More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></small>
 
 Usage is similar to git. Run the command:
 
@@ -73,7 +75,6 @@ $ dotenv-vault pull
 
 That's it! You synced your .env file.
 
-Visit [dotenv.org/docs/quickstart](https://www.dotenv.org/docs/quickstart?r=1) for a complete quickstart ⚡️ guide.
 
 ## Multiple Environments
 
