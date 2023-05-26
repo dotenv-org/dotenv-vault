@@ -4,13 +4,7 @@
 
 Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scattered secrets across multiple platforms and tools. The #1 secrets manager for .env files.
 
-What you can do:
-
-1. Deploy your secrets anywhere, with modern encryption
-2. Sync your .env files, with a single command
-
-
-[![Downloads](https://img.shields.io/npm/dt/dotenv-vault.svg)](https://npmjs.org/package/dotenv-vault)
+Deploy your secrets anywhere with modern encryption and sync your .env files with a single command.
 
 * [🌱 Install](#-install)
 * [Usage](#usage)
