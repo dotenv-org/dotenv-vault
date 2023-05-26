@@ -7,7 +7,7 @@ Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scat
 Deploy your secrets anywhere with modern encryption and sync your .env files with a single command.
 
 * [🌱 Install](#-install)
-* [Usage](#usage)
+* [🏗️  Usage (.env)](#%EF%B8%8F-usage)
 * [Multiple Environments](#multiple-environments)
 * [Deploy](#deploy)
 * [How It Works](#how-it-works)
@@ -15,25 +15,25 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-Install via Homebrew
+Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
 
 ```shell
 $ brew install dotenv-org/brew/dotenv-vault
 $ dotenv-vault help
 ```
 
-Install on Windows
+Install on [Windows](https://dotenv-vault-assets.dotenv.org/)
 
 * [32-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x86.exe)
 * [64-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x64.exe)
 
-Install and run commands via Docker
+Install and run commands via [Docker](https://hub.docker.com/r/dotenv/dotenv-vault)
 
 ```shell
 $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 ```
 
-Install and run commands via NPX
+Install and run commands via [npx](https://docs.npmjs.com/cli/v7/commands/npx)
 
 ```shell
 $ npx dotenv-vault help
@@ -41,25 +41,26 @@ $ npx dotenv-vault help
 
 More details at [www.dotenv.org/install](https://www.dotenv.org/install/)
 
-## Usage
+## 🏗️ Usage
 
 Usage is similar to git. Run the command:
 
 ```bash
-$ npx dotenv-vault new
+$ dotenv-vault push
 ```
 
-Follow those instructions and then run:
+This will push your `.env` file to Dotenv Vault. Follow those instructions and then run:
 
 ```bash
-$ npx dotenv-vault login
+$ dotenv-vault build
 ```
 
-Then run push and pull:
+This will build your `.env.vault` file. Commit that safely to code.
+
+Tell your teammates to pull the latest changes and run the pull command:
 
 ```bash
-$ npx dotenv-vault push
-$ npx dotenv-vault pull
+$ dotenv-vault pull
 ```
 
 That's it! You synced your .env file.
@@ -373,72 +374,9 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
 
 Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials/integrations</a> to learn more.
 
-## How It Works
+## Security
 
-Below is a high level overview of how dotenv-vault works. You can also learn more at [docs](https://dotenv.org/docs)[docs] and [security](https://dotenv.org/security).
-
-###### Step 1
-#### npx dotenv-vault push
-You run npx dotenv-vault push. Your request is started.
-
-###### Step 2
-#### Encrypted Connection
-Your .env file is encrypted and sent securely over SSL to Dotenv's in-memory servers.
-
-###### Step 3
-#### Dotenv Servers
-This encrypted payload is decrypted and briefly held in memory to complete the next steps. Afterward, the memory is flushed. Rest assured the decrypted version is never persisted to Dotenv systems.
-
-###### Step 4
-#### Parsing
-Your .env file is parsed line by line - in memory.
-
-Note: There are minor differences between dotenv parsers across various languages and frameworks. So far Dotenv Vault handles 100% of these, and we continue to add test cases to cover all edge cases.
-
-###### Step 5
-#### Secret Extraction
-Each key/value pair (and any comments) are extracted - in memory.
-
-###### Step 6
-#### Secret Division
-The secret is divided into its separate key and value. This is by design. They will be stored in separate databases for added security. This way if an attacker somehow gained access to one database they would not be able to make sense of the data - having only half the puzzle.
-
-###### Step 7
-#### AES-GCM Encryption
-The KEY is encrypted. The VALUE is encrypted. They are encrypted with different master encryption keys. This way if an attacker somehow gained access to the VALUE decryption key they would find the data useless. They would not know if the secret belonged to Twilio or to AWS.
-
-Encryption uses the AES-GCM algorithm. It is:
-
-* well-studied
-* NIST recommended
-* an IETF standard
-* fast thanks to a dedicated instruction set
-
-Additionally, all master encryption keys are rotated on an unpublished schedule, further adding to the level of security.
-
-###### Step 8
-#### Tokenization
-The encrypted VALUE is sent to Dotenv Vault for safe storage. A token is returned as an identifier. The token is used in the next step for mapping the KEY to the VALUE for later secure-read operations.
-
-Multiple security measures go into the Vault. They include but are not limited to:
-
-* Separate datastore from the application database
-* Not accessible via the internet and all external connections are prevented
-* Encrypted clients are required and these clients have to go through the application - which has its own additional layers of encryption
-* There are stricter TLS requirements for connecting to the Vault. TLS 1.0 cannot be used to connect.
-* The secrets stored in the Vault are not just encrypted at the datastore level. They are also encrypted at each datastore entry as you saw in the prior step(s).
-
-###### Step 9
-#### Store Key Part with Token
-Lastly, the encrypted KEY and token (representing the encrypted VALUE) are placed in an envelope and stored together in the application database.
-
-###### Step 10
-#### Success 201
-A success message is returned to the developer.
-
-<p align="center">
-  Learn more at <a href="https://www.dotenv.org/security?r=1">dotenv.org/security</a>
-</p>
+Learn more at <a href="https://www.dotenv.org/security?r=1">dotenv.org/security</a>
 
 ## Commands
 
@@ -929,22 +867,6 @@ $ npx dotenv-vault local keys development…
 local:    Listing .env.vault decryption keys from .env.keys... done
 dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 ```
-
-## Health
-
-![](https://api.checklyhq.com/v1/badges/checks/c2fee99a-38e7-414e-89b8-9766ceeb1927?style=flat&theme=dark&responseTime=true)
-<br>
-![](https://api.checklyhq.com/v1/badges/checks/4f557967-1ed1-486a-b762-39a63781d752?style=flat&theme=dark&responseTime=true)
-<br>
-![](https://api.checklyhq.com/v1/badges/checks/804eb6fa-6599-4688-a649-7ff3c39a64b9?style=flat&theme=dark&responseTime=true)
-<br>
-![](https://api.checklyhq.com/v1/badges/checks/6a94504e-e936-4f07-bc0b-e08fee2734b3?style=flat&theme=dark&responseTime=true)
-<br>
-![](https://api.checklyhq.com/v1/badges/checks/06ac4f4e-3e0e-4501-9987-580b4d2a6b06?style=flat&theme=dark&responseTime=true)
-<br>
-![](https://api.checklyhq.com/v1/badges/checks/0ffc1e55-7ef0-4c2c-8acc-b6311871f41c?style=flat&theme=dark&responseTime=true)
-
-Visit [health.dotenv.org](https://health.dotenv.org) for more information.
 
 ## Contributing
 
