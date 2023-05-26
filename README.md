@@ -7,11 +7,11 @@ Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scat
 Deploy your secrets anywhere with modern encryption and sync your .env files with a single command.
 
 * [🌱 Install](#-install)
-* [🏗️  Usage (.env)](#%EF%B8%8F-usage)
-* [Multiple Environments](#multiple-environments)
-* [Deploy](#deploy)
-* [How It Works](#how-it-works)
-* [Commands](#commands)
+* [🏗️  Usage](#%EF%B8%8F-usage)
+* [🌴 Multiple Environments](#multiple-environments)
+* [🚀 Deploy](#-deploy)
+* [🔐 Security](#-security)
+* [📖 Commands](#-commands)
 
 ## 🌱 Install
 
@@ -83,7 +83,7 @@ $ npx dotenv-vault pull production
 
 Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
 
-## Deploy
+## 🚀 Deploy
 
 Build your `.env.vault` file to deploy your secrets to any server or cloud platform. It works without third-party integrations. Syncing your secrets over third-party integrations actually increases your attack surface area by scattering them in more places, making it more likely your secrets leak someday. Look what happened to CircleCI. Read on to see how dotenv-vault removes this risk.
 
@@ -376,11 +376,20 @@ Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials
 
 ## Security
 
-Learn more at <a href="https://www.dotenv.org/security?r=1">dotenv.org/security</a>
+Learn more at
 
-## Commands
+* [www.dotenv.org/security](https://www.dotenv.org/security?r=1)
+* [www.dotenv.org/docs/security](https://www.dotenv.org/docs/security)
 
-Below are a list of dotenv-vault cli commands. You can also learn more on the [docs page](https://dotenv.org/docs).
+## 📖 Commands
+
+Learn more at:
+
+* [www.dotenv.org/docs](https://dotenv.org/docs)
+
+```
+$ dotenv-vault help
+```
 
 * [new](#new)
 * [login](#login)
