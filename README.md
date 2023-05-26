@@ -15,6 +15,24 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
+<table>
+  <tbody>
+    <tr>
+      <td align="left" valign="middle">
+        <a href="https://github.com/dotenv-org/homebrew-brew">
+          <img src="https://api.iconify.design/bi/apple.svg" alt="Apple", width="20" />
+        </a>
+      </td>
+      <td align="left" valign="middle">
+```
+$ brew install dotenv-org/brew/dotenv-vault
+$ dotenv-vault help
+```
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ![apple icon](https://api.iconify.design/bi/apple.svg)
 
 Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
