@@ -15,7 +15,7 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-![apple icon](https://api.iconify.design/bi/apple.svg)
+<h4><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="40" /></h4>
 
 Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
 
@@ -24,16 +24,22 @@ $ brew install dotenv-org/brew/dotenv-vault
 $ dotenv-vault help
 ```
 
+<h4><img alt="windows icon" src="https://api.iconify.design/mdi/windows.svg" width="40" /></h4>
+
 Install on [Windows](https://dotenv-vault-assets.dotenv.org/)
 
 * [32-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x86.exe)
 * [64-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x64.exe)
+
+<h4><img alt="docker icon" src="https://api.iconify.design/mdi/docker.svg" width="40" /></h4>
 
 Install and run commands via [Docker](https://hub.docker.com/r/dotenv/dotenv-vault)
 
 ```shell
 $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 ```
+
+<h4><img alt="npm icon" src="https://api.iconify.design/fontisto/npm.svg" width="40" /></h4>
 
 Install and run commands via [npx](https://docs.npmjs.com/cli/v7/commands/npx)
 
