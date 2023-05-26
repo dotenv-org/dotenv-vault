@@ -15,7 +15,7 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-<small>More details at <a href="https://www.dotenv.org/install/">www.dotenv.org/install</a></small>
+<sub>More details at <a href="https://www.dotenv.org/install/">www.dotenv.org/install</a></sub>
 
 <h4><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="40" /></h4>
 
@@ -51,7 +51,7 @@ $ npx dotenv-vault help
 
 ## 🏗️ Usage
 
-<small>More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></small>
+<sub>More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
 Usage is similar to git. Run the command:
 
