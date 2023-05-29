@@ -97,21 +97,24 @@ Set `DOTENV_KEY` on your server.
 heroku config:set DOTENV_KEY=dotenv://:key_1234…@dotenv.org/vault/.env.vault?environment=production
 ```
 
-Commit your `.env.vault` file safely to code.
+Commit your `.env.vault` file safely to code and deploy.
 
 ```bash
 $ git add .env.vault
 $ git commit -am "Update .env.vault"
 $ git push
+$ git push heroku main # heroku example
 ```
 
-That's it! On deploy, your `.env.vault` file will be decrypted on boot, and its secrets injected into your app's environment variables. This cloud-agnostic solution is safer than scattering your secrets across multiple platforms and tools.
+That's it! On deploy, your `.env.vault` file will be decrypted and its secrets injected as environment variables, just in time.
 
 <sub>>>> More details toward end of <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
 #### Requirements
 
 You need `dotenv@16.1.0` or greater.
+
+This cloud-agnostic solution is safer than scattering your secrets across multiple platforms and tools.
 
 Using a different language, you need one of our language specific `dotenv-vault` libraries.
 
