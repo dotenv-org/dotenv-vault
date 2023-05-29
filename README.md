@@ -70,6 +70,7 @@ $ git push
 Tell your teammates to pull the latest changes and run the pull command:
 
 ```bash
+$ git pull
 $ dotenv-vault pull
 ```
 
