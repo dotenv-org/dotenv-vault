@@ -105,9 +105,7 @@ $ git commit -am "Update .env.vault"
 $ git push
 ```
 
-That's it! On deploy, your `.env.vault` file will be decrypted on boot, and its secrets injected into your app's environment variables.
-
-This cloud agnostic approach is an order of magnitude safer than scattering your secrets across multiple platforms and tools.
+That's it! On deploy, your `.env.vault` file will be decrypted on boot, and its secrets injected into your app's environment variables. This cloud-agnostic solution is safer than scattering your secrets across multiple platforms and tools.
 
 #### Requirements
 
