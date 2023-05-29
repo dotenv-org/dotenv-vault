@@ -938,6 +938,8 @@ There are a series of **💻 Locally Managed** commands available to you. Locall
 
 **🔐 Vault Managed** adds conveniences like backing up your .env file, secure sharing across your team, access permissions, and version history.
 
+**💻 Locally Managed** is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
+
 <a href="https://www.youtube.com/watch?v=Ad7Wl8iC3Rs">
 <div align="right">
 <img src="https://img.youtube.com/vi/Ad7Wl8iC3Rs/hqdefault.jpg" alt="how to deploy with a .env.vault file video tutorial" align="right" width="330" />
@@ -945,30 +947,38 @@ There are a series of **💻 Locally Managed** commands available to you. Locall
 </div>
 </a>
 
-**💻 Locally Managed** is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
-
 Here's how it works.
 
-Build your local only `.env.vault` file. This will look for your `.env` file, your `.env.production` file, your `.env.staging` file, etc and encrypt them to your `.env.vault` file.
+Generate your `.env.vault` file.
 
-```bash
-$ npx dotenv-vault local build 
+```shell
+$ dotenv-vault local build
 ```
 
-View your `.env.keys` file.
+This creates two files:
 
-```bash
-$ cat .env.keys
+* `.env.vault` - encrypted .env file
+* `.env.keys` - decryptions keys
+
+Boot using `.env.vault`.
+
+```
+$ DOTENV_KEY=<key string from .env.keys> npm start
+
+[dotenv@16.1.0][INFO] Loading env from encrypted .env.vault
 ```
 
-Use the values in your `.env.keys` file to set `DOTENV_KEY` on your server.
+Great! Next, set the `DOTENV_KEY` on your server. For example in heroku:
 
-```bash
-# heroku example
-heroku config:set DOTENV_KEY=dotenv://:key_1234…@dotenv.org/vault/.env.vault?environment=production
+```shell
+$ heroku config:set DOTENV_KEY=<key string from .env.keys>
 ```
 
-That's it! Just be careful when manually sharing this `.env.keys` file across your team, as there are no access permission protections like you get with dotenv-vault's default service.
+Commit your `.env.vault` file safely to code and deploy.
+
+Your `.env.vault` is decrypted on boot, its environment variables injected, and your app works as expected.
+
+Congratulations, your secrets are now much safer than scattered across multiple servers and cloud providers!
 
 ## Contributing
 
