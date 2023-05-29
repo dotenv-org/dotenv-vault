@@ -76,21 +76,52 @@ That's it! You securely backed-up and synced your `.env` file.
 
 <sub>>>> More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
-## Multiple Environments
+## 🚀 Deploy
 
-After you've pushed your .env file, dotenv-vault automatically sets up multiple environments. Open an environment to view and edit its environment variables.
+Encrypt your `.env.vault` file.
 
 ```bash
-$ npx dotenv-vault open production
+$ dotenv-vault build
 ```
 
-Edit those values. Would you also like to pull your production .env to your machine? Run the command:
+Fetch your production `DOTENV_KEY`.
 
-```
-$ npx dotenv-vault pull production
+```bash
+$ dotenv-vault keys production
 ```
 
-Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
+Set `DOTENV_KEY` on your server.
+
+```bash
+# heroku example
+heroku config:set DOTENV_KEY=dotenv://:key_1234…@dotenv.org/vault/.env.vault?environment=production
+```
+
+Commit your `.env.vault` file safely to code.
+
+```bash
+$ git add .env.vault
+$ git commit -am "Update .env.vault"
+$ git push
+```
+
+That's it! On deploy, your `.env.vault` file will be decrypted on boot, and its secrets injected into your app's environment variables.
+
+This cloud agnostic approach is an order of magnitude safer than scattering your secrets across multiple platforms and tools.
+
+#### Requirements
+
+You need `dotenv@16.1.0` or greater.
+
+Using a different language, you need one of our language specific `dotenv-vault` libraries.
+
+* Go
+* Python
+* Ruby
+* PHP
+* more
+
+#### FAQs
 
 ## 🚀 Deploy
 
@@ -382,6 +413,24 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
 </table>
 
 Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials/integrations</a> to learn more.
+
+## Multiple Environments
+
+After you've pushed your .env file, dotenv-vault automatically sets up multiple environments. Open an environment to view and edit its environment variables.
+
+```bash
+$ npx dotenv-vault open production
+```
+
+Edit those values. Would you also like to pull your production .env to your machine? Run the command:
+
+```
+$ npx dotenv-vault pull production
+```
+
+Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
+
+
 
 ## 🔐 Security
 
