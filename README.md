@@ -113,6 +113,8 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
 
 <sub>>>> More details toward end of <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
+---
+
 ℹ️ The above is **🔐 Vault Managed**. If you would prefer to use **💻 Locally Managed** secrets, [see the faq below](#how-do-i-use--locally-managed-dotenv-vault).
 
 ## 🌴 Manage Multiple Environments
@@ -139,6 +141,8 @@ $ dotenv-vault pull production
 ```
 
 <sub>>>> More details at <a href="https://www.dotenv.org/docs/tutorials/environments?r=1">www.dotenv.org/docs/tutorials/environments</a></sub>
+
+---
 
 ℹ️ The above is **🔐 Vault Managed**. If you would prefer to use **💻 Locally Managed** environments, [see the faq below](#how-do-i-use--locally-managed-dotenv-vault).
 
