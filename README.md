@@ -938,16 +938,16 @@ There are a series of **💻 Locally Managed** commands available to you. Locall
 
 **🔐 Vault Managed** adds conveniences like backing up your .env file, secure sharing across your team, access permissions, and version history.
 
-**💻 Locally Managed** is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
-
-Here's how it works.
-
 <a href="https://www.youtube.com/watch?v=Ad7Wl8iC3Rs">
 <div align="right">
 <img src="https://img.youtube.com/vi/Ad7Wl8iC3Rs/hqdefault.jpg" alt="how to deploy with a .env.vault file video tutorial" align="right" width="330" />
 <img src="https://simpleicons.vercel.app/youtube/ff0000" alt="youtube/@dotenvorg" align="right" width="24" />
 </div>
 </a>
+
+**💻 Locally Managed** is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
+
+Here's how it works.
 
 Build your local only `.env.vault` file. This will look for your `.env` file, your `.env.production` file, your `.env.staging` file, etc and encrypt them to your `.env.vault` file.
 
