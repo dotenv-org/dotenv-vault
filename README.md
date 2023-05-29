@@ -6,6 +6,8 @@ Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scat
 
 Deploy your secrets anywhere with modern encryption and sync your .env files with a single command.
 
+[Quickstart ⚡️](https://www.dotenv.org/docs/quickstart)
+
 * [🌱 Install](#-install)
 * [🏗️ Usage](#%EF%B8%8F-usage)
 * [🚀 Deploying](#-deploying)
