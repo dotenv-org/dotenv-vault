@@ -120,19 +120,19 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/nodejs?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/vercel.svg" alt="Vercel", width="20" />
+          <img src="https://api.iconify.design/simple-icons/vercel.svg" alt="Vercel", width="20" />
           Vercel
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/rails">
-          <img src="https://www.dotenv.org/assets-www/img/heroku.svg" alt="Heroku", width="20" />
+          <img src="https://api.iconify.design/simple-icons/heroku.svg" alt="Heroku", width="20" />
           Heroku
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs">
-          <img src="https://www.dotenv.org/assets-www/img/github.svg?r=1" alt="GitHub", width="20" />
+          <img src="https://api.iconify.design/simple-icons/github.svg" alt="GitHub", width="20" />
           GitHub Actions
         </a>
       </td>
