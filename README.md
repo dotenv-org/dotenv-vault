@@ -22,7 +22,7 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
 
-```shell
+```bash
 $ brew install dotenv-org/brew/dotenv-vault
 $ dotenv-vault help
 ```
@@ -38,7 +38,7 @@ Install on [Windows](https://dotenv-vault-assets.dotenv.org/)
 
 Install and run commands via [Docker](https://hub.docker.com/r/dotenv/dotenv-vault)
 
-```shell
+```bash
 $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 ```
 
@@ -385,11 +385,9 @@ $ dotenv-vault pull production
   </tbody>
 </table>
 
-<sub>>>> More examples at <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">dotenv.org/docs/tutorials/integrations</a></sub>
+<a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">See more integration guides</a>
 
 ## 📖 Commands
-
-<sub>>>> More details at <a href="https://dotenv.org/docs">www.dotenv.org/docs</a></sub>
 
 ```
 $ dotenv-vault help
