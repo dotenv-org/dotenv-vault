@@ -7,11 +7,11 @@ Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scat
 Deploy your secrets anywhere with modern encryption and sync your .env files with a single command.
 
 * [🌱 Install](#-install)
-* [🏗️  Usage](#%EF%B8%8F-usage)
+* [🏗️ Usage](#%EF%B8%8F-usage)
+* [🚀 Deploying](#-deploying)
 * [🌴 Multiple Environments](#multiple-environments)
-* [🚀 Deploy](#-deploy)
-* [🔐 Security](#-security)
 * [📖 Commands](#-commands)
+* [❓ FAQ](#-faq)
 
 ## 🌱 Install
 
@@ -76,7 +76,7 @@ That's it! You securely backed-up and synced your `.env` file.
 
 <sub>>>> More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
-## 🚀 Deploy
+## 🚀 Deploying
 
 Encrypt your `.env.vault` file.
 
@@ -88,6 +88,8 @@ Fetch your production `DOTENV_KEY`.
 
 ```bash
 $ dotenv-vault keys production
+remote:   Listing .env.vault decryption keys... done
+dotenv://:key_1234…@dotenv.org/vault/.env.vault?environment=production
 ```
 
 Set `DOTENV_KEY` on your server.
@@ -106,7 +108,7 @@ $ git push
 $ git push heroku main # heroku example
 ```
 
-That's it! On deploy, your `.env.vault` file will be decrypted and its secrets injected as environment variables, just in time.
+That's it! On deploy, your `.env.vault` file will be decrypted and its secrets injected as environment variables – just in time.
 
 <sub>>>> More details toward end of <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
@@ -434,13 +436,6 @@ $ npx dotenv-vault pull production
 Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
 
 
-
-## 🔐 Security
-
-Learn more at
-
-* [www.dotenv.org/security](https://www.dotenv.org/security?r=1)
-* [www.dotenv.org/docs/security](https://www.dotenv.org/docs/security)
 
 ## 📖 Commands
 
@@ -935,6 +930,42 @@ $ npx dotenv-vault local keys development…
 local:    Listing .env.vault decryption keys from .env.keys... done
 dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 ```
+
+## ❓FAQ
+
+### Why is the `.env` file not loading my environment variables successfully?
+
+Most likely your `.env` file is not in the correct place. [See this stack overflow](https://stackoverflow.com/questions/42335016/dotenv-file-is-not-loading-environment-variables).
+
+Turn on debug mode and try again..
+
+```js
+require('dotenv').config({ debug: true })
+```
+
+You will receive a helpful error outputted to your console.
+
+### Should I commit my `.env.vault` file?
+
+Yes. It is safe and recommended to do so. DO commit your `.env.vault` file to code. DO NOT commit your `.env` file. The `.env.vault` file contains ciphertext generated using AES-256. AES-256 is trusted by the US Government to transmit top-secret information and has a brute-force timescale of about a billion years.
+
+### I accidentally leaked my `DOTENV_KEY`, what can I do? 
+
+Does that attacker also have access to your `.env.vault` file?
+
+* No: good, the attacker cannot do any damage. They need both the `DOTENV_KEY` and `.env.vault` file to access your secrets. This extra layer of security sets the `.env.vault` file apart as a superior solution to other SecretOps solutions.
+* Yes: IMMEDIATELY start rotating your secrets at your third-party API providers. This scenario would be the same no matter what SecretOps solution you use.
+
+After completing the above, rotate your `DOTENV_KEY` using the [rotatekey](#rotatekey) command, rebuild your `.env.vault` file, and redeploy.
+
+### Is it safe to store my secrets with dotenv-vault?
+
+It safer than scattering your secrets across multiple cloud providers. Those providers are focused on code deployment and server performance over secrets security.[1]
+
+Dotenv Vault's singular focus is secrets security, and as a result we go to great lengths to make sure your secrets are safe. Afterall, we keep our secrets here too.[2]
+
+[1 CircleCI Breach](https://techcrunch.com/2023/01/05/circleci-breach/)
+[2 Security at Dotenv Vault](https://www.dotenv.org/security)
 
 ## Contributing
 
