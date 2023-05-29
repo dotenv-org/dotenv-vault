@@ -9,7 +9,8 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 * [🌱 Install](#-install)
 * [🏗️ Usage](#%EF%B8%8F-usage)
 * [🚀 Deploying](#-deploying)
-* [🌴 Multiple Environments](#multiple-environments)
+* [📚 Examples](#-examples)
+* [🌴 Multiple Environments](#-multiple-environments)
 * [📖 Commands](#-commands)
 * [❓ FAQ](#-faq)
 
@@ -112,54 +113,7 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
 
 <sub>>>> More details toward end of <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
-#### Requirements
-
-You need `dotenv@16.1.0` or greater.
-
-This cloud-agnostic solution is safer than scattering your secrets across multiple platforms and tools.
-
-Using a different language, you need one of our language specific `dotenv-vault` libraries.
-
-* Go
-* Python
-* Ruby
-* PHP
-* more
-
-#### FAQs
-
-## 🚀 Deploy
-
-Build your `.env.vault` file to deploy your secrets to any server or cloud platform. It works without third-party integrations. Syncing your secrets over third-party integrations actually increases your attack surface area by scattering them in more places, making it more likely your secrets leak someday. Look what happened to CircleCI. Read on to see how dotenv-vault removes this risk.
-
-Run the build command to generate your encrypted .env.vault file and commit that safely to code.
-
-```
-$ npx dotenv-vault build
-$ git commit -am "Add .env.vault"
-$ git push
-```
-
-Run the keys command to view your decryption keys.
-
-```
-$ npx dotenv-vault keys
-remote:   Listing .env.vault decryption keys... done
- environment DOTENV_KEY
- ─────────── ────────────────────────────────────────────────────────────────────────────────────────────────────────
- develompent dotenv://:key_33ee..@dotenv.org/vault/.env.va…
- production  dotenv://:key_7038..@dotenv.org/vault/.env.va…
-```
-
-Set the production key on your server or cloud platform. For example, in Heroku.
-
-```
-heroku config:set DOTENV_KEY=dotenv://:key_7038..@dotenv.org/vault/.env.va…
-```
-
-That's it! When your code deploys, your .env.vault file will be decrypted just in time, and its secrets injected into your application's environment variables.
-
-There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vault-core), [Ruby](https://gitub.com/dotenv-org/dotenv-vault-ruby), [Python](https://github.com/dotenv-org/python-dotenv-vault), [PHP](https://github.com/dotenv-org/phpdotenv-vault) supported – more languages coming soon.
+## 📚 Examples
 
 <table>
   <tbody>
@@ -417,9 +371,9 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
   </tbody>
 </table>
 
-Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials/integrations</a> to learn more.
+<sub>>>> More examples at <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">dotenv.org/docs/tutorials/integrations</a></sub>
 
-## Multiple Environments
+## 🌴 Multiple Environments
 
 After you've pushed your .env file, dotenv-vault automatically sets up multiple environments. Open an environment to view and edit its environment variables.
 
