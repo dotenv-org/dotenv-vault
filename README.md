@@ -107,6 +107,8 @@ $ git push
 
 That's it! On deploy, your `.env.vault` file will be decrypted on boot, and its secrets injected into your app's environment variables. This cloud-agnostic solution is safer than scattering your secrets across multiple platforms and tools.
 
+<sub>>>> More details toward end of <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
+
 #### Requirements
 
 You need `dotenv@16.1.0` or greater.
