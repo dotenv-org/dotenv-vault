@@ -931,7 +931,7 @@ local:    Listing .env.vault decryption keys from .env.keys... done
 dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 ```
 
-## ❓FAQ
+## ❓ FAQ
 
 ### Why is the `.env` file not loading my environment variables successfully?
 
@@ -966,6 +966,28 @@ Dotenv Vault's singular focus is secrets security, and as a result we go to grea
 
 [1 CircleCI Breach](https://techcrunch.com/2023/01/05/circleci-breach/)
 [2 Security at Dotenv Vault](https://www.dotenv.org/security)
+
+### What languages does this work with?
+
+The `.env.vault` file and its encryption algorithm is language-agnostic so technically it works with any language. We've built convenience libraries for it in a handful of languages and are adding more quickly.
+
+* [Go](https://github.com/dotenv-org/godotenvvault)
+* [Kotlin](https://github.com/dotenv-org/dotenv-vault-kotlin)
+* [NodeJS](https://github.com/motdotla/dotenv)
+* [PHP](https://github.com/dotenv-org/phpdotenv-vault)
+* [Python](https://github.com/dotenv-org/python-dotenv-vault)
+* [Ruby](https://github.com/dotenv-org/dotenv-vault-ruby)
+
+### Can I use all the benefits of a `.env.vault` file without trusting my secrets to dotenv-vault's cloud?
+
+Yes! We've created a series of local commands that work without touching any third-party service like dotenv-vault's cloud.
+
+```
+# build .env.vault from your local .env* files
+$ npx dotenv-vault local build 
+```
+
+This will generate your `.env.vault` file and a `.env.keys` file. Manage and share that `.env.keys` file manually with your team.
 
 ## Contributing
 
