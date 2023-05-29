@@ -958,7 +958,7 @@ $ dotenv-vault local build
 This creates two files:
 
 * `.env.vault` - encrypted contents of .env* file(s)
-* `.env.keys` - decryption keys
+* `.env.keys` - decryption key(s)
 
 Boot using `.env.vault`.
 
