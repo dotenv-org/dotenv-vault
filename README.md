@@ -152,13 +152,13 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/docker/express?r=1">
-          <img src="https://api.iconify.design/devicon/docker.svg" alt="Docker", width="20" />
+          <img src="https://api.iconify.design/skill-icons/docker.svg" alt="Docker", width="20" />
           Docker
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/docker-compose/express?r=1">
-          <img src="https://api.iconify.design/devicon/docker.svg" alt="Docker", width="20" />
+          <img src="https://api.iconify.design/skill-icons/docker.svg" alt="Docker Compose", width="20" />
           Docker Compose
         </a>
       </td>
@@ -294,7 +294,7 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
-          <img src="https://api.iconify.design/logos/sinatra.svg" alt="Ruby", width="20" />
+          <img src="https://api.iconify.design/logos/ruby.svg" alt="Ruby", width="20" />
           Ruby
         </a>
       </td>
@@ -302,7 +302,7 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
-          <img src="https://api.iconify.design/devicon/sinatra.svg" alt="Sinatra", width="20" />
+          <img src="https://api.iconify.design/logos/sinatra.svg" alt="Sinatra", width="20" />
           Sinatra
         </a>
       </td>
