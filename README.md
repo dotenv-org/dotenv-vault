@@ -138,7 +138,7 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/gitlab/ci-quickstart">
-          <img src="https://www.dotenv.org/assets-www/img/gitlab.svg" alt="GitLab", width="20" />
+          <img src="https://api.iconify.design/simple-icons/gitlab.svg" alt="GitLab", width="20" />
           GitLab CI/CD
         </a>
       </td>
@@ -146,25 +146,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/netlify.svg" alt="Netlify", width="20" />
+          <img src="https://api.iconify.design/simple-icons/netlify.svg" alt="Netlify", width="20" />
           Netlify
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/docker/express?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/docker.svg" alt="Docker", width="20" />
+          <img src="https://api.iconify.design/simple-icons/docker.svg" alt="Docker", width="20" />
           Docker
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/docker-compose/express?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/docker.svg" alt="Docker", width="20" />
+          <img src="https://api.iconify.design/simple-icons/docker.svg" alt="Docker", width="20" />
           Docker Compose
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/circleci/rails?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/circleci.svg" alt="CircleCI", width="20" />
+          <img src="https://api.iconify.design/simple-icons/circleci.svg" alt="CircleCI", width="20" />
           CircleCI
         </a>
       </td>
@@ -172,25 +172,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/serverless/express?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/serverless.svg" alt="Serverless", width="20" />
+          <img src="https://api.iconify.design/simple-icons/serverless.svg" alt="Serverless", width="20" />
           Serverless
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/railway/express?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/railway.svg" alt="Railway", width="20" />
+          <img src="https://api.iconify.design/simple-icons/railway.svg" alt="Railway", width="20" />
           Railway
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/render/express?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/render.svg" alt="Render", width="20" />
+          <img src="https://api.iconify.design/simple-icons/render.svg" alt="Render", width="20" />
           Render
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/travis-ci/nodejs?r=1">
-          <img src="https://www.dotenv.org/assets-www/img/travis.svg" alt="Travis CI", width="20" />
+          <img src="https://api.iconify.design/simple-icons/travis.svg" alt="Travis CI", width="20" />
           Travis CI
         </a>
       </td>
