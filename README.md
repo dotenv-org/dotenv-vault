@@ -970,8 +970,8 @@ It safer than scattering your secrets across multiple cloud providers. Those pro
 
 Dotenv Vault's singular focus is secrets security, and as a result we go to great lengths to make sure your secrets are safe. Afterall, we keep our secrets here too.[2]
 
-[1 CircleCI Breach](https://techcrunch.com/2023/01/05/circleci-breach/)
-[2 Security at Dotenv Vault](https://www.dotenv.org/security)
+* [1 CircleCI Breach](https://techcrunch.com/2023/01/05/circleci-breach/)
+* [2 Security at Dotenv Vault](https://www.dotenv.org/security)
 
 ### What languages does this work with?
 
@@ -984,16 +984,36 @@ The `.env.vault` file and its encryption algorithm is language-agnostic so techn
 * [Python](https://github.com/dotenv-org/python-dotenv-vault)
 * [Ruby](https://github.com/dotenv-org/dotenv-vault-ruby)
 
-### Can I use all the benefits of a `.env.vault` file without trusting my secrets to dotenv-vault's cloud?
+### Can I use a `.env.vault` file without trusting my secrets to dotenv-vault's cloud?
 
-Yes! We've created a series of local commands that work without touching any third-party service like dotenv-vault's cloud.
+Yes! We call that local only and we've created a series of local commands that work without touching any third-party service like dotenv-vault's cloud.
 
+You can list them with.
+
+```bash
+$ dotenv-vault help local
 ```
-# build .env.vault from your local .env* files
+
+Build your local only `.env.vault` file. This will look for your `.env` file, your `.env.production` file, your `.env.staging` file, etc and encrypt them to your `.env.vault` file.
+
+```bash
 $ npx dotenv-vault local build 
 ```
 
-This will generate your `.env.vault` file and a `.env.keys` file. Manage and share that `.env.keys` file manually with your team.
+View your `.env.keys` file.
+
+```bash
+$ cat .env.keys
+```
+
+Use the values in your `.env.keys` file to set `DOTENV_KEY` on your server.
+
+```bash
+# heroku example
+heroku config:set DOTENV_KEY=dotenv://:key_1234…@dotenv.org/vault/.env.vault?environment=production
+```
+
+That's it! Just be careful when manually sharing this `.env.keys` file across your team, as there are no access permission protections like you get with dotenv-vault's default service.
 
 ## Contributing
 
