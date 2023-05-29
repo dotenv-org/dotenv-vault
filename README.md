@@ -933,17 +933,22 @@ dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 
 ## ❓ FAQ
 
-### Why is the `.env` file not loading my environment variables successfully?
+### Why is the `.env.vault` file not loading my environment variables successfully?
 
-Most likely your `.env` file is not in the correct place. [See this stack overflow](https://stackoverflow.com/questions/42335016/dotenv-file-is-not-loading-environment-variables).
+First, make sure you are using `dotenv@16.1.0` or greater. If you are using a language other than nodejs make sure you have installed one of the language libraries listed [below](#what-languages-does-this-work-with).
 
-Turn on debug mode and try again..
+Second, test decryption is working locally.
 
-```js
-require('dotenv').config({ debug: true })
+```bash
+$ dotenv-vault decrypt dotenv://:key_1234..@dotenv.local/vault/.env.vault?environment=production
+# outputs environment variables
 ```
 
-You will receive a helpful error outputted to your console.
+Third, test decryption on boot is working locally.
+
+```bash
+$ DOTENV_KEY=dotenv://:key_1234..@dotenv.local/vault/.env.vault?environment=production npm start
+```
 
 ### Should I commit my `.env.vault` file?
 
