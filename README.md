@@ -126,11 +126,10 @@ $ dotenv-vault push
 After you've pushed your `.env` file, dotenv-vault automatically sets up multiple environments. Manage multiple environments with the included UI. [learn more](/docs/tutorials/environments)
 
 ```
-$ dotenv-vault open
+$ dotenv-vault open production
 ```
 
 That's it! Manage your ci, staging, and production secrets from there. Rebuild your `.env.vault` file and redeploy when ready.
-
 
 Would you also like to pull your production `.env` to your machine? Run the command:
 
@@ -138,11 +137,9 @@ Would you also like to pull your production `.env` to your machine? Run the comm
 $ dotenv-vault pull production
 ```
 
+ℹ️  **🔐 Vault Managed vs 💻 Locally Managed**: The above example, for brevity's sake, used the 🔐 Vault Managed solution to manage your `.env.vault` file. You can instead use the 💻 Locally Managed solution. [See the faq further below](#how-do-i-use--locally-managed-dotenv-vault). Our vision is that other platforms and orchestration tools adopt the `.env.vault` standard as they did the `.env` standard. We don't expect to be the only ones providing tooling to manage and generate `.env.vault` files.
+
 <a href="https://www.dotenv.org/docs/tutorials/environments?r=1">Learn more about environments</a>
-
----
-
-ℹ️ The above is **🔐 Vault Managed**. If you would prefer to use **💻 Locally Managed** environments and deploys, [see the faq below](#how-do-i-use--locally-managed-dotenv-vault).
 
 ## 📚 Examples
 
