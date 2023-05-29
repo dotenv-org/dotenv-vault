@@ -48,7 +48,7 @@ Install and run commands via [npx](https://docs.npmjs.com/cli/v7/commands/npx)
 $ npx dotenv-vault help
 ```
 
-<sub>>>> More details at <a href="https://www.dotenv.org/install/">www.dotenv.org/install</a></sub>
+<a href="https://www.dotenv.org/install/">Learn more about installation</a>
 
 ## 🏗️ Usage
 
@@ -75,7 +75,7 @@ $ dotenv-vault pull
 
 That's it! You securely backed-up and synced your `.env` file.
 
-<sub>>>> More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
+<a href="https://www.dotenv.org/docs/quickstart?r=1">Learn more about usage</a>
 
 ## 🚀 Deploying
 
@@ -111,7 +111,7 @@ $ git push heroku main # heroku example
 
 That's it! On deploy, your `.env.vault` file will be decrypted and its secrets injected as environment variables – just in time.
 
-<sub>>>> More details toward end of <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
+<a href="https://www.dotenv.org/docs/quickstart?r=1">Learn more about deploying</a>
 
 ## 🌴 Manage Multiple Environments
 
@@ -136,7 +136,7 @@ Would you also like to pull your production `.env` to your machine? Run the comm
 $ dotenv-vault pull production
 ```
 
-<sub>>>> More details at <a href="https://www.dotenv.org/docs/tutorials/environments?r=1">www.dotenv.org/docs/tutorials/environments</a></sub>
+<a href="https://www.dotenv.org/docs/tutorials/environments?r=1">Learn more about environments</a>
 
 ---
 
