@@ -53,19 +53,19 @@ $ npx dotenv-vault help
 
 <sub>>>> More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
-Usage is similar to git. Run the command:
+Usage is similar to git. Push your `.env` file to Dotenv Vault.
 
 ```bash
 $ dotenv-vault push
 ```
 
-This will push your `.env` file to Dotenv Vault. Follow those instructions and then run:
+Commit your `.env.vault` file safely to code.
 
 ```bash
-$ dotenv-vault build
+$ git add .env.vault
+$ git commit -am "Add .env.vault"
+$ git push
 ```
-
-This will build your `.env.vault` file. Commit that safely to code.
 
 Tell your teammates to pull the latest changes and run the pull command:
 
@@ -74,7 +74,6 @@ $ dotenv-vault pull
 ```
 
 That's it! You synced your .env file.
-
 
 ## Multiple Environments
 
