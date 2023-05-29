@@ -392,9 +392,7 @@ Learn more at
 
 ## 📖 Commands
 
-Learn more at:
-
-* [www.dotenv.org/docs](https://dotenv.org/docs)
+<sub>>>> More details at <a href="https://dotenv.org/docs">www.dotenv.org/docs</a></sub>
 
 ```
 $ dotenv-vault help
