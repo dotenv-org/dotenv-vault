@@ -934,14 +934,14 @@ The `.env.vault` file and its encryption algorithm is language-agnostic so techn
 
 ### How do I use 💻 Locally Managed dotenv-vault?
 
+There are a series of **💻 Locally Managed** commands available to you. Locally managed never makes a remote API call. It is completely managed on your machine. **🔐 Vault Managed** adds conveniences like backing up your .env file, secure sharing across your team, access permissions, and version history. 💻 Locally Managed is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
+
 <a href="https://www.youtube.com/watch?v=Ad7Wl8iC3Rs">
 <div align="right">
 <img src="https://img.youtube.com/vi/Ad7Wl8iC3Rs/hqdefault.jpg" alt="how to deploy with a .env.vault file video tutorial" align="right" width="330" />
 <img src="https://simpleicons.vercel.app/youtube/ff0000" alt="youtube/@dotenvorg" align="right" width="24" />
 </div>
 </a>
-
-There are a series of **💻 Locally Managed** commands available to you. Locally managed never makes a remote API call. It is completely managed on your machine. **🔐 Vault Managed** adds conveniences like backing up your .env file, secure sharing across your team, access permissions, and version history. 💻 Locally Managed is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
 
 ```bash
 $ dotenv-vault help local
