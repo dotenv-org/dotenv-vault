@@ -354,10 +354,6 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
   </tbody>
 </table>
 
-<a href="https://dotenv.org/integrations">
-  and more!
-</a>
-
 <sub>>>> More examples at <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">dotenv.org/docs/tutorials/integrations</a></sub>
 
 ## 🌴 Multiple Environments
