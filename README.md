@@ -120,25 +120,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/vercel.svg" alt="Vercel", width="20" />
+          <img src="https://api.iconify.design/devicon/vercel.svg" alt="Vercel", width="20" />
           Vercel
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/rails">
-          <img src="https://api.iconify.design/simple-icons/heroku.svg" alt="Heroku", width="20" />
+          <img src="https://api.iconify.design/skill-icons/heroku.svg" alt="Heroku", width="20" />
           Heroku
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs">
-          <img src="https://api.iconify.design/simple-icons/github.svg" alt="GitHub", width="20" />
+          <img src="https://api.iconify.design/devicon/github.svg" alt="GitHub", width="20" />
           GitHub Actions
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/gitlab/ci-quickstart">
-          <img src="https://api.iconify.design/simple-icons/gitlab.svg" alt="GitLab", width="20" />
+          <img src="https://api.iconify.design/devicon/gitlab.svg" alt="GitLab", width="20" />
           GitLab CI/CD
         </a>
       </td>
@@ -146,25 +146,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
-          <img src="https://api.iconify.design/simple-icons/netlify.svg" alt="Netlify", width="20" />
+          <img src="https://api.iconify.design/devicon/netlify.svg" alt="Netlify", width="20" />
           Netlify
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/docker/express?r=1">
-          <img src="https://api.iconify.design/simple-icons/docker.svg" alt="Docker", width="20" />
+          <img src="https://api.iconify.design/devicon/docker.svg" alt="Docker", width="20" />
           Docker
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/docker-compose/express?r=1">
-          <img src="https://api.iconify.design/simple-icons/docker.svg" alt="Docker", width="20" />
+          <img src="https://api.iconify.design/devicon/docker.svg" alt="Docker", width="20" />
           Docker Compose
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/circleci/rails?r=1">
-          <img src="https://api.iconify.design/simple-icons/circleci.svg" alt="CircleCI", width="20" />
+          <img src="https://api.iconify.design/devicon/circleci.svg" alt="CircleCI", width="20" />
           CircleCI
         </a>
       </td>
@@ -172,25 +172,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/serverless/express?r=1">
-          <img src="https://api.iconify.design/simple-icons/serverless.svg" alt="Serverless", width="20" />
+          <img src="https://api.iconify.design/devicon/serverless.svg" alt="Serverless", width="20" />
           Serverless
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/railway/express?r=1">
-          <img src="https://api.iconify.design/simple-icons/railway.svg" alt="Railway", width="20" />
+          <img src="https://api.iconify.design/devicon/railway.svg" alt="Railway", width="20" />
           Railway
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/render/express?r=1">
-          <img src="https://api.iconify.design/simple-icons/render.svg" alt="Render", width="20" />
+          <img src="https://api.iconify.design/devicon/render.svg" alt="Render", width="20" />
           Render
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/travis-ci/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/travisci.svg" alt="Travis CI", width="20" />
+          <img src="https://api.iconify.design/devicon/travisci.svg" alt="Travis CI", width="20" />
           Travis CI
         </a>
       </td>
@@ -198,7 +198,7 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/google-cloud/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/googlecloud.svg" alt="Google Cloud", width="20" />
+          <img src="https://api.iconify.design/devicon/googlecloud.svg" alt="Google Cloud", width="20" />
           Google Cloud
         </a>
       </td>
@@ -210,13 +210,13 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/integrations/slack?r=1">
-          <img src="https://api.iconify.design/simple-icons/slack.svg" alt="dotenv-vault + Slack", width="20" />
+          <img src="https://api.iconify.design/devicon/slack.svg" alt="dotenv-vault + Slack", width="20" />
           Slack
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/buddy/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/buddy.svg" alt="Buddy", width="20" />
+          <img src="https://api.iconify.design/devicon/buddy.svg" alt="Buddy", width="20" />
           Buddy
         </a>
       </td>
@@ -224,25 +224,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/cloud66/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/cloud66.svg" alt="Cloud66", width="20" />
+          <img src="https://api.iconify.design/devicon/cloud66.svg" alt="Cloud66", width="20" />
           Cloud66
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/digital-ocean/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/digitalocean.svg" alt="Digital Ocean", width="20" />
+          <img src="https://api.iconify.design/devicon/digitalocean.svg" alt="Digital Ocean", width="20" />
           Digital Ocean
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/dagger/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/dagger.svg" alt="Dagger", width="20" />
+          <img src="https://api.iconify.design/devicon/dagger.svg" alt="Dagger", width="20" />
           Dagger
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/bitbucket/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/bitbucket.svg" alt="Bitbucket", width="20" />
+          <img src="https://api.iconify.design/devicon/bitbucket.svg" alt="Bitbucket", width="20" />
           Bitbucket
         </a>
       </td>
@@ -250,25 +250,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/railway/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/nodejs.svg" alt="Node.js", width="20" />
+          <img src="https://api.iconify.design/devicon/nodejs.svg" alt="Node.js", width="20" />
           Node.js
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/pnpm?r=1">
-          <img src="https://api.iconify.design/simple-icons/pnpm.svg" alt="Pnpm", width="20" />
+          <img src="https://api.iconify.design/devicon/pnpm.svg" alt="Pnpm", width="20" />
           pnpm
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/express?r=1">
-          <img src="https://api.iconify.design/simple-icons/express.svg" alt="Express", width="20" />
+          <img src="https://api.iconify.design/devicon/express.svg" alt="Express", width="20" />
           Express
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs?r=1">
-          <img src="https://api.iconify.design/simple-icons/nextjs.svg" alt="NextJS", width="20" />
+          <img src="https://api.iconify.design/devicon/nextjs.svg" alt="NextJS", width="20" />
           NextJS
         </a>
       </td>
@@ -276,25 +276,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/github/actions-remix?r=1">
-          <img src="https://api.iconify.design/simple-icons/remix.svg" alt="Remix", width="20" />
+          <img src="https://api.iconify.design/devicon/remix.svg" alt="Remix", width="20" />
           Remix
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
-          <img src="https://api.iconify.design/simple-icons/astro.svg" alt="Astro", width="20" />
+          <img src="https://api.iconify.design/devicon/astro.svg" alt="Astro", width="20" />
           Astro
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/docker/rails?r=1">
-          <img src="https://api.iconify.design/simple-icons/rails.svg" alt="Rails", width="20" />
+          <img src="https://api.iconify.design/devicon/rails.svg" alt="Rails", width="20" />
           Rails
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
-          <img src="https://api.iconify.design/simple-icons/ruby.svg" alt="Ruby", width="20" />
+          <img src="https://api.iconify.design/devicon/ruby.svg" alt="Ruby", width="20" />
           Ruby
         </a>
       </td>
@@ -302,25 +302,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
-          <img src="https://api.iconify.design/simple-icons/sinatra.svg" alt="Sinatra", width="20" />
+          <img src="https://api.iconify.design/devicon/sinatra.svg" alt="Sinatra", width="20" />
           Sinatra
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/flask?r=1">
-          <img src="https://api.iconify.design/simple-icons/flask.svg" alt="Flask", width="20" />
+          <img src="https://api.iconify.design/devicon/flask.svg" alt="Flask", width="20" />
           Flask
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/heroku/flask?r=1">
-          <img src="https://api.iconify.design/simple-icons/python.svg" alt="Python", width="20" />
+          <img src="https://api.iconify.design/devicon/python.svg" alt="Python", width="20" />
           Python
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/supabase/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/supabase.svg" alt="Supabase", width="20" />
+          <img src="https://api.iconify.design/devicon/supabase.svg" alt="Supabase", width="20" />
           Supabase
         </a>
       </td>
@@ -328,25 +328,25 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
     <tr>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/pulumi/nodejs?r=1">
-          <img src="https://api.iconify.design/simple-icons/pulumi.svg" alt="Pulumi", width="20" />
+          <img src="https://api.iconify.design/devicon/pulumi.svg" alt="Pulumi", width="20" />
           Pulumi
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/angular?r=1">
-          <img src="https://api.iconify.design/simple-icons/angular.svg" alt="Angular", width="20" />
+          <img src="https://api.iconify.design/devicon/angular.svg" alt="Angular", width="20" />
           Angular
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/nuxt?r=1">
-          <img src="https://api.iconify.design/simple-icons/nuxt.svg" alt="Nuxt", width="20" />
+          <img src="https://api.iconify.design/devicon/nuxt.svg" alt="Nuxt", width="20" />
           Nuxt
         </a>
       </td>
       <td align="left" valign="middle">
         <a href="https://www.dotenv.org/docs/integrations/vercel/vite?r=1">
-          <img src="https://api.iconify.design/simple-icons/vite.svg" alt="Vite", width="20" />
+          <img src="https://api.iconify.design/devicon/vite.svg" alt="Vite", width="20" />
           Vite
         </a>
       </td>
