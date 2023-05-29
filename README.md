@@ -933,9 +933,9 @@ dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 
 ## ❓ FAQ
 
-### Why is the `.env.vault` file not loading my environment variables successfully?
+### Why is the `.env.vault` file not decrypting my environment variables successfully?
 
-First, make sure you are using `dotenv@16.1.0` or greater. If you are using a language other than nodejs make sure you have installed one of the language libraries listed [below](#what-languages-does-this-work-with).
+First, make sure you are using `dotenv@16.1.0` or greater. (If you are using a different language make sure you have installed one of its [libraries](#what-languages-does-this-work-with).)
 
 Second, test decryption is working locally.
 
@@ -948,6 +948,7 @@ Third, test decryption on boot is working locally.
 
 ```bash
 $ DOTENV_KEY=dotenv://:key_1234..@dotenv.local/vault/.env.vault?environment=production npm start
+# boots your app with production envs
 ```
 
 ### Should I commit my `.env.vault` file?
