@@ -383,7 +383,7 @@ There's nothing else like it. [Node.JS](https://github.com/dotenv-org/dotenv-vau
 
 Visit <a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">tutorials/integrations</a> to learn more.
 
-## Security
+## 🔐 Security
 
 Learn more at
 
