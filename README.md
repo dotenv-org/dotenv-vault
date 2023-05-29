@@ -113,75 +113,34 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
 
 <sub>>>> More details toward end of <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
+(ℹ️ The above is what we call **🔐 Vault Managed**. If you would prefer to use **💻 Locally Managed** secrets, see the [faq](#-faq) below)
+
 ## 🌴 Manage Multiple Environments
 
-You have two options for managing multiple environments - **vault managed** or **locally managed**.
-
-Vault managed adds conveniences like backing up your .env file, secure sharing across your team, access permissions, and version history. Locally managed never makes a remote API call. It is completely managed on your machine. Choose what works best for you.
-
-#### 🔐 Vault Managed
-
-Sync your .env file. Run the push command and follow the instructions. [learn more](/docs/sync/quickstart)
+Sync your `.env` file. Run the push command and follow the instructions. [learn more](/docs/sync/quickstart)
 
 ```
-$ npx dotenv-vault push
+$ dotenv-vault push
 ```
 
-Manage multiple environments with the included UI. [learn more](/docs/tutorials/environments)
+After you've pushed your `.env` file, dotenv-vault automatically sets up multiple environments. Manage multiple environments with the included UI. [learn more](/docs/tutorials/environments)
 
 ```
-$ npx dotenv-vault open
+$ dotenv-vault open
 ```
 
-Build your `.env.vault` file with multiple environments.
+That's it! Manage your ci, staging, and production secrets from there. Rebuild your `.env.vault` file and redeploy when ready.
+
+
+Would you also like to pull your production `.env` to your machine? Run the command:
 
 ```
-$ npx dotenv-vault build
+$ dotenv-vault pull production
 ```
 
-Access your `DOTENV_KEY`.
+<sub>>>> More details at <a href="https://www.dotenv.org/docs/tutorials/environments?r=1">www.dotenv.org/docs/tutorials/environments</a></sub>
 
-```
-$ npx dotenv-vault keys
-```
-
-Set the production `DOTENV_KEY` on your server, recommit your `.env.vault` file to code, and deploy. That's it!
-
-#### 💻 Locally Managed
-
-Create a `.env.production` file in the root of your project and put your production values there.
-
-```
-# .env.production
-S3_BUCKET="PRODUCTION_S3BUCKET"
-SECRET_KEY="PRODUCTION_SECRETKEYGOESHERE"
-```
-
-Rebuild your `.env.vault` file.
-
-```
-$ npx dotenv-vault local build
-```
-
-Check your `.env.keys` file. There is a production `DOTENV_KEY` that coincides with the additional `DOTENV_VAULT_PRODUCTION` cipher in your `.env.vault` file.
-
-Set the production `DOTENV_KEY` on your server, recommit your `.env.vault` file to code, and deploy. That's it!
-
----
-
-After you've pushed your .env file, dotenv-vault automatically sets up multiple environments. Open an environment to view and edit its environment variables.
-
-```bash
-$ npx dotenv-vault open production
-```
-
-Edit those values. Would you also like to pull your production .env to your machine? Run the command:
-
-```
-$ npx dotenv-vault pull production
-```
-
-Visit [dotenv.org/docs/tutorials/environments](https://www.dotenv.org/docs/tutorials/environments?r=1) to learn more.
+(ℹ️ The above is what we call **🔐 Vault Managed**. If you would prefer to use **💻 Locally Managed** environments, see the [faq](#-faq) below)
 
 ## 📚 Examples
 
@@ -959,8 +918,8 @@ It safer than scattering your secrets across multiple cloud providers. Those pro
 
 Dotenv Vault's singular focus is secrets security, and as a result we go to great lengths to make sure your secrets are safe. Afterall, we keep our secrets here too.[2]
 
-* [1 CircleCI Breach](https://techcrunch.com/2023/01/05/circleci-breach/)
-* [2 Security at Dotenv Vault](https://www.dotenv.org/security)
+* [[1] CircleCI Breach](https://techcrunch.com/2023/01/05/circleci-breach/)
+* [[2] Security at Dotenv Vault](https://www.dotenv.org/security)
 
 ### What languages does this work with?
 
@@ -973,11 +932,9 @@ The `.env.vault` file and its encryption algorithm is language-agnostic so techn
 * [Python](https://github.com/dotenv-org/python-dotenv-vault)
 * [Ruby](https://github.com/dotenv-org/dotenv-vault-ruby)
 
-### Can I use a `.env.vault` file without trusting my secrets to dotenv-vault's cloud?
+### How do I use 💻 Locally Managed dotenv-vault?
 
-Yes! We call that local only and we've created a series of local commands that work without touching any third-party service like dotenv-vault's cloud.
-
-You can list them with.
+There are a series of **💻 Locally Managed** commands available to you. Locally managed never makes a remote API call. It is completely managed on your machine. **🔐 Vault Managed** adds conveniences like backing up your .env file, secure sharing across your team, access permissions, and version history. 💻 Locally Managed is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
 
 ```bash
 $ dotenv-vault help local
