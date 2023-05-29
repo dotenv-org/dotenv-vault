@@ -15,8 +15,6 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-<sub>>>> More details at <a href="https://www.dotenv.org/install/">www.dotenv.org/install</a></sub>
-
 <h4><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="40" /></h4>
 
 Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
@@ -49,11 +47,11 @@ Install and run commands via [npx](https://docs.npmjs.com/cli/v7/commands/npx)
 $ npx dotenv-vault help
 ```
 
+<sub>>>> More details at <a href="https://www.dotenv.org/install/">www.dotenv.org/install</a></sub>
+
 ## 🏗️ Usage
 
-<sub>>>> More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
-
-`cd` into your project root and push your `.env` file.
+Push your `.env` file.
 
 ```bash
 $ dotenv-vault push
@@ -67,7 +65,7 @@ $ git commit -am "Add .env.vault"
 $ git push
 ```
 
-Tell your teammates to pull the latest `.env` changes with the `pull` command.
+Pull the latest `.env` changes.
 
 ```bash
 $ git pull
@@ -75,6 +73,8 @@ $ dotenv-vault pull
 ```
 
 That's it! You securely backed-up and synced your `.env` file.
+
+<sub>>>> More details on <a href="https://www.dotenv.org/docs/quickstart?r=1">quickstart ⚡️ guide</a></sub>
 
 ## Multiple Environments
 
