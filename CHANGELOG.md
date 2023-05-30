@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.2...master)
+
+## [1.22.2](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.1...v1.22.2) (2023-05-30)
+
+### Removed
+
+- Removed `dotenv-vault-core`. It is deprecated as `dotenv >= 16.1.0` has added first-class support for `.env.vault` files
 
 ## [1.22.1](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.0...v1.22.1) (2023-05-30)
 

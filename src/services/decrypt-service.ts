@@ -1,7 +1,6 @@
 import {LogService} from '../services/log-service'
 
-import {config, DotenvConfigOutput} from 'dotenv'
-import {decrypt} from 'dotenv-vault-core'
+import {config, DotenvConfigOutput, decrypt} from 'dotenv'
 
 interface DecryptServiceAttrs {
   cmd;
