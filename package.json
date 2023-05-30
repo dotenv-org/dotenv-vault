@@ -24,7 +24,7 @@
     "@oclif/plugin-warn-if-update-available": "^2.0.36",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
-    "dotenv": "16.1.0"
+    "dotenv": "github:motdotla/dotenv#0d94e7181309042ebe71731f24fa8b97e73f481b"
   },
   "devDependencies": {
     "@oclif/test": "^2",
@@ -84,7 +84,7 @@
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
     "prepack": "yarn build && oclif manifest",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\""
+    "test": "tsc -b && mocha --forbid-only \"test/**/*.test.ts\""
   },
   "engines": {
     "node": ">=16"
