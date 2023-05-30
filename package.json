@@ -84,7 +84,7 @@
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
     "prepack": "yarn build && oclif manifest",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\""
+    "test": "tsc -b && mocha --forbid-only \"test/**/*.test.ts\""
   },
   "engines": {
     "node": ">=16"
