@@ -3,7 +3,7 @@ import {CliUx} from '@oclif/core'
 import {writeFileSync} from 'node:fs'
 import { fs } from 'memfs';
 
-import {config} from 'dotenv-vault-core'
+import {config} from 'dotenv'
 
 let testPath = 'test/.env'
 const dotenvKey = 'dotenv://:key_1111111111111111111111111111111111111111111111111111111111111111@dotenv.org/vault/.env.vault?environment=production'
@@ -25,7 +25,11 @@ describe('config', () => {
     const result = config({path: testPath})
     const parsed = result.parsed
 
-    expect(parsed.BASIC).to.equal('production')
+    if (parsed) {
+      expect(parsed.BASIC).to.equal('production')
+    } else {
+      throw 'parse is undefined'
+    }
   })
 
   it('parses the .env.vault#DOTENV_KEY staging data', () => {
@@ -34,7 +38,11 @@ describe('config', () => {
     const result = config({path: testPath})
     const parsed = result.parsed
 
-    expect(parsed.BASIC).to.equal('staging')
+    if (parsed) {
+      expect(parsed.BASIC).to.equal('staging')
+    } else {
+      throw 'parse is undefined'
+    }
   })
 
   it('has a short DOTENV_KEY', () => {
@@ -50,8 +58,11 @@ describe('config', () => {
 
     const result = config({path: testPath})
     const parsed = result.parsed
-
-    expect(parsed.BASIC).to.equal('basic')
+    if (parsed) {
+      expect(parsed.BASIC).to.equal('basic')
+    } else {
+      throw 'parse is undefined'
+    }
   })
 
   it('has an incorrect DOTENV_KEY', () => {

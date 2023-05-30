@@ -1,5 +1,5 @@
 import run from '@oclif/core'
-import {config} from 'dotenv-vault-core'
+import {config} from 'dotenv'
 
 export {
   config,
