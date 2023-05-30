@@ -2,9 +2,9 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.0...master)
 
-## [1.22.2](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.1...v1.22.2) (2023-05-30)
+## [1.23.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.22.1...v1.23.0) (2023-05-30)
 
 ### Removed
 
