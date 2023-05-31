@@ -74,7 +74,7 @@ class LocalBuildService {
   get keys(): any {
     const keys = {}
     // grab current .env.keys
-    const parsed = (dotenv.config({path: this.keysName}).parsed || {})
+    const parsed = (dotenv.configDotenv({path: this.keysName}).parsed || {})
 
     for (const file in this.envLookups) {
       if (Object.prototype.hasOwnProperty.call(this.envLookups, file)) {

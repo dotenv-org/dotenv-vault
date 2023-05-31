@@ -1,6 +1,6 @@
 import {LogService} from '../../services/log-service'
 
-import {config, DotenvConfigOutput, decrypt} from 'dotenv'
+import {configDotenv, DotenvConfigOutput, decrypt} from 'dotenv'
 
 interface LocalDecryptServiceAttrs {
   cmd;
@@ -25,7 +25,7 @@ class LocalDecryptService {
   }
 
   async run(): Promise<void> {
-    const result = config({path: this.vaultPath})
+    const result = configDotenv({path: this.vaultPath})
     const keys = this.dotenvKey.split(',')
     const length = keys.length
 

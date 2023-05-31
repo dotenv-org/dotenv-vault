@@ -24,7 +24,7 @@ export class Vars {
   }
 
   get vaultValue(): string {
-    return (dotenv.config({path: vars.vaultFilename}).parsed || {})[vars.vaultKey]
+    return (dotenv.configDotenv({path: vars.vaultFilename}).parsed || {})[vars.vaultKey]
   }
 
   get existingEnvVault(): boolean {
@@ -68,7 +68,7 @@ export class Vars {
   }
 
   get meValue(): string {
-    return (dotenv.config({path: '.env.me'}).parsed || {}).DOTENV_ME
+    return (dotenv.configDotenv({path: '.env.me'}).parsed || {}).DOTENV_ME
   }
 
   missingEnv(filename: string | any = '.env'): boolean {

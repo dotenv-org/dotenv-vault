@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.1...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.2...master)
+
+## [1.23.2](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.2...v1.23.1) (2023-05-31)
+
+### Changed
+
+- 🐞 Fix regression when running commands dependent on reading from `.env.vault` and `.env.keys` files. [#281](https://github.com/dotenv-org/dotenv-vault/pull/281)
 
 ## [1.23.1](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.1...v1.23.0) (2023-05-30)
 
