@@ -81,7 +81,7 @@ class LocalKeysService {
 
   get keyRows(): any {
     // Read and parse from .env.keys
-    const parsed = (dotenv.config({path: this.keysName}).parsed || {})
+    const parsed = (dotenv.configDotenv({path: this.keysName}).parsed || {})
 
     const rows: { environment: string; key: string; }[] = []
 
