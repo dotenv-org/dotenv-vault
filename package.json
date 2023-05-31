@@ -24,7 +24,7 @@
     "@oclif/plugin-warn-if-update-available": "^2.0.36",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
-    "dotenv": "github:motdotla/dotenv#0d94e7181309042ebe71731f24fa8b97e73f481b"
+    "dotenv": "^16.1.1"
   },
   "devDependencies": {
     "@oclif/test": "^2",
