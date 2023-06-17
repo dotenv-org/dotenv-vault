@@ -3,7 +3,8 @@ import {existsSync, readFileSync} from 'fs'
 
 export class Vars {
   get apiUrl(): string {
-    return process.env.DOTENV_API_URL || 'https://vault.dotenv.org'
+    // read from process.env first, then .env.vault configuration file first, then default
+    return process.env.DOTENV_API_URL || this.vaultParsed.DOTENV_API_URL || 'https://vault.dotenv.org'
   }
 
   get vaultFilename(): string {
@@ -23,8 +24,12 @@ export class Vars {
     return 'DOTENV_VAULT'
   }
 
+  get vaultParsed(): Record<string, any> {
+    return dotenv.configDotenv({path: vars.vaultFilename}).parsed || {}
+  }
+
   get vaultValue(): string {
-    return (dotenv.configDotenv({path: vars.vaultFilename}).parsed || {})[vars.vaultKey]
+    return this.vaultParsed[vars.vaultKey]
   }
 
   get existingEnvVault(): boolean {
