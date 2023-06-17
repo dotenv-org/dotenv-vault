@@ -88,7 +88,7 @@ class BuildService {
       this.log.plain('2. Set DOTENV_KEY on server')
       this.log.plain('3. Deploy your code')
       this.log.plain('')
-      this.log.plain(`(run ${chalk.bold('npx dotenv-vault keys')} to view DOTENV_KEYs)`)
+      this.log.plain(`(run ${chalk.bold(`${vars.cli} keys`)} to view DOTENV_KEYs)`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null

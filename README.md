@@ -47,7 +47,7 @@ $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 Install and run commands via [npx](https://docs.npmjs.com/cli/v7/commands/npx)
 
 ```shell
-$ npx dotenv-vault help
+$ npx dotenv-vault@latest help
 ```
 
 <a href="https://www.dotenv.org/install/">Learn more about installation</a>
@@ -414,7 +414,7 @@ Create your project at Dotenv Vault.
 Example:
 
 ```bash
-$ npx dotenv-vault new
+$ npx dotenv-vault@latest new
 ```
 
 ##### ARGUMENTS
@@ -424,7 +424,7 @@ $ npx dotenv-vault new
 Set .env.vault identifier. Defaults to generated value.
 
 ```
-$ npx dotenv-vault new vlt_6beaae5…
+$ npx dotenv-vault@latest new vlt_6beaae5…
 local:    Adding .env.vault (DOTENV_VAULT)... done
 local:    Added to .env.vault (DOTENV_VAULT=vlt_6beaa...)
 ```
@@ -444,7 +444,7 @@ Log in to dotenv-vault.
 Example:
 
 ```bash
-$ npx dotenv-vault login
+$ npx dotenv-vault@latest login
 ```
 
 ##### ARGUMENTS
@@ -454,7 +454,7 @@ $ npx dotenv-vault login
 Set .env.me identifier. Defaults to generated value.
 
 ```
-$ npx dotenv-vault login me_00c7fa…
+$ npx dotenv-vault@latest login me_00c7fa…
 ```
 
 ##### FLAGS
@@ -464,7 +464,7 @@ $ npx dotenv-vault login me_00c7fa…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault login -y
+$ npx dotenv-vault@latest login -y
 ```
 
 ---
@@ -476,7 +476,7 @@ Log out of dotenv-vault.
 Example:
 
 ```bash
-$ npx dotenv-vault logout
+$ npx dotenv-vault@latest logout
 ```
 
 ##### FLAGS
@@ -486,7 +486,7 @@ $ npx dotenv-vault logout
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault logout -y
+$ npx dotenv-vault@latest logout -y
 ```
 
 ---
@@ -498,7 +498,7 @@ Push `.env` securely.
 Example:
 
 ```bash
-$ npx dotenv-vault push
+$ npx dotenv-vault@latest push
 ```
 
 ##### ARGUMENTS
@@ -508,7 +508,7 @@ $ npx dotenv-vault push
 Set environment to push to. Defaults to development
 
 ```
-$ npx dotenv-vault push production
+$ npx dotenv-vault@latest push production
 ```
 
 *[FILENAME]*
@@ -516,7 +516,7 @@ $ npx dotenv-vault push production
 Set input filename. Defaults to .env for development and .env.{environment} for other environments
 
 ```
-$ npx dotenv-vault push production .env.production
+$ npx dotenv-vault@latest push production .env.production
 ```
 
 ##### FLAGS
@@ -526,7 +526,7 @@ $ npx dotenv-vault push production .env.production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault push --dotenvMe=me_b1831e…
+$ npx dotenv-vault@latest push --dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -534,7 +534,7 @@ $ npx dotenv-vault push --dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault push -y
+$ npx dotenv-vault@latest push -y
 ```
 
 ---
@@ -546,7 +546,7 @@ Pull `.env` securely.
 Example:
 
 ```bash
-$ npx dotenv-vault pull
+$ npx dotenv-vault@latest pull
 ```
 
 ##### ARGUMENTS
@@ -556,7 +556,7 @@ $ npx dotenv-vault pull
 Set environment to pull from. Defaults to development
 
 ```
-$ npx dotenv-vault pull production
+$ npx dotenv-vault@latest pull production
 ```
 
 *[FILENAME]*
@@ -564,7 +564,7 @@ $ npx dotenv-vault pull production
 Set output filename. Defaults to .env for development and .env.{environment} for other environments
 
 ```
-$ npx dotenv-vault pull production .env.production
+$ npx dotenv-vault@latest pull production .env.production
 ```
 
 ##### FLAGS
@@ -574,7 +574,7 @@ $ npx dotenv-vault pull production .env.production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault pull --dotenvMe=me_b1831e…
+$ npx dotenv-vault@latest pull --dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -582,13 +582,13 @@ $ npx dotenv-vault pull --dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault pull -y
+$ npx dotenv-vault@latest pull -y
 ```
 
 If you want to pull a specific version you can do so. For example,
 
 ```
-npx dotenv-vault pull development@v14
+npx dotenv-vault@latest pull development@v14
 ```
 
 ---
@@ -600,7 +600,7 @@ Open project page.
 Example:
 
 ```bash
-$ npx dotenv-vault open
+$ npx dotenv-vault@latest open
 ```
 
 ##### ARGUMENTS
@@ -610,7 +610,7 @@ $ npx dotenv-vault open
 Set environment to open to. Defaults to development.
 
 ```
-$ npx dotenv-vault open production
+$ npx dotenv-vault@latest open production
 ```
 
 ##### FLAGS
@@ -620,7 +620,7 @@ $ npx dotenv-vault open production
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault open -y
+$ npx dotenv-vault@latest open -y
 ```
 
 ---
@@ -632,7 +632,7 @@ Display the current logged in user.
 Example:
 
 ```bash
-$ npx dotenv-vault whoami
+$ npx dotenv-vault@latest whoami
 ```
 
 ##### FLAGS
@@ -642,7 +642,7 @@ $ npx dotenv-vault whoami
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault whoami dotenvMe=me_b1831e…
+$ npx dotenv-vault@latest whoami dotenvMe=me_b1831e…
 ```
 
 ---
@@ -654,7 +654,7 @@ Build .env.vault file.
 Example:
 
 ```bash
-$ npx dotenv-vault build
+$ npx dotenv-vault@latest build
 ```
 
 ##### FLAGS
@@ -664,7 +664,7 @@ $ npx dotenv-vault build
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault build dotenvMe=me_b1831e…
+$ npx dotenv-vault@latest build dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -672,7 +672,7 @@ $ npx dotenv-vault build dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault build -y
+$ npx dotenv-vault@latest build -y
 ```
 
 ---
@@ -684,7 +684,7 @@ List .env.vault decryption keys.
 Example:
 
 ```bash
-$ npx dotenv-vault keys
+$ npx dotenv-vault@latest keys
 ```
 
 ##### ARGUMENTS
@@ -694,7 +694,7 @@ $ npx dotenv-vault keys
 Set environment. Defaults to all.
 
 ```
-$ npx dotenv-vault keys production…
+$ npx dotenv-vault@latest keys production…
 remote:   Listing .env.vault decryption keys... done
 dotenv://:key_899..@dotenv.org/vault/.env.vault?environment=production
 ```
@@ -706,7 +706,7 @@ dotenv://:key_899..@dotenv.org/vault/.env.vault?environment=production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault keys dotenvMe=me_b1831e…
+$ npx dotenv-vault@latest keys dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -714,7 +714,7 @@ $ npx dotenv-vault keys dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault keys -y
+$ npx dotenv-vault@latest keys -y
 ```
 
 ---
@@ -726,7 +726,7 @@ Rotate DOTENV_KEY.
 Example:
 
 ```bash
-$ npx dotenv-vault rotatekey production
+$ npx dotenv-vault@latest rotatekey production
 ```
 
 ##### FLAGS
@@ -736,7 +736,7 @@ $ npx dotenv-vault rotatekey production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault rotatekey dotenvMe=me_b1831e…
+$ npx dotenv-vault@latest rotatekey dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -744,7 +744,7 @@ $ npx dotenv-vault rotatekey dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault rotatekey -y
+$ npx dotenv-vault@latest rotatekey -y
 ```
 
 ---
@@ -756,7 +756,7 @@ Decrypt .env.vault locally.
 Example:
 
 ```bash
-$ npx dotenv-vault decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
+$ npx dotenv-vault@latest decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
 ```
 
 ##### ARGUMENTS
@@ -766,7 +766,7 @@ $ npx dotenv-vault decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?enviro
 Set `DOTENV_KEY` to decrypt .env.vault. Development key will decrypt development, production will decrypt production, and so on.
 
 ```
-$ npx dotenv-vault decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
+$ npx dotenv-vault@latest decrypt dotenv://:key_1234@dotenv.org/vault/.env.vault?environment=development
 ```
 
 ---
@@ -778,7 +778,7 @@ List version history.
 Example:
 
 ```bash
-$ npx dotenv-vault versions
+$ npx dotenv-vault@latest versions
 ```
 
 ##### ARGUMENTS
@@ -788,7 +788,7 @@ $ npx dotenv-vault versions
 Set environment to check versions against. Defaults to development.
 
 ```
-$ npx dotenv-vault versions production
+$ npx dotenv-vault@latest versions production
 ```
 
 ##### FLAGS
@@ -798,7 +798,7 @@ $ npx dotenv-vault versions production
 Pass .env.me (DOTENV_ME) credential directly (rather than reading from .env.me file)
 
 ```
-$ npx dotenv-vault versions dotenvMe=me_b1831e…
+$ npx dotenv-vault@latest versions dotenvMe=me_b1831e…
 ```
 
 *-y, --yes*
@@ -806,13 +806,13 @@ $ npx dotenv-vault versions dotenvMe=me_b1831e…
 Automatic yes to prompts. Assume yes to all prompts and run non-interactively.
 
 ```
-$ npx dotenv-vault versions -y
+$ npx dotenv-vault@latest versions -y
 ```
 
 If you want to pull a specific version you can do so. For example,
 
 ```
-npx dotenv-vault pull development@v14
+npx dotenv-vault@latest pull development@v14
 ```
 
 ---
@@ -824,7 +824,7 @@ Build .env.vault from local only
 Example:
 
 ```bash
-$ npx dotenv-vault local build
+$ npx dotenv-vault@latest local build
 ```
 
 This will encrypt the contents of your `.env` file and any `.env.ENVIRONMENT` files you have locally into your `.env.vault` file.
@@ -836,7 +836,7 @@ Decrypt .env.vault from local only
 Example:
 
 ```bash
-$ npx dotenv-vault local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
+$ npx dotenv-vault@latest local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
 ```
 
 ##### ARGUMENTS
@@ -846,7 +846,7 @@ $ npx dotenv-vault local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vaul
 Set `DOTENV_KEY` to decrypt .env.vault. Development key will decrypt development, production will decrypt production, and so on.
 
 ```
-$ npx dotenv-vault local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
+$ npx dotenv-vault@latest local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
 ```
 
 ### `local keys`
@@ -856,7 +856,7 @@ List .env.vault local decryption keys from .env.keys file
 Example:
 
 ```bash
-$ npx dotenv-vault local keys
+$ npx dotenv-vault@latest local keys
 local:    Listing .env.vault decryption keys from .env.keys... done
  environment DOTENV_KEY
  ─────────── ────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -871,7 +871,7 @@ local:    Listing .env.vault decryption keys from .env.keys... done
 Set `ENVIRONMENT` to output a single environment's DOTENV_KEY.
 
 ```
-$ npx dotenv-vault local keys development…
+$ npx dotenv-vault@latest local keys development…
 local:    Listing .env.vault decryption keys from .env.keys... done
 dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 ```
