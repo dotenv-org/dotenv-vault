@@ -61,7 +61,7 @@ class NewService {
       writeFileSync(vars.vaultFilename, this.vaultFileContent(this.dotenvVault))
       this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${this.dotenvVault.slice(0, 9)}...)`)
       this.log.plain('')
-      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault login')}`)
+      this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
 
       return
     }
@@ -115,7 +115,7 @@ class NewService {
         writeFileSync(vars.vaultFilename, this.vaultFileContent(vaultUid))
         this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${vaultUid.slice(0, 9)}...)`)
         this.log.plain('')
-        this.log.plain(`Next run ${chalk.bold('npx dotenv-vault login')}`)
+        this.log.plain(`Next run ${chalk.bold('npx dotenv-vault@latest login')}`)
       } else if (this.checkCount < 50) {
         // 404 - keep trying
         await CliUx.ux.wait(2000) // check every 2 seconds
@@ -128,18 +128,20 @@ class NewService {
   }
 
   vaultFileContent(value: string): string {
-    const s = `#################################################################################
-#                                                                               #
-#          This file uniquely identifies your project in dotenv-vault.          #
-#               You SHOULD commit this file to source control.                  #
-#                                                                               #
-#                    Generated with 'npx dotenv-vault new'                      #
-#                                                                               #
-#                 Learn more at https://dotenv.org/env-vault                    #
-#                                                                               #
-#################################################################################
+    const s = `#/-------------------.env.vault---------------------/
+#/         cloud-agnostic vaulting standard         /
+#/   [how it works](https://dotenv.org/env-vault)   /
+#/--------------------------------------------------/
 
-${vars.vaultKey}=${value}
+# Encrypted environment variables will be generated here after you run the login, push, and build commands.
+#
+# Next run npx dotenv-vault@latest login
+#
+# Enjoy. 🌴
+
+# Settings
+${vars.vaultKey}="${value}"
+DOTENV_API_URL="${vars.apiUrl}"
 `
 
     return s
