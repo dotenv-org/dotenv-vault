@@ -102,7 +102,7 @@ class VersionsService {
       })
 
       this.log.plain('')
-      this.log.plain(`Pull a version with ${chalk.bold(`npx dotenv-vault pull ${environment}@${versions[0].version}`)}`)
+      this.log.plain(`Pull a version with ${chalk.bold(`${vars.cliCommand} pull ${environment}@${versions[0].version}`)}`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null

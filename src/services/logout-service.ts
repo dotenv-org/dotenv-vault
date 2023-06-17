@@ -82,7 +82,7 @@ class LogoutService {
         this.log.local(`Revoked .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
         if (tip) {
           this.log.plain('')
-          this.log.plain(`Run ${chalk.bold('npx dotenv-vault login')} to generate a new credential (.env.me)`)
+          this.log.plain(`Run ${chalk.bold(`${vars.cliCommand} login`)} to generate a new credential (.env.me)`)
         }
       } else if (this.checkCount < 50) {
         // 404 - keep trying

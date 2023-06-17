@@ -1,4 +1,5 @@
 import {LogService} from '../../services/log-service'
+import {vars} from '../../vars'
 
 import {configDotenv, DotenvConfigOutput, decrypt} from 'dotenv'
 
@@ -73,12 +74,12 @@ class LocalDecryptService {
     // Get ciphertext payload
     const environmentKey = `DOTENV_VAULT_${environment.toUpperCase()}`
     if (!result.parsed) {
-      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run 'npx dotenv-vault build' to include it.`)
+      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run '${vars.cliCommand} local build' to include it.`)
     }
 
     const ciphertext = result.parsed[environmentKey] // DOTENV_VAULT_PRODUCTION
     if (!ciphertext) {
-      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run 'npx dotenv-vault build' to include it.`)
+      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run '${vars.cliCommand} local build' to include it.`)
     }
 
     return {ciphertext, key}

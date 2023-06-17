@@ -1,6 +1,7 @@
 import * as crypto from 'crypto'
 import * as dotenv from 'dotenv'
 import chalk from 'chalk'
+import {vars} from '../../vars'
 import {writeFileSync, readFileSync, readdirSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../../services/append-to-dockerignore-service'
@@ -52,7 +53,7 @@ class LocalBuildService {
   }
 
   get vaultData(): string {
-    let vaultData = '# .env.vault (generated with npx dotenv-vault local build)\n'
+    let vaultData = `# .env.vault (generated with ${vars.cliCommand} local build)\n`
 
     for (const file in this.envLookups) {
       if (Object.prototype.hasOwnProperty.call(this.envLookups, file)) {
@@ -96,7 +97,7 @@ class LocalBuildService {
   }
 
   get keysData(): string {
-    let keysData = '# DOTENV_KEYs (generated with npx dotenv-vault local build)\n'
+    let keysData = `# DOTENV_KEYs (generated with ${vars.cliCommand} local build)\n`
 
     for (const key in this.keys) {
       if (Object.prototype.hasOwnProperty.call(this.keys, key)) {

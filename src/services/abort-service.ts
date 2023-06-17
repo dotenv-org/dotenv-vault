@@ -52,7 +52,7 @@ class AbortService {
     this.error(`Missing ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'MISSING_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault new')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} new`)}`],
     })
   }
 
@@ -60,7 +60,7 @@ class AbortService {
     this.error(`Empty ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'EMPTY_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault new')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} new`)}`],
     })
   }
 
@@ -68,7 +68,7 @@ class AbortService {
     this.error(`Invalid ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'INVALID_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault new')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} new`)}`],
     })
   }
 
@@ -76,7 +76,7 @@ class AbortService {
     this.error(`Existing ${vars.vaultFilename} (${vars.vaultKey}).`, {
       code: 'EXISTING_DOTENV_VAULT',
       ref: '',
-      suggestions: [`Delete ${vars.vaultFilename} and then run, ${chalk.bold('npx dotenv-vault new')}`],
+      suggestions: [`Delete ${vars.vaultFilename} and then run, ${chalk.bold(`${vars.cliCommand} new`)}`],
     })
   }
 
@@ -84,7 +84,7 @@ class AbortService {
     this.error('Invalid .env.me (DOTENV_ME).', {
       code: 'INVALID_DOTENV_ME',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault login')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} login`)}`],
     })
   }
 
@@ -92,7 +92,7 @@ class AbortService {
     this.error('Missing .env.me (DOTENV_ME).', {
       code: 'MISSING_DOTENV_ME',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault login')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} login`)}`],
     })
   }
 
@@ -100,7 +100,7 @@ class AbortService {
     this.error('Empty .env.me (DOTENV_ME).', {
       code: 'EMPTY_DOTENV_ME',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault login')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} login`)}`],
     })
   }
 
@@ -108,7 +108,7 @@ class AbortService {
     this.error(`Missing ${filename}.`, {
       code: 'MISSING_ENV_FILE',
       ref: '',
-      suggestions: [`Create it (touch ${filename}) and then try again. Or run, ${chalk.bold('npx dotenv-vault pull')}`],
+      suggestions: [`Create it (touch ${filename}) and then try again. Or run, ${chalk.bold(`${vars.cliCommand} pull`)}`],
     })
   }
 
@@ -116,7 +116,7 @@ class AbortService {
     this.error(`Empty ${filename}.`, {
       code: 'EMPTY_ENV_FILE',
       ref: '',
-      suggestions: [`Populate ${filename} with values and then try again. Or run, ${chalk.bold('npx dotenv-vault pull')}`],
+      suggestions: [`Populate ${filename} with values and then try again. Or run, ${chalk.bold(`${vars.cliCommand} pull`)}`],
     })
   }
 
@@ -124,7 +124,7 @@ class AbortService {
     this.error('Missing .env.keys file', {
       code: 'MISSING_DOTENV_KEYS',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault local build')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} local build`)}`],
     })
   }
 
@@ -132,7 +132,7 @@ class AbortService {
     this.error('Empty .env.keys file.', {
       code: 'EMPTY_DOTENV_KEYS',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('npx dotenv-vault local build')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cliCommand} local build`)}`],
     })
   }
 }
