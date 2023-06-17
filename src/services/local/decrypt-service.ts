@@ -74,12 +74,12 @@ class LocalDecryptService {
     // Get ciphertext payload
     const environmentKey = `DOTENV_VAULT_${environment.toUpperCase()}`
     if (!result.parsed) {
-      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run '${vars.cliCommand} local build' to include it.`)
+      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run '${vars.cli} local build' to include it.`)
     }
 
     const ciphertext = result.parsed[environmentKey] // DOTENV_VAULT_PRODUCTION
     if (!ciphertext) {
-      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run '${vars.cliCommand} local build' to include it.`)
+      throw new Error(`NOT_FOUND_DOTENV_ENVIRONMENT: Cannot locate environment ${environmentKey} in your .env.vault file. Run '${vars.cli} local build' to include it.`)
     }
 
     return {ciphertext, key}

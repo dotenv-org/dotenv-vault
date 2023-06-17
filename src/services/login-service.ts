@@ -64,7 +64,7 @@ class LoginService {
       writeFileSync('.env.me', this.meFileContent(this.dotenvMe))
       this.log.local(msg)
       this.log.plain('')
-      this.log.plain(`Next run ${chalk.bold(`${vars.cliCommand} pull`)} or ${chalk.bold(`${vars.cliCommand} push`)}`)
+      this.log.plain(`Next run ${chalk.bold(`${vars.cli} pull`)} or ${chalk.bold(`${vars.cli} push`)}`)
 
       return
     }
@@ -121,7 +121,7 @@ class LoginService {
         this.log.local(msg)
         if (tip) {
           this.log.plain('')
-          this.log.plain(`Next run ${chalk.bold(`${vars.cliCommand} open`)}`)
+          this.log.plain(`Next run ${chalk.bold(`${vars.cli} open`)}`)
         }
       } else if (this.checkCount < 50) {
         // 404 - keep trying
@@ -140,7 +140,7 @@ class LoginService {
 #    This file uniquely authorizes you against this project in dotenv-vault.    #
 #                 Do NOT commit this file to source control.                    #
 #                                                                               #
-#                  Generated with '${vars.cliCommand} login'                      #
+#                  Generated with '${vars.cli} login'                      #
 #                                                                               #
 #                  Learn more at https://dotenv.org/env-me                      #
 #                                                                               #

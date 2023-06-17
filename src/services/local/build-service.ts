@@ -53,7 +53,7 @@ class LocalBuildService {
   }
 
   get vaultData(): string {
-    let vaultData = `# .env.vault (generated with ${vars.cliCommand} local build)\n`
+    let vaultData = `# .env.vault (generated with ${vars.cli} local build)\n`
 
     for (const file in this.envLookups) {
       if (Object.prototype.hasOwnProperty.call(this.envLookups, file)) {
@@ -97,7 +97,7 @@ class LocalBuildService {
   }
 
   get keysData(): string {
-    let keysData = `# DOTENV_KEYs (generated with ${vars.cliCommand} local build)\n`
+    let keysData = `# DOTENV_KEYs (generated with ${vars.cli} local build)\n`
 
     for (const key in this.keys) {
       if (Object.prototype.hasOwnProperty.call(this.keys, key)) {

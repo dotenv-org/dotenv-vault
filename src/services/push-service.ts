@@ -107,7 +107,7 @@ class PushService {
       }
 
       this.log.plain('')
-      this.log.plain(`Run ${chalk.bold(`${vars.cliCommand} open`)} to view in the ui`)
+      this.log.plain(`Run ${chalk.bold(`${vars.cli} open`)} to view in the ui`)
     } catch (error) {
       CliUx.ux.action.stop('aborting')
       let errorMessage = null

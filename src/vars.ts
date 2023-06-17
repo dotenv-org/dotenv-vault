@@ -2,12 +2,13 @@ import * as dotenv from 'dotenv'
 import {existsSync, readFileSync} from 'fs'
 
 export class Vars {
-  get cliCommand(): string {
-    return "npx dotenv-vault@latest"
+  get cli(): string {
+    // read from process.env first, then .env.vault settings, then default
+    return process.env.DOTENV_CLI || this.vaultParsed.DOTENV_CLI || 'npx dotenv-vault@latest'
   }
 
   get apiUrl(): string {
-    // read from process.env first, then .env.vault configuration file first, then default
+    // read from process.env first, then .env.vault settings, then default
     return process.env.DOTENV_API_URL || this.vaultParsed.DOTENV_API_URL || 'https://vault.dotenv.org'
   }
 
