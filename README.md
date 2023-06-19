@@ -18,6 +18,14 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
+The easiest way to install and run dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) (npx makes it easy to use CLI tools)
+
+```shell
+$ npx dotenv-vault@latest help
+```
+
+If you do not have [NodeJS](https://nodejs.org/en) on your machine, you can install dotenv-vault in any of the other following ways.
+
 <h4><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="40" /></h4>
 
 Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
@@ -40,14 +48,6 @@ Install and run commands via [Docker](https://hub.docker.com/r/dotenv/dotenv-vau
 
 ```bash
 $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
-```
-
-<h4><img alt="npm icon" src="https://api.iconify.design/fontisto/npm.svg" width="40" /></h4>
-
-Install and run commands via [npx](https://docs.npmjs.com/cli/v7/commands/npx)
-
-```shell
-$ npx dotenv-vault@latest help
 ```
 
 <a href="https://www.dotenv.org/install/">Learn more about installation</a>
