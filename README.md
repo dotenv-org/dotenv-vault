@@ -18,21 +18,22 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-<h4><img alt="npm icon" src="https://api.iconify.design/fontisto/npm.svg" width="60" /></h4>
+<img src="https://api.iconify.design/fontisto/npm.svg" alt="npx" align="right" width="150" />
 
-The easiest (and our recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) (npx makes it easy to use CLI tools)
+The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) (npx makes it easy to use CLI tools)
 
 ```shell
 $ npx dotenv-vault@latest help
+$ npx dotenv-vault@latest new
+$ npx dotenv-vault@latest push
+$ npx dotenv-vault@latest build
 ```
 
 #### Other Installation Methods
 
 If you do not have [NodeJS](https://nodejs.org/en) on your machine, you can install dotenv-vault in any of the other following ways.
 
-<img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" />
-
-Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
+<p><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" /> Install via <a href="https://github.com/dotenv-org/homebrew-brew">Homebrew</a></p>
 
 ```bash
 $ brew install dotenv-org/brew/dotenv-vault
