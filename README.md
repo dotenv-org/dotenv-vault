@@ -31,8 +31,7 @@ $ npx dotenv-vault@latest build
 
 *npx makes it easy to use CLI tools. It requires NodeJS and npm. See below for other methods of installation.*
 
-#### Other Installation Methods
-
+#### Other Ways to Install
 
 <p><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" /> Install via <a href="https://github.com/dotenv-org/homebrew-brew">Homebrew</a></p>
 
