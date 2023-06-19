@@ -28,9 +28,11 @@ The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.
 $ npx dotenv-vault@latest push
 ```
 
-*npx makes it easy to use CLI tools, but it requires NodeJS and npm. See below for other methods of installation.*
+That's it! You securely backed-up and synced your `.env` file.
 
 ---
+
+*npx makes it easy to use CLI tools, but it requires NodeJS and npm. See below for other methods of installation.*
 
 #### Other Ways to Install
 
