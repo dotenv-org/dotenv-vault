@@ -24,14 +24,10 @@ The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.
 
 ```shell
 $ npx dotenv-vault@latest new
-```
 
-```shell
 $ npx dotenv-vault@latest push
-```
 
-```shell
-$ npx dotenv-vault@latest build
+$ npx dotenv-vault@latest pull
 ```
 
 *npx makes it easy to use CLI tools. It requires NodeJS and npm. See below for other methods of installation.*
