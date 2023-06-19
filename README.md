@@ -18,9 +18,9 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-<img src="https://api.iconify.design/fontisto/npm.svg" alt="npx" align="right" width="150" />
+<img src="https://api.iconify.design/fontisto/npm.svg" alt="npx" align="right" width="200" />
 
-The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) (npx makes it easy to use CLI tools)
+The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) 
 
 ```shell
 $ npx dotenv-vault@latest help
@@ -28,6 +28,10 @@ $ npx dotenv-vault@latest new
 $ npx dotenv-vault@latest push
 $ npx dotenv-vault@latest build
 ```
+
+npx makes it easy to use CLI tools.
+
+<a href="https://www.dotenv.org/install/">Learn more about installation</a>
 
 #### Other Installation Methods
 
@@ -40,22 +44,16 @@ $ brew install dotenv-org/brew/dotenv-vault
 $ dotenv-vault help
 ```
 
-<img alt="windows icon" src="https://api.iconify.design/mdi/windows.svg" width="20" />
-
-Install on [Windows](https://dotenv-vault-assets.dotenv.org/)
+<p><img alt="windows icon" src="https://api.iconify.design/mdi/windows.svg" width="20" /> Install on <a href="https://dotenv-vault-assets.dotenv.org">Windows</a></p>
 
 * [32-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x86.exe)
 * [64-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x64.exe)
 
-<img alt="docker icon" src="https://api.iconify.design/mdi/docker.svg" width="20" />
-
-Install and run commands via [Docker](https://hub.docker.com/r/dotenv/dotenv-vault)
+<p><img alt="docker icon" src="https://api.iconify.design/mdi/docker.svg" width="20" /> Install and run commands via <a href="https://hub.docker.com/r/dotenv/dotenv-vault">Docker</a></p>
 
 ```bash
 $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 ```
-
-<a href="https://www.dotenv.org/install/">Learn more about installation</a>
 
 ## 🏗️ Usage
 
