@@ -24,6 +24,10 @@ The recommended (and easiest) way to use dotenv-vault is via [npx](https://docs.
 
 ```shell
 $ npx dotenv-vault@latest push
+
+remote:   Securely pushing (.env)... done
+remote:   Securely pushed development (.env)
+remote:   Securely built vault (.env.vault)
 ```
 
 That's it! You securely backed-up and synced your `.env` file.
