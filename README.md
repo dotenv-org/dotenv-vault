@@ -18,7 +18,9 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-The easiest way to install and run dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) (npx makes it easy to use CLI tools)
+<h4><img alt="npm icon" src="https://api.iconify.design/fontisto/npm.svg" width="40" /></h4>
+
+The easiest (and our recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) (npx makes it easy to use CLI tools)
 
 ```shell
 $ npx dotenv-vault@latest help
