@@ -143,6 +143,7 @@ class NewService {
 # Settings
 ${vars.vaultKey}="${value}"
 DOTENV_API_URL="${vars.apiUrl}"
+DOTENV_CLI="${vars.cli}"
 `
 
     return s
