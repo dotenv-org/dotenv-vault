@@ -32,6 +32,8 @@ remote:   Securely built vault (.env.vault)
 
 That's it! You securely backed-up and synced your `.env` file.
 
+After installing, see further [usage](#%EF%B8%8F-usage) and [commands](#-commands).
+
 ---
 
 #### Other Ways to Install
