@@ -18,7 +18,7 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 ## 🌱 Install
 
-<h4><img alt="npm icon" src="https://api.iconify.design/fontisto/npm.svg" width="40" /></h4>
+<h4><img alt="npm icon" src="https://api.iconify.design/fontisto/npm.svg" width="60" /></h4>
 
 The easiest (and our recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) (npx makes it easy to use CLI tools)
 
@@ -26,9 +26,11 @@ The easiest (and our recommended) way to use dotenv-vault is via [npx](https://d
 $ npx dotenv-vault@latest help
 ```
 
+#### Other Installation Methods
+
 If you do not have [NodeJS](https://nodejs.org/en) on your machine, you can install dotenv-vault in any of the other following ways.
 
-<h4><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="40" /></h4>
+<img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" />
 
 Install via [Homebrew](https://github.com/dotenv-org/homebrew-brew)
 
@@ -37,14 +39,14 @@ $ brew install dotenv-org/brew/dotenv-vault
 $ dotenv-vault help
 ```
 
-<h4><img alt="windows icon" src="https://api.iconify.design/mdi/windows.svg" width="40" /></h4>
+<img alt="windows icon" src="https://api.iconify.design/mdi/windows.svg" width="20" />
 
 Install on [Windows](https://dotenv-vault-assets.dotenv.org/)
 
 * [32-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x86.exe)
 * [64-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x64.exe)
 
-<h4><img alt="docker icon" src="https://api.iconify.design/mdi/docker.svg" width="40" /></h4>
+<img alt="docker icon" src="https://api.iconify.design/mdi/docker.svg" width="20" />
 
 Install and run commands via [Docker](https://hub.docker.com/r/dotenv/dotenv-vault)
 
