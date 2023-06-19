@@ -135,16 +135,10 @@ class LoginService {
   }
 
   meFileContent(value: string): string {
-    const s = `#################################################################################
-#                                                                               #
-#    This file uniquely authorizes you against this project in dotenv-vault.    #
-#                 Do NOT commit this file to source control.                    #
-#                                                                               #
-#                  Generated with '${vars.cli} login'                      #
-#                                                                               #
-#                  Learn more at https://dotenv.org/env-me                      #
-#                                                                               #
-#################################################################################
+    const s = `#/!!!!!!!!!!!!!!!!!!!!.env.me!!!!!!!!!!!!!!!!!!!!!!!/
+#/ credential file. DO NOT commit to source control /
+#/    [how it works](https://dotenv.org/env-me)     /
+#/--------------------------------------------------/
 
 DOTENV_ME=${value}
 `
