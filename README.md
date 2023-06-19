@@ -24,7 +24,13 @@ The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.
 
 ```shell
 $ npx dotenv-vault@latest new
+```
+
+```shell
 $ npx dotenv-vault@latest push
+```
+
+```shell
 $ npx dotenv-vault@latest build
 ```
 
