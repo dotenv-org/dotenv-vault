@@ -133,14 +133,21 @@ class NewService {
 #/   [how it works](https://dotenv.org/env-vault)   /
 #/--------------------------------------------------/
 
-# Encrypted environment variables will be generated here after you run the login, push, and build commands.
 #
-# Next run ${vars.cli} login
-
+# Hello 👋,
+#
+# Your environment variables will be encrypted and
+# safely stored in this .env.vault file, after you
+# run the login, push, and build commands.
+#
+# Next run: ${vars.cli} login
+#
+# You can safely commit this file to code.
 #
 # Enjoy. 🌴
+#
 
-# Settings
+#/--------------------settings----------------------/
 ${vars.vaultKey}="${value}"
 DOTENV_API_URL="${vars.apiUrl}"
 DOTENV_CLI="${vars.cli}"
