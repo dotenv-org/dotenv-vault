@@ -63,7 +63,7 @@ $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 Push your `.env` file.
 
 ```bash
-$ dotenv-vault push
+$ npx dotenv-vault@latest push
 ```
 
 Commit your `.env.vault` file safely to code.
@@ -78,7 +78,7 @@ Pull the latest `.env` changes.
 
 ```bash
 $ git pull
-$ dotenv-vault pull
+$ npx dotenv-vault@latest pull
 ```
 
 That's it! You securely backed-up and synced your `.env` file.
@@ -90,13 +90,13 @@ That's it! You securely backed-up and synced your `.env` file.
 Encrypt your `.env.vault` file.
 
 ```bash
-$ dotenv-vault build
+$ npx dotenv-vault@latest build
 ```
 
 Fetch your production `DOTENV_KEY`.
 
 ```bash
-$ dotenv-vault keys production
+$ npx dotenv-vault@latest keys production
 remote:   Listing .env.vault decryption keys... done
 dotenv://:key_1234…@dotenv.org/vault/.env.vault?environment=production
 ```
@@ -126,13 +126,13 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
 Sync your `.env` file. Run the push command and follow the instructions. [learn more](/docs/sync/quickstart)
 
 ```
-$ dotenv-vault push
+$ npx dotenv-vault@latest push
 ```
 
 After you've pushed your `.env` file, dotenv-vault automatically sets up multiple environments. Manage multiple environments with the included UI. [learn more](/docs/tutorials/environments)
 
 ```
-$ dotenv-vault open production
+$ npx dotenv-vault@latest open production
 ```
 
 That's it! Manage your ci, staging, and production secrets from there. Rebuild your `.env.vault` file and redeploy when ready.
@@ -140,7 +140,7 @@ That's it! Manage your ci, staging, and production secrets from there. Rebuild y
 Would you also like to pull your production `.env` to your machine? Run the command:
 
 ```
-$ dotenv-vault pull production
+$ npx dotenv-vault@latest pull production
 ```
 
 ℹ️  **🔐 Vault Managed vs 💻 Locally Managed**: The above example, for brevity's sake, used the 🔐 Vault Managed solution to manage your `.env.vault` file. You can instead use the 💻 Locally Managed solution. [See the faq further below](#how-do-i-use--locally-managed-dotenv-vault). Our vision is that other platforms and orchestration tools adopt the `.env.vault` standard as they did the `.env` standard. We don't expect to be the only ones providing tooling to manage and generate `.env.vault` files.
@@ -393,7 +393,7 @@ $ dotenv-vault pull production
 ## 📖 Commands
 
 ```
-$ dotenv-vault help
+$ npx dotenv-vault@latest help
 ```
 
 * [new](#new)
@@ -891,7 +891,7 @@ First, make sure you are using `dotenv@16.1.0` or greater. (If you are using a d
 Second, test decryption is working locally.
 
 ```bash
-$ dotenv-vault decrypt dotenv://:key_1234..@dotenv.local/vault/.env.vault?environment=production
+$ npx dotenv-vault@latest decrypt dotenv://:key_1234..@dotenv.local/vault/.env.vault?environment=production
 # outputs environment variables
 ```
 
@@ -955,7 +955,7 @@ Here's how it works.
 Generate your `.env.vault` file.
 
 ```shell
-$ dotenv-vault local build
+$ npx dotenv-vault@latest local build
 ```
 
 This creates two files:
