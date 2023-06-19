@@ -29,7 +29,7 @@ $ npx dotenv-vault@latest push
 $ npx dotenv-vault@latest build
 ```
 
-npx makes it easy to use CLI tools. It requires NodeJS and npm on your machine. For those that prefer other installation methods, see below via Homebrew, Windows exe, or Docker.
+*npx makes it easy to use CLI tools. It requires NodeJS and npm. If you prefer another method of installation, see below.*
 
 #### Other Installation Methods
 
