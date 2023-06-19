@@ -20,13 +20,17 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 
 <img src="https://api.iconify.design/devicon/npm-wordmark.svg" alt="npx" align="right" width="200" />
 
-The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx). **It works with a single command.**
+The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx).
+
+**It works with a single command.**
 
 ```shell
 $ npx dotenv-vault@latest push
 ```
 
 *npx makes it easy to use CLI tools, but it requires NodeJS and npm. See below for other methods of installation.*
+
+---
 
 #### Other Ways to Install
 
