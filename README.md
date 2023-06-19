@@ -23,7 +23,6 @@ Deploy your secrets anywhere with modern encryption and sync your .env files wit
 The easiest (and recommended) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx) 
 
 ```shell
-$ npx dotenv-vault@latest help
 $ npx dotenv-vault@latest new
 $ npx dotenv-vault@latest push
 $ npx dotenv-vault@latest build
