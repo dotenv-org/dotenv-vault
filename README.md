@@ -6,15 +6,7 @@ Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scat
 
 Deploy your secrets anywhere with modern encryption and sync your .env files with a single command.
 
-[Quickstart ⚡️](https://www.dotenv.org/docs/quickstart)
-
-* [🌱 Install](#-install)
-* [🏗️ Usage](#%EF%B8%8F-usage)
-* [🚀 Deploying](#-deploying)
-* [🌴 Multiple Environments](#-manage-multiple-environments)
-* [📚 Examples](#-examples)
-* [📖 Commands](#-commands)
-* [❓ FAQ](#-faq)
+[Quickstart ⚡️](https://www.dotenv.org/docs/quickstart) / [🌱 Install](#-install) / [🏗️ Usage](#%EF%B8%8F-usage) / [🚀 Deploying](#-deploying) / [🌴 Multiple Environments](#-manage-multiple-environments) / [📚 Examples](#-examples) / [📖 Commands](#-commands) / [❓ FAQ](#-faq)
 
 ## 🌱 Install
 
@@ -30,9 +22,7 @@ remote:   Securely pushed development (.env)
 remote:   Securely built vault (.env.vault)
 ```
 
-That's it! You securely backed-up and synced your `.env` file.
-
-After installing, see further [usage](#%EF%B8%8F-usage) and [commands](#-commands).
+That's it! You securely backed-up and synced your `.env` file. See further [usage](#%EF%B8%8F-usage) and [commands](#-commands).
 
 ---
 
