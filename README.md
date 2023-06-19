@@ -30,9 +30,9 @@ That's it! You securely backed-up and synced your `.env` file.
 
 ---
 
-*npx makes it easy to use CLI tools, but it requires NodeJS and npm. See below for other methods of installation.*
-
 #### Other Ways to Install
+
+Npx makes it easy to use CLI tools, but it requires NodeJS and npm. If that's not your cup of tea, see below for other installation methods.
 
 <p><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" /> Install via <a href="https://github.com/dotenv-org/homebrew-brew">Homebrew</a></p>
 
