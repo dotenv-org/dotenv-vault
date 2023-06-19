@@ -29,13 +29,10 @@ $ npx dotenv-vault@latest push
 $ npx dotenv-vault@latest build
 ```
 
-npx makes it easy to use CLI tools.
-
-<a href="https://www.dotenv.org/install/">Learn more about installation</a>
+npx makes it easy to use CLI tools. It requires NodeJS and npm on your machine. For those that prefer other installation methods, see below via Homebrew, Windows exe, or Docker.
 
 #### Other Installation Methods
 
-If you do not have [NodeJS](https://nodejs.org/en) on your machine, you can install dotenv-vault in any of the other following ways.
 
 <p><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" /> Install via <a href="https://github.com/dotenv-org/homebrew-brew">Homebrew</a></p>
 
@@ -54,6 +51,8 @@ $ dotenv-vault help
 ```bash
 $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 ```
+
+<a href="https://www.dotenv.org/install/">Learn more about installation</a>
 
 ## 🏗️ Usage
 
