@@ -140,7 +140,10 @@ class NewService {
 # safely stored in this .env.vault file, after you
 # run the login, push, and build commands.
 #
-# Next run: ${vars.cli} login
+# Next run:
+#
+# $ ${vars.cli} login
+#
 #
 # You can safely commit this file to code.
 #
