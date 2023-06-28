@@ -1,5 +1,6 @@
 import chalk from 'chalk'
 import {vars} from '../vars'
+import {existsSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
@@ -49,11 +50,21 @@ class OpenService {
     this.log.local(`Opening browser to ${this.openUrl}`)
     CliUx.ux.open(this.openUrl).catch(_ => {})
     this.log.plain('')
-    this.log.plain(`Next run ${chalk.bold(`${vars.cli} push`)} to push your .env file`)
+    this.log.plain(`Next run ${chalk.bold(`${vars.cli} ${this.pushOrPullCommand}`)} to ${this.pushOrPullCommand} your .env file`)
   }
 
   get openUrl(): string {
     return `${vars.apiUrl}/open?DOTENV_VAULT=${vars.vaultValue}&environment=${this.environment}`
+  }
+
+  get pushOrPullCommand(): string {
+    // tell dev to push if he already has a local .env file
+    if (existsSync('.env')) {
+      return 'push'
+    }
+
+    // otherwise tell him to pull
+    return 'pull'
   }
 }
 
