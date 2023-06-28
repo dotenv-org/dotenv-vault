@@ -2,7 +2,7 @@ import * as crypto from 'crypto'
 import chalk from 'chalk'
 import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
-import {writeFileSync} from 'fs'
+import {existsSync, writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
 import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
 import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
@@ -61,7 +61,7 @@ class NewService {
       writeFileSync(vars.vaultFilename, this.vaultFileContent(this.dotenvVault))
       this.log.local(`Added to ${vars.vaultFilename} (${vars.vaultKey}=${this.dotenvVault.slice(0, 9)}...)`)
       this.log.plain('')
-      this.log.plain(`Next run ${chalk.bold(`${vars.cli} login`)}`)
+      this.log.plain(`Next run ${chalk.bold(`${vars.cli} ${this.pushOrPullCommand}`)}`) // assumes dev started from UI (because prompted to enter existing dotenvVault uid) so recommend push or pull command instead of login
 
       return
     }
@@ -173,6 +173,16 @@ DOTENV_CLI="${vars.cli}"
     const projectName = splitDir[splitDir.length - 1]
 
     return `${this.url}?project_name=${projectName}&request_uid=${this.requestUid}`
+  }
+
+  get pushOrPullCommand(): string {
+    // tell dev to push if he already has a local .env file
+    if (existsSync('.env')) {
+      return 'push'
+    }
+
+    // otherwise tell him to pull
+    return 'pull'
   }
 }
 
