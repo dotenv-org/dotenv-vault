@@ -4,7 +4,7 @@
 
 Manage your secrets using dotenv-vault's all-in-one toolkit. Say goodbye to scattered secrets across multiple platforms and tools. The #1 secrets manager for .env files.
 
-Sync your `.env` files with a single command and deploy them with modern encryption.
+Sync your `.env` files with a single command and deploy them with an encrypted `.env.vault` file.
 
 ## 🌱 Install
 
