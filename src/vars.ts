@@ -55,7 +55,7 @@ export class Vars {
   }
 
   get vaultValue(): string {
-    return this.vaultParsed[vars.vaultKey]
+    return this.vaultParsed[vars.vaultKey] || ''
   }
 
   get existingEnvVault(): boolean {
