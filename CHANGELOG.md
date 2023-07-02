@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.3...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.24.0...master)
+
+## [1.24.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.3...v1.24.0) (2023-07-02)
+
+### Added
+
+- Context-aware (have or don't have a .env file) next step messaging
+- Help comments in generated `.env`, `.env.vault`, `.env.keys`, and `.env.me` files
+- Ability to configure the `DOTENV_API_URL` 🎉 (makes way for eventual option to self-host dotenv-vault's cloud service) [b9420f0](https://github.com/dotenv-org/dotenv-vault/commit/b9420f098d32f766f7cf7913f1cfc72bd205e239)
 
 ## [1.23.3](https://github.com/dotenv-org/dotenv-vault/compare/v1.23.2...v1.23.3) (2023-05-31)
 
