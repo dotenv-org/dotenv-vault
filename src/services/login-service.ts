@@ -135,12 +135,9 @@ class LoginService {
   }
 
   meFileContent(value: string): string {
-    const s = `#/!!!!!!!!!!!!!!!!!!!!.env.me!!!!!!!!!!!!!!!!!!!!!!!/
-#/ credential file. DO NOT commit to source control /
-#/    [how it works](https://dotenv.org/env-me)     /
-#/--------------------------------------------------/
+    const s = `${vars.meFileHeaderComment}
 
-DOTENV_ME=${value}
+DOTENV_ME="${value}"
 `
 
     return s

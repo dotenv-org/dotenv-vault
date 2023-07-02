@@ -128,10 +128,7 @@ class NewService {
   }
 
   vaultFileContent(value: string): string {
-    const s = `#/-------------------.env.vault---------------------/
-#/         cloud-agnostic vaulting standard         /
-#/   [how it works](https://dotenv.org/env-vault)   /
-#/--------------------------------------------------/
+    const s = `${vars.vaultFileHeaderComment}
 
 #
 # Hello 👋,
@@ -150,7 +147,7 @@ class NewService {
 # Enjoy. 🌴
 #
 
-#/--------------------settings----------------------/
+#/----------------settings/metadata-----------------/
 ${vars.vaultKey}="${value}"
 DOTENV_API_URL="${vars.apiUrl}"
 DOTENV_CLI="${vars.cli}"

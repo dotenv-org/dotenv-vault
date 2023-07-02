@@ -12,8 +12,29 @@ export class Vars {
     return process.env.DOTENV_API_URL || this.vaultParsed.DOTENV_API_URL || 'https://vault.dotenv.org'
   }
 
+  get vaultFileHeaderComment(): string {
+    return `#/-------------------.env.vault---------------------/
+#/         cloud-agnostic vaulting standard         /
+#/   [how it works](https://dotenv.org/env-vault)   /
+#/--------------------------------------------------/`
+  }
+
+  get meFileHeaderComment(): string {
+    return `#/!!!!!!!!!!!!!!!!!!!!.env.me!!!!!!!!!!!!!!!!!!!!!!!/
+#/ credential file. DO NOT commit to source control /
+#/    [how it works](https://dotenv.org/env-me)     /
+#/--------------------------------------------------/`
+  }
+
+  get keysFileHeaderComment(): string {
+    return `#/!!!!!!!!!!!!!!!!!!!.env.keys!!!!!!!!!!!!!!!!!!!!!!/
+#/   DOTENV_KEYs. DO NOT commit to source control   /
+#/   [how it works](https://dotenv.org/env-keys)    /
+#/--------------------------------------------------/`
+  }
+
   get vaultFilename(): string {
-    // if .env.project file exists use it. otherwise use .env.vault
+    // if .env.project (old) file exists use it. otherwise use .env.vault
     if (existsSync('.env.project')) {
       return '.env.project'
     }
