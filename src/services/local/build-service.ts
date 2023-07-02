@@ -53,7 +53,7 @@ class LocalBuildService {
   }
 
   get vaultData(): string {
-    let s = `${vars.vaultFileHeaderComment}\n`
+    let s = `${vars.vaultFileHeaderComment}\n\n`
 
     for (const file in this.envLookups) {
       if (Object.prototype.hasOwnProperty.call(this.envLookups, file)) {
@@ -65,7 +65,8 @@ class LocalBuildService {
         const key = this._parseEncryptionKeyFromDotenvKey(dotenvKey)
         const ciphertext = this._encrypt(key, message)
 
-        s += `DOTENV_VAULT_${environment.toUpperCase()}="${ciphertext}"\n`
+        s += `# ${environment}\n`
+        s += `DOTENV_VAULT_${environment.toUpperCase()}="${ciphertext}"\n\n`
       }
     }
 

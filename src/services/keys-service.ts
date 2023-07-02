@@ -96,7 +96,7 @@ class KeysService {
         })
 
         this.log.plain('')
-        this.log.plain(`Set ${chalk.bold('DOTENV_KEY')} on your infrastructure`)
+        this.log.plain(`Set ${chalk.bold('DOTENV_KEY')} on your server`)
       }
     } catch (error) {
       CliUx.ux.action.stop('aborting')
