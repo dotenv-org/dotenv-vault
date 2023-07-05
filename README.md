@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" align="right" width="200" />
 
-A secrets manager for .env files – from the same people that pionereed dotenv.
+The secrets manager for .env files – from the same people that pionereed dotenv.
 
 Sync your `.env` files with a single command, deploy them with an encrypted `.env.vault` file, and say goodbye to scattered secrets across multiple platforms and tools.
 
