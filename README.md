@@ -8,9 +8,11 @@ Sync your `.env` files with a single command, deploy them with an encrypted `.en
 
 ## 🌱 Install
 
-<img src="https://api.iconify.design/devicon/npm-wordmark.svg" alt="npx" align="right" width="200" />
+<img src="https://api.iconify.design/devicon/npm-wordmark.svg" alt="npx" align="right" width="80" />
 
-It works with a single command! **npx dotenv-vault@latest push**
+It works with a single command!
+
+Just run **npx dotenv-vault@latest push**
 
 ```shell
 $ npx dotenv-vault@latest push
