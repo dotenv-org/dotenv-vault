@@ -10,7 +10,7 @@ Sync your `.env` files with a single command, deploy them with an encrypted `.en
 
 <img src="https://api.iconify.design/devicon/npm-wordmark.svg" alt="npx" align="right" width="200" />
 
-The recommended (and fastest) way to use dotenv-vault is via [npx](https://docs.npmjs.com/cli/v7/commands/npx). It works with a single command.
+It works with a single command! **npx dotenv-vault@latest push**
 
 ```shell
 $ npx dotenv-vault@latest push
@@ -26,7 +26,7 @@ That's it! You securely backed-up and synced your `.env` file. See further [usag
 
 #### Other Ways to Install
 
-Npx makes it easy to use CLI tools, but it requires NodeJS and npm. If that's not your cup of tea, see below for other installation methods.
+Don't want to use [npx](https://docs.npmjs.com/cli/v7/commands/npx)? Install a number of other ways.
 
 <p><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" /> Install via <a href="https://github.com/dotenv-org/homebrew-brew">Homebrew</a></p>
 
@@ -50,7 +50,7 @@ $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 
 ## 🏗️ Usage
 
-Push your `.env` file.
+Made a change to your `.env` file? Just push those changes up.
 
 ```bash
 $ npx dotenv-vault@latest push
@@ -64,7 +64,7 @@ $ git commit -am "Add .env.vault"
 $ git push
 ```
 
-Pull the latest `.env` changes.
+Now your teammate can pull the latest `.env` changes.
 
 ```bash
 $ git pull
@@ -77,7 +77,9 @@ That's it! You securely backed-up and synced your `.env` file.
 
 ## 🚀 Deploying
 
-Encrypt your `.env.vault` file.
+Stop scattering your production secrets across multiple third-parties and tools. Instead, use an encrypted `.env.vault` file.
+
+Generate your encrypted `.env.vault` file.
 
 ```bash
 $ npx dotenv-vault@latest build
@@ -113,19 +115,13 @@ That's it! On deploy, your `.env.vault` file will be decrypted and its secrets i
 
 ## 🌴 Manage Multiple Environments
 
-Sync your `.env` file. Run the push command and follow the instructions. [learn more](/docs/sync/quickstart)
-
-```
-$ npx dotenv-vault@latest push
-```
-
 After you've pushed your `.env` file, dotenv-vault automatically sets up multiple environments. Manage multiple environments with the included UI. [learn more](/docs/tutorials/environments)
 
 ```
 $ npx dotenv-vault@latest open production
 ```
 
-That's it! Manage your ci, staging, and production secrets from there. Rebuild your `.env.vault` file and redeploy when ready.
+That's it! Manage your ci, staging, and production secrets from there.
 
 Would you also like to pull your production `.env` to your machine? Run the command:
 
