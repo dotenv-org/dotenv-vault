@@ -1,7 +1,7 @@
 {
   "name": "dotenv-vault",
   "version": "1.24.0",
-  "description": "Sync your .env files, securely.",
+  "description": "A secrets manager for .env files – from the same people that pioneered dotenv.",
   "author": "Mot @dotenvorg",
   "bin": {
     "dotenv-vault": "./bin/run"
