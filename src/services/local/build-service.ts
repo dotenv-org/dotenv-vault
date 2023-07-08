@@ -4,9 +4,7 @@ import chalk from 'chalk'
 import {vars} from '../../vars'
 import {writeFileSync, readFileSync, readdirSync} from 'fs'
 import {CliUx} from '@oclif/core'
-import {AppendToDockerignoreService} from '../../services/append-to-dockerignore-service'
-import {AppendToGitignoreService} from '../../services/append-to-gitignore-service'
-import {AppendToNpmignoreService} from '../../services/append-to-npmignore-service'
+import {AppendToIgnoreService} from '../../services/append-to-ignore-service'
 import {LogService} from '../../services/log-service'
 
 interface LocalBuildServiceAttrs {
@@ -24,9 +22,7 @@ class LocalBuildService {
   }
 
   async run(): Promise<void> {
-    new AppendToDockerignoreService().run()
-    new AppendToGitignoreService().run()
-    new AppendToNpmignoreService().run()
+    new AppendToIgnoreService().run()
 
     const buildMsg = 'Building .env.vault from files on your machine'
 
