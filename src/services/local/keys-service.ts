@@ -2,9 +2,7 @@ import chalk from 'chalk'
 import * as dotenv from 'dotenv'
 import {vars} from '../../vars'
 import {CliUx} from '@oclif/core'
-import {AppendToDockerignoreService} from '../../services/append-to-dockerignore-service'
-import {AppendToGitignoreService} from '../../services/append-to-gitignore-service'
-import {AppendToNpmignoreService} from '../../services/append-to-npmignore-service'
+import {AppendToIgnoreService} from '../../services/append-to-ignore-service'
 import {LogService} from '../../services/log-service'
 import {AbortService} from '../../services/abort-service'
 
@@ -28,9 +26,7 @@ class LocalKeysService {
   }
 
   async run(): Promise<void> {
-    new AppendToDockerignoreService().run()
-    new AppendToGitignoreService().run()
-    new AppendToNpmignoreService().run()
+    new AppendToIgnoreService().run()
 
     if (vars.missingEnvKeys) {
       this.abort.missingEnvKeys()

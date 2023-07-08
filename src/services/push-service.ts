@@ -3,9 +3,7 @@ import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
 import {existsSync, readFileSync, writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
-import {AppendToDockerignoreService} from '../services/append-to-dockerignore-service'
-import {AppendToGitignoreService} from '../services/append-to-gitignore-service'
-import {AppendToNpmignoreService} from '../services/append-to-npmignore-service'
+import {AppendToIgnoreService} from '../services/append-to-ignore-service'
 import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
 import {LoginService} from '../services/login-service'
@@ -41,9 +39,7 @@ class PushService {
   }
 
   async run(): Promise<void> {
-    new AppendToDockerignoreService().run()
-    new AppendToGitignoreService().run()
-    new AppendToNpmignoreService().run()
+    new AppendToIgnoreService().run()
 
     if (vars.missingEnvVault) {
       this.abort.missingEnvVault()
