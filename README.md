@@ -884,7 +884,7 @@ $ npx dotenv-vault@latest decrypt dotenv://:key_1234..@dotenv.local/vault/.env.v
 Third, test decryption on boot is working locally.
 
 ```bash
-$ DOTENV_KEY=dotenv://:key_1234..@dotenv.local/vault/.env.vault?environment=production npm start
+$ DOTENV_KEY='dotenv://:key_1234..@dotenv.local/vault/.env.vault?environment=production' npm start
 # boots your app with production envs
 ```
 
