@@ -18,10 +18,10 @@
   ],
   "dependencies": {
     "@oclif/core": "^1",
-    "@oclif/plugin-help": "^5.2.11",
-    "@oclif/plugin-not-found": "^2.3.24",
+    "@oclif/plugin-help": "^5.2.15",
+    "@oclif/plugin-not-found": "^2.3.34",
     "@oclif/plugin-update": "^3.1.16",
-    "@oclif/plugin-warn-if-update-available": "^2.0.40",
+    "@oclif/plugin-warn-if-update-available": "^2.0.46",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
     "dotenv": "^16.3.1"
@@ -45,7 +45,7 @@
     "sinon": "^13.0.2",
     "spyfs": "^1.0.2",
     "ts-node": "^10.9.1",
-    "tslib": "^2.6.0",
+    "tslib": "^2.6.1",
     "typescript": "4.9.5"
   },
   "oclif": {
