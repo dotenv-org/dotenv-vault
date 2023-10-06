@@ -139,25 +139,25 @@ $ npx dotenv-vault@latest pull production
   <tbody>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/vercel/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/platforms/vercel">
           <img src="https://api.iconify.design/devicon/vercel.svg" alt="Vercel", width="20" />
           Vercel
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/heroku/rails">
+        <a href="https://www.dotenv.org/docs/platforms/heroku">
           <img src="https://api.iconify.design/skill-icons/heroku.svg" alt="Heroku", width="20" />
           Heroku
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs">
+        <a href="https://www.dotenv.org/docs/cis/github-actions">
           <img src="https://api.iconify.design/devicon/github.svg" alt="GitHub", width="20" />
           GitHub Actions
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/gitlab/ci-quickstart">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/gitlab-ci">
           <img src="https://api.iconify.design/devicon/gitlab.svg" alt="GitLab", width="20" />
           GitLab CI/CD
         </a>
@@ -165,25 +165,25 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
+        <a href="https://www.dotenv.org/docs/platforms/netlify">
           <img src="https://api.iconify.design/skill-icons/netlify-light.svg" alt="Netlify", width="20" />
           Netlify
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/docker/express?r=1">
+        <a href="https://www.dotenv.org/docs/platforms/docker">
           <img src="https://api.iconify.design/skill-icons/docker.svg" alt="Docker", width="20" />
           Docker
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/docker-compose/express?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/express/docker-compose">
           <img src="https://api.iconify.design/skill-icons/docker.svg" alt="Docker Compose", width="20" />
           Docker Compose
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/circleci/rails?r=1">
+        <a href="https://www.dotenv.org/docs/cis/circleci">
           <img src="https://api.iconify.design/logos/circleci.svg" alt="CircleCI", width="20" />
           CircleCI
         </a>
@@ -191,25 +191,25 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/serverless/express?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/serverless/aws-lambda">
           <img src="https://api.iconify.design/logos/serverless.svg" alt="Serverless", width="20" />
           Serverless
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/railway/express?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/railway">
           <img src="https://api.iconify.design/simple-icons/railway.svg" alt="Railway", width="20" />
           Railway
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/render/express?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/render">
           <img src="https://api.iconify.design/simple-icons/render.svg" alt="Render", width="20" />
           Render
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/travis-ci/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/travis-ci">
           <img src="https://api.iconify.design/simple-icons/travisci.svg" alt="Travis CI", width="20" />
           Travis CI
         </a>
@@ -217,25 +217,25 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/google-cloud/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/cis/google-cloud-build">
           <img src="https://api.iconify.design/devicon/googlecloud.svg" alt="Google Cloud", width="20" />
           Google Cloud
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/fly/express?r=1">
+        <a href="https://www.dotenv.org/docs/platforms/fly">
           <img src="https://api.iconify.design/logos/fly-icon.svg" alt="Fly.io", width="20" />
           Fly.io
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/integrations/slack?r=1">
+        <a href="https://www.dotenv.org/docs/addons/slack">
           <img src="https://api.iconify.design/devicon/slack.svg" alt="dotenv-vault + Slack", width="20" />
           Slack
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/buddy/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/buddy">
           <img src="https://api.iconify.design/logos/buddy.svg" alt="Buddy", width="20" />
           Buddy
         </a>
@@ -243,25 +243,25 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/cloud66/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/cloud66">
           <img src="https://api.iconify.design/simple-icons/cloud66.svg" alt="Cloud66", width="20" />
           Cloud66
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/digital-ocean/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/digital-ocean">
           <img src="https://api.iconify.design/devicon/digitalocean.svg" alt="Digital Ocean", width="20" />
           Digital Ocean
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/dagger/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/dagger">
           <img src="https://dagger.io/img/logo-alt-2.svg" alt="Dagger", width="20" />
           Dagger
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/bitbucket/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/bitbucket">
           <img src="https://api.iconify.design/devicon/bitbucket.svg" alt="Bitbucket", width="20" />
           Bitbucket
         </a>
@@ -269,25 +269,19 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/railway/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs">
           <img src="https://api.iconify.design/devicon/nodejs.svg" alt="Node.js", width="20" />
           Node.js
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/vercel/pnpm?r=1">
-          <img src="https://api.iconify.design/devicon/pnpm.svg" alt="Pnpm", width="20" />
-          pnpm
-        </a>
-      </td>
-      <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/vercel/express?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/express">
           <img src="https://api.iconify.design/devicon/express.svg" alt="Express", width="20" />
           Express
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/github/actions-nextjs?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/nextjs">
           <img src="https://api.iconify.design/devicon/nextjs.svg" alt="NextJS", width="20" />
           NextJS
         </a>
@@ -295,25 +289,25 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/github/actions-remix?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/remix">
           <img src="https://api.iconify.design/skill-icons/remix-dark.svg" alt="Remix", width="20" />
           Remix
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/netlify/astro?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/astro/netlify">
           <img src="https://api.iconify.design/devicon/astro.svg" alt="Astro", width="20" />
           Astro
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/docker/rails?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/rails">
           <img src="https://api.iconify.design/logos/rails.svg" alt="Rails", width="20" />
           Rails
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
+        <a href="https://www.dotenv.org/docs/languages/ruby">
           <img src="https://api.iconify.design/logos/ruby.svg" alt="Ruby", width="20" />
           Ruby
         </a>
@@ -321,19 +315,19 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/heroku/sinatra?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/sinatra/heroku">
           <img src="https://api.iconify.design/logos/sinatra.svg" alt="Sinatra", width="20" />
           Sinatra
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/heroku/flask?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/flask/heroku">
           <img src="https://api.iconify.design/devicon/flask.svg" alt="Flask", width="20" />
           Flask
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/heroku/flask?r=1">
+        <a href="https://www.dotenv.org/docs/languages/python">
           <img src="https://api.iconify.design/devicon/python.svg" alt="Python", width="20" />
           Python
         </a>
@@ -347,25 +341,25 @@ $ npx dotenv-vault@latest pull production
     </tr>
     <tr>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/pulumi/nodejs?r=1">
+        <a href="https://www.dotenv.org/docs/languages/nodejs/pulumi">
           <img src="https://api.iconify.design/vscode-icons/file-type-pulumi.svg" alt="Pulumi", width="20" />
           Pulumi
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/vercel/angular?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/angular/vercel">
           <img src="https://api.iconify.design/devicon/angular.svg" alt="Angular", width="20" />
           Angular
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/vercel/nuxt?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/nuxtjs">
           <img src="https://api.iconify.design/logos/nuxt-icon.svg" alt="Nuxt", width="20" />
           Nuxt
         </a>
       </td>
       <td align="left" valign="middle">
-        <a href="https://www.dotenv.org/docs/integrations/vercel/vite?r=1">
+        <a href="https://www.dotenv.org/docs/frameworks/vite/vercel">
           <img src="https://api.iconify.design/devicon/vite.svg" alt="Vite", width="20" />
           Vite
         </a>
@@ -374,7 +368,7 @@ $ npx dotenv-vault@latest pull production
   </tbody>
 </table>
 
-<a href="https://www.dotenv.org/docs/tutorials/integrations?r=1">See more integration guides</a>
+<a href="https://www.dotenv.org/docs/">See more integration guides</a>
 
 ## 📖 Commands
 
