@@ -1,10 +1,10 @@
 import * as crypto from 'crypto'
 import chalk from 'chalk'
-import axios, { AxiosRequestConfig } from 'axios'
-import { vars } from '../vars'
-import { CliUx } from '@oclif/core'
-import { LogService } from '../services/log-service'
-import { AbortService } from '../services/abort-service'
+import axios, {AxiosRequestConfig} from 'axios'
+import {vars} from '../vars'
+import {CliUx} from '@oclif/core'
+import {LogService} from '../services/log-service'
+import {AbortService} from '../services/abort-service'
 
 interface LogoutServiceAttrs {
   cmd: any
@@ -24,8 +24,8 @@ class LogoutService {
   constructor(attrs: LogoutServiceAttrs = {} as LogoutServiceAttrs) {
     this.cmd = attrs.cmd
     this.yes = attrs.yes
-    this.log = new LogService({ cmd: attrs.cmd })
-    this.abort = new AbortService({ cmd: attrs.cmd })
+    this.log = new LogService({cmd: attrs.cmd})
+    this.abort = new AbortService({cmd: attrs.cmd})
     const rand = crypto.randomBytes(32).toString('hex')
     this.requestUid = `req_${rand}`
   }
@@ -49,6 +49,7 @@ class LogoutService {
     } catch (error) {
       console.log(error)
     }
+
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for logout and credential (.env.me) to be revoked`)
     await this.check(showInstructions)
   }
@@ -59,7 +60,7 @@ class LogoutService {
 
     const options: AxiosRequestConfig = {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: {'content-type': 'application/json'},
       data: {
         vaultUid: vars.vaultValue,
         requestUid: this.requestUid,
@@ -102,4 +103,4 @@ class LogoutService {
   }
 }
 
-export { LogoutService }
+export {LogoutService}
