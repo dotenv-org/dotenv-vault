@@ -2,13 +2,11 @@
 
 <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" align="right" width="200" />
 
-The secrets manager for .env files – from the same people that pionereed dotenv.
-
-Sync your `.env` files with a single command, deploy them with an encrypted `.env.vault` file, and say goodbye to scattered secrets across multiple platforms and tools.
+**Sync .env files**. Sync your .env files between machines, environments, and team members – from the creator of [`dotenv`](https://github.com/motdotla/dotenv).
 
 ## 🌱 Install
 
-It works with a single command!
+It works with a single command.
 
 Just run **npx dotenv-vault@latest push**
 
@@ -50,7 +48,7 @@ $ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
 
 ## 🏗️ Usage
 
-Made a change to your `.env` file? Just push those changes up.
+When you make a change to your `.env` file, push it up.
 
 ```bash
 $ npx dotenv-vault@latest push
@@ -71,7 +69,7 @@ $ git pull
 $ npx dotenv-vault@latest pull
 ```
 
-That's it! You securely backed-up and synced your `.env` file.
+That's it!
 
 <a href="https://www.dotenv.org/docs/quickstart?r=1">Learn more about usage</a>
 
