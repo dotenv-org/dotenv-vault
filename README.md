@@ -1,23 +1,31 @@
 ![dotenv.org](https://dotenv.org/banner.png)
 
-`dotenv-vault` is a cli that can **sync your .env files** between machines, environments, and team members.
-&nbsp;&nbsp;[![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
+`dotenv-vault` is a cli tool to **sync your .env files** between machines, environments, and team members.
+
+[![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
 
 ## 🌱 Install
 
-It works with a single command.
+It works with a single command. Run `npx dotenv-vault@latest push`.
 
-Just run **npx dotenv-vault@latest push**
-
-```shell
-$ npx dotenv-vault@latest push
-
+```sh
+npx dotenv-vault@latest push
+```
+```
 remote:   Securely pushing (.env)... done
 remote:   Securely pushed development (.env)
 remote:   Securely built vault (.env.vault)
 ```
 
-That's it! You securely backed-up and synced your `.env` file. See further [usage](#%EF%B8%8F-usage) and [commands](#-commands).
+That's it. You securely synced your `.env` file. Next, tell your teammate to run `npx dotenv-vault@latest pull`
+
+```sh
+npx dotenv-vault@latest pull
+```
+
+Nice!
+
+See further [usage](#%EF%B8%8F-usage) and [commands](#-commands).
 
 ---
 
