@@ -1,8 +1,7 @@
-# dotenv-vault [![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
+![dotenv.org](https://dotenv.org/banner.png)
 
-<img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.svg" alt="dotenv-vault" align="right" width="200" />
-
-**Sync .env files**. Sync your .env files between machines, environments, and team members – from the creator of [`dotenv`](https://github.com/motdotla/dotenv).
+`dotenv-vault` is a cli that can **sync your .env files** between machines, environments, and team members.
+&nbsp;&nbsp;[![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
 
 ## 🌱 Install
 
