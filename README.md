@@ -1,6 +1,6 @@
 ![dotenv.org](https://dotenv.org/banner.png)
 
-`dotenv-vault` is a cli tool to **sync your .env files** between machines, environments, and team members.
+`dotenv-vault` is a cli to *sync .env files across machines, environments, and team members*.
 
 [![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
 
