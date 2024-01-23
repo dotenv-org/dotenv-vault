@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.24.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.0...master)
+
+## [1.26.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.25.0...v1.26.0) (2024-01-23)
+
+### Changed
+
+- Mark `local` commands as deprecated and warn user (to be removed in later release) ([#331](https://github.com/dotenv-org/dotenv-vault/pull/331))
+
+### Added
+
+- Append to vercelignore file if it exists 🔒 ([#297](https://github.com/dotenv-org/dotenv-vault/pull/297))
 
 ## [1.25.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.24.0...v1.25.0) (2023-07-08)
 
