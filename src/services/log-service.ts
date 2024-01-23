@@ -19,6 +19,14 @@ class LogService {
     return 'remote:   '
   }
 
+  deprecated(msg: string): void {
+    if (msg === undefined) {
+      msg = ''
+    }
+
+    this.cmd.log(`${chalk.red('[DEPRECATED] Please switch to dotenvx – github.com/dotenvx/dotenvx ')}${msg}`)
+  }
+
   plain(msg: string): void {
     if (msg === undefined) {
       msg = ''
