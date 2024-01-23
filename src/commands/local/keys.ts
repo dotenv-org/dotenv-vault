@@ -3,7 +3,7 @@ import {Command} from '@oclif/core'
 import {LocalKeysService} from '../../services/local/keys-service'
 
 export default class LocalKeys extends Command {
-  static description = 'List .env.vault local decryption keys from .env.keys file'
+  static description = '[DEPRECATED][Switch to dotenvx: github.com/dotenvx/dotenvx] List .env.vault local decryption keys from .env.keys file'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
