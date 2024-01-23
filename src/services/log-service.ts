@@ -24,7 +24,7 @@ class LogService {
       msg = ''
     }
 
-    this.cmd.log(`${chalk.red('[DEPRECATED] Please switch to dotenvx – github.com/dotenvx/dotenvx ')}${msg}`)
+    this.cmd.log(`${chalk.red('[DEPRECATED] Please switch to dotenvx (github.com/dotenvx/dotenvx) for all local commands. example: [dotenvx encrypt]')}${msg}`)
   }
 
   plain(msg: string): void {
