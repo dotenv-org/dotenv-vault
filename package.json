@@ -64,7 +64,7 @@
     "topicSeparator": " ",
     "topics": {
       "local": {
-        "description": "Local only commands"
+        "description": "[DEPRECATED][Switch to dotenvx: github.com/dotenvx/dotenvx] Local only commands"
       }
     },
     "update": {

@@ -3,7 +3,7 @@ import {Command} from '@oclif/core'
 import {LocalDecryptService} from '../../services/local/decrypt-service'
 
 export default class LocalDecrypt extends Command {
-  static description = 'Decrypt .env.vault from local only'
+  static description = '[DEPRECATED][Switch to dotenvx: github.com/dotenvx/dotenvx] Decrypt .env.vault from local only'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',

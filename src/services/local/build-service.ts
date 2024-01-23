@@ -22,6 +22,8 @@ class LocalBuildService {
   }
 
   async run(): Promise<void> {
+    this.log.deprecated()
+
     new AppendToIgnoreService().run()
 
     const buildMsg = 'Building .env.vault from files on your machine'
