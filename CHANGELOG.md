@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.0...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.1...master)
+
+## [1.26.1](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.0...v1.26.1) (2024-03-01)
+
+### Changed
+
+- bumped `axios` dependency ([#321](https://github.com/dotenv-org/dotenv-vault/pull/321))
 
 ## [1.26.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.25.0...v1.26.0) (2024-01-23)
 
