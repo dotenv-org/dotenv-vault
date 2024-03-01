@@ -22,7 +22,7 @@
     "@oclif/plugin-not-found": "^2.3.34",
     "@oclif/plugin-update": "^3.1.16",
     "@oclif/plugin-warn-if-update-available": "^2.0.46",
-    "axios": "^0.27.2",
+    "axios": "^1.6.7",
     "chalk": "^4.1.2",
     "dotenv": "^16.3.1"
   },
