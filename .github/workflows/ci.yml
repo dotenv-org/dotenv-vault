@@ -47,24 +47,24 @@ jobs:
           mkdir -p dist
 
       - name: pack
-        id: pack
-        run: |
-          PACK_OUTPUT=$(npx oclif@3.0.1 pack tarballs)
-          echo "$PACK_OUTPUT"
-          echo "::set-output name=version::$(echo "$PACK_OUTPUT" | grep 'dotenv-vault@' | awk '{print $2}')"
-          echo "::set-output name=sha::$(echo "$PACK_OUTPUT" | grep 'shasum' | awk '{print $3}')"
+        run: npx oclif@3.0.1 pack tarballs
 
       - name: upload
+        id: upload
         run: |
-          npx oclif@3.0.1 upload tarballs
+          UPLOAD_OUTPUT=$(npx oclif@3.0.1 upload tarballs)
+          echo "$UPLOAD_OUTPUT"
+          echo "::set-output name=sha::$(echo "$UPLOAD_OUTPUT" | grep -oP '(?<=dotenv-vault-v[0-9.]+-)\w+(?=-linux-x64.tar.gz)')"
+          echo "::set-output name=version::$(echo "$UPLOAD_OUTPUT" | grep -oP '(?<=dotenv-vault@)[^ ]+')"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: promote
         run: |
-          PROMOTE_VERSION=$(echo ${{ steps.pack.outputs.version }})
-          PROMOTE_SHA=$(echo ${{ steps.pack.outputs.sha }})
+          echo "${{ steps.upload }}"
+          PROMOTE_VERSION=$(echo ${{ steps.upload.outputs.version }})
+          PROMOTE_SHA=$(echo ${{ steps.upload.outputs.sha }})
           npx oclif@3.0.1 promote --version "$PROMOTE_VERSION" --sha "$PROMOTE_SHA"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
