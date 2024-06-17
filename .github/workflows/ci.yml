@@ -49,22 +49,37 @@ jobs:
       - name: pack
         run: npx oclif@3.0.1 pack tarballs
 
-      - name: upload
-        id: upload
+      - name: extract sha
+        id: extract_sha
         run: |
-          UPLOAD_OUTPUT=$(npx oclif@3.0.1 upload tarballs)
-          echo "$UPLOAD_OUTPUT"
-          echo "::set-output name=sha::$(echo "$UPLOAD_OUTPUT" | grep -oP '(?<=dotenv-vault-v[0-9.]+-)\w+(?=-linux-x64.tar.gz)')"
-          echo "::set-output name=version::$(echo "$UPLOAD_OUTPUT" | grep -oP '(?<=dotenv-vault@)[^ ]+')"
+          # list files in dist directory
+          ls dist/
+
+          # extract version and SHA from the filename
+          FILENAME=$(ls dist/ | grep 'dotenv-vault-v.*-linux-x64.tar.gz' | head -n 1)
+          echo "extracted filename: $FILENAME"
+
+          VERSION=$(echo $FILENAME | grep -oP '(?<=dotenv-vault-v)[0-9.]+(?=-)')
+          SHA=$(echo $FILENAME | grep -oP '(?<=dotenv-vault-v[0-9.]+-)[^-]+(?=-linux-x64.tar.gz)')
+
+          echo "Extracted version: $VERSION"
+          echo "Extracted SHA: $SHA"
+
+          # Set outputs
+          echo "::set-output name=version::$VERSION"
+          echo "::set-output name=sha::$SHA"
+
+      - name: upload
+        run: npx oclif@3.0.1 upload tarballs
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: promote
+            - name: promote
         run: |
           echo "${{ steps.upload }}"
-          PROMOTE_VERSION=$(echo ${{ steps.upload.outputs.version }})
-          PROMOTE_SHA=$(echo ${{ steps.upload.outputs.sha }})
+          PROMOTE_VERSION=$(echo ${{ steps.extract_sha.outputs.version }})
+          PROMOTE_SHA=$(echo ${{ steps.extract_sha.outputs.sha }})
           npx oclif@3.0.1 promote --version "$PROMOTE_VERSION" --sha "$PROMOTE_SHA"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
