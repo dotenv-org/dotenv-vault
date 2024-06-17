@@ -42,9 +42,30 @@ jobs:
       - name: npm install
         run: npm install
 
-      - name: packing
+      - name: dist
         run: |
-          echo "dist-ing"
           mkdir -p dist
-          echo "tarball packing"
-          npx oclif@3.0.1 pack tarballs
+
+      - name: pack
+        id: pack
+        run: |
+          PACK_OUTPUT=$(npx oclif@3.0.1 pack tarballs)
+          echo "$PACK_OUTPUT"
+          echo "::set-output name=version::$(echo "$PACK_OUTPUT" | grep 'dotenv-vault@' | awk '{print $2}')"
+          echo "::set-output name=sha::$(echo "$PACK_OUTPUT" | grep 'shasum' | awk '{print $3}')"
+
+      - name: upload
+        run: |
+          npx oclif@3.0.1 upload
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: promote
+        run: |
+          PROMOTE_VERSION=$(echo ${{ steps.pack.outputs.version }})
+          PROMOTE_SHA=$(echo ${{ steps.pack.outputs.sha }})
+          npx oclif@3.0.1 promote --version "$PROMOTE_VERSION" --sha "$PROMOTE_SHA"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
