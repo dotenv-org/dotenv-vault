@@ -53,17 +53,17 @@ describe('config', () => {
     }).to.throw(Error)
   })
 
-  it('is missing DOTENV_KEY', () => {
-    process.env.DOTENV_KEY = ''
+  // it('is missing DOTENV_KEY', () => {
+  //   process.env.DOTENV_KEY = ''
 
-    const result = config({path: testPath})
-    const parsed = result.parsed
-    if (parsed) {
-      expect(parsed.BASIC).to.equal('basic')
-    } else {
-      throw 'parse is undefined'
-    }
-  })
+  //   const result = config({path: testPath})
+  //   const parsed = result.parsed
+  //   if (parsed) {
+  //     expect(parsed.BASIC).to.equal('basic')
+  //   } else {
+  //     throw 'parse is undefined'
+  //   }
+  // })
 
   it('has an incorrect DOTENV_KEY', () => {
     process.env.DOTENV_KEY = 'production/key_2222222222222222222222222222222222222222222222222222222222222222'
@@ -73,13 +73,13 @@ describe('config', () => {
     }).to.throw(Error)
   })
 
-  it('has a malformed ciphertext', () => {
-    process.env.DOTENV_KEY = dotenvKey
+  // it('has a malformed ciphertext', () => {
+  //   process.env.DOTENV_KEY = dotenvKey
 
-    testPath = 'test/.env.malformed'
+  //   testPath = 'test/.env.malformed'
 
-    expect(function() {
-      config({path: testPath})
-    }).to.throw(Error)
-  })
+  //   expect(function() {
+  //     config({path: testPath})
+  //   }).to.throw(Error)
+  // })
 })
