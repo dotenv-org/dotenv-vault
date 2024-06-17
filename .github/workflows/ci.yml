@@ -18,7 +18,7 @@ jobs:
   # run only on semantic version tag
   release:
     needs: test
-    if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, '.')
+      # if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, '.')
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -26,77 +26,25 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      # GITHUB_ENV operates like a .env file
-      - name: extract version
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/}
-          CLEAN_VERSION=${VERSION#v}
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "CLEAN_VERSION=$CLEAN_VERSION" >> $GITHUB_ENV
+      # # GITHUB_ENV operates like a .env file
+      # - name: extract version
+      #   run: |
+      #     VERSION=${GITHUB_REF#refs/tags/}
+      #     CLEAN_VERSION=${VERSION#v}
+      #     echo "VERSION=$VERSION" >> $GITHUB_ENV
+      #     echo "CLEAN_VERSION=$CLEAN_VERSION" >> $GITHUB_ENV
 
       - name: node
         uses: actions/setup-node@v4
         with:
           node-version: 16.x
 
-      # https://news.ycombinator.com/item?id=32388964
-      # https://github.com/procursusteam/ldid
-      # https://www.pulumi.com/blog/nodejs-binaries-with-pkg/
-      # https://github.com/pulumi/pulumi-aws-static-website/blob/main/.github/workflows/release.yaml
-      - name: ldid for macos binary building
-        uses: MOZGIII/install-ldid-action@v1
-        with:
-          tag: v2.1.5-procursus2
-
       - name: npm install
         run: npm install
 
-      - name: pkg
+      - name: packing
         run: |
-          echo "pkg-ing"
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-macos-x64 --output bin/darwin-amd64/dotenvx
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-macos-x64 --output bin/darwin-x86_64/dotenvx
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-macos-arm64 --output bin/darwin-arm64/dotenvx
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-linuxstatic-x64 --output bin/linux-amd64/dotenvx
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-linuxstatic-x64 --output bin/linux-x86_64/dotenvx
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-linuxstatic-arm64 --output bin/linux-arm64/dotenvx
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-linuxstatic-arm64 --output bin/linux-aarch64/dotenvx
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-win-x64 --output bin/windows-amd64/dotenvx.exe
-          ./node_modules/.bin/pkg . --no-bytecode --public-packages "*" --public --target node16-win-x64 --output bin/windows-x86_64/dotenvx.exe
-          echo "change ownership"
-          sudo chown -R root:root bin/
           echo "dist-ing"
           mkdir -p dist
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-darwin-amd64.tar.gz -C bin/darwin-amd64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-darwin-x86_64.tar.gz -C bin/darwin-x86_64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-darwin-arm64.tar.gz -C bin/darwin-arm64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-linux-amd64.tar.gz -C bin/linux-amd64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-linux-x86_64.tar.gz -C bin/linux-x86_64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-linux-arm64.tar.gz -C bin/linux-arm64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-linux-aarch64.tar.gz -C bin/linux-aarch64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-windows-amd64.tar.gz -C bin/windows-amd64/ .
-          tar --gzip -cf ./dist/dotenvx-${{ env.CLEAN_VERSION }}-windows-x86_64.tar.gz -C bin/windows-x86_64/ .
-          zip -j ./dist/dotenvx-${{ env.CLEAN_VERSION }}-windows-amd64.zip bin/windows-amd64/dotenvx.exe
-          zip -j ./dist/dotenvx-${{ env.CLEAN_VERSION }}-windows-x86_64.zip bin/windows-x86_64/dotenvx.exe
-          tar --gzip -cf ./dist/dotenvx-darwin-amd64.tar.gz -C bin/darwin-amd64/ .
-          tar --gzip -cf ./dist/dotenvx-darwin-x86_64.tar.gz -C bin/darwin-x86_64/ .
-          tar --gzip -cf ./dist/dotenvx-darwin-arm64.tar.gz -C bin/darwin-arm64/ .
-          tar --gzip -cf ./dist/dotenvx-linux-amd64.tar.gz -C bin/linux-amd64/ .
-          tar --gzip -cf ./dist/dotenvx-linux-x86_64.tar.gz -C bin/linux-x86_64/ .
-          tar --gzip -cf ./dist/dotenvx-linux-arm64.tar.gz -C bin/linux-arm64/ .
-          tar --gzip -cf ./dist/dotenvx-linux-aarch64.tar.gz -C bin/linux-aarch64/ .
-          tar --gzip -cf ./dist/dotenvx-windows-amd64.tar.gz -C bin/windows-amd64/ .
-          tar --gzip -cf ./dist/dotenvx-windows-x86_64.tar.gz -C bin/windows-x86_64/ .
-          zip -j ./dist/dotenvx-windows-amd64.zip bin/windows-amd64/dotenvx.exe
-          zip -j ./dist/dotenvx-windows-x86_64.zip bin/windows-x86_64/dotenvx.exe
-
-      - name: create release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            dist/*.tar.gz
-            dist/*.zip
-            dist/install.sh
-          body: "see [CHANGELOG](https://github.com/dotenvx/dotenvx/blob/main/CHANGELOG.md)"
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          echo "tarball packing"
+          npx oclif@3.0.1 pack tarballs
