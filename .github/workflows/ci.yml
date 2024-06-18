@@ -75,7 +75,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-            - name: promote
+      - name: promote
         run: |
           echo "${{ steps.upload }}"
           PROMOTE_VERSION=$(echo ${{ steps.extract_sha.outputs.version }})
