@@ -55,3 +55,7 @@ jobs:
           files: |
             dist/*.tar.gz
           body: "see [CHANGELOG](https://github.com/dotenv-org/dotenv-vault/blob/master/CHANGELOG.md)"
+
+      - name: add checksums to release
+        uses: wangzuo/action-release-checksums@v1
+
