@@ -1,0 +1,57 @@
+name: ci
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16.x
+      - run: npm install
+      - run: npm run test
+
+  # run only on semantic version tag
+  release:
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, '.')
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      # # GITHUB_ENV operates like a .env file
+      # - name: extract version
+      #   run: |
+      #     VERSION=${GITHUB_REF#refs/tags/}
+      #     CLEAN_VERSION=${VERSION#v}
+      #     echo "VERSION=$VERSION" >> $GITHUB_ENV
+      #     echo "CLEAN_VERSION=$CLEAN_VERSION" >> $GITHUB_ENV
+
+      - name: node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16.x
+
+      - name: npm install
+        run: npm install
+
+      - name: dist
+        run: |
+          mkdir -p dist
+
+      - name: pack
+        run: npx oclif@3.0.1 pack tarballs
+
+      - name: create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/*.tar.gz
+          body: "see [CHANGELOG](https://github.com/dotenv-org/dotenv-vault/blob/master/CHANGELOG.md)"

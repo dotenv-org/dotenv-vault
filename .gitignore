@@ -12,6 +12,5 @@ oclif.manifest.json
 
 .env*
 !.env.project
-
 !.env.vault
 .flaskenv*
