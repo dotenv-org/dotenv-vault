@@ -38,7 +38,7 @@ class PullService {
     this.login = new LoginService({cmd: attrs.cmd, dotenvMe: null, yes: this.yes})
   }
 
-  async run(): Promise<void> {
+  async run(writeToFile: boolean = true): Promise<string | undefined> {
     new AppendToIgnoreService().run()
 
     if (vars.missingEnvVault) {
@@ -51,8 +51,7 @@ class PullService {
 
     // special case for pulling example - no auth needed
     if (this.pullingExample) {
-      await this.pull()
-      return
+      return await this.pull(writeToFile)
     }
 
     if (vars.missingEnvMe(this.dotenvMe)) {
@@ -70,13 +69,13 @@ class PullService {
 
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextRemote)}${pullingMsg}`)
 
-    await this.pull()
+    return await this.pull(writeToFile)
   }
 
-  async pull(): Promise<void> {
+  async pull(writeToFile: boolean): Promise<string | undefined> {
     const options: AxiosRequestConfig = {
       method: 'POST',
-      headers: {'content-type': 'application/json'},
+      headers: { 'content-type': 'application/json' },
       data: {
         environment: this.environment,
         DOTENV_VAULT: vars.vaultValue,
@@ -101,10 +100,14 @@ class PullService {
       }
 
       // write to new current file
+      if (!writeToFile) {
+        return newData
+      }
+
       writeFileSync(outputFilename, newData)
       this.log.remote(`Securely pulled ${environment} (${outputFilename})`)
-      // write .env.vault file
-      if (newVaultData) {
+        // write .env.vault file
+        if (newVaultData) {
         writeFileSync('.env.vault', newVaultData)
         this.log.remote('Securely built vault (.env.vault)')
       }

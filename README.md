@@ -867,6 +867,18 @@ local:    Listing .env.vault decryption keys from .env.keys... done
 dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
 ```
 
+### `example`
+
+Generate `.env.example` file with keys from a specific environment.
+
+Example:
+
+```bash
+$ npx dotenv-vault@latest example production
+remote:   Securely pulling production... done
+Generated .env.example successfully with keys from production environment.
+```
+
 ## ❓ FAQ
 
 ### Why is the `.env.vault` file not decrypting my environment variables successfully?

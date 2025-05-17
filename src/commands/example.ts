@@ -1,9 +1,8 @@
 import {Command, Flags} from '@oclif/core'
+import {ExampleService} from '../services/example-service'
 
-import {PullService} from '../services/pull-service'
-
-export default class Pull extends Command {
-  static description = 'Pull .env securely'
+export default class Example extends Command {
+  static description = 'Generate .env.example file from .env'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -13,15 +12,15 @@ export default class Pull extends Command {
     {
       name: 'environment',
       required: false,
-      description: 'Set environment to pull from. Defaults to development (writing to .env)',
+      description: 'Set environment to create .env.example from. Defaults to production',
       hidden: false,
     },
     {
       name: 'filename',
       required: false,
-      description: 'Set output filename. Defaults to .env for development and .env.{environment} for other environments',
+      description: 'Set output filename. Defaults to .env.example',
       hidden: false,
-    },
+    }
   ]
 
   static flags = {
@@ -36,19 +35,18 @@ export default class Pull extends Command {
     yes: Flags.boolean({
       char: 'y',
       description: 'Automatic yes to prompts. Assume yes to all prompts and run non-interactively.',
-      hidden: false,
       required: false,
       default: false,
     }),
   }
 
   public async run(): Promise<void> {
-    const {args, flags} = await this.parse(Pull)
-    const environment = args.environment
-    const filename = args.filename
-    const dotenvMe = flags.dotenvMe
+    const {flags} = await this.parse(Example)
     const yes = flags.yes
+    const environment = flags.environment
+    const filename = flags.filename
+    const dotenvMe = flags.dotenvMe
 
-    await new PullService({cmd: this, environment: environment, filename: filename, dotenvMe: dotenvMe, yes: yes}).run(true)
+    await new ExampleService({cmd: this, yes: yes, environment: environment, filename: filename, dotenvMe: dotenvMe}).run()
   }
 }
