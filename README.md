@@ -6,10 +6,9 @@
 > dotenv-vault is a **paid only cloud service for syncing your .env files** (as of May 2025).
 >
 > *Looking for a free cloud-less alternative?* See my new product [dotenvx](https://github.com/dotenvx/dotenvx) – that lets you:
-
-> 1. encrypt your .env files
-> 2. commit them to code
-> 3. and securely sync them over git
+> - encrypt your .env files
+> - commit them to code
+> - and securely sync them over git
 
 ## 🌱 Install
 
