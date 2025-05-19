@@ -2,6 +2,8 @@
 
 [![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
 
+&nbsp;
+
 > [!NOTE]
 > dotenv-vault is a **paid only cloud service for syncing your .env files** (as of May 2025).
 >
