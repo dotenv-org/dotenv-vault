@@ -976,6 +976,24 @@ Your `.env.vault` is decrypted on boot, its environment variables injected, and 
 
 Congratulations, your secrets are now much safer than scattered across multiple servers and cloud providers!
 
+### Migrating to Dotenvx
+
+With dotenvx you put your development, staging, ci, and production secrets IN your code - as encrypted `.env.*` files. So for example, to do production you would
+
+1. Create `.env.production` with `HELLO=production`
+2. Run `dotenvx encrypt -f .env.production` to encrypt it
+3. Commit that to code
+
+Then when deploying your codebase you put `dotenvx run --` out front of your run command.
+
+1. Add `dotenvx run -- yourstartcommand`
+2. Set `DOTENV_PRIVATE_KEY_PRODUCTION` on the server
+3. On boot `dotenvx run` will read the private key and use it to decrypt and inject your secrets just in time as environment variables
+
+Here's a [quickstart guide](https://dotenvx.com/docs/quickstart#add-encryption)
+
+For migrationg to dotenv-vault simply switch step 1 with `npx dotenv-vault@latest pull production`.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
