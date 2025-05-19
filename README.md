@@ -8,7 +8,8 @@
 
 `dotenv-vault` is a cli to *sync .env files across machines, environments, and team members*.
 
-> **Note:** dotenv-vault is a **paid only cloud service for syncing your .env files** (as of May 2025). If you are looking for a free cloud-less alternative see my new product [dotenvx](https://github.com/dotenvx/dotenvx) that lets you encrypt your .env files – safely commit them to code and syncing them with git.
+> [!TIP]
+> dotenv-vault is a **paid only cloud service for syncing your .env files** (as of May 2025). Looking for a free cloud-less alternative? See my new product [dotenvx](https://github.com/dotenvx/dotenvx) that lets you encrypt your .env files, safely commit them to code, and sync them over git.
 
 [![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
 
