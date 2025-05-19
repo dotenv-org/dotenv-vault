@@ -1,6 +1,14 @@
+<div align="center">
+🎉 announcing <a href="https://github.com/dotenvx/dotenvx">dotenvx</a>. <em>run anywhere, multi-environment, encrypted envs</em>.
+</div>
+
+&nbsp;
+
 ![dotenv.org](https://dotenv.org/banner.png)
 
 `dotenv-vault` is a cli to *sync .env files across machines, environments, and team members*.
+
+> **Note:** dotenv-vault is a **paid only cloud service for syncing your .env files** (as of May 2025). If you are looking for a free cloud-less alternative see my new product [dotenvx](https://github.com/dotenvx/dotenvx) that lets you encrypt your .env files – safely commit them to code and syncing them with git.
 
 [![NPM Version](https://img.shields.io/npm/v/dotenv-vault.svg?style=flat-square)](https://npmjs.org/package/dotenv-vault)
 
