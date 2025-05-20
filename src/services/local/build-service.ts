@@ -4,7 +4,6 @@ import chalk from 'chalk'
 import {vars} from '../../vars'
 import {writeFileSync, readFileSync, readdirSync} from 'fs'
 import {CliUx} from '@oclif/core'
-import {AppendToIgnoreService} from '../../services/append-to-ignore-service'
 import {LogService} from '../../services/log-service'
 
 interface LocalBuildServiceAttrs {
@@ -23,9 +22,6 @@ class LocalBuildService {
 
   async run(): Promise<void> {
     this.log.deprecated()
-
-    new AppendToIgnoreService().run()
-
     const buildMsg = 'Building .env.vault from files on your machine'
 
     CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}${buildMsg}`)

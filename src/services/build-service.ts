@@ -3,7 +3,6 @@ import axios, {AxiosRequestConfig} from 'axios'
 import {vars} from '../vars'
 import {writeFileSync} from 'fs'
 import {CliUx} from '@oclif/core'
-import {AppendToIgnoreService} from '../services/append-to-ignore-service'
 import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
 import {LoginService} from '../services/login-service'
@@ -33,8 +32,6 @@ class BuildService {
   }
 
   async run(): Promise<void> {
-    new AppendToIgnoreService().run()
-
     if (vars.missingEnvVault) {
       this.abort.missingEnvVault()
     }
