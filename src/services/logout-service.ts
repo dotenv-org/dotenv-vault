@@ -7,54 +7,55 @@ import {LogService} from '../services/log-service'
 import {AbortService} from '../services/abort-service'
 
 interface LogoutServiceAttrs {
-  cmd;
-  yes;
+  cmd: any
+  yes: boolean
 }
 
 class LogoutService {
-  public cmd;
-  public yes;
-  public log;
-  public requestUid;
-  public controller;
-  public abort;
-  public checkCount;
+  public cmd: any
+  public yes: boolean
+  public log: LogService
+  public abort: AbortService
+  public requestUid: string
+  public controller?: AbortController
+  public checkCount = 0
+  public MAX_CHECK_COUNT = 50
 
   constructor(attrs: LogoutServiceAttrs = {} as LogoutServiceAttrs) {
     this.cmd = attrs.cmd
     this.yes = attrs.yes
     this.log = new LogService({cmd: attrs.cmd})
     this.abort = new AbortService({cmd: attrs.cmd})
-
     const rand = crypto.randomBytes(32).toString('hex')
     this.requestUid = `req_${rand}`
-    this.checkCount = 0
   }
 
   async run(): Promise<void> {
     await this.logout()
   }
 
-  async logout(tip = true): Promise<void> {
+  async logout(showInstructions = true): Promise<void> {
     if (!this.yes) {
       this.log.local(`Logout URL: ${this.logoutUrl}`)
       const answer = await CliUx.ux.prompt(`${chalk.dim(this.log.pretextLocal)}Press ${chalk.green('y')} (or any key) to logout and revoke credential (.env.me) or ${chalk.yellow('q')} to exit`)
-      if (answer === 'q' || answer === 'Q') {
+      if (answer.trim().toLowerCase() === 'q') {
         this.abort.quit()
       }
     }
 
     this.log.local(`Opening browser to ${this.logoutUrl}`)
-    CliUx.ux.open(this.logoutUrl).catch(_ => {})
-    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for logout and credential (.env.me) to be revoked`)
-    await this.check(tip)
-  }
-
-  async check(tip = true): Promise<void> {
-    if (this.controller) {
-      this.controller.abort()
+    try {
+      await CliUx.ux.open(this.logoutUrl)
+    } catch (error) {
+      console.log(error)
     }
 
+    CliUx.ux.action.start(`${chalk.dim(this.log.pretextLocal)}Waiting for logout and credential (.env.me) to be revoked`)
+    await this.check(showInstructions)
+  }
+
+  async check(showInstructions = true): Promise<void> {
+    this.controller?.abort()
     this.controller = new AbortController()
 
     const options: AxiosRequestConfig = {
@@ -76,18 +77,16 @@ class LogoutService {
       resp = error.response
     } finally {
       if (resp.status < 300) {
-        // Step 3
         CliUx.ux.action.stop()
         const meUid = resp.data.data.meUid
         this.log.local(`Revoked .env.me (DOTENV_ME=${meUid.slice(0, 9)}...)`)
-        if (tip) {
+        if (showInstructions) {
           this.log.plain('')
           this.log.plain(`Run ${chalk.bold(`${vars.cli} login`)} to generate a new credential (.env.me)`)
         }
-      } else if (this.checkCount < 50) {
-        // 404 - keep trying
-        await CliUx.ux.wait(2000) // check every 2 seconds
-        await this.check(tip) // check again
+      } else if (this.checkCount < LogoutService.MAX_CHECK_COUNT) {
+        await CliUx.ux.wait(2000)
+        await this.check(showInstructions)
       } else {
         CliUx.ux.action.stop('giving up')
         this.log.local('Things were taking too long... gave up. Please try again.')
