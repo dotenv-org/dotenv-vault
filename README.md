@@ -35,32 +35,6 @@ Nice!
 
 See further [usage](#%EF%B8%8F-usage) and [commands](#-commands).
 
----
-
-#### Other Ways to Install
-
-Don't want to use [npx](https://docs.npmjs.com/cli/v7/commands/npx)? Install a number of other ways.
-
-<p><img alt="apple icon" src="https://api.iconify.design/mdi/apple.svg" width="20" /> Install via <a href="https://github.com/dotenv-org/homebrew-brew">Homebrew</a></p>
-
-```bash
-$ brew install dotenv-org/brew/dotenv-vault
-$ dotenv-vault help
-```
-
-<p><img alt="windows icon" src="https://api.iconify.design/mdi/windows.svg" width="20" /> Install on <a href="https://dotenv-vault-assets.dotenv.org">Windows</a></p>
-
-* [32-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x86.exe)
-* [64-bit installer](https://dotenv-vault-assets.dotenv.org/channels/stable/dotenv-vault-x64.exe)
-
-<p><img alt="docker icon" src="https://api.iconify.design/mdi/docker.svg" width="20" /> Install and run commands via <a href="https://hub.docker.com/r/dotenv/dotenv-vault">Docker</a></p>
-
-```bash
-$ docker run -w $(pwd) -v $(pwd):$(pwd) -it dotenv/dotenv-vault help
-```
-
-<a href="https://www.dotenv.org/install/">Learn more about installation</a>
-
 ## 🏗️ Usage
 
 When you make a change to your `.env` file, push it up.
