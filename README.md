@@ -142,8 +142,6 @@ Would you also like to pull your production `.env` to your machine? Run the comm
 $ npx dotenv-vault@latest pull production
 ```
 
-ℹ️  **🔐 Vault Managed vs 💻 Locally Managed**: The above example, for brevity's sake, used the 🔐 Vault Managed solution to manage your `.env.vault` file. You can instead use the 💻 Locally Managed solution. [See the faq further below](#how-do-i-use--locally-managed-dotenv-vault). Our vision is that other platforms and orchestration tools adopt the `.env.vault` standard as they did the `.env` standard. We don't expect to be the only ones providing tooling to manage and generate `.env.vault` files.
-
 <a href="https://www.dotenv.org/docs/tutorials/environments?r=1">Learn more about environments</a>
 
 ## 📚 Examples
@@ -401,10 +399,6 @@ $ npx dotenv-vault@latest help
 * [rotatekey](#rotatekey)
 * [decrypt](#decrypt)
 * [versions](#versions)
-* [local](#local-build)
-  * [local build](#local-build)   
-  * [local decrypt](#local-decrypt)   
-  * [local keys](#local-keys)   
 
 ### `new`
 
@@ -814,67 +808,6 @@ If you want to pull a specific version you can do so. For example,
 npx dotenv-vault@latest pull development@v14
 ```
 
----
-
-### `local build`
-
-Build .env.vault from local only
-
-Example:
-
-```bash
-$ npx dotenv-vault@latest local build
-```
-
-This will encrypt the contents of your `.env` file and any `.env.ENVIRONMENT` files you have locally into your `.env.vault` file.
-
-### `local decrypt`
-
-Decrypt .env.vault from local only
-
-Example:
-
-```bash
-$ npx dotenv-vault@latest local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
-```
-
-##### ARGUMENTS
-
-*[DOTENV_KEY]*
-
-Set `DOTENV_KEY` to decrypt .env.vault. Development key will decrypt development, production will decrypt production, and so on.
-
-```
-$ npx dotenv-vault@latest local decrypt dotenv://:key_1234@dotenv.local/vault/.env.vault?environment=development
-```
-
-### `local keys`
-
-List .env.vault local decryption keys from .env.keys file
-
-Example:
-
-```bash
-$ npx dotenv-vault@latest local keys
-local:    Listing .env.vault decryption keys from .env.keys... done
- environment DOTENV_KEY
- ─────────── ────────────────────────────────────────────────────────────────────────────────────────────────────────
- develompent dotenv://:key_33ee..@dotenv.local/vault/.env.va…
- production  dotenv://:key_7038..@dotenv.local/vault/.env.va…
-```
-
-##### ARGUMENTS
-
-*[ENVIRONMENT]*
-
-Set `ENVIRONMENT` to output a single environment's DOTENV_KEY.
-
-```
-$ npx dotenv-vault@latest local keys development…
-local:    Listing .env.vault decryption keys from .env.keys... done
-dotenv://:key_a682c..@dotenv.local/vault/.env.vault?environment=development
-```
-
 ## ❓ FAQ
 
 ### Why is the `.env.vault` file not decrypting my environment variables successfully?
@@ -927,54 +860,6 @@ The `.env.vault` file and its encryption algorithm is language-agnostic so techn
 * [PHP](https://github.com/dotenv-org/phpdotenv-vault)
 * [Python](https://github.com/dotenv-org/python-dotenv-vault)
 * [Ruby](https://github.com/dotenv-org/dotenv-vault-ruby)
-
-### How do I use 💻 Locally Managed dotenv-vault?
-
-There are a series of **💻 Locally Managed** commands available to you. Locally managed never makes a remote API call. It is completely managed on your machine.
-
-**🔐 Vault Managed** adds conveniences like backing up your .env file, secure sharing across your team, access permissions, and version history.
-
-**💻 Locally Managed** is a good choice for someone who would prefer to handle this coordination themselves and does not want to trust Dotenv Vault with their secrets. 
-
-<a href="https://www.youtube.com/watch?v=Ad7Wl8iC3Rs">
-<div align="right">
-<img src="https://img.youtube.com/vi/Ad7Wl8iC3Rs/hqdefault.jpg" alt="how to deploy with a .env.vault file video tutorial" align="right" width="330" />
-<img src="https://simpleicons.vercel.app/youtube/ff0000" alt="youtube/@dotenvorg" align="right" width="24" />
-</div>
-</a>
-
-Here's how it works.
-
-Generate your `.env.vault` file.
-
-```shell
-$ npx dotenv-vault@latest local build
-```
-
-This creates two files:
-
-* `.env.vault` - encrypted contents of .env* file(s)
-* `.env.keys` - decryption key(s)
-
-Boot using `.env.vault`.
-
-```
-$ DOTENV_KEY=<key string from .env.keys> npm start
-
-[dotenv@16.1.0][INFO] Loading env from encrypted .env.vault
-```
-
-Great! Next, set the `DOTENV_KEY` on your server. For example in heroku:
-
-```shell
-$ heroku config:set DOTENV_KEY=<key string from .env.keys>
-```
-
-Commit your `.env.vault` file safely to code and deploy.
-
-Your `.env.vault` is decrypted on boot, its environment variables injected, and your app works as expected.
-
-Congratulations, your secrets are now much safer than scattered across multiple servers and cloud providers!
 
 ### Migrating to Dotenvx
 
