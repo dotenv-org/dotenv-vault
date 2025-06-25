@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.2...master)
+## [Unreleased](https://github.com/dotenv-org/dotenv-vault/compare/v1.27.0...master)
+
+## [1.27.0](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.2...v1.27.0) (2025-06-25)
+
+### Remove
+
+- Remove `local` commands ([#331](https://github.com/dotenv-org/dotenv-vault/pull/331))
 
 ## [1.26.2](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.1...v1.26.2) (2024-06-17)
 
