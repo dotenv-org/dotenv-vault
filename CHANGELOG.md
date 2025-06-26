@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Remove
 
-- Remove `local` commands ([#331](https://github.com/dotenv-org/dotenv-vault/pull/331))
+- Remove `local` commands ([#359](https://github.com/dotenv-org/dotenv-vault/pull/359))
 
 ## [1.26.2](https://github.com/dotenv-org/dotenv-vault/compare/v1.26.1...v1.26.2) (2024-06-17)
 
